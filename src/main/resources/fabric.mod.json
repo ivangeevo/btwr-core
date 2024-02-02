@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "btwr",
+  "version": "${version}",
+  "name": "BTWR:Core",
+  "description": "",
+  "authors": [
+    "ivangeevo"
+  ],
+  "contact": {
+    "repo": "https://github.com/Weedmix/btwr-core"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/btwr/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "btwr.core.client.BTWRModClient"
+    ],
+    "main": [
+      "btwr.core.BTWRMod"
+    ],
+    "fabric-datagen": [
+      "btwr.core.BTWRDataGenerator"
+    ]
+  },
+  "mixins": [
+    "btwr-core.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  },
+
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_1548": ["btwr/core/entity/interfaces/CreeperEntityAdded"]
+    }
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "item.btwr.ancient_prophecy": "Ancient Prophecy",
+  "item.btwr.hemp_leaves": "Hemp Leaves",
+  "item.btwr.hemp_fibers": "Hemp Fibers",
+  "item.btwr.hemp_seeds": "Hemp Seeds",
+  "item.btwr.hemp_fabric": "Fabric",
+
+  "item.btwr.rope": "Rope",
+  "item.btwr.padding": "Padding",
+
+  "item.btwr.white_wool": "White Wool",
+  "item.btwr.orange_wool": "Orange Wool",
+  "item.btwr.magenta_wool": "Magenta Wool",
+  "item.btwr.light_blue_wool": "Light Blue Wool",
+  "item.btwr.yellow_wool": "Yellow Wool",
+  "item.btwr.lime_wool": "Lime Wool",
+  "item.btwr.pink_wool": "Pink Wool",
+  "item.btwr.gray_wool": "Gray Wool",
+  "item.btwr.light_gray_wool": "Light Gray Wool",
+  "item.btwr.cyan_wool": "Cyan Wool",
+  "item.btwr.purple_wool": "Purple Wool",
+  "item.btwr.blue_wool": "Blue Wool",
+  "item.btwr.brown_wool": "Brown Wool",
+  "item.btwr.green_wool": "Green Wool",
+  "item.btwr.red_wool": "Red Wool",
+  "item.btwr.black_wool": "Black Wool",
+
+  "item.btwr.sugar_cane": "Sugar Cane",
+  "item.btwr.melon_slice": "Melon Slice",
+
+  "item.btwr.wicker_weaving": "Wicker Weaving",
+  "item.btwr.knitting_needles": "Knitting Needles",
+
+
+  "item.btwr.wool_white": "White Wool",
+  "item.btwr.leather_cut": "Cut Leather",
+  "item.btwr.leather_scoured": "Scoured Leather",
+  "item.btwr.leather_scoured_cut": "Cut Scoured Leather",
+  "item.btwr.leather_tanned": "Tanned Leather",
+  "item.btwr.leather_tanned_cut": "Cut Tanned Leather",
+
+  "item.btwr.leather_tanned_helmet": "Tanned Leather Cap",
+  "item.btwr.leather_tanned_chestplate": "Tanned Leather Tunic",
+  "item.btwr.leather_tanned_leggings": "Tanned Leather Leggings",
+  "item.btwr.leather_tanned_boots": "Tanned Leather Boots",
+
+
+  "item.btwr.strap": "Strap",
+  "item.btwr.belt": "Belt",
+  "item.btwr.gear": "Gear",
+  "item.btwr.diamond_ingot": "Diamond Ingot",
+
+
+  "item.btwr.netherrack_ground": "Ground Netherrack",
+  "item.btwr.dust_hellfire": "Hellfire Dust",
+  "item.btwr.coal_nether": "Nethercoal",
+
+  "item.btwr.wool_knit": "Wool Knit",
+
+  "item.btwr.wool_helm": "Wool Helm",
+  "item.btwr.wool_chest": "Wool Chest",
+  "item.btwr.wool_leggings": "Wool Leggings",
+  "item.btwr.wool_boots": "Wool Boots",
+
+
+
+  "item.btwr.pile_gravel": "Pile of Gravel",
+  "item.btwr.pile_dirt": "Pile of Dirt",
+  "item.btwr.pile_sand": "Pile of Sand",
+  "item.btwr.pile_red_sand": "Pile of Red Sand",
+  "item.btwr.pile_clay": "Pile of Clay",
+
+
+  "item.btwr.small_stone": "Loose Rock",
+  "item.btwr.small_stone_1": "Loose Dense Rock",
+  "item.btwr.small_stone_2": "Loose Tough Rock",
+
+  "item.btwr.stone_brick": "Stone Brick",
+  "item.btwr.brick_unfired": "Wet Brick",
+
+
+
+  "item.btwr.stone_shovel": "Stone Trowel",
+  "item.btwr.iron_shovel": "Iron Shovel",
+  "item.btwr.steel_shovel": "Steel Shovel",
+  "item.btwr.diamond_shovel": "Diamond Shovel",
+
+  "item.btwr.stone_axe": "Stone Hatchet",
+  "item.btwr.iron_axe": "Iron Axe",
+  "item.btwr.steel_axe": "Steel Axe",
+  "item.btwr.diamond_axe": "Diamond Axe",
+
+  "item.btwr.chisel_wood": "Pointy Stick",
+  "item.btwr.chisel_stone": "Sharp Stone",
+  "item.btwr.chisel_flint": "Flint Shard",
+  "item.btwr.chisel_iron": "Iron Chisel",
+  "item.btwr.chisel_diamond": "Diamond Chisel",
+
+  "item.btwr.stone_pickaxe": "Stone Pickaxe",
+  "item.btwr.iron_pickaxe": "Iron Pickaxe",
+  "item.btwr.diamond_pickaxe": "Diamond Pickaxe",
+
+  "item.btwr.iron_hoe": "Iron Hoe",
+  "item.btwr.diamond_hoe": "Diamond Hoe",
+
+  "item.btwr.iron_sword": "Iron Sword",
+  "item.btwr.diamond_sword": "Diamond Sword",
+
+  "item.btwr.trident": "Trident",
+
+
+  "item.btwr.shears": "Shears",
+
+  "item.btwr.firestarter_sticks": "Fire Plough",
+  "item.btwr.firestarter_bow": "Bow Drill",
+  "item.btwr.club_wood": "Wooden Club",
+  "item.btwr.club_bone": "Bone Club",
+
+
+  "item.btwr.dust_coal": "Pile of Coal Dust",
+  "item.btwr.dust_iron": "Pile of Iron Dust",
+
+  "item.btwr.coal": "Coal",
+
+  "item.btwr.ore_iron_chunk": "Chunk of Iron Ore",
+  "item.btwr.ore_gold_chunk": "Chunk of Gold Ore",
+  "item.btwr.ore_copper_clump": "Clump of Copper",
+
+
+  "item.btwr.shaft": "Wooden Shaft",
+
+  "item.btwr.chicken": "Raw Chicken",
+  "item.btwr.mutton": "Raw Mutton",
+  "item.btwr.beef": "Raw Steak",
+  "item.btwr.porkchop": "Raw Porkchop",
+  "item.btwr.rabbit": "Raw Rabbit",
+  "item.btwr.salmon": "Raw Salmon",
+  "item.btwr.cod": "Raw Cod",
+
+  "item.btwr.egg_raw": "Raw Egg",
+  "item.btwr.egg_fried": "Fried Egg",
+
+  "item.btwr.cooked_chicken": "Cooked Chicken",
+  "item.btwr.cooked_mutton": "Cooked Mutton",
+  "item.btwr.cooked_beef": "Cooked Steak",
+  "item.btwr.cooked_porkchop": "Cooked Porkchop",
+  "item.btwr.cooked_rabbit": "Cooked Rabbit",
+  "item.btwr.cooked_salmon": "Cooked Salmon",
+  "item.btwr.cooked_cod": "Cooked Cod",
+
+  "item.btwr.ham_and_eggs": "Ham and Eggs",
+
+
+
+  "item.btwr.sweet_berries": "Sweet Berries",
+  "item.btwr.glow_berries": "Glow Berries",
+  "item.btwr.apple": "Apple",
+
+  "item.btwr.chicken_feed": "Chicken Feed",
+
+
+  "item.btwr.dung": "Dung",
+  "item.btwr.dung_golden": "Golden Dung",
+
+  "block.btwr.companioncube": "Companion Cube",
+  "block.btwr.lightblock": "Light Block",
+
+  "block.btwr.stone": "Stone",
+  "block.btwr.cobblestone_loose": "Loose Cobblestone",
+  "block.btwr.cobbled_deepslate_loose": "Loose Cobbled Deepslate",
+
+  "block.btwr.deepslate": "Deepslate",
+
+  "block.btwr.torch": "Torch",
+
+
+  "block.btwr.dirt": "Dirt",
+
+  "block.btwr.dirt_loose": "Loose Dirt",
+  "block.btwr.gravel": "Gravel",
+
+  "block.btwr.slab_sand": "Sand Slab",
+  "block.btwr.slab_red_sand": "Red Sand Slab",
+
+  "block.btwr.slab_dirt": "Dirt Slab",
+  "block.btwr.slab_gravel": "Gravel Slab",
+  "block.btwr.slab_cobblestone_loose": "Loose Cobblestone Slab",
+  "block.btwr.slab_cobbled_deepslate_loose": "Loose Cobbled Deepslate Slab",
+
+  "block.btwr.cobblestone_loose_stairs": "Loose Cobblestone Stairs",
+
+  "block.btwr.slab_brick_loose": "Loose Brick Slab",
+
+
+  "block.btwr.coal_ore": "Coal Ore",
+  "block.btwr.iron_ore": "Iron Ore",
+  "block.btwr.copper_ore": "Copper Ore",
+  "block.btwr.redstone_ore": "Redstone Ore",
+  "block.btwr.gold_ore": "Gold Ore",
+  "block.btwr.lapis_ore": "Lapis Lazuli Ore",
+  "block.btwr.emerald_ore": "Emerald Ore",
+
+  "block.btwr.deepslate_coal_ore": "Deepslate Coal Ore",
+  "block.btwr.deepslate_iron_ore": "Deepslate Iron Ore",
+  "block.btwr.deepslate_copper_ore": "Deepslate Copper Ore",
+  "block.btwr.deepslate_redstone_ore": "Deepslate Redstone Ore",
+  "block.btwr.deepslate_gold_ore": "Deepslate Gold Ore",
+  "block.btwr.deepslate_lapis_ore": "Deepslate Lapis Lazuli Ore",
+  "block.btwr.deepslate_emerald_ore": "Deepslate Emerald Ore",
+
+
+  "block.btwr.oven_stone": "Stone Oven",
+  "block.btwr.oven_brick": "Brick Oven",
+
+  "block.btwr.log_oak": "Oak Log",
+  "block.btwr.log_birch": "Birch Log",
+  "block.btwr.log_spruce": "Spruce Log",
+  "block.btwr.log_jungle": "Jungle Log",
+  "block.btwr.log_acacia": "Acacia Log",
+  "block.btwr.log_dark_oak": "Dark Oak Log",
+  "block.btwr.log_mangrove": "Mangrove Log",
+
+  "block.btwr.melon": "Melon",
+
+
+  "block.btwr.campfire": "Campfire",
+
+  "container.oven_stone": "Stone Oven",
+  "container.oven_brick": "Brick Oven",
+
+
+  "itemGroup.btwr.group_btwr": "Better Than Wolves: Remastered!"
+}

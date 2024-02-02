@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "btwr:block/log_stripped_oak_side",
+		"1": "btwr:block/log_stripped_oak_top",
+		"particle": "btwr:block/log_stripped_oak_side"
+	},
+	"elements": [
+		{
+			"name": "bot",
+			"from": [2, 0, 2],
+			"to": [14, 16, 14],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 13], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 13], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 13], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 13], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		},
+		{
+			"name": "bot",
+			"from": [1, 0, 1],
+			"to": [15, 3, 15],
+			"faces": {
+				"north": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		}
+	]
+}

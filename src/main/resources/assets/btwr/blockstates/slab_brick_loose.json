@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "btwr:block/slab_brick_loose"
+    },
+    "type=double": {
+      "model": "btwr:block/cobblestone_loose"
+    },
+    "type=top": {
+      "model": "btwr:block/slab_brick_loose_top"
+    }
+  }
+}

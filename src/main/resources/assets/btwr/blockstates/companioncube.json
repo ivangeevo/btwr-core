@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=east": { "model": "btwr:block/companioncube", "y": 90 },
+    "facing=north": { "model": "btwr:block/companioncube" },
+    "facing=south": { "model": "btwr:block/companioncube", "y": 180 },
+    "facing=west": { "model": "btwr:block/companioncube", "y": 270 }
+  }
+}

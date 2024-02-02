@@ -1,0 +1,16 @@
+{
+  "parent": "item/handheld_rod",
+  "textures": {
+    "layer0": {
+      "baited": "btwr:item/fishing_rod_baited"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "model": "baited"
+      },
+      "model": "btwr:item/fishing_rod_baited"
+    }
+  ]
+}

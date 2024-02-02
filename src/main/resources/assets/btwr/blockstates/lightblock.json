@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "btwr:block/lightblock"
+    },
+    "lit=true": {
+      "model": "btwr:block/lightblock_lit"
+    }
+  }
+}

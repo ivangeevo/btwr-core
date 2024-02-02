@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "btwr:block/oven_brick_side",
+    "side": "btwr:block/oven_brick_side",
+    "top": "btwr:block/oven_brick_side"
+  }
+}
+

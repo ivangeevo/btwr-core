@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "btwr.core.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "entity.CreeperEntityMixin",
+    "entity.LivingEntityMixin",
+    "item.AxeItemMixin",
+    "item.ShearsItemMixin",
+    "recipe.CraftingResultSlotMixin",
+    "recipe.ShapelessRecipeMixin",
+    "recipe.ShapelessRecipeSerializerMixin"
+  ],
+  "client": [
+    "entity.CreeperEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

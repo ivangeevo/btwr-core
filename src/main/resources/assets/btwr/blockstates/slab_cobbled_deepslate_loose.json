@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "btwr:block/slab_cobbled_deepslate_loose"
+    },
+    "type=double": {
+      "model": "btwr:block/cobbled_deepslate_loose"
+    },
+    "type=top": {
+      "model": "btwr:block/slab_cobbled_deepslate_loose_top"
+    }
+  }
+}

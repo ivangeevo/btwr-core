@@ -1,0 +1,22 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "btwr:item/knitting_needles"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "has_white_wool": 1
+      },
+      "model": "btwr:item/knitting_needles_with_wool",
+      "uvlock": true
+    },
+    {
+      "predicate": {
+        "has_orange_wool": 1
+      },
+      "model": "btwr:item/knitting_needles_with_wool",
+      "uvlock": true
+    }
+  ]
+}

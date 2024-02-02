@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "btwr:item/knitting_needles",
+    "layer1": "btwr:item/default_wool"
+  }
+}

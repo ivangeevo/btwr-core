@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "front": "btwr:block/companioncube_front",
+    "side": "btwr:block/companioncube",
+    "top": "btwr:block/companioncube"
+  }
+}
