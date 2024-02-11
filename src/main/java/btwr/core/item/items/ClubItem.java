@@ -1,5 +1,6 @@
 package btwr.core.item.items;
 
+import btwr.core.item.BTWR_Items;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.block.BlockState;
@@ -15,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.Vanishable;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -46,6 +49,27 @@ public class ClubItem extends ToolItem implements Vanishable {
     }
 
     @Override
+    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
+
+        if (player.timesCraftedThisTick() == 0 && world.isClient) {
+
+            if (stack.getItem() == BTWR_Items.CLUB_WOOD) {
+                player.playSound(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR, 0.1F, 1.25F + (world.random.nextFloat() * 0.2F));
+            }
+            if (stack.getItem() == BTWR_Items.CLUB_BONE) {
+                player.playSound(SoundEvents.ENTITY_SKELETON_DEATH, 0.3F, 0.10F );
+                player.playSound(SoundEvents.ENTITY_SKELETON_DEATH, 0.1F, 0.8F + (world.random.nextFloat() * 0.35F));
+
+            }
+
+        }
+
+        super.onCraft(stack, world, player);
+
+    }
+
+
+    @Override
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
         if (state.isOf(Blocks.COBWEB)) {
             return 15.0f;
@@ -71,10 +95,6 @@ public class ClubItem extends ToolItem implements Vanishable {
         return true;
     }
 
-    @Override
-    public boolean isSuitableFor(BlockState state) {
-        return state.isOf(Blocks.COBWEB);
-    }
 
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {

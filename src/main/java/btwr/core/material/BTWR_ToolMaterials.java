@@ -1,6 +1,7 @@
 package btwr.core.material;
 
 import btwr.core.data.constants.BTWR_MiningLevels;
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -8,7 +9,7 @@ import java.util.function.Supplier;
 
 public enum BTWR_ToolMaterials implements ToolMaterial {
 
-    BONE(BTWR_MiningLevels.WOOD, 25, 1f, 1f, 1, Ingredient::empty);
+    BONE(BTWR_MiningLevels.WOOD, 20, 1f, 1f, 1,() -> Ingredient.ofItems(Items.BONE));
 
     //STEEL(BTWR_MiningLevels.STEEL, 2550, 3.9f, 1.0f, 10, () -> Ingredient.ofItems(BTWR_Items.STEEL_INGOT));
 

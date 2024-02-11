@@ -1,9 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
-      "item": "sturdy_trees:shaft"
+      "item": "minecraft:stick"
     }
   },
   "pattern": [
@@ -12,6 +11,5 @@
   ],
   "result": {
     "item": "btwr:club_wood"
-  },
-  "show_notification": false
+  }
 }

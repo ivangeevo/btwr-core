@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "group_btwr",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "btwr:creeper_oysters"
+    }
+  ],
+  "result": {
+    "item": "btwr:diamond_ingot"
+  }
+}

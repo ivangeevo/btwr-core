@@ -6,8 +6,10 @@
   "mixins": [
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
+    "entity.PlayerEntityMixin",
     "item.AxeItemMixin",
     "item.ShearsItemMixin",
+    "item.ToolMaterialsMixin",
     "recipe.CraftingResultSlotMixin",
     "recipe.ShapelessRecipeMixin",
     "recipe.ShapelessRecipeSerializerMixin"

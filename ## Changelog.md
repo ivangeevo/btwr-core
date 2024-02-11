@@ -1,20 +1,22 @@
 
 ### v0.22
 
++ Added Wooden & Bone Club weapons.
 + Added Creeper Oysters Item.
 + Added Diamond Ingot Item.
-+ Added Wooden & Bone Club weapons.
++ Added Diamond Shears Item.
++ Added Sounds to certain item when they are crafted for extra immersion. :)
 
-+ Changed all entities (like mobs and animals) to no longer take knockback if you're not using a weapon item!
++ Changed monsters and animals to no longer take knockback if you aren't using a weapon item. (Club, Sword, Bow or Crossbow)
 + Changed how creepers work. You can now neuter them by right-clicking on them with Shears.
-+ Changed Textures of the following items : Stick, Clay Ore
++ Changed the durability and mining speed of all tools. This makes getting iron tools(& above) much more useful.
++ Changed name of Stick to Shaft.
+
++ Removed Wooden & Stone Sword.
 
 
++ # Release Alpha
 
-
-
-
-### Release Alpha
 + Initial public release
-+ Versions before v0.22 were private testing only. This also marks the start of Alpha releases.
++ Versions before 0.22 were private testing only.
 

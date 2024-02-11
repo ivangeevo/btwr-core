@@ -18,6 +18,7 @@ import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -30,10 +31,10 @@ public abstract class CraftingResultSlotMixin {
     @Shadow @Final private CraftingInventory input;
 
     @Inject(method = "onTakeItem", at = @At("HEAD"))
-    protected void injectedOnTakeItem(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
+    protected void setSecondaryDropsAndCraftSound(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
         MinecraftServer server = player.world.getServer();
         if (server != null) {
-            setOptionalDrop(server, player);
+            setSecondaryOutput(server, player);
         }
 
         if (player.getWorld().isClient) {
@@ -41,10 +42,15 @@ public abstract class CraftingResultSlotMixin {
         }
     }
 
-    // ---------- Class specific methods ---------- //
+    @Inject(method = "onTakeItem", at = @At("TAIL"))
+    protected void setTickCraftLogic(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
+        player.setTimesCraftedThisTick(player.timesCraftedThisTick() + 1);
+    }
+
+        // ---------- Class specific methods ---------- //
 
     // Method to create the secondary optional drop.
-    private void setOptionalDrop(MinecraftServer server, PlayerEntity player) {
+    private void setSecondaryOutput(MinecraftServer server, PlayerEntity player) {
         Optional<CraftingRecipe> optional = server.getRecipeManager().getFirstMatch(RecipeType.CRAFTING, this.input, player.world);
         CraftingRecipe craftingRecipe;
         if (optional.isPresent() && (craftingRecipe = optional.get()) instanceof ShapelessRecipe) {
@@ -63,20 +69,22 @@ public abstract class CraftingResultSlotMixin {
 
 
     // Plays a different sound depending on the item being crafted.
+    @Unique
     private void handleSoundOnCraft(ItemStack stack, PlayerEntity player) {
 
-        float pitch = 1.25F + (player.getWorld().random.nextFloat() * 0.25F);
+        float higherPitch = 1.25F + (player.getWorld().random.nextFloat() * 0.25F);
+        float lowerPitch = (player.getWorld().random.nextFloat() - player.getWorld().random.nextFloat()) * 0.2F + 0.6F;
 
         if (stack.isOf(Items.STICK)) {
-            player.playSound(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR, 0.1F, pitch);
+            player.playSound(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR, 0.1F, higherPitch);
         }
         else if (stack.isIn(ItemTags.PLANKS) || stack.isIn(BTWRTags.Items.MEDIUM_VALUE_FUELS))
         {
-            player.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, 0.1F, pitch);
+            player.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, 0.1F, higherPitch);
         }
-        else if (stack.isOf(BTWR_Items.CREEPER_OYSTERS) || stack.isOf(BTWR_Items.DIAMOND_INGOT))
+        else if (stack.isOf(BTWR_Items.DIAMOND_INGOT))
         {
-            player.playSound(SoundEvents.BLOCK_SLIME_BLOCK_HIT, 0.1F, pitch);
+            player.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 0.1F, lowerPitch);
         }
 
     }

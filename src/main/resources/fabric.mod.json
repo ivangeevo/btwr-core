@@ -8,10 +8,10 @@
     "ivangeevo"
   ],
   "contact": {
-    "repo": "https://github.com/Weedmix/btwr-core"
+    "repo": "https://github.com/ivangeevo/btwr-core"
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/btwr/icon.png",
+  "icon": "assets/btwr/btwr-circle.png",
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -35,7 +35,9 @@
 
   "custom": {
     "loom:injected_interfaces": {
-      "net/minecraft/class_1548": ["btwr/core/entity/interfaces/CreeperEntityAdded"]
+      "net/minecraft/class_1548": ["btwr/core/entity/interfaces/CreeperEntityAdded"],
+      "net/minecraft/class_1657": ["btwr/core/entity/interfaces/PlayerEntityAdded"]
+
     }
   }
 }

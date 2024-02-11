@@ -29,12 +29,6 @@ public abstract class AxeItemMixin extends MiningToolItem {
         super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
     }
 
-    // Removes the stripping logic
-    @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
-    private void injectedUseOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
-        cir.setReturnValue(ActionResult.FAIL);
-    }
-
     // Adds remainder logic so the item doesn't get consumed on crafting.
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack) {

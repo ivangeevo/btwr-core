@@ -1,5 +1,6 @@
 package btwr.core.datagen;
 
+import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -20,6 +21,9 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.GOLDEN_AXE)
                 .add(Items.NETHERITE_AXE);
 
+        getOrCreateTagBuilder(BTWRTags.Items.PRIMITIVE_AXES)
+                .add(Items.WOODEN_AXE)
+                .add(Items.STONE_AXE);
 
     }
 }

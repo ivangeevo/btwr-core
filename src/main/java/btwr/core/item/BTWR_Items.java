@@ -24,10 +24,10 @@ public class BTWR_Items {
     public static final Item GROUP_BTWR = registerItem( "group_btwr", new Item(new FabricItemSettings()));
 
     // List of Items
-
     public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new FabricItemSettings().maxCount(16).group(ItemGroups.GROUP_BTWR)));
-
     public static final Item DIAMOND_INGOT = registerItem( "diamond_ingot", new Item (new FabricItemSettings().group(ItemGroups.GROUP_BTWR)));
+
+    public static final Item DIAMOND_SHEARS = registerItem( "diamond_shears", new ShearsItem (new FabricItemSettings().group(ItemGroups.GROUP_BTWR).maxDamage(500)));
 
 
     // --------- //
@@ -38,7 +38,7 @@ public class BTWR_Items {
             new ClubItem(ToolMaterials.WOOD,1,-1.1f, new FabricItemSettings().group(ItemGroups.GROUP_BTWR)));
 
     public static final Item CLUB_BONE = registerItem("club_bone",
-            new ClubItem(BTWR_ToolMaterials.BONE, 1,-1.3f, new FabricItemSettings().group(ItemGroups.GROUP_BTWR)));
+            new ClubItem(BTWR_ToolMaterials.BONE, 2,-1.3f, new FabricItemSettings().group(ItemGroups.GROUP_BTWR)));
 
 
 

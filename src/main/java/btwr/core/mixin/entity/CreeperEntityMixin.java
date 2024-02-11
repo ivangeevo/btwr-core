@@ -16,13 +16,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.particle.ItemStackParticleEffect;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -64,29 +70,37 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
     private boolean determinedToExplode = false;
 
     // TODO: Fix into a better injection method than an override
+
+    /**
     @Override
     public void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new CreeperSwellBehavior((CreeperEntity)(Object)this));
-        this.goalSelector.add(3, new FleeEntityGoal<OcelotEntity>(this, OcelotEntity.class, 6.0f, 1.0, 1.2));
-        this.goalSelector.add(3, new FleeEntityGoal<CatEntity>(this, CatEntity.class, 6.0f, 1.0, 1.2));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, OcelotEntity.class, 6.0f, 1.0, 1.2));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, CatEntity.class, 6.0f, 1.0, 1.2));
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0, false));
         this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
         this.goalSelector.add(6, new LookAroundGoal(this));
-        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new RevengeGoal(this, new Class[0]));
+        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new RevengeGoal(this));
 
     }
+    **/
 
-    //@Inject(method = "initGoals", at = @At("HEAD"))
+    @Inject(method = "initGoals", at = @At("HEAD"), cancellable = true)
     private void injectedInitGoals(CallbackInfo ci) {
-
-            this.goalSelector.remove(new CreeperIgniteGoal((CreeperEntity) (Object) this));
-
-            this.goalSelector.add(2, new CreeperSwellBehavior((CreeperEntity)(Object)this));
-
-
+        this.goalSelector.add(1, new SwimGoal(this));
+        this.goalSelector.add(2, new CreeperSwellBehavior((CreeperEntity)(Object)this));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, OcelotEntity.class, 6.0f, 1.0, 1.2));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, CatEntity.class, 6.0f, 1.0, 1.2));
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0, false));
+        this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8));
+        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
+        this.goalSelector.add(6, new LookAroundGoal(this));
+        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new RevengeGoal(this));
+        ci.cancel();
     }
     protected CreeperEntityMixin(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -126,9 +140,6 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
             ci.cancel();
         }
 
-
-
-
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
     private void injectedInteractMob(PlayerEntity player2, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
 
@@ -141,7 +152,20 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
 
             if(!this.world.isClient) {
                 this.neuter();
-                player2.getWorld().addParticle(ParticleTypes.ITEM_SNOWBALL, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+
+                ParticleEffect particleEffect = ParticleTypes.ITEM_SNOWBALL;
+                for (int i = 0; i < 50; i++) {
+                    double particleX = this.getX() + world.random.nextDouble() - 0.5D;
+                    double particleY = this.getY() - 0.45D + world.random.nextDouble() * 0.5D;  // Adjusted the Y coordinate
+                    double particleZ = this.getZ() + world.random.nextDouble() - 0.5D;
+
+                    double particleVelX = (world.random.nextDouble() - 0.5D) * 0.5D;
+                    double particleVelY = world.random.nextDouble() * 0.25D;
+                    double particleVelZ = (world.random.nextDouble() - 0.5D) * 0.5D;
+
+                    ((ServerWorld) this.world).spawnParticles(particleEffect, particleX, particleY, particleZ, 1, particleVelX, particleVelY, particleVelZ, 0.0);
+                }
+
                 itemStack.damage(10, player2, player -> player.sendToolBreakStatus(hand));
                 this.dropStack(creeperOysters);
 
@@ -158,7 +182,6 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
         }
 
         cir.setReturnValue(super.interactMob(player2, hand));
-
 
     }
 
@@ -208,6 +231,19 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
 
         ci.cancel();
 
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        if (isNeutered()) {
+            SoundEvent sound = SoundEvents.ENTITY_CREEPER_HURT;
+
+            if (sound != null) {
+                this.playSound(sound, 0.25F, this.getSoundPitch() + 0.25F);
+            }
+        }
+            return super.getAmbientSound();
     }
 
     @Unique public void neuter() {
