@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "#": {
       "item": "minecraft:bone"
@@ -11,5 +12,6 @@
   ],
   "result": {
     "item": "btwr:club_bone"
-  }
+  },
+  "show_notification": true
 }

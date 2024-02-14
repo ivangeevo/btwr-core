@@ -11,9 +11,9 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
-import net.minecraft.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -63,7 +63,7 @@ public abstract class AxeItemMixin extends MiningToolItem {
         boolean shouldDrainDurability = false;
 
         // Check if the tool is used for the "wrong" activities
-        if (state.getMaterial().isReplaceable()) {
+        if (state.isReplaceable()) {
             shouldDrainDurability = true;
         }
 

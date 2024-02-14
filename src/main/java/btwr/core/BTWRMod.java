@@ -15,8 +15,9 @@ public class BTWRMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        BTWR_Blocks.registerModBlocks();
+        BTWRItemGroup.registerItemGroups();
 
+        BTWR_Blocks.registerModBlocks();
         BTWR_Items.registerModItems();
 
 
