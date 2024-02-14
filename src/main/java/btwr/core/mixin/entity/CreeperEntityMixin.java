@@ -5,6 +5,7 @@ import btwr.core.entity.interfaces.CreeperEntityAdded;
 import btwr.core.item.BTWR_Items;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.HostileEntity;
@@ -27,6 +28,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
@@ -232,6 +234,16 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
 
         ci.cancel();
 
+    }
+
+    @Inject(method = "dropEquipment", at = @At("TAIL"))
+    private void onDropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops, CallbackInfo ci) {
+        if (random.nextInt(3) == 0) {
+            if(!this.isNeutered()) {
+                // Drop creeper oysters
+                this.dropItem(BTWR_Items.CREEPER_OYSTERS, 1);
+            }
+        }
     }
 
     @Nullable

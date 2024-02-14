@@ -13,7 +13,8 @@ import net.minecraft.util.Identifier;
 
 public class BTWRItemGroup {
 
-    public static ItemGroup GROUP_BTWR = Registry.register(Registries.ITEM_GROUP, new Identifier(BTWRMod.MOD_ID, "group_btwr"),
+    public static final ItemGroup GROUP_BTWR = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(BTWRMod.MOD_ID, "group_btwr"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.group_btwr"))
                     .icon(() -> new ItemStack(BTWR_Items.GROUP_BTWR)).entries((displayContext, entries) -> {
                         entries.add(BTWR_Items.CREEPER_OYSTERS);
