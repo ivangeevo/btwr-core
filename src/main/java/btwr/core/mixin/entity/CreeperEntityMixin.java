@@ -14,6 +14,7 @@ import net.minecraft.entity.passive.OcelotEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.ShearsItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ItemStackParticleEffect;
@@ -146,24 +147,24 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
         ItemStack itemStack = player2.getStackInHand(hand);
         ItemStack creeperOysters = new ItemStack(BTWR_Items.CREEPER_OYSTERS);
 
-        if (itemStack.isOf(Items.SHEARS) && !this.isNeutered()) {
+        if (itemStack.getItem() instanceof ShearsItem && !this.isNeutered()) {
             player2.getWorld().playSound(null, player2.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             player2.getWorld().playSound(null ,player2.getBlockPos(),SoundEvents.ENTITY_SLIME_ATTACK,SoundCategory.HOSTILE, 1.0F, (player2.getWorld().random.nextFloat() - player2.getWorld().random.nextFloat()) * 0.1F + 0.7F);
 
-            if(!this.world.isClient) {
+            if(!this.getWorld().isClient) {
                 this.neuter();
 
                 ParticleEffect particleEffect = ParticleTypes.ITEM_SNOWBALL;
                 for (int i = 0; i < 50; i++) {
-                    double particleX = this.getX() + world.random.nextDouble() - 0.5D;
-                    double particleY = this.getY() - 0.45D + world.random.nextDouble() * 0.5D;  // Adjusted the Y coordinate
-                    double particleZ = this.getZ() + world.random.nextDouble() - 0.5D;
+                    double particleX = this.getX() + getWorld().random.nextDouble() - 0.5D;
+                    double particleY = this.getY() - 0.45D + getWorld().random.nextDouble() * 0.5D;  // Adjusted the Y coordinate
+                    double particleZ = this.getZ() + getWorld().random.nextDouble() - 0.5D;
 
-                    double particleVelX = (world.random.nextDouble() - 0.5D) * 0.5D;
-                    double particleVelY = world.random.nextDouble() * 0.25D;
-                    double particleVelZ = (world.random.nextDouble() - 0.5D) * 0.5D;
+                    double particleVelX = (getWorld().random.nextDouble() - 0.5D) * 0.5D;
+                    double particleVelY = getWorld().random.nextDouble() * 0.25D;
+                    double particleVelZ = (getWorld().random.nextDouble() - 0.5D) * 0.5D;
 
-                    ((ServerWorld) this.world).spawnParticles(particleEffect, particleX, particleY, particleZ, 1, particleVelX, particleVelY, particleVelZ, 0.0);
+                    ((ServerWorld) this.getWorld()).spawnParticles(particleEffect, particleX, particleY, particleZ, 1, particleVelX, particleVelY, particleVelZ, 0.0);
                 }
 
                 itemStack.damage(10, player2, player -> player.sendToolBreakStatus(hand));
@@ -173,12 +174,12 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
         }
 
         if (itemStack.isOf(Items.FLINT_AND_STEEL)) {
-            this.world.playSound(player2, this.getX(), this.getY(), this.getZ(), SoundEvents.ITEM_FLINTANDSTEEL_USE, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.4f + 0.8f);
-            if (!this.world.isClient) {
+            this.getWorld().playSound(player2, this.getX(), this.getY(), this.getZ(), SoundEvents.ITEM_FLINTANDSTEEL_USE, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.4f + 0.8f);
+            if (!this.getWorld().isClient) {
                 this.ignite();
                 itemStack.damage(1, player2, player -> player.sendToolBreakStatus(hand));
             }
-            cir.setReturnValue(ActionResult.success(this.world.isClient));
+            cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
         }
 
         cir.setReturnValue(super.interactMob(player2, hand));

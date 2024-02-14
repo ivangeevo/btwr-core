@@ -5,15 +5,16 @@ import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
 import btwr.core.tag.BTWRTags;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.ShapelessRecipe;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.ItemTags;
 import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,11 +29,12 @@ import java.util.Optional;
 @Mixin(CraftingResultSlot.class)
 public abstract class CraftingResultSlotMixin {
 
-    @Shadow @Final private CraftingInventory input;
+
+    @Shadow @Final private RecipeInputInventory input;
 
     @Inject(method = "onTakeItem", at = @At("HEAD"))
     protected void setSecondaryDropsAndCraftSound(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
-        MinecraftServer server = player.world.getServer();
+        MinecraftServer server = player.getWorld().getServer();
         if (server != null) {
             setSecondaryOutput(server, player);
         }
@@ -51,7 +53,7 @@ public abstract class CraftingResultSlotMixin {
 
     // Method to create the secondary optional drop.
     private void setSecondaryOutput(MinecraftServer server, PlayerEntity player) {
-        Optional<CraftingRecipe> optional = server.getRecipeManager().getFirstMatch(RecipeType.CRAFTING, this.input, player.world);
+        Optional<CraftingRecipe> optional = server.getRecipeManager().getFirstMatch(RecipeType.CRAFTING, this.input, player.getWorld());
         CraftingRecipe craftingRecipe;
         if (optional.isPresent() && (craftingRecipe = optional.get()) instanceof ShapelessRecipe) {
 

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick": {
+    "has_diamond_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stick"
+              "btwr:diamond_ingot"
             ]
           }
         ]
@@ -15,20 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "btwr:club_wood"
+        "recipe": "btwr:diamond_shears"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stick",
+      "has_diamond_ingot",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "btwr:club_wood"
+      "btwr:diamond_shears"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
