@@ -69,25 +69,6 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
 
     private boolean determinedToExplode = false;
 
-    // TODO: Fix into a better injection method than an override
-
-    /**
-    @Override
-    public void initGoals() {
-        this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new CreeperSwellBehavior((CreeperEntity)(Object)this));
-        this.goalSelector.add(3, new FleeEntityGoal<>(this, OcelotEntity.class, 6.0f, 1.0, 1.2));
-        this.goalSelector.add(3, new FleeEntityGoal<>(this, CatEntity.class, 6.0f, 1.0, 1.2));
-        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0, false));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
-        this.goalSelector.add(6, new LookAroundGoal(this));
-        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new RevengeGoal(this));
-
-    }
-    **/
-
     @Inject(method = "initGoals", at = @At("HEAD"), cancellable = true)
     private void injectedInitGoals(CallbackInfo ci) {
         this.goalSelector.add(1, new SwimGoal(this));
