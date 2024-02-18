@@ -4,9 +4,11 @@
   "package": "btwr.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "block.FernBlockMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
     "entity.PlayerEntityMixin",
+    "entity.ZombieEntityMixin",
     "item.AxeItemMixin",
     "item.ShearsItemMixin",
     "item.ToolMaterialsMixin",

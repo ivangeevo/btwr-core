@@ -34,6 +34,7 @@ public abstract class LivingEntityMixin {
     private boolean isAppropriateWeapon(ItemStack weaponStack)
     {
         return !(weaponStack.getItem() instanceof SwordItem) && !(weaponStack.getItem() instanceof ClubItem) &&
-                !(weaponStack.getItem() instanceof BowItem) && !(weaponStack.getItem() instanceof CrossbowItem);
+                !(weaponStack.getItem() instanceof BowItem) && !(weaponStack.getItem() instanceof CrossbowItem) &&
+                !(weaponStack.getItem() instanceof TridentItem);
     }
 }

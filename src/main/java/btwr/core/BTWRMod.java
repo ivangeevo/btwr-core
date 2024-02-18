@@ -20,7 +20,5 @@ public class BTWRMod implements ModInitializer {
         BTWR_Blocks.registerModBlocks();
         BTWR_Items.registerModItems();
 
-
-
     }
 }

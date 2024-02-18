@@ -74,18 +74,10 @@ public class BTWRTags {
         public static final TagKey<Item> PRIMITIVE_CHISELS = createTag("primitive_chisels");
         public static final TagKey<Item> MODERN_CHISELS = createTag("modern_chisels");
         public static final TagKey<Item> MODERN_PICKAXES = createTag("modern_pickaxes");
-
         public static final TagKey<Item> PRIMITIVE_AXES = createTag("primitive_axes");
-
         public static final TagKey<Item> AXES_MAKE_PLANKS = createTag("axes_make_planks");
-
         public static final TagKey<Item> PIG_BREEDING_ITEMS = createTag("pig_breeding_items");
         public static final TagKey<Item> PIG_TEMPT_ITEMS = createTag("pig_tempt_items");
-
-
-
-
-
 
 
         private static TagKey<Item> createTag (String name) {
