@@ -16,7 +16,7 @@ public abstract class ToolMaterialsMixin {
 
 
     // Modify the durability values for all tool materials.
-    @Inject(method = "getDurability", at = @At("HEAD"), cancellable = true)
+   // @Inject(method = "getDurability", at = @At("HEAD"), cancellable = true)
     private void customMaterialDurability(CallbackInfoReturnable<Integer> cir) {
 
         if (this.miningLevel == MiningLevels.WOOD) {
@@ -32,7 +32,7 @@ public abstract class ToolMaterialsMixin {
         }
     }
 
-    @Inject(method = "getMiningSpeedMultiplier", at = @At("HEAD"), cancellable = true)
+   // @Inject(method = "getMiningSpeedMultiplier", at = @At("HEAD"), cancellable = true)
     private void customMaterialSpeed(CallbackInfoReturnable<Float> cir) {
 
         if (this.miningLevel == MiningLevels.WOOD) {

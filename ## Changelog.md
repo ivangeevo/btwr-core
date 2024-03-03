@@ -1,7 +1,12 @@
 
 ### v0.23
 
-+ Removed Baby Zombies (because no one likes them -_-)
+I decided that this mod will not significantly change the balance of the game.
+All of that will happen in the BTWR Modpack itself.
+
+
++ Brought back Wooden & Stone Sword recipes.
++ Restored vanilla mining speeds & durability of all tools.
 
 ### v0.22
 
