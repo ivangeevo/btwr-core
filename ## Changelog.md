@@ -1,12 +1,14 @@
 
 ### v0.23
 
-I decided that this mod will not significantly change the balance of the game.
+I decided that by default this mod will not change the balance of the game.
 All of that will happen in the BTWR Modpack itself.
 
 
 + Brought back Wooden & Stone Sword recipes.
 + Restored vanilla mining speeds & durability of all tools.
+
++ Updated lang file to ONLY modify name of Stick to Shaft.
 
 ### v0.22
 
@@ -23,6 +25,11 @@ All of that will happen in the BTWR Modpack itself.
 
 + Removed Wooden & Stone Sword.
 
++ Brought back Wooden & Stone Sword recipes.
++ Restored vanilla mining speeds & durability of all tools.
++ Restored the ability to knockback with any weapon.
+
++ Added Stone Brick Item.
 
 + # Release Alpha
 

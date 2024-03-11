@@ -161,10 +161,19 @@
   "block.btwr.oven_brick": "Brick Oven",
 
 
-  "block.btwr.campfire": "Campfire",
+  "title.btwr.config": "BTWR:Core Configuration Options",
 
-  "container.oven_stone": "Stone Oven",
-  "container.oven_brick": "Brick Oven",
+  "config.btwr.category.general": "General Options",
+  "config.btwr.category.mixins": "Mixin Options",
+
+
+  "config.btwr.knockbackRestriction": "Knockback Restriction",
+  "config.btwr.disableBabyZombies": "Disable Baby Zombies Spawning",
+
+
+  "config.btwr.mixins.description": "These are setting that modify mixin specific features.",
+
+
 
   "itemgroup.group_btwr": "Better Than Wolves: Remastered!"
 }
