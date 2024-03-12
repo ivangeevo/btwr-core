@@ -9,6 +9,7 @@
     "entity.PlayerEntityMixin",
     "entity.ZombieEntityMixin",
     "item.AxeItemMixin",
+    "item.ItemMixin",
     "item.ShearsItemMixin",
     "item.ToolMaterialsMixin",
     "recipe.CraftingResultSlotMixin",

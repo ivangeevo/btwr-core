@@ -44,6 +44,9 @@ processResources {
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version
     }
+
+
+    inputs.property "config", files("src/main/resources/btwr-core.mixins.json")
 }
 
 def targetJavaVersion = 17
