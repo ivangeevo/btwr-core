@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "btwr_group",
+  "ingredients": [
+    {
+      "tag": "tough_environment:small_stones"
+    }
+  ],
+  "result": {
+    "item": "btwr:chisel_stone"
+  },
+  "show_notification": false
+}
