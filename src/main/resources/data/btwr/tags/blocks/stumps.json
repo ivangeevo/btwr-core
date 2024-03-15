@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "sturdy_trees:stump_oak",
+    "sturdy_trees:stump_birch",
+    "sturdy_trees:stump_spruce",
+    "sturdy_trees:stump_jungle",
+    "sturdy_trees:stump_acacia",
+    "sturdy_trees:stump_dark_oak",
+    "sturdy_trees:stump_mangrove"
+  ]
+}

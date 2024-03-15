@@ -1,10 +1,14 @@
 package btwr.core.item.items;
 
 import btwr.core.tag.BTWRTags;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterials;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -23,11 +27,23 @@ public class ChiselItem extends MiningToolItem
     public ChiselItem(float attackDamage, float attackSpeed, ToolMaterials material, ChiselType chiselType, Settings settings)
     {
 
-        super(attackDamage,attackSpeed,material, BTWRTags.Mineable.CHISEL_MINEABLE,settings);
+        super(attackDamage, attackSpeed, material, BTWRTags.Mineable.CHISEL_MINEABLE, settings);
         this.chiselType = chiselType;
 
     }
 
+    @Override
+    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner)
+    {
+
+        if (state.isIn(BlockTags.LOGS) && state.isIn(BTWRTags.Blocks.STUMPS))
+        {
+            stack.damage(5, miner, p -> p.sendToolBreakStatus(miner.getActiveHand()) );
+        }
+
+        return super.postMine(stack, world, state, pos, miner);
+
+    }
 
     @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player)
@@ -35,7 +51,6 @@ public class ChiselItem extends MiningToolItem
 
         BlockPos thisPos = player.getBlockPos();
         SoundEvent craftingSound;
-
 
         if (chiselType == ChiselType.WOOD)
         {

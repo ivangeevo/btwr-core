@@ -52,10 +52,9 @@ public class BTWR_Items {
     public static final Item CHISEL_IRON = registerItem( "chisel_iron",
             new ChiselItem(0.10f,0.2f, ToolMaterials.IRON, ChiselItem.ChiselType.IRON,
                     new FabricItemSettings().maxDamage(50)));
-
     public static final Item CHISEL_DIAMOND = registerItem( "chisel_diamond",
             new ChiselItem(0.12f,0.2f, ToolMaterials.DIAMOND, ChiselItem.ChiselType.DIAMOND,
-                    new FabricItemSettings().maxDamage(550)));
+                    new FabricItemSettings().maxDamage(500)));
 
 
 

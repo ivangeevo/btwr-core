@@ -15,6 +15,8 @@ public class BTWRTags {
 
     public static class Blocks {
 
+        public static final TagKey<Block> STUMPS = createTag("stumps");
+
         public static final TagKey<Block> DIRECTIONAL_DROPPING_STATES = createTag("directional_dropping_states");
 
         public static final TagKey<Block> VANILLA_CONVERTING_BLOCKS = createTag("vanilla_converting_blocks");
