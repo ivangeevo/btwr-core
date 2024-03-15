@@ -94,7 +94,7 @@ publishing {
         // retrieving dependencies.
 
         maven {
-            url uri('/src/btwr-core-mvn') // Local folder where artifacts will be published
+            url uri('/btwr-core-mvn') // Local folder where artifacts will be published
         }
 
 
