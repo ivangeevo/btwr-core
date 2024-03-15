@@ -18,11 +18,17 @@ public class BTWRItemGroup {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.group_btwr"))
                     .icon(() -> new ItemStack(BTWR_Items.GROUP_BTWR)).entries((displayContext, entries) -> {
                         entries.add(BTWR_Items.CREEPER_OYSTERS);
+                        entries.add(BTWR_Items.DIAMOND_INGOT);
+                        entries.add(BTWR_Items.STONE_BRICK);
+
+                        // Tools
+                        entries.add(BTWR_Items.CHISEL_WOOD);
+                        entries.add(BTWR_Items.CHISEL_STONE);
+                        entries.add(BTWR_Items.CHISEL_IRON);
+                        entries.add(BTWR_Items.CHISEL_DIAMOND);
+                        entries.add(BTWR_Items.DIAMOND_SHEARS);
                         entries.add(BTWR_Items.CLUB_BONE);
                         entries.add(BTWR_Items.CLUB_WOOD);
-                        entries.add(BTWR_Items.DIAMOND_INGOT);
-                        entries.add(BTWR_Items.DIAMOND_SHEARS);
-
 
                     }).build());
 

@@ -54,6 +54,12 @@ public class BTWRRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
+        offerShapelessRecipe(exporter, BTWR_Items.CHISEL_WOOD, Items.STICK, "group_btwr", 1);
+        // STONE CHISEL ADDED MANUALLY
+        offerFourInputShapelessRecipe(exporter, BTWR_Items.CHISEL_IRON, Items.IRON_NUGGET, Items.IRON_NUGGET, Items.IRON_NUGGET, Items.IRON_NUGGET, "group_btwr",1);
+        offerTwoInputShapelessRecipe(exporter, BTWR_Items.CHISEL_DIAMOND, BTWR_Items.DIAMOND_INGOT,  BTWR_Items.DIAMOND_INGOT, "group_btwr",1);
+
+
         offerThreeInputShapelessRecipe(exporter, BTWR_Items.DIAMOND_INGOT, Items.IRON_INGOT, Items.DIAMOND, BTWR_Items.CREEPER_OYSTERS, "group_btwr",1);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.CLUB_BONE).input('#', Items.BONE).pattern("#").pattern("#").criterion("has_bone", RecipeProvider.conditionsFromItem(Items.BONE)).offerTo(exporter);

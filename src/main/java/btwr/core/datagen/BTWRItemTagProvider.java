@@ -1,5 +1,6 @@
 package btwr.core.datagen;
 
+import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -24,5 +25,14 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(BTWRTags.Items.PRIMITIVE_AXES)
                 .add(Items.WOODEN_AXE)
                 .add(Items.STONE_AXE);
+
+        getOrCreateTagBuilder(BTWRTags.Items.MODERN_CHISELS)
+                .add(BTWR_Items.CHISEL_IRON)
+                .add(BTWR_Items.CHISEL_DIAMOND);
+
+        getOrCreateTagBuilder(BTWRTags.Items.PRIMITIVE_CHISELS)
+                .add(BTWR_Items.CHISEL_WOOD)
+                .add(BTWR_Items.CHISEL_STONE);
+
     }
 }

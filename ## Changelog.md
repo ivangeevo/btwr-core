@@ -2,13 +2,17 @@
 ### v0.23
 
 I decided that by default this mod will not change the balance of the game.
-All of that will happen in the BTWR Modpack itself.
+Most of that will happen in the BTWR Modpack itself.
 
++ Added Stone Brick item.
++ Added some config option toggles through Mod menu:
+ - For Baby Zombies spawning.
+ - For Knockback restrictions(needing a weapon item to do knockback to entities)
 
-+ Brought back Wooden & Stone Sword recipes.
-+ Restored vanilla mining speeds & durability of all tools.
++ Brought back Wooden & Stone sword recipes.
++ Restored vanilla mining speeds & durability of all tools. 
 
-+ Updated lang file to ONLY modify name of Stick to Shaft.
++ Updated lang file to modify name of Stick to Shaft.
 
 ### v0.22
 

@@ -85,4 +85,15 @@ public class BTWRTags {
         }
     }
 
+    public static class Mineable
+    {
+        public static final TagKey<Block> CHISEL_MINEABLE = register("mineable/chisel");
+
+        private static TagKey<Block> register(String id)
+        {
+            return TagKey.of(RegistryKeys.BLOCK, new Identifier(BTWRMod.MOD_ID, id));
+        }
+
+    }
+
 }

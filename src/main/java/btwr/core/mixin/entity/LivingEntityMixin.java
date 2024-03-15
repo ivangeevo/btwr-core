@@ -21,19 +21,19 @@ public abstract class LivingEntityMixin {
     private void modifyKnockback(double strength, double x, double z, CallbackInfo ci) {
         boolean isEnabled = BTWRSettingsGUI.getConfigValue(BTWRSettings.KNOCKBACK_RESTRICTION_KEY);
 
-        if (!isEnabled) {
-            return;
-        }
+        if (isEnabled) {
 
-        LivingEntity livingEntity = (LivingEntity) (Object) this;
 
-        // Load the configuration dynamically when the method is called
+            LivingEntity livingEntity = (LivingEntity) (Object) this;
 
-        if (livingEntity.getAttacker() instanceof PlayerEntity player) {
-            ItemStack weaponStack = player.getMainHandStack();
+            // Load the configuration dynamically when the method is called
 
-            if (isAppropriateWeapon(weaponStack)) {
-                ci.cancel();
+            if (livingEntity.getAttacker() instanceof PlayerEntity player) {
+                ItemStack weaponStack = player.getMainHandStack();
+
+                if (isAppropriateWeapon(weaponStack)) {
+                    ci.cancel();
+                }
             }
         }
     }
