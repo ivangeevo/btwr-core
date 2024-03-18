@@ -15,28 +15,6 @@ public class BTWRTags {
 
     public static class Blocks {
 
-        public static final TagKey<Block> STUMPS = createTag("stumps");
-
-        public static final TagKey<Block> DIRECTIONAL_DROPPING_STATES = createTag("directional_dropping_states");
-
-        public static final TagKey<Block> VANILLA_CONVERTING_BLOCKS = createTag("vanilla_converting_blocks");
-
-        // new blocks -> will be used for 2nd strata
-        public static final TagKey<Block> MANTLE_BLOCKS = createTag("mantle_blocks");
-
-        // new blocks in place of deepslate
-        public static final TagKey<Block> BLACKSTONE_BLOCKS = createTag("blackstone_blocks");
-
-        public static final TagKey<Block> STONE_STRATA1 = createTag("stone_strata1");
-        public static final TagKey<Block> STONE_STRATA2 = createTag("stone_strata2");
-        public static final TagKey<Block> STONE_STRATA3 = createTag("stone_strata3");
-
-        public static final TagKey<Block> STONE_BROKEN = createTag("stone_broken");
-
-
-        public static final TagKey<Block> STRIPPED_LOG_BLOCKS = createTag("stripped_log_blocks");
-
-        public static final TagKey<Block> MODDED_TORCHES = createTag("modded_torches");
 
 
         private static TagKey<Block> createTag (String name) {
@@ -97,5 +75,6 @@ public class BTWRTags {
         }
 
     }
+
 
 }

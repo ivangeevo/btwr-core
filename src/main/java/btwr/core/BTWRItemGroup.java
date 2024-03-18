@@ -22,10 +22,6 @@ public class BTWRItemGroup {
                         entries.add(BTWR_Items.STONE_BRICK);
 
                         // Tools
-                        entries.add(BTWR_Items.CHISEL_WOOD);
-                        entries.add(BTWR_Items.CHISEL_STONE);
-                        entries.add(BTWR_Items.CHISEL_IRON);
-                        entries.add(BTWR_Items.CHISEL_DIAMOND);
                         entries.add(BTWR_Items.DIAMOND_SHEARS);
                         entries.add(BTWR_Items.CLUB_BONE);
                         entries.add(BTWR_Items.CLUB_WOOD);

@@ -24,7 +24,7 @@ public abstract class ShearsItemMixin extends Item {
     }
 
     // Injected logic to drop Grass item so that it doesn't overwrite the grass json here.
-    // We need to overwrite it later in Self Sustainable.
+    // -> It needs to be overwritten later in Self Sustainable.
     @Inject(method = "postMine", at = @At("HEAD"))
     private void injectedGrassDrop(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner, CallbackInfoReturnable<Boolean> cir) {
         if (!miner.getWorld().isClient) {

@@ -14,6 +14,7 @@ import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Final;
@@ -74,19 +75,19 @@ public abstract class CraftingResultSlotMixin {
     @Unique
     private void handleSoundOnCraft(ItemStack stack, PlayerEntity player) {
 
-        float higherPitch = 1.25F + (player.getWorld().random.nextFloat() * 0.25F);
-        float lowerPitch = (player.getWorld().random.nextFloat() - player.getWorld().random.nextFloat()) * 0.2F + 0.6F;
+        float higher = 1.25F + (player.getWorld().random.nextFloat() * 0.25F);
+        float lower = (player.getWorld().random.nextFloat() - player.getWorld().random.nextFloat()) * 0.2F + 0.6F;
 
         if (stack.isOf(Items.STICK)) {
-            player.playSound(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR, 0.1F, higherPitch);
+            player.playSound(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR, 0.1F, higher);
         }
-        else if (stack.isIn(ItemTags.PLANKS) || stack.isIn(BTWRTags.Items.MEDIUM_VALUE_FUELS))
+        else if (stack.isIn(ItemTags.PLANKS))
         {
-            player.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, 0.1F, higherPitch);
+            player.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, 0.1F, higher);
         }
         else if (stack.isOf(BTWR_Items.DIAMOND_INGOT))
         {
-            player.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 0.1F, lowerPitch);
+            player.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 0.1F, lower);
         }
 
     }

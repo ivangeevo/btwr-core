@@ -35,9 +35,8 @@ public class BTWRSettingsGUI {
 
         ConfigCategory general = builder.getOrCreateCategory(Text.translatable("config.btwr.category.general"));
 
-        /**
-         *   Gameplay Category
-         **/
+        /** Gameplay Category**/
+
         addConfigEntry(general, entryBuilder, BTWRSettings.KNOCKBACK_RESTRICTION_KEY, true);
         addConfigEntry(general, entryBuilder, BTWRSettings.DISABLE_BABY_ZOMBIES_KEY, true);
         //addConfigEntry(general, entryBuilder, BTWRSettings.HARDCORE_MATERIAL_DURABILITY_KEY, true);
@@ -46,7 +45,8 @@ public class BTWRSettingsGUI {
         return builder.build();
     }
 
-    private static void addConfigEntry(ConfigCategory category, ConfigEntryBuilder entryBuilder, String key, boolean defaultValue) {
+    private static void addConfigEntry(ConfigCategory category, ConfigEntryBuilder entryBuilder, String key,
+                                       boolean defaultValue) {
         boolean value = configValues.getOrDefault(key, defaultValue);
         System.out.println("Key: " + key + ", Value: " + value); // Add this line for debugging
         category.addEntry(entryBuilder.startBooleanToggle(Text.translatable("config.btwr." + key), value)

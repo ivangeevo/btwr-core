@@ -16,7 +16,7 @@ public abstract class ToolMaterialsMixin
     @Shadow @Final private int miningLevel;
 
     // Modify the durability values for all tool materials.
-    @Inject(method = "getDurability", at = @At("HEAD"), cancellable = true)
+    //@Inject(method = "getDurability", at = @At("HEAD"), cancellable = true)
     private void customMaterialDurability(CallbackInfoReturnable<Integer> cir)
     {
         //if (BTWRSettingsGUI.getConfigValue(BTWRSettings.HARDCORE_MATERIAL_DURABILITY_KEY)) {
@@ -24,7 +24,7 @@ public abstract class ToolMaterialsMixin
         //}
     }
 
-    @Inject(method = "getMiningSpeedMultiplier", at = @At("HEAD"), cancellable = true)
+    //@Inject(method = "getMiningSpeedMultiplier", at = @At("HEAD"), cancellable = true)
     private void customMaterialSpeed(CallbackInfoReturnable<Float> cir)
     {
         //if (BTWRSettingsGUI.getConfigValue(BTWRSettings.HARDCORE_MATERIAL_SPEED_KEY)) {

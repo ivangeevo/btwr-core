@@ -13,25 +13,28 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin {
+public abstract class LivingEntityMixin
+{
 
 
 
     @Inject(method = "takeKnockback", at = @At("HEAD"), cancellable = true)
-    private void modifyKnockback(double strength, double x, double z, CallbackInfo ci) {
-        boolean isEnabled = BTWRSettingsGUI.getConfigValue(BTWRSettings.KNOCKBACK_RESTRICTION_KEY);
+    private void modifyKnockback(double strength, double x, double z, CallbackInfo ci)
+    {
 
-        if (isEnabled) {
-
+        if (BTWRSettingsGUI.getConfigValue(BTWRSettings.KNOCKBACK_RESTRICTION_KEY))
+        {
 
             LivingEntity livingEntity = (LivingEntity) (Object) this;
 
             // Load the configuration dynamically when the method is called
 
-            if (livingEntity.getAttacker() instanceof PlayerEntity player) {
+            if (livingEntity.getAttacker() instanceof PlayerEntity player)
+            {
                 ItemStack weaponStack = player.getMainHandStack();
 
-                if (isAppropriateWeapon(weaponStack)) {
+                if (isAppropriateWeapon(weaponStack))
+                {
                     ci.cancel();
                 }
             }

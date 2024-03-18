@@ -12,14 +12,6 @@
     "minecraft:deepslate",
     "minecraft:end_stone",
 
-    "sturdy_trees:stump_oak",
-    "sturdy_trees:stump_birch",
-    "sturdy_trees:stump_spruce",
-    "sturdy_trees:stump_jungle",
-    "sturdy_trees:stump_acacia",
-    "sturdy_trees:stump_dark_oak",
-    "sturdy_trees:stump_mangrove",
-
     "tough_environment:stone_converting",
     "tough_environment:granite_converting",
     "tough_environment:diorite_converting",
@@ -28,7 +20,16 @@
     "tough_environment:tuff_converting",
     "tough_environment:blackstone_converting",
     "tough_environment:deepslate_converting",
-    "tough_environment:endstone_converting"
+    "tough_environment:endstone_converting",
+
+    "sturdy_trees:stump_oak",
+    "sturdy_trees:stump_birch",
+    "sturdy_trees:stump_spruce",
+    "sturdy_trees:stump_jungle",
+    "sturdy_trees:stump_acacia",
+    "sturdy_trees:stump_dark_oak",
+    "sturdy_trees:stump_mangrove"
+
 
   ]
 }

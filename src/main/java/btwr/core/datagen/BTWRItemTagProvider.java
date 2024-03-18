@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -16,6 +17,7 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
+
         getOrCreateTagBuilder(BTWRTags.Items.AXES_MAKE_PLANKS)
                 .add(Items.IRON_AXE)
                 .add(Items.DIAMOND_AXE)
@@ -26,13 +28,8 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.WOODEN_AXE)
                 .add(Items.STONE_AXE);
 
-        getOrCreateTagBuilder(BTWRTags.Items.MODERN_CHISELS)
-                .add(BTWR_Items.CHISEL_IRON)
-                .add(BTWR_Items.CHISEL_DIAMOND);
 
-        getOrCreateTagBuilder(BTWRTags.Items.PRIMITIVE_CHISELS)
-                .add(BTWR_Items.CHISEL_WOOD)
-                .add(BTWR_Items.CHISEL_STONE);
+
 
     }
 }
