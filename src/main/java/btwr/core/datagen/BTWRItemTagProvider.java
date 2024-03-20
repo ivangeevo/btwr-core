@@ -28,6 +28,31 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.WOODEN_AXE)
                 .add(Items.STONE_AXE);
 
+        getOrCreateTagBuilder(BTWRTags.Items.DO_KNOCKBACK_ITEMS)
+
+                // Clubs do knockback
+                .add(BTWR_Items.CLUB_WOOD)
+                .add(BTWR_Items.CLUB_BONE)
+
+                // All swords too
+                .forceAddTag(ItemTags.SWORDS)
+
+                // Special weapon items
+                .add(Items.TRIDENT)
+                .add(Items.BOW)
+                .add(Items.CROSSBOW)
+
+                //Axes do knockback only if iron or above
+                .add(Items.IRON_AXE)
+                .add(Items.DIAMOND_AXE)
+                .add(Items.NETHERITE_AXE);
+
+
+
+
+
+
+
 
 
 

@@ -75,6 +75,8 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
     @Inject(method = "initGoals", at = @At("HEAD"), cancellable = true)
     private void injectedInitGoals(CallbackInfo ci) {
         this.goalSelector.add(1, new SwimGoal(this));
+
+        // Modified the exploding & swell behavior with a custom goal class
         this.goalSelector.add(2, new CreeperSwellBehavior((CreeperEntity)(Object)this));
         this.goalSelector.add(3, new FleeEntityGoal<>(this, OcelotEntity.class, 6.0f, 1.0, 1.2));
         this.goalSelector.add(3, new FleeEntityGoal<>(this, CatEntity.class, 6.0f, 1.0, 1.2));

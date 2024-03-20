@@ -1,7 +1,6 @@
 package btwr.core.mixin.entity;
 
-import btwr.core.config.BTWRSettings;
-import btwr.core.config.BTWRSettingsGUI;
+import btwr.core.BTWRMod;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.math.random.Random;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +17,7 @@ public abstract class ZombieEntityMixin
     private static void setShouldBeBaby(Random random, CallbackInfoReturnable<Boolean> cir)
     {
 
-        if (BTWRSettingsGUI.getConfigValue(BTWRSettings.DISABLE_BABY_ZOMBIES_KEY))
+        if (BTWRMod.getInstance().settings.isDontSpawnBabyZombiesEnabled())
         {
             cir.setReturnValue(false);
         }

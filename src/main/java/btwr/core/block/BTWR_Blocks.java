@@ -22,9 +22,8 @@ public class BTWR_Blocks
 
     private static Item registerBlockItem(String name, Block block)
     {
-        Item item = Registry.register(Registries.ITEM, new Identifier(BTWRMod.MOD_ID, name),
+        return Registry.register(Registries.ITEM, new Identifier(BTWRMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
-        return item;
     }
 
     public static void registerModBlocks()

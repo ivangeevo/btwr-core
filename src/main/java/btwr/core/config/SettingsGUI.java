@@ -18,17 +18,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BTWRSettingsGUI {
+public class SettingsGUI
+{
+    static BTWRSettings settingsCommon = BTWRMod.getInstance().settings;
 
     private static final Map<String, Boolean> configValues = new HashMap<>();
 
-    public static void initConfig() {
-        loadConfig();
-    }
     public static Screen createConfigScreen(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create().setParentScreen(parent).setTitle(Text.translatable("title.btwr.config"));
         builder.setSavingRunnable(() -> {
-            saveConfig();
+
+            BTWRMod.getInstance().saveSettings();
+
         });
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
@@ -37,31 +38,36 @@ public class BTWRSettingsGUI {
 
         /** Gameplay Category**/
 
-        addConfigEntry(general, entryBuilder, BTWRSettings.KNOCKBACK_RESTRICTION_KEY, true);
-        addConfigEntry(general, entryBuilder, BTWRSettings.DISABLE_BABY_ZOMBIES_KEY, true);
-        //addConfigEntry(general, entryBuilder, BTWRSettings.HARDCORE_MATERIAL_DURABILITY_KEY, true);
-        //addConfigEntry(general, entryBuilder, BTWRSettings.HARDCORE_MATERIAL_SPEED_KEY, true);
+        general.addEntry(entryBuilder
+                .startBooleanToggle
+                        (Text.translatable("config.btwr.knockbackRestriction"), settingsCommon.knockbackRestriction)
+                .setDefaultValue(true)
+                .setSaveConsumer(newValue -> settingsCommon.knockbackRestriction=newValue)
+                .build());
+
+        general.addEntry(entryBuilder
+                .startBooleanToggle
+                        (Text.translatable("config.btwr.disableBabyZombies"), settingsCommon.dontSpawnBabyZombies)
+                .setDefaultValue(true)
+                .setSaveConsumer(newValue -> settingsCommon.dontSpawnBabyZombies =newValue)
+                .build());
 
         return builder.build();
     }
 
-    private static void addConfigEntry(ConfigCategory category, ConfigEntryBuilder entryBuilder, String key,
-                                       boolean defaultValue) {
+    private static void addConfigEntry(ConfigCategory category, ConfigEntryBuilder entryBuilder, String key, boolean defaultValue) {
         boolean value = configValues.getOrDefault(key, defaultValue);
         System.out.println("Key: " + key + ", Value: " + value); // Add this line for debugging
         category.addEntry(entryBuilder.startBooleanToggle(Text.translatable("config.btwr." + key), value)
-                .setDefaultValue(defaultValue)
+                .setDefaultValue(true)
                 .setSaveConsumer(newValue -> configValues.put(key, newValue))
                 .build());
     }
 
 
     public static boolean getConfigValue(String key) {
-        return configValues.getOrDefault(key, false);
+        return configValues.getOrDefault(key, true);
     }
-
-
-
 
     public static Text[] wrapLines(Text text){
         List<StringVisitable> lines = MinecraftClient.getInstance().textRenderer.getTextHandler()

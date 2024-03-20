@@ -35,6 +35,10 @@ public class BTWRTags {
         public static final TagKey<Item> LOW_VALUE_FUELS = createTag("low_value_fuels");
 
 
+        // Item Tag for items that should do knockback if the config for knockback restriction is turned on.
+        public static final TagKey<Item> DO_KNOCKBACK_ITEMS = createTag("do_knockback_items");
+
+
 
 
         // ---------- NORMAL TAGS ---------- //
