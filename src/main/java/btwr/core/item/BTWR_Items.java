@@ -26,6 +26,7 @@ public class BTWR_Items {
     // List of Items
     public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new FabricItemSettings().maxCount(16)));
     public static final Item DIAMOND_INGOT = registerItem( "diamond_ingot", new Item (new FabricItemSettings()));
+    public static final Item STONE_BRICK = registerItem( "stone_brick", new Item (new FabricItemSettings()));
 
 
 
@@ -39,24 +40,27 @@ public class BTWR_Items {
     public static final Item CLUB_BONE = registerItem("club_bone",
             new ClubItem(BTWR_ToolMaterials.BONE, 2,-1.3f, new FabricItemSettings()));
 
-    public static final Item DIAMOND_SHEARS = registerItem( "diamond_shears", new ShearsItem (new FabricItemSettings().maxDamage(500)));
+    public static final Item DIAMOND_SHEARS = registerItem( "diamond_shears",
+            new ShearsItem (new FabricItemSettings().maxDamage(500)));
 
 
 
-    private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
+
+    private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries)
+    {
+
         entries.add(CREEPER_OYSTERS);
-        entries.add(DIAMOND_INGOT);
 
     }
 
-
-    private static Item registerItem(String name, Item item) {
+    private static Item registerItem(String name, Item item)
+    {
         return Registry.register(Registries.ITEM, new Identifier(BTWRMod.MOD_ID, name), item);
     }
 
-    public static void registerModItems() {
+    public static void registerModItems()
+    {
         BTWRMod.LOGGER.info("Registering Mod Items for " + BTWRMod.MOD_ID);
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(BTWR_Items::addItemsToIngredientItemGroup);
     }
 

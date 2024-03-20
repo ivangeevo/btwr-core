@@ -13,7 +13,6 @@ public enum BTWR_ToolMaterials implements ToolMaterial {
 
     //STEEL(BTWR_MiningLevels.STEEL, 2550, 3.9f, 1.0f, 10, () -> Ingredient.ofItems(BTWR_Items.STEEL_INGOT));
 
-
     private final int miningLevel;
     private final int itemDurability;
     private final float miningSpeed;
@@ -22,7 +21,9 @@ public enum BTWR_ToolMaterials implements ToolMaterial {
 
     private final Supplier<Ingredient> repairIngredient;
 
-    BTWR_ToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
+    BTWR_ToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage,
+                       int enchantability, Supplier<Ingredient> repairIngredient)
+    {
         this.miningLevel = miningLevel;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
@@ -35,27 +36,22 @@ public enum BTWR_ToolMaterials implements ToolMaterial {
     public int getDurability() {
         return this.itemDurability;
     }
-
     @Override
     public float getMiningSpeedMultiplier() {
         return this.miningSpeed;
     }
-
     @Override
     public float getAttackDamage() {
         return this.attackDamage;
     }
-
     @Override
     public int getMiningLevel() {
         return this.miningLevel;
     }
-
     @Override
     public int getEnchantability() {
         return this.enchantability;
     }
-
     @Override
     public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();

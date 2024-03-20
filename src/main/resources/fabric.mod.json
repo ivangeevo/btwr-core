@@ -22,6 +22,9 @@
     ],
     "fabric-datagen": [
       "btwr.core.BTWRDataGenerator"
+    ],
+    "modmenu": [
+      "btwr.core.config.BTWRModMenu"
     ]
   },
   "mixins": [

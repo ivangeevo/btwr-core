@@ -7,9 +7,9 @@
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
     "entity.PlayerEntityMixin",
+    "entity.ZombieEntityMixin",
     "item.AxeItemMixin",
     "item.ShearsItemMixin",
-    "item.ToolMaterialsMixin",
     "recipe.CraftingResultSlotMixin",
     "recipe.ShapelessRecipeMixin",
     "recipe.ShapelessRecipeSerializerMixin"

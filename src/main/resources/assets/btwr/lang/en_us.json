@@ -140,31 +140,23 @@
   "block.btwr.slab_brick_loose": "Loose Brick Slab",
 
 
-  "block.btwr.coal_ore": "Coal Ore",
-  "block.btwr.iron_ore": "Iron Ore",
-  "block.btwr.copper_ore": "Copper Ore",
-  "block.btwr.redstone_ore": "Redstone Ore",
-  "block.btwr.gold_ore": "Gold Ore",
-  "block.btwr.lapis_ore": "Lapis Lazuli Ore",
-  "block.btwr.emerald_ore": "Emerald Ore",
-
-  "block.btwr.deepslate_coal_ore": "Deepslate Coal Ore",
-  "block.btwr.deepslate_iron_ore": "Deepslate Iron Ore",
-  "block.btwr.deepslate_copper_ore": "Deepslate Copper Ore",
-  "block.btwr.deepslate_redstone_ore": "Deepslate Redstone Ore",
-  "block.btwr.deepslate_gold_ore": "Deepslate Gold Ore",
-  "block.btwr.deepslate_lapis_ore": "Deepslate Lapis Lazuli Ore",
-  "block.btwr.deepslate_emerald_ore": "Deepslate Emerald Ore",
-
-
   "block.btwr.oven_stone": "Stone Oven",
   "block.btwr.oven_brick": "Brick Oven",
 
 
-  "block.btwr.campfire": "Campfire",
+  "title.btwr.config": "BTWR:Core Configuration Menu",
 
-  "container.oven_stone": "Stone Oven",
-  "container.oven_brick": "Brick Oven",
+  "config.btwr.category.general": "General Options",
+  "config.btwr.category.mixins": "Mixin Options",
+
+
+  "config.btwr.knockbackRestriction": "Knockback Restriction",
+  "config.btwr.disableBabyZombies": "Disable Baby Zombies Spawning",
+
+
+  "config.btwr.mixins.description": "These are setting that modify mixin specific features.",
+
+
 
   "itemgroup.group_btwr": "Better Than Wolves: Remastered!"
 }

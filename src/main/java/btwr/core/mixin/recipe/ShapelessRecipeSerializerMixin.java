@@ -22,7 +22,8 @@ public abstract class ShapelessRecipeSerializerMixin {
 
     @Inject(method = "read(Lnet/minecraft/util/Identifier;Lcom/google/gson/JsonObject;)Lnet/minecraft/recipe/ShapelessRecipe;",
             at = @At("RETURN"), cancellable = true)
-    protected void read(Identifier identifier, JsonObject jsonObject, CallbackInfoReturnable<ShapelessRecipe> cir) {
+    protected void read(Identifier identifier, JsonObject jsonObject, CallbackInfoReturnable<ShapelessRecipe> cir)
+    {
         handleRecipeSerialization(cir, jsonObject);
     }
 
