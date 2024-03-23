@@ -8,41 +8,6 @@
   "item.btwr.rope": "Rope",
   "item.btwr.padding": "Padding",
 
-  "item.btwr.white_wool": "White Wool",
-  "item.btwr.orange_wool": "Orange Wool",
-  "item.btwr.magenta_wool": "Magenta Wool",
-  "item.btwr.light_blue_wool": "Light Blue Wool",
-  "item.btwr.yellow_wool": "Yellow Wool",
-  "item.btwr.lime_wool": "Lime Wool",
-  "item.btwr.pink_wool": "Pink Wool",
-  "item.btwr.gray_wool": "Gray Wool",
-  "item.btwr.light_gray_wool": "Light Gray Wool",
-  "item.btwr.cyan_wool": "Cyan Wool",
-  "item.btwr.purple_wool": "Purple Wool",
-  "item.btwr.blue_wool": "Blue Wool",
-  "item.btwr.brown_wool": "Brown Wool",
-  "item.btwr.green_wool": "Green Wool",
-  "item.btwr.red_wool": "Red Wool",
-  "item.btwr.black_wool": "Black Wool",
-
-
-  "item.btwr.wicker_weaving": "Wicker Weaving",
-  "item.btwr.knitting_needles": "Knitting Needles",
-
-
-  "item.btwr.wool_white": "White Wool",
-  "item.btwr.leather_cut": "Cut Leather",
-  "item.btwr.leather_scoured": "Scoured Leather",
-  "item.btwr.leather_scoured_cut": "Cut Scoured Leather",
-  "item.btwr.leather_tanned": "Tanned Leather",
-  "item.btwr.leather_tanned_cut": "Cut Tanned Leather",
-
-  "item.btwr.leather_tanned_helmet": "Tanned Leather Cap",
-  "item.btwr.leather_tanned_chestplate": "Tanned Leather Tunic",
-  "item.btwr.leather_tanned_leggings": "Tanned Leather Leggings",
-  "item.btwr.leather_tanned_boots": "Tanned Leather Boots",
-
-
   "item.btwr.strap": "Strap",
   "item.btwr.belt": "Belt",
   "item.btwr.gear": "Gear",
@@ -50,98 +15,16 @@
 
   "item.btwr.creeper_oysters": "Creeper Oysters",
 
-  "item.btwr.diamond_shears": "Diamond Shears",
-
-  "item.btwr.netherrack_ground": "Ground Netherrack",
-  "item.btwr.dust_hellfire": "Hellfire Dust",
-  "item.btwr.coal_nether": "Nethercoal",
-
-  "item.btwr.wool_knit": "Wool Knit",
-
-  "item.btwr.wool_helm": "Wool Helm",
-  "item.btwr.wool_chest": "Wool Chest",
-  "item.btwr.wool_leggings": "Wool Leggings",
-  "item.btwr.wool_boots": "Wool Boots",
-
-
-  "item.btwr.pile_gravel": "Pile of Gravel",
-  "item.btwr.pile_dirt": "Pile of Dirt",
-  "item.btwr.pile_sand": "Pile of Sand",
-  "item.btwr.pile_red_sand": "Pile of Red Sand",
-  "item.btwr.pile_clay": "Pile of Clay",
-
-
-  "item.btwr.small_stone": "Loose Rock",
-  "item.btwr.small_stone_1": "Loose Dense Rock",
-  "item.btwr.small_stone_2": "Loose Tough Rock",
 
   "item.btwr.stone_brick": "Stone Brick",
   "item.btwr.brick_unfired": "Wet Brick",
 
-  "item.btwr.steel_shovel": "Steel Shovel",
-
-  "item.btwr.steel_axe": "Steel Axe",
-
-  "item.btwr.chisel_wood": "Pointy Stick",
-  "item.btwr.chisel_stone": "Sharp Stone",
-  "item.btwr.chisel_iron": "Iron Chisel",
-  "item.btwr.chisel_diamond": "Diamond Chisel",
-
-
-  "item.btwr.firestarter_sticks": "Fire Plough",
-  "item.btwr.firestarter_bow": "Bow Drill",
   "item.btwr.club_wood": "Wooden Club",
   "item.btwr.club_bone": "Bone Club",
 
 
-  "item.btwr.dust_coal": "Pile of Coal Dust",
-  "item.btwr.dust_iron": "Pile of Iron Dust",
-
-
-  "item.btwr.ore_iron_chunk": "Chunk of Iron Ore",
-  "item.btwr.ore_gold_chunk": "Chunk of Gold Ore",
-  "item.btwr.ore_copper_clump": "Clump of Copper",
-
-
-  "item.btwr.egg_raw": "Raw Egg",
-  "item.btwr.egg_fried": "Fried Egg",
-
-
-  "item.btwr.ham_and_eggs": "Ham and Eggs",
-
-  "item.btwr.chicken_feed": "Chicken Feed",
-
-
-  "item.btwr.dung": "Dung",
-  "item.btwr.dung_golden": "Golden Dung",
-
   "block.btwr.companioncube": "Companion Cube",
   "block.btwr.lightblock": "Light Block",
-
-  "block.btwr.cobblestone_loose": "Loose Cobblestone",
-  "block.btwr.cobbled_deepslate_loose": "Loose Cobbled Deepslate",
-
-  "block.btwr.torch": "Torch",
-
-
-
-  "block.btwr.dirt_loose": "Loose Dirt",
-
-  "block.btwr.slab_sand": "Sand Slab",
-  "block.btwr.slab_red_sand": "Red Sand Slab",
-
-  "block.btwr.slab_dirt": "Dirt Slab",
-  "block.btwr.slab_gravel": "Gravel Slab",
-  "block.btwr.slab_cobblestone_loose": "Loose Cobblestone Slab",
-  "block.btwr.slab_cobbled_deepslate_loose": "Loose Cobbled Deepslate Slab",
-
-  "block.btwr.cobblestone_loose_stairs": "Loose Cobblestone Stairs",
-
-  "block.btwr.slab_brick_loose": "Loose Brick Slab",
-
-
-  "block.btwr.oven_stone": "Stone Oven",
-  "block.btwr.oven_brick": "Brick Oven",
 
 
   "title.btwr.config": "BTWR:Core Configuration Menu",

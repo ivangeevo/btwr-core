@@ -1,5 +1,6 @@
 package btwr.core;
 
+import btwr.core.block.BTWR_Blocks;
 import btwr.core.item.BTWR_Items;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -16,15 +17,24 @@ public class BTWRItemGroup {
     public static final ItemGroup GROUP_BTWR = Registry.register(Registries.ITEM_GROUP,
             new Identifier(BTWRMod.MOD_ID, "group_btwr"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.group_btwr"))
-                    .icon(() -> new ItemStack(BTWR_Items.GROUP_BTWR)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(BTWR_Items.GROUP_BTWR))
+                    .entries((displayContext, entries) -> {
                         entries.add(BTWR_Items.CREEPER_OYSTERS);
                         entries.add(BTWR_Items.DIAMOND_INGOT);
                         entries.add(BTWR_Items.STONE_BRICK);
+                        entries.add(BTWR_Items.HEMP_SEEDS);
+                        entries.add(BTWR_Items.HEMP_LEAVES);
+                        entries.add(BTWR_Items.HEMP_FIBERS);
+                        entries.add(BTWR_Items.HEMP_FABRIC);
 
                         // Tools
                         entries.add(BTWR_Items.DIAMOND_SHEARS);
                         entries.add(BTWR_Items.CLUB_BONE);
                         entries.add(BTWR_Items.CLUB_WOOD);
+
+                        // Blocks
+                        entries.add(BTWR_Blocks.LIGHTBLOCK);
+                        entries.add(BTWR_Blocks.COMPANIONCUBE);
 
                     }).build());
 

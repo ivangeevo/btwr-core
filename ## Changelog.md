@@ -5,6 +5,9 @@ I decided that by default this mod will not change the balance of the game.
 Most of that will happen in the BTWR Modpack itself.
 
 + Added Stone Brick item.
++ Added Companion Cube.
++ Added Hemp Crop.
++ Added Light Block.
 + Added some Config options toggles through Mod menu:
  - For Baby Zombies spawning.
  - For Knockback restrictions(needing a weapon item to do knockback to entities)
