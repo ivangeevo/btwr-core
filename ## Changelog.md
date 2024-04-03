@@ -5,12 +5,13 @@ I decided that by default this mod will not change the balance of the game.
 Most of that will happen in the BTWR Modpack itself.
 
 + Added Stone Brick item.
++ Added Wet Brick Item.
 + Added Companion Cube.
 + Added Hemp Crop.
 + Added Light Block.
 + Added some Config options toggles through Mod menu:
  - For Baby Zombies spawning.
- - For Knockback restrictions(needing a weapon item to do knockback to entities)
+ - For Knockback restrictions (needing a weapon item to do knockback to entities)
 
 + Brought back Wooden & Stone sword recipes.
 + Restored vanilla mining speeds & durability of all tools. 
@@ -35,8 +36,6 @@ Most of that will happen in the BTWR Modpack itself.
 + Brought back Wooden & Stone Sword recipes.
 + Restored vanilla mining speeds & durability of all tools.
 + Restored the ability to knockback with any weapon.
-
-+ Added Stone Brick Item.
 
 + # Release Alpha
 

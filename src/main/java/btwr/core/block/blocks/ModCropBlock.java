@@ -24,14 +24,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-public class CropBlock
+public abstract class ModCropBlock
         extends PlantBlock
         implements Fertilizable {
     public static final int MAX_AGE = 7;
     public static final IntProperty AGE = Properties.AGE_7;
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 4.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 6.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 10.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 14.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0)};
 
-    public CropBlock(Settings settings) {
+    public ModCropBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(this.getAgeProperty(), 0));
     }
@@ -72,7 +72,7 @@ public class CropBlock
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         float f;
         int i;
-        if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) < this.getMaxAge() && random.nextInt((int) (25.0f / (f = CropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0) {
+        if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) < this.getMaxAge() && random.nextInt((int) (25.0f / (f = ModCropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0) {
             world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
         }
     }

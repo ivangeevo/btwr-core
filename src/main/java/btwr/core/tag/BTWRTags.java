@@ -3,9 +3,6 @@ package btwr.core.tag;
 import btwr.core.BTWRMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -22,7 +19,9 @@ public class BTWRTags {
         }
     }
 
-    public static class Items {
+    public static class Items
+    {
+
         /** These tags don't generate using datagen.
          *  Instead, the items should be added manually and
          *  provide for other side mods.
@@ -43,6 +42,7 @@ public class BTWRTags {
 
         // ---------- NORMAL TAGS ---------- //
 
+        public static final TagKey<Item> CLAY_ITEMS = createTag("clay_items");
         public static final TagKey<Item> DROP_SPREAD_ITEMS = createTag("drop_spread_items");
 
         public static final TagKey<Item> WOOL_ITEMS = createTag("wool_items");
@@ -62,6 +62,9 @@ public class BTWRTags {
         public static final TagKey<Item> AXES_MAKE_PLANKS = createTag("axes_make_planks");
         public static final TagKey<Item> PIG_BREEDING_ITEMS = createTag("pig_breeding_items");
         public static final TagKey<Item> PIG_TEMPT_ITEMS = createTag("pig_tempt_items");
+
+        public static final TagKey<Item> STRING_TOOL_MATERIALS = createTag("string_tool_materials");
+
 
 
         private static TagKey<Item> createTag (String name) {

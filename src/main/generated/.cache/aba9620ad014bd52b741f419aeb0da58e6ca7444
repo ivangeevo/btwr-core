@@ -1,4 +1,6 @@
-// 1.20.1	2024-03-19T13:40:19.8093666	BTWR:Core/Tags for minecraft:item
-e5dbb6529bec5c67f0dbcec044a9280fd85ba088 data\btwr\tags\items\do_knockback_items.json
-fc7851ff545e76da0a507013dfe2358bf47e9616 data\btwr\tags\items\primitive_axes.json
+// 1.20.1	2024-04-01T06:55:07.5826851	BTWR:Core/Tags for minecraft:item
 db38d315a1412bcd63e66985de5ce0e2236b5f50 data\btwr\tags\items\axes_make_planks.json
+6fcdb1662302597fd94f531795525f8b434686e8 data\btwr\tags\items\clay_items.json
+fc7851ff545e76da0a507013dfe2358bf47e9616 data\btwr\tags\items\primitive_axes.json
+e5dbb6529bec5c67f0dbcec044a9280fd85ba088 data\btwr\tags\items\do_knockback_items.json
+29078510981ac22cd241f448bd6117d176b5b276 data\btwr\tags\items\string_tool_materials.json

@@ -26,6 +26,7 @@ public class BTWR_Items {
     public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new FabricItemSettings().maxCount(16)));
     public static final Item DIAMOND_INGOT = registerItem( "diamond_ingot", new Item (new FabricItemSettings()));
     public static final Item STONE_BRICK = registerItem( "stone_brick", new Item (new FabricItemSettings()));
+    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new Item (new FabricItemSettings()));
 
     public static final Item HEMP_SEEDS = registerItem( "hemp_seeds",
             (Item) new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new FabricItemSettings()));

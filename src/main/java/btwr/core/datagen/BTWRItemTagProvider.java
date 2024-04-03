@@ -47,6 +47,15 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.DIAMOND_AXE)
                 .add(Items.NETHERITE_AXE);
 
+        getOrCreateTagBuilder(BTWRTags.Items.CLAY_ITEMS)
+                .add(Items.CLAY_BALL)
+                .add(BTWR_Items.BRICK_UNFIRED);
+
+        getOrCreateTagBuilder(BTWRTags.Items.STRING_TOOL_MATERIALS)
+                .add(Items.STRING)
+                .add(BTWR_Items.HEMP_FIBERS);
+
+
 
 
 

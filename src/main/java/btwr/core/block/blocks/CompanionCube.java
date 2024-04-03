@@ -3,49 +3,59 @@
  */
 package btwr.core.block.blocks;
 
-import btwr.core.block.entity.CompanionCubeEntity;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.BlockState;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.FurnaceBlockEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class CompanionCube
-        extends CompanionCubeEntity
+public class CompanionCube extends FacingBlock
 {
     public CompanionCube(AbstractBlock.Settings settings) {
         super(settings);
     }
 
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+
+
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new FurnaceBlockEntity(pos, state);
+    public BlockState getPlacementState(ItemPlacementContext ctx)
+    {
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
+    {
         super.onBreak(world, pos, state, player);
         world.playSound(player, pos, SoundEvents.ENTITY_WOLF_DEATH, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
     }
 
 
-
     @Override
-    public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
-        BlockEntity blockEntity;
-    }
-
-    @Override
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack)
+    {
+        if (player.getWorld().isClient)
+        {
+            world.addParticle(ParticleTypes.HEART,pos.getX(), pos.getY() + 0.6f, pos.getZ(),0f,0f,0f);
+        }
         super.afterBreak(world, player, pos, state, blockEntity, stack);
     }
+
+
 }
 

@@ -85,9 +85,10 @@ public abstract class CraftingResultSlotMixin {
         {
             player.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, 0.1F, higher);
         }
-        else if (stack.isOf(BTWR_Items.DIAMOND_INGOT))
+        else if (stack.isOf(BTWR_Items.DIAMOND_INGOT) || stack.isIn(BTWRTags.Items.CLAY_ITEMS))
         {
             player.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 0.1F, lower);
+
         }
 
     }

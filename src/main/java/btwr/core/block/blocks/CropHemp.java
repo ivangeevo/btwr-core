@@ -22,9 +22,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-public class CropHemp extends CropBlock {
+public class CropHemp extends ModCropBlock
+{
     public static final IntProperty AGE = IntProperty.of("age", 0, 8);
-    public static final BooleanProperty IS_TALL = BooleanProperty.of("tall"); // Add the IS_TALL property
+    public static final BooleanProperty TALL = BooleanProperty.of("tall"); // Add the IS_TALL property
 
     private final int firstStageTimer = 0;
     private final int topStageTimer = 0;
@@ -32,21 +33,21 @@ public class CropHemp extends CropBlock {
 
     public CropHemp(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(this.getAgeProperty(), 0).with(IS_TALL, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(this.getAgeProperty(), 0).with(TALL, false));
     }
 
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{
             // Define VoxelShapes for each stage from 0 to 8
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 2.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 4.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 6.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 8.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 10.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 12.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 14.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 16.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 16.0, 11.0)
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 2.0, 11.0),  //0
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 4.0, 11.0),  //1
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 6.0, 11.0),  //2
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 8.0, 11.0),  //3
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 10.0, 11.0), //4
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 12.0, 11.0), //5
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 14.0, 11.0), //6
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 16.0, 11.0), //7
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 16.0, 11.0)  //8
 
     };
 
@@ -73,7 +74,7 @@ public class CropHemp extends CropBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(AGE, IS_TALL);
+        builder.add(AGE, TALL);
     }
 
     @Override
@@ -87,10 +88,12 @@ public class CropHemp extends CropBlock {
     }
 
     @Override
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack)
+    {
         player.addExhaustion(0.2F);
 
-        if (stack.isOf(Items.SHEARS)) {
+        if (stack.isOf(Items.SHEARS))
+        {
             // If the crop is fully grown, drop items
             dropStack(world, pos, new ItemStack(BTWR_Items.HEMP_LEAVES, 1));
 
@@ -129,12 +132,12 @@ public class CropHemp extends CropBlock {
                         (blockNorth.isOf(this) && blockSouth.isOf(this)) ||
                                 (blockWest.isOf(this) && blockEast.isOf(this)));
 
-                if (age < 7 && !state.get(IS_TALL))
+                if (age < 7 && !state.get(TALL))
                 {
                     float f;
                     // Check if there are crops in the adjacent north or south rows
                     // Check if the crop is attempting to grow (random chance)
-                    if (random.nextInt((int) (80 / (f = CropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0)
+                    if (random.nextInt((int) (80 / (f = ModCropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0)
                     {
                         // Check if there are crops in the adjacent north or south rows
 
@@ -164,7 +167,7 @@ public class CropHemp extends CropBlock {
                             world.setBlockState(pos.up(),
                                     BTWR_Blocks.CROP_HEMP.getDefaultState()
                                     .with(AGE, 8)
-                                    .with(IS_TALL, true));
+                                    .with(TALL, true));
                         }
                     }
                 }
