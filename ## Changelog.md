@@ -13,6 +13,8 @@ Most of that will happen in the BTWR Modpack itself.
  - For Baby Zombies spawning.
  - For Knockback restrictions (needing a weapon item to do knockback to entities)
 
+* Fixed being unable to shear sheep with Diamond Shears.
+
 + Brought back Wooden & Stone sword recipes.
 + Restored vanilla mining speeds & durability of all tools. 
 

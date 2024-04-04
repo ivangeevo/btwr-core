@@ -18,6 +18,8 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
 
+
+
         getOrCreateTagBuilder(BTWRTags.Items.AXES_MAKE_PLANKS)
                 .add(Items.IRON_AXE)
                 .add(Items.DIAMOND_AXE)
