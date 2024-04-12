@@ -40,6 +40,10 @@ public class BTWRItemGroup {
                         entries.add(BTWR_Items.NETHERRACK_GROUND);
                         entries.add(BTWR_Items.DUST_HELLFIRE);
                         entries.add(BTWR_Items.COAL_NETHER);
+                        entries.add(BTWR_Items.STRAP);
+                        entries.add(BTWR_Items.BELT);
+                        entries.add(BTWR_Items.GEAR);
+
 
                         // Tools
                         entries.add(BTWR_Items.DIAMOND_SHEARS);

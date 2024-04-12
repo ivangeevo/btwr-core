@@ -47,6 +47,9 @@ public class BTWR_Items {
     public static final Item DUST_HELLFIRE = registerItem( "dust_hellfire", new Item (new FabricItemSettings()));
     public static final Item COAL_NETHER = registerItem( "coal_nether", new Item (new FabricItemSettings()));
 
+    public static final Item STRAP = registerItem( "strap", new Item (new FabricItemSettings()));
+    public static final Item BELT = registerItem( "belt", new Item (new FabricItemSettings()));
+    public static final Item GEAR = registerItem( "gear", new Item (new FabricItemSettings()));
 
     // --------- //
 
