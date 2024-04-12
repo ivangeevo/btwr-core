@@ -37,7 +37,7 @@ public abstract class LivingEntityMixin
             {
                 ItemStack weaponStack = player.getMainHandStack();
 
-                if (!isAppropriateWeapon(weaponStack))
+                if (!weaponStack.isIn(BTWRTags.Items.DO_KNOCKBACK_ITEMS))
                 {
                     ci.cancel();
                 }
@@ -46,10 +46,4 @@ public abstract class LivingEntityMixin
         }
     }
 
-
-    @Unique
-    private boolean isAppropriateWeapon(ItemStack weaponStack)
-    {
-        return weaponStack.isIn(BTWRTags.Items.DO_KNOCKBACK_ITEMS);
-    }
 }

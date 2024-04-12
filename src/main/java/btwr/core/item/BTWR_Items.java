@@ -35,6 +35,17 @@ public class BTWR_Items {
     public static final Item HEMP_FIBERS = registerItem( "hemp_fibers", new Item(new FabricItemSettings()));
     public static final Item HEMP_FABRIC = registerItem( "hemp_fabric", new Item(new FabricItemSettings()));
 
+    public static final Item ROPE = registerItem( "rope", new Item(new FabricItemSettings()));
+
+    public static final Item LEATHER_CUT = registerItem( "leather_cut", new Item (new FabricItemSettings()));
+    public static final Item LEATHER_SCOURED = registerItem( "leather_scoured", new Item (new FabricItemSettings()));
+    public static final Item LEATHER_SCOURED_CUT = registerItem( "leather_scoured_cut", new Item (new FabricItemSettings()));
+    public static final Item LEATHER_TANNED = registerItem( "leather_tanned", new Item (new FabricItemSettings()));
+    public static final Item LEATHER_TANNED_CUT = registerItem( "leather_tanned_cut", new Item (new FabricItemSettings()));
+
+    public static final Item NETHERRACK_GROUND = registerItem( "netherrack_ground", new Item (new FabricItemSettings()));
+    public static final Item DUST_HELLFIRE = registerItem( "dust_hellfire", new Item (new FabricItemSettings()));
+    public static final Item COAL_NETHER = registerItem( "coal_nether", new Item (new FabricItemSettings()));
 
 
     // --------- //

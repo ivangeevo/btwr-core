@@ -18,7 +18,9 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
 
-
+        getOrCreateTagBuilder(BTWRTags.Items.SHEARS)
+                .add(Items.SHEARS)
+                .add(BTWR_Items.DIAMOND_SHEARS);
 
         getOrCreateTagBuilder(BTWRTags.Items.AXES_MAKE_PLANKS)
                 .add(Items.IRON_AXE)

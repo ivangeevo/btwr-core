@@ -10,7 +10,8 @@ import net.minecraft.util.Identifier;
 public class BTWRTags {
 
 
-    public static class Blocks {
+    public static class Blocks
+    {
 
 
 
@@ -64,6 +65,7 @@ public class BTWRTags {
         public static final TagKey<Item> PIG_TEMPT_ITEMS = createTag("pig_tempt_items");
 
         public static final TagKey<Item> STRING_TOOL_MATERIALS = createTag("string_tool_materials");
+        public static final TagKey<Item> SHEARS = createTag("shears");
 
 
 

@@ -18,7 +18,11 @@ public class BTWRItemGroup {
             new Identifier(BTWRMod.MOD_ID, "group_btwr"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.group_btwr"))
                     .icon(() -> new ItemStack(BTWR_Items.GROUP_BTWR))
-                    .entries((displayContext, entries) -> {
+                    .entries((displayContext, entries) ->
+                    {
+                        /** ITEMS **/
+
+                        // Uncategorized
                         entries.add(BTWR_Items.CREEPER_OYSTERS);
                         entries.add(BTWR_Items.DIAMOND_INGOT);
                         entries.add(BTWR_Items.STONE_BRICK);
@@ -27,13 +31,23 @@ public class BTWRItemGroup {
                         entries.add(BTWR_Items.HEMP_LEAVES);
                         entries.add(BTWR_Items.HEMP_FIBERS);
                         entries.add(BTWR_Items.HEMP_FABRIC);
+                        entries.add(BTWR_Items.ROPE);
+                        entries.add(BTWR_Items.LEATHER_SCOURED);
+                        entries.add(BTWR_Items.LEATHER_TANNED);
+                        entries.add(BTWR_Items.LEATHER_CUT);
+                        entries.add(BTWR_Items.LEATHER_SCOURED_CUT);
+                        entries.add(BTWR_Items.LEATHER_TANNED_CUT);
+                        entries.add(BTWR_Items.NETHERRACK_GROUND);
+                        entries.add(BTWR_Items.DUST_HELLFIRE);
+                        entries.add(BTWR_Items.COAL_NETHER);
 
                         // Tools
                         entries.add(BTWR_Items.DIAMOND_SHEARS);
                         entries.add(BTWR_Items.CLUB_BONE);
                         entries.add(BTWR_Items.CLUB_WOOD);
 
-                        // Blocks
+                        /** BLOCKS **/
+
                         entries.add(BTWR_Blocks.LIGHTBLOCK);
                         entries.add(BTWR_Blocks.COMPANIONCUBE);
 

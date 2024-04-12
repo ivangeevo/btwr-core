@@ -4,11 +4,19 @@
 I decided that by default this mod will not change the balance of the game.
 Most of that will happen in the BTWR Modpack itself.
 
-+ Added Stone Brick item.
-+ Added Wet Brick Item.
-+ Added Companion Cube.
-+ Added Hemp Crop.
-+ Added Light Block.
++ Added the following items:
+  - Stone Brick
+  - Wet Brick
+  - Companion Cube
+  - Hemp Crop, Hemp Fibers & Hemp Fabric
+  - Light Block
+  - Rope
+  - Ground Netherrack
+  - Hellfire Dust
+  - Nether coal
+  - Scoured & Tanned leather
+  - Cut Leather for all 3 variations (normal, scoured, tanned)
+
 + Added some Config options toggles through Mod menu:
  - For Baby Zombies spawning.
  - For Knockback restrictions (needing a weapon item to do knockback to entities)
