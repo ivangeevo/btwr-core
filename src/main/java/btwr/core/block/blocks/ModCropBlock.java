@@ -42,7 +42,6 @@ public abstract class ModCropBlock
     }
 
 
-
     public IntProperty getAgeProperty() {
         return AGE;
     }

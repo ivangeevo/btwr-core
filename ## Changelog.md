@@ -20,9 +20,9 @@ Most of that will happen in the BTWR Modpack itself.
   - Scoured & Tanned leather
   - Cut Leather for all 3 variations (normal, scoured, tanned)
 
-+ Added some Config options toggles through Mod menu:
- - For Baby Zombies spawning.
- - For Knockback restrictions (needing a weapon item to do knockback to entities)
++ Added some Config options toggles through Mod Menu:
+ - For disabling Baby Zombies spawning.
+ - For knockback restrictions (needing a weapon item to do knockback to entities)
 
 * Fixed being unable to shear sheep with Diamond Shears.
 

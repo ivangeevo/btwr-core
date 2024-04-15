@@ -59,6 +59,18 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.STRING)
                 .add(BTWR_Items.HEMP_FIBERS);
 
+        getOrCreateTagBuilder(BTWRTags.Items.NORMAL_LEATHERS)
+                .add(Items.LEATHER)
+                .add(BTWR_Items.LEATHER_CUT);
+
+        getOrCreateTagBuilder(BTWRTags.Items.SCOURED_LEATHERS)
+                .add(BTWR_Items.LEATHER_SCOURED)
+                .add(BTWR_Items.LEATHER_SCOURED_CUT);
+
+        getOrCreateTagBuilder(BTWRTags.Items.TANNED_LEATHERS)
+                .add(BTWR_Items.LEATHER_TANNED)
+                .add(BTWR_Items.LEATHER_TANNED_CUT);
+
 
 
 

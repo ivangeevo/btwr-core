@@ -49,6 +49,11 @@ public class BTWRTags {
         public static final TagKey<Item> WOOL_ITEMS = createTag("wool_items");
         public static final TagKey<Item> WOOL_KNIT_ITEMS = createTag("wool_knit_items");
 
+        public static final TagKey<Item> NORMAL_LEATHERS = createTag("normal_leathers");
+
+        public static final TagKey<Item> SCOURED_LEATHERS = createTag("scoured_leathers");
+        public static final TagKey<Item> TANNED_LEATHERS = createTag("tanned_leathers");
+
 
         public static final TagKey<Item> COOKED_EGGS = createTag("cooked_eggs");
         public static final TagKey<Item> FISH_FOR_FOOD = createTag("fish_for_food");

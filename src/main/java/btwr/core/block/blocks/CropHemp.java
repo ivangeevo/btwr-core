@@ -4,6 +4,7 @@ import btwr.core.block.BTWR_Blocks;
 import btwr.core.item.BTWR_Items;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -137,7 +138,7 @@ public class CropHemp extends ModCropBlock
                     float f;
                     // Check if there are crops in the adjacent north or south rows
                     // Check if the crop is attempting to grow (random chance)
-                    if (random.nextInt((int) (80 / (f = ModCropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0)
+                    if (random.nextInt((int) (25 / (f = ModCropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0)
                     {
                         // Check if there are crops in the adjacent north or south rows
 
