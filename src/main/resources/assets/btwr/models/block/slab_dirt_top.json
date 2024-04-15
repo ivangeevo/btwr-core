@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "btwr:block/dirt_loose",
-    "side": "btwr:block/dirt_loose",
-    "top": "btwr:block/dirt_loose"
-  }
-}

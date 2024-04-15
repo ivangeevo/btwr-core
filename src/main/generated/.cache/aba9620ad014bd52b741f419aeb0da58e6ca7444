@@ -1,0 +1,10 @@
+// 1.20.1	2024-04-14T00:11:07.7551512	BTWR:Core/Tags for minecraft:item
+db38d315a1412bcd63e66985de5ce0e2236b5f50 data\btwr\tags\items\axes_make_planks.json
+6fcdb1662302597fd94f531795525f8b434686e8 data\btwr\tags\items\clay_items.json
+ac9e850321aff304de63a6430c3925b0c74b6ba9 data\btwr\tags\items\shears.json
+fc7851ff545e76da0a507013dfe2358bf47e9616 data\btwr\tags\items\primitive_axes.json
+3d63e782965afc421d6aef84bfd19934a4d5d60b data\btwr\tags\items\normal_leathers.json
+e5dbb6529bec5c67f0dbcec044a9280fd85ba088 data\btwr\tags\items\do_knockback_items.json
+428fb3cee0e9aac23ba8d412d0e847b5a8cafa82 data\btwr\tags\items\scoured_leathers.json
+29078510981ac22cd241f448bd6117d176b5b276 data\btwr\tags\items\string_tool_materials.json
+612f9d7eb28193dca554b744875be1e90117e0ec data\btwr\tags\items\tanned_leathers.json

@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "unfired=true": [{ "model": "btwr:block/unfired_clay_brick" }],
-    "unfired=false": [{ "model": "btwr:block/clay_brick" }]
-  }
-}

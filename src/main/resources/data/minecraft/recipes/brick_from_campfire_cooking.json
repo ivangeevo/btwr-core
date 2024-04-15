@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 12000,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "btwr:brick_unfired"
+  },
+  "result": "minecraft:brick"
+}

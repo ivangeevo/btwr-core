@@ -13,33 +13,39 @@ package btwr.core.data.constants;
          * Blocks with this level do not require a tool to harvest.
          * <br>This is the default level for blocks and items.
          */
-        public static final int HAND = 0;
+        public static final int HAND = -1;
 
         /**
          * Blocks with this level require a Wooden tool or better to harvest.
          * <br>In addition to Wooden Tools, Golden Tools also use this level.
          */
-        public static final int WOOD = 1;
+        public static final int WOOD = 0;
 
         /**
          * Blocks with this level require a Stone tool or better to harvest.
          */
-        public static final int STONE = 2;
+        public static final int STONE = 1;
 
         /**
          * Blocks with this level require an Iron tool or better to harvest.
          */
-        public static final int IRON = 3;
+        public static final int IRON = 2;
 
-        /**
-         * Blocks with this level require a Steel tool or better to harvest.
-         */
-        public static final int STEEL = 5;
 
         /**
          * Blocks with this level require a Diamond tip tool to harvest.
          */
-        public static final int DIAMOND = 4;
+        public static final int DIAMOND = 3;
+
+        /**
+         * Blocks with this level require a Netherite tool or better to harvest.
+         */
+        public static final int NETHERITE = 4;
+
+        /**
+         * Blocks with this level require a Steel infused Netherite tool to harvest.
+         */
+        public static final int STEEL = 5;
 
         private BTWR_MiningLevels() {
         }

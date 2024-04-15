@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "btwr:club_wood",
+    "btwr:club_bone",
+    "#minecraft:swords",
+    "minecraft:trident",
+    "minecraft:bow",
+    "minecraft:crossbow",
+    "minecraft:iron_axe",
+    "minecraft:diamond_axe",
+    "minecraft:netherite_axe"
+  ]
+}
