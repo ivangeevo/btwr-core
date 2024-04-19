@@ -37,7 +37,8 @@ public abstract class ShapelessRecipeSerializerMixin {
     protected void writeBuf(PacketByteBuf packetByteBuf, ShapelessRecipe shapelessRecipe, CallbackInfo ci) {
         DefaultedList<ItemStack> secondaryDrops = ((ShapelessRecipeAdded) shapelessRecipe).getSecondaryOutput();
         packetByteBuf.writeVarInt(secondaryDrops.size());
-        for (ItemStack itemStack : secondaryDrops) {
+        for (ItemStack itemStack : secondaryDrops)
+        {
             packetByteBuf.writeItemStack(itemStack);
         }
     }
@@ -46,18 +47,25 @@ public abstract class ShapelessRecipeSerializerMixin {
         ShapelessRecipe shapelessRecipe = cir.getReturnValue();
         DefaultedList<ItemStack> defaultedList;
 
-        if (parameter instanceof JsonObject) {
-            try {
+        if (parameter instanceof JsonObject)
+        {
+            try
+            {
                 defaultedList = getSecondaryDrops(JsonHelper.getArray((JsonObject) parameter, "secondaryResult"));
-            } catch (JsonSyntaxException exception) {
+            }
+            catch (JsonSyntaxException exception)
+            {
                 defaultedList = DefaultedList.of();
             }
-        } else if (parameter instanceof PacketByteBuf) {
+        }
+        else if (parameter instanceof PacketByteBuf)
+        {
             int k = ((PacketByteBuf) parameter).readVarInt();
             defaultedList = DefaultedList.ofSize(k, ItemStack.EMPTY);
             defaultedList.replaceAll(ignored -> ((PacketByteBuf) parameter).readItemStack());
-        } else {
-            // Handle unsupported parameter type
+        }
+        else
+        {
             return;
         }
 
