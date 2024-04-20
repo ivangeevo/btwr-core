@@ -93,7 +93,7 @@ public class CropHemp extends ModCropBlock
     {
         player.addExhaustion(0.2F);
 
-        if (stack.isOf(Items.SHEARS))
+        if (stack.isOf(Items.SHEARS) || stack.isOf(BTWR_Items.DIAMOND_SHEARS))
         {
             // If the crop is fully grown, drop items
             dropStack(world, pos, new ItemStack(BTWR_Items.HEMP_LEAVES, 1));
@@ -138,7 +138,7 @@ public class CropHemp extends ModCropBlock
                     float f;
                     // Check if there are crops in the adjacent north or south rows
                     // Check if the crop is attempting to grow (random chance)
-                    if (random.nextInt((int) (25 / (f = ModCropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0)
+                    if (random.nextInt((int) (80 / (f = ModCropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0)
                     {
                         // Check if there are crops in the adjacent north or south rows
 

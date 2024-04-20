@@ -7,12 +7,11 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
-public class BTWRTags {
-
+public class BTWRTags
+{
 
     public static class Blocks
     {
-
 
 
         private static TagKey<Block> createTag (String name) {
@@ -54,7 +53,6 @@ public class BTWRTags {
         public static final TagKey<Item> SCOURED_LEATHERS = createTag("scoured_leathers");
         public static final TagKey<Item> TANNED_LEATHERS = createTag("tanned_leathers");
 
-
         public static final TagKey<Item> COOKED_EGGS = createTag("cooked_eggs");
         public static final TagKey<Item> FISH_FOR_FOOD = createTag("fish_for_food");
 
@@ -77,17 +75,6 @@ public class BTWRTags {
         private static TagKey<Item> createTag (String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(BTWRMod.MOD_ID, name));
         }
-    }
-
-    public static class Mineable
-    {
-        public static final TagKey<Block> CHISEL_MINEABLE = register("mineable/chisel");
-
-        private static TagKey<Block> register(String id)
-        {
-            return TagKey.of(RegistryKeys.BLOCK, new Identifier(BTWRMod.MOD_ID, id));
-        }
-
     }
 
 
