@@ -1,7 +1,7 @@
-// 1.20.1	2024-04-24T09:08:05.0395785	BTWR:Core/Tags for minecraft:item
+// 1.20.1	2024-04-24T16:24:53.4967625	BTWR:Core/Tags for minecraft:item
+29078510981ac22cd241f448bd6117d176b5b276 data\btwr\tags\items\string_tool_materials.json
 db38d315a1412bcd63e66985de5ce0e2236b5f50 data\btwr\tags\items\axes_make_planks.json
 fc7851ff545e76da0a507013dfe2358bf47e9616 data\btwr\tags\items\primitive_axes.json
-29078510981ac22cd241f448bd6117d176b5b276 data\btwr\tags\items\string_tool_materials.json
 677f9fb8aac3173cae9fa773fc7eac63ed1b4fec data\c\tags\items\primitive_shovels.json
 4143f25369fc887c428d0def462d6e12abda4f51 data\c\tags\items\advanced_hoes.json
 ac9e850321aff304de63a6430c3925b0c74b6ba9 data\btwr\tags\items\shears.json

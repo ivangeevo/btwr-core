@@ -1,5 +1,6 @@
 package btwr.core.block;
 
+import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
 import btwr.core.util.ItemUtils;
 import net.minecraft.block.Block;
@@ -10,6 +11,7 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.BlockHitResult;
@@ -26,10 +28,11 @@ public class BlockManager
 {
 
     public static void dropStacksInDirectionOr(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool) {
+
         if (world instanceof ServerWorld)
         {
 
-            if ((state.isIn(BTWRTags.Conventional.Blocks.VANILLA_CONVERTING_BLOCKS) || state.isIn(BTWRTags.Conventional.Blocks.MODDED_CONVERTING_BLOCKS))
+            if ((state.isIn(BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS) || state.isIn(BTWRConventionalTags.Blocks.MODDED_CONVERTING_BLOCKS))
                     && !BlockManager.isFullyBreakingTool(tool))
             {
                 ItemUtils.ejectStackFromBlockTowardsFacing(world, (PlayerEntity) entity, pos, state, blockEntity, tool, getBlockHitSide());
@@ -47,14 +50,13 @@ public class BlockManager
 
     public static boolean isFullyBreakingTool(ItemStack tool)
     {
-        return tool.isIn(BTWRTags.Conventional.Items.MODERN_PICKAXES)
-                || tool.isIn(BTWRTags.Conventional.Items.MODERN_PICKAXES)
-                || tool.isIn(BTWRTags.Conventional.Items.MODERN_AXES)
-                || tool.isIn(BTWRTags.Conventional.Items.MODERN_SHOVELS)
+        return tool.isOf(Items.STONE_AXE)
+                || tool.isIn(BTWRConventionalTags.Items.MODERN_PICKAXES)
+                || tool.isIn(BTWRConventionalTags.Items.MODERN_PICKAXES)
+                || tool.isIn(BTWRConventionalTags.Items.MODERN_AXES)
 
-                || tool.isIn(BTWRTags.Conventional.Items.ADVANCED_PICKAXES)
-                || tool.isIn(BTWRTags.Conventional.Items.ADVANCED_AXES)
-                || tool.isIn(BTWRTags.Conventional.Items.ADVANCED_SHOVELS);
+                || tool.isIn(BTWRConventionalTags.Items.ADVANCED_PICKAXES)
+                || tool.isIn(BTWRConventionalTags.Items.ADVANCED_AXES);
 
     }
 

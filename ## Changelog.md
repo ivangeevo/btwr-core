@@ -24,6 +24,8 @@ Most of that will happen in the BTWR Modpack itself.
  - For disabling Baby Zombies spawning.
  - For knockback restrictions (needing a weapon item to do knockback to entities)
 
++ Added Custom Conventional tags to handle interactions between the sidemods better.
+
 * Fixed being unable to shear sheep with Diamond Shears.
 
 + Brought back Wooden & Stone sword recipes.

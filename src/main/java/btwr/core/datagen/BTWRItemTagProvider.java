@@ -1,6 +1,7 @@
 package btwr.core.datagen;
 
 import btwr.core.item.BTWR_Items;
+import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -67,7 +68,7 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
     
     private void addToConventionalTags()
     {
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.DO_KNOCKBACK_ITEMS)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS)
 
                 // Clubs do knockback
                 .add(BTWR_Items.CLUB_WOOD)
@@ -87,53 +88,53 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.NETHERITE_AXE);
 
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.PRIMITIVE_PICKAXES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.PRIMITIVE_PICKAXES)
                 .add(Items.WOODEN_PICKAXE)
                 .add(Items.STONE_PICKAXE);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.MODERN_PICKAXES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.MODERN_PICKAXES)
                 .add(Items.IRON_PICKAXE)
                 .add(Items.GOLDEN_PICKAXE)
                 .add(Items.DIAMOND_PICKAXE);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.ADVANCED_PICKAXES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ADVANCED_PICKAXES)
                 .add(Items.NETHERITE_PICKAXE);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.PRIMITIVE_AXES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.PRIMITIVE_AXES)
                 .add(Items.WOODEN_AXE)
                 .add(Items.STONE_AXE);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.MODERN_AXES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.MODERN_AXES)
                 .add(Items.IRON_AXE)
                 .add(Items.GOLDEN_AXE)
                 .add(Items.DIAMOND_AXE);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.ADVANCED_AXES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ADVANCED_AXES)
                 .add(Items.NETHERITE_AXE);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.PRIMITIVE_SHOVELS)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.PRIMITIVE_SHOVELS)
                 .add(Items.WOODEN_SHOVEL)
                 .add(Items.STONE_SHOVEL);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.MODERN_SHOVELS)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.MODERN_SHOVELS)
                 .add(Items.IRON_SHOVEL)
                 .add(Items.GOLDEN_SHOVEL)
                 .add(Items.DIAMOND_SHOVEL)
                 .add(Items.NETHERITE_SHOVEL);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.ADVANCED_SHOVELS)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ADVANCED_SHOVELS)
                 .add(Items.NETHERITE_SHOVEL);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.PRIMITIVE_HOES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.PRIMITIVE_HOES)
                 .add(Items.WOODEN_HOE)
                 .add(Items.STONE_HOE);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.MODERN_HOES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.MODERN_HOES)
                 .add(Items.IRON_HOE)
                 .add(Items.GOLDEN_HOE)
                 .add(Items.DIAMOND_HOE);
 
-        getOrCreateTagBuilder(BTWRTags.Conventional.Items.ADVANCED_HOES)
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ADVANCED_HOES)
                 .add(Items.NETHERITE_HOE);
         }
 }

@@ -1,5 +1,6 @@
 package btwr.core.datagen;
 
+import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -21,8 +22,7 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg)
     {
-        getOrCreateTagBuilder(BTWRTags.Conventional.Blocks.VANILLA_CONVERTING_BLOCKS)
-                .forceAddTag(BlockTags.LOGS)
+        getOrCreateTagBuilder(BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS)
                 .forceAddTag(BlockTags.BIRCH_LOGS)
                 .forceAddTag(BlockTags.SPRUCE_LOGS)
                 .forceAddTag(BlockTags.JUNGLE_LOGS)
