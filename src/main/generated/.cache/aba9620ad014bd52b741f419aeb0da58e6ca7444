@@ -1,0 +1,22 @@
+// 1.20.1	2024-04-24T09:08:05.0395785	BTWR:Core/Tags for minecraft:item
+db38d315a1412bcd63e66985de5ce0e2236b5f50 data\btwr\tags\items\axes_make_planks.json
+fc7851ff545e76da0a507013dfe2358bf47e9616 data\btwr\tags\items\primitive_axes.json
+29078510981ac22cd241f448bd6117d176b5b276 data\btwr\tags\items\string_tool_materials.json
+677f9fb8aac3173cae9fa773fc7eac63ed1b4fec data\c\tags\items\primitive_shovels.json
+4143f25369fc887c428d0def462d6e12abda4f51 data\c\tags\items\advanced_hoes.json
+ac9e850321aff304de63a6430c3925b0c74b6ba9 data\btwr\tags\items\shears.json
+96a7dc799e8632b8de2002604dcad26b97a9a149 data\c\tags\items\advanced_axes.json
+6fcdb1662302597fd94f531795525f8b434686e8 data\btwr\tags\items\clay_items.json
+612f9d7eb28193dca554b744875be1e90117e0ec data\btwr\tags\items\tanned_leathers.json
+c6f89b272ffea124fc5fff0d5f7685e659e02478 data\c\tags\items\primitive_pickaxes.json
+e5dbb6529bec5c67f0dbcec044a9280fd85ba088 data\c\tags\items\do_knockback_items.json
+2dc222f54a8345194699f460d3adeb46ebb46cf2 data\c\tags\items\advanced_pickaxes.json
+c5f91126d870f8198ebdf93d4759d5f77dc68bd5 data\c\tags\items\primitive_hoes.json
+0c538899e58ad1cd539b5d2a54e88ec3b9f92fd8 data\c\tags\items\advanced_shovels.json
+fc7851ff545e76da0a507013dfe2358bf47e9616 data\c\tags\items\primitive_axes.json
+fa05a36a55760bd8e5d228213512e71d80b05990 data\c\tags\items\modern_axes.json
+2babcdfc3142699ebc541487e4ccad30d6348c57 data\c\tags\items\modern_pickaxes.json
+3d63e782965afc421d6aef84bfd19934a4d5d60b data\btwr\tags\items\normal_leathers.json
+e05f03ade4f312734c4f45e9c10a3f71c4022b62 data\c\tags\items\modern_hoes.json
+428fb3cee0e9aac23ba8d412d0e847b5a8cafa82 data\btwr\tags\items\scoured_leathers.json
+01f8856dfed20fc4e1d4f3783f26013446cb5770 data\c\tags\items\modern_shovels.json
