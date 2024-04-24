@@ -27,6 +27,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Supplier;
 
+import static net.minecraft.block.Block.dropStack;
+
 public class ItemUtils
 {
 
@@ -103,57 +105,41 @@ public class ItemUtils
     }
 
     // TODO: Fix stacks dropping in random places sometimes when broken.
-    static public void ejectStackFromBlockTowardsFacing(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack, Direction direction)
-    {
+    static public void ejectStackFromBlockTowardsFacing(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack, Direction direction) {
 
-        Vec3d ejectPos = new Vec3d(
-                world.getRandom().nextDouble() * 0.7D + 0.15D,
-                1.2D + world.getRandom().nextDouble() * 0.1D,
-                world.getRandom().nextDouble() * 0.7D + 0.15D);
+        Direction miningDirection = VectorUtils.getMiningDirection(player, world, pos);
 
-        // Tilting of the ejectPos should happen here
-        ejectPos = VectorUtils.tiltVector(ejectPos, direction.getId());
-
-        for (ItemStack droppedItems : Block.getDroppedStacks(state, (ServerWorld) world, pos, blockEntity)) {
-            ItemEntity entity = new ItemEntity(world, pos.getX() + ejectPos.getX(), pos.getY() + ejectPos.getY(), pos.getZ() + ejectPos.getZ(), droppedItems);
-
-            spawnItemEntity(world, () -> entity, direction.getOpposite());
+        for (ItemStack droppedItems : Block.getDroppedStacks(state, (ServerWorld) world, pos, blockEntity, player, stack))
+        {
+            dropStack(world, pos, miningDirection, droppedItems);
         }
 
-
-        state.onStacksDropped((ServerWorld) world, pos, stack, false);
+        state.onStacksDropped((ServerWorld) world, pos, stack, true);
     }
+
 
     private static void spawnItemEntity(World world, Supplier<ItemEntity> itemEntitySupplier, Direction direction) {
         ItemEntity entity = itemEntitySupplier.get();
+        Vec3d ejectVel;
 
-        int iFacing = direction.getId();
-
-        if (iFacing < 2) {
-            entity.lastRenderX = world.getRandom().nextDouble() * 0.1D - 0.05D;
-            entity.lastRenderZ = world.getRandom().nextDouble() * 0.1D - 0.05D;
-
-            if (iFacing == 0) {
-                entity.lastRenderY = 0D;
-            } else {
-                entity.lastRenderY = 0.2D;
-            }
-
+        if (direction.getAxis().isVertical()) {
+            ejectVel = new Vec3d(
+                    world.getRandom().nextDouble() * 0.1D - 0.05D,
+                    0.2D,
+                    world.getRandom().nextDouble() * 0.1D - 0.05D
+            );
         } else {
-            Vec3d ejectVel = new Vec3d(world.getRandom().nextDouble() * 0.1D - 0.05D,
-                    0.2D, world.getRandom().nextDouble() * -0.05D - 0.05D);
-
-            ejectVel.rotateY(direction.getId());
-
-            entity.lastRenderX = ejectVel.x;
-            entity.lastRenderY = ejectVel.y;
-            entity.lastRenderZ = ejectVel.z;
+            ejectVel = new Vec3d(
+                    world.getRandom().nextDouble() * 0.1D - 0.05D,
+                    world.getRandom().nextDouble() * 0.1D - 0.05D,
+                    world.getRandom().nextDouble() * 0.1D - 0.05D
+            );
         }
 
+        ejectVel = ejectVel.normalize().multiply(0.2D);
 
+        entity.setVelocity(ejectVel.x, ejectVel.y, ejectVel.z);
         entity.setToDefaultPickupDelay();
-
-
         world.spawnEntity(entity);
     }
 

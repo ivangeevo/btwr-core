@@ -18,9 +18,9 @@ public abstract class BlockMixin
 {
 
     @Inject(method = "dropStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)V", at = @At("HEAD"), cancellable = true)
-    private static void injectedDropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool, CallbackInfo ci)
+    private static void customDropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool, CallbackInfo ci)
     {
-        BlockManager.dropStacksInDirectionOr(state, world, pos, blockEntity, entity, tool);
+        BlockManager.dropStacksInDirectionOrElse(state, world, pos, blockEntity, entity, tool);
         ci.cancel();
     }
 

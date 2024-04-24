@@ -1,7 +1,6 @@
 package btwr.core.block;
 
 import btwr.core.tag.BTWRConventionalTags;
-import btwr.core.tag.BTWRTags;
 import btwr.core.util.ItemUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -12,7 +11,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -27,7 +25,7 @@ import static net.minecraft.block.Block.getDroppedStacks;
 public class BlockManager
 {
 
-    public static void dropStacksInDirectionOr(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool) {
+    public static void dropStacksInDirectionOrElse(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool) {
 
         if (world instanceof ServerWorld)
         {
@@ -39,7 +37,7 @@ public class BlockManager
             }
             else
             {
-                Block.getDroppedStacks(state, (ServerWorld)world, pos, blockEntity, entity, tool).forEach(stack -> Block.dropStack(world, pos, stack));
+                Block.getDroppedStacks(state, (ServerWorld) world, pos, blockEntity, entity, tool).forEach(stack -> Block.dropStack(world, pos, stack));
                 state.onStacksDropped((ServerWorld)world, pos, tool, true);
             }
 

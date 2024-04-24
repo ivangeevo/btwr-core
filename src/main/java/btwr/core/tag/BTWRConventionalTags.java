@@ -44,6 +44,7 @@ public class BTWRConventionalTags
         public static final TagKey<Item> MODERN_AXES = createTag("modern_axes");
         public static final TagKey<Item> ADVANCED_AXES = createTag("advanced_axes");
 
+        public static final TagKey<Item> AXES_HARVEST_FULL_BLOCK = createTag("axes_harvest_full_block");
 
         public static final TagKey<Item> PRIMITIVE_SHOVELS = createTag("primitive_shovels");
         public static final TagKey<Item> MODERN_SHOVELS = createTag("modern_shovels");
@@ -53,6 +54,9 @@ public class BTWRConventionalTags
         public static final TagKey<Item> PRIMITIVE_HOES = createTag("primitive_hoes");
         public static final TagKey<Item> MODERN_HOES = createTag("modern_hoes");
         public static final TagKey<Item> ADVANCED_HOES = createTag("advanced_hoes");
+
+        public static final TagKey<Item> SHEARS = createTag("shears");
+
 
         /** Tag for items that should do knockback if the config for
          *  knockback restriction is turned on.
