@@ -43,13 +43,14 @@ public class BTWRConventionalTags
         public static final TagKey<Item> PRIMITIVE_AXES = createTag("primitive_axes");
         public static final TagKey<Item> MODERN_AXES = createTag("modern_axes");
         public static final TagKey<Item> ADVANCED_AXES = createTag("advanced_axes");
+        public static final TagKey<Item> AXES_MAKE_PLANKS = createTag("axes_make_planks");
 
         public static final TagKey<Item> AXES_HARVEST_FULL_BLOCK = createTag("axes_harvest_full_block");
 
         public static final TagKey<Item> PRIMITIVE_SHOVELS = createTag("primitive_shovels");
         public static final TagKey<Item> MODERN_SHOVELS = createTag("modern_shovels");
         public static final TagKey<Item> ADVANCED_SHOVELS = createTag("advanced_shovels");
-
+        public static final TagKey<Item> SHOVELS_HARVEST_FULL_BLOCK = createTag("shovels_harvest_full_block");
 
         public static final TagKey<Item> PRIMITIVE_HOES = createTag("primitive_hoes");
         public static final TagKey<Item> MODERN_HOES = createTag("modern_hoes");

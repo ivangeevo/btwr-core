@@ -42,6 +42,21 @@ public abstract class ShearsItemMixin extends Item
         }
     }
 
+    // Adds remainder logic so the item doesn't get consumed on crafting.
+    @Override
+    public ItemStack getRecipeRemainder(ItemStack stack)
+    {
+        if (stack.getDamage() < stack.getMaxDamage() - 1)
+        {
+            ItemStack moreDamaged = stack.copy();
+            moreDamaged.setDamage(stack.getDamage() + 1);
+            return moreDamaged;
+        }
+
+        return ItemStack.EMPTY;
+
+    }
+
     @Inject(method = "isSuitableFor", at = @At("RETURN"), cancellable = true)
     private void injectedCustomBlocks(BlockState state, CallbackInfoReturnable<Boolean> cir)
     {

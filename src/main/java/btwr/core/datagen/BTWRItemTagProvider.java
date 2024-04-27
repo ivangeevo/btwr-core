@@ -33,15 +33,8 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.SHEARS)
                 .add(BTWR_Items.DIAMOND_SHEARS);
 
-        getOrCreateTagBuilder(BTWRTags.Items.AXES_MAKE_PLANKS)
-                .add(Items.IRON_AXE)
-                .add(Items.DIAMOND_AXE)
-                .add(Items.GOLDEN_AXE)
-                .add(Items.NETHERITE_AXE);
 
-        getOrCreateTagBuilder(BTWRTags.Items.PRIMITIVE_AXES)
-                .add(Items.WOODEN_AXE)
-                .add(Items.STONE_AXE);
+
 
 
         getOrCreateTagBuilder(BTWRTags.Items.CLAY_ITEMS)
@@ -111,6 +104,11 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ADVANCED_AXES)
                 .add(Items.NETHERITE_AXE);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.AXES_MAKE_PLANKS)
+                .add(Items.IRON_AXE)
+                .add(Items.DIAMOND_AXE)
+                .addTag(BTWRConventionalTags.Items.ADVANCED_AXES);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.PRIMITIVE_HOES)
                 .add(Items.WOODEN_HOE)
