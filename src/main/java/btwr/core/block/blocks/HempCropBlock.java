@@ -91,6 +91,13 @@ public class HempCropBlock extends CropBlock {
     }
 
 
+    // TODO: Fix being able to plant itself on top of a fully grown lower part...
+    // TODO: Or find another way to make the plant persistent on top of the lower part.
+    @Override
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        return super.canPlaceAt(state, world, pos) ||
+                ( world.getBlockState( pos.down() ) == this.withAge(7) && !getIsTopBlock(world, pos.down()) );
+    }
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
@@ -135,11 +142,7 @@ public class HempCropBlock extends CropBlock {
 
     }
 
-    @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return super.canPlaceAt(state, world, pos) ||
-                ( world.getBlockState( pos.down() ) == this.withAge(7) && !getIsTopBlock(world, pos.down()) );
-    }
+
 
     protected void incrementGrowthLevel(World world, BlockPos pos, BlockState state)
     {
