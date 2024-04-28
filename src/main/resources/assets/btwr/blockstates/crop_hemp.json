@@ -8,6 +8,6 @@
     "age=5,top=false": {"model": "btwr:block/hemp_stage5"},
     "age=6,top=false": {"model": "btwr:block/hemp_stage6"},
     "age=7,top=false": {"model": "btwr:block/hemp_stage7"},
-    "age=7,top=true": {"model": "btwr:block/hemp_stage8"}
+    "age=8,top=true": {"model": "btwr:block/hemp_stage8"}
   }
 }

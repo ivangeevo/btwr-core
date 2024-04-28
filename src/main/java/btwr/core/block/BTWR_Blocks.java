@@ -3,6 +3,7 @@ package btwr.core.block;
 import btwr.core.BTWRMod;
 import btwr.core.block.blocks.CompanionCube;
 import btwr.core.block.blocks.HempCropBlock;
+import btwr.core.block.blocks.OldHempCropBlock;
 import btwr.core.block.blocks.LightBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
