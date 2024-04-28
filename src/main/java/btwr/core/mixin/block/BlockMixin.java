@@ -1,6 +1,7 @@
 package btwr.core.mixin.block;
 
 import btwr.core.block.BlockManager;
+import btwr.core.block.interfaces.BlockAdded;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -14,8 +15,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Block.class)
-public abstract class BlockMixin
+public abstract class BlockMixin implements BlockAdded
 {
+
+
 
     @Inject(method = "dropStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)V", at = @At("HEAD"), cancellable = true)
     private static void customDropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool, CallbackInfo ci)
@@ -24,5 +27,22 @@ public abstract class BlockMixin
         ci.cancel();
     }
 
+    @Override
+    public void notifyOfFullStagePlantGrowthOn(World world, BlockPos pos, Block plantBlock)
+    {
+    }
 
+    /**
+     * This is used by old style non-daily plant growth
+     */
+    @Override
+    public float getPlantGrowthOnMultiplier(World world, BlockPos pos, Block plantBlock)
+    {
+        return 1F;
+    }
+    @Override
+    public boolean isBlockHydratedForPlantGrowthOn(World world, BlockPos pos)
+    {
+        return false;
+    }
 }

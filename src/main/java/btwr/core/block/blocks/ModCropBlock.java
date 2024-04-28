@@ -25,69 +25,15 @@ import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class ModCropBlock
-        extends PlantBlock
+        extends CropBlock
         implements Fertilizable {
-    public static final int MAX_AGE = 7;
-    public static final IntProperty AGE = Properties.AGE_7;
-    private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 4.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 6.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 10.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 14.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0)};
+
 
     public ModCropBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(this.getAgeProperty(), 0));
     }
 
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return AGE_TO_SHAPE[state.get(this.getAgeProperty())];
-    }
-
-
-    public IntProperty getAgeProperty() {
-        return AGE;
-    }
-
-    public int getMaxAge() {
-        return 7;
-    }
-
-    protected int getAge(BlockState state) {
-        return state.get(this.getAgeProperty());
-    }
-
-    public BlockState withAge(int age) {
-        return this.getDefaultState().with(this.getAgeProperty(), age);
-    }
-
-    public boolean isMature(BlockState state) {
-        return state.get(this.getAgeProperty()) >= this.getMaxAge();
-    }
-
-    @Override
-    public boolean hasRandomTicks(BlockState state) {
-        return !this.isMature(state);
-    }
-
-    @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        float f;
-        int i;
-        if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) < this.getMaxAge() && random.nextInt((int) (25.0f / (f = ModCropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0) {
-            world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
-        }
-    }
-
-    public void applyGrowth(World world, BlockPos pos, BlockState state) {
-        int j;
-        int i = this.getAge(state) + this.getGrowthAmount(world);
-        if (i > (j = this.getMaxAge())) {
-            i = j;
-        }
-        world.setBlockState(pos, this.withAge(i), Block.NOTIFY_LISTENERS);
-    }
-
-    protected int getGrowthAmount(World world) {
-        return MathHelper.nextInt(world.random, 2, 5);
-    }
 
     protected static float getAvailableMoisture(Block block, BlockView world, BlockPos pos) {
         boolean bl2;
@@ -179,18 +125,5 @@ public abstract class ModCropBlock
         builder.add(AGE);
     }
 
-
-    public float getPlantGrowthOnMultiplier(World world, BlockPos pos, Block plantBlock) {
-        return 1F;
-    }
-
-    public void notifyOfFullStagePlantGrowthOn(World world, BlockPos pos, Block plantBlock)
-    {
-    }
-
-    @Override
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
-        player.addExhaustion(0.2F);
-    }
 }
 

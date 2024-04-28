@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "block.BlockMixin",
+    "block.FarmlandBlockMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
     "entity.PlayerEntityMixin",
