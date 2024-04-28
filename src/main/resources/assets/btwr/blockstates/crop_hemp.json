@@ -1,5 +1,6 @@
 {
   "variants": {
+
     "age=0,top=false": {"model": "btwr:block/hemp_stage0"},
     "age=1,top=false": {"model": "btwr:block/hemp_stage1"},
     "age=2,top=false": {"model": "btwr:block/hemp_stage2"},
@@ -8,6 +9,7 @@
     "age=5,top=false": {"model": "btwr:block/hemp_stage5"},
     "age=6,top=false": {"model": "btwr:block/hemp_stage6"},
     "age=7,top=false": {"model": "btwr:block/hemp_stage7"},
-    "age=8,top=true": {"model": "btwr:block/hemp_stage8"}
+    "top=true": {"model": "btwr:block/hemp_stage8"}
+
   }
 }

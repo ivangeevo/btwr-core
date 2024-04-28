@@ -25,13 +25,15 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
+import static btwr.core.block.blocks.LightBlock.LIT;
+
 public class HempCropBlock extends CropBlock {
     public static final BooleanProperty TOP = BooleanProperty.of("top");
-    public static final IntProperty AGE = IntProperty.of("age", 0, 8);
+    public static final IntProperty AGE = IntProperty.of("age", 0, 7);
 
     public HempCropBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(this.getAgeProperty(), 0).with(TOP, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(TOP, false));
     }
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{
@@ -43,7 +45,6 @@ public class HempCropBlock extends CropBlock {
             Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 10.0, 11.0),
             Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 12.0, 11.0),
             Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 14.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 16.0, 11.0),
             Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 16.0, 11.0)
 
     };
@@ -51,7 +52,7 @@ public class HempCropBlock extends CropBlock {
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
     {
-        return AGE_TO_SHAPE[state.get(this.getAgeProperty())];
+        return AGE_TO_SHAPE[state.get(AGE)];
     }
 
     @Override
@@ -69,18 +70,6 @@ public class HempCropBlock extends CropBlock {
     @Override
     public int getMaxAge() {
         return 8;
-    }
-
-    protected IntProperty getAgeProperty() {
-        return AGE;
-    }
-
-    @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos)
-    {
-        return super.canPlaceAt(state, world, pos) ||
-                ( world.getBlockState( pos.down() ) == this.getDefaultState() && !getIsTopBlock(world, pos.down()) );
-
     }
 
     @Override
@@ -103,25 +92,22 @@ public class HempCropBlock extends CropBlock {
 
 
 
-
-
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 
-        if (!getIsTopBlock(world, pos) &&
-               /** getWeedsGrowthLevel(world, pos) == 0 && **/
-                ( world.getLightLevel(pos) >= 15 || hasLightBlockAbove(world, pos) ) )
+        if (!getIsTopBlock(world, pos) && isValidLightSourceAbove(world, pos)
+        /** && getWeedsGrowthLevel(world, pos) == 0 **/ )
         {
-            BlockState blockBelowPlant = world.getBlockState(pos.down());
+            Block blockBelowPlant = world.getBlockState(pos.down()).getBlock();
 
-            if ( blockBelowPlant != null &&  ((BlockAdded)blockBelowPlant.getBlock()).isBlockHydratedForPlantGrowthOn(world, pos.down()) )
+            if ( blockBelowPlant != null &&  ((BlockAdded)blockBelowPlant).isBlockHydratedForPlantGrowthOn(world, pos.down()) )
             {
                 // only the base of the plants grows, and only does if its on hydrated soil
 
-                if (state.get(AGE) < 7 )
+                if (state.get(AGE) < 7)
                 {
                     float fChanceOfGrowth = getBaseGrowthChance() *
-                            ((BlockAdded)blockBelowPlant.getBlock()).getPlantGrowthOnMultiplier(world, pos.down(), this);
+                            ((BlockAdded)blockBelowPlant).getPlantGrowthOnMultiplier(world, pos.down(), this);
 
                     if ( random.nextFloat() <= fChanceOfGrowth )
                     {
@@ -133,15 +119,14 @@ public class HempCropBlock extends CropBlock {
                     // check for growth of top block
 
                     float fChanceOfGrowth = (getBaseGrowthChance() / 4F ) *
-                            ((BlockAdded)blockBelowPlant.getBlock()).getPlantGrowthOnMultiplier(world, pos.down(), this);
+                            ((BlockAdded)blockBelowPlant).getPlantGrowthOnMultiplier(world, pos.down(), this);
 
                     if ( random.nextFloat() <= fChanceOfGrowth )
                     {
                         // top of the plant
-                        world.setBlockState( pos.up(), state.with(AGE, 8).with(TOP, true),3 );
+                        world.setBlockState( pos.up(), state.with(TOP, true),3);
 
-
-                        ((BlockAdded)blockBelowPlant.getBlock()).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
+                        ((BlockAdded)blockBelowPlant).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
                         //replace(blockBelowPlant, Blocks.FARMLAND.getDefaultState(), world, pos, 33 );
                     }
                 }
@@ -150,6 +135,11 @@ public class HempCropBlock extends CropBlock {
 
     }
 
+    @Override
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        return super.canPlaceAt(state, world, pos) ||
+                ( world.getBlockState( pos.down() ) == this.withAge(7) && !getIsTopBlock(world, pos.down()) );
+    }
 
     protected void incrementGrowthLevel(World world, BlockPos pos, BlockState state)
     {
@@ -157,20 +147,16 @@ public class HempCropBlock extends CropBlock {
 
         world.setBlockState(pos, state.with(AGE, iGrowthLevel));
 
-        if (state.get(AGE) == 7 || state.get(AGE) == 8)
+        if (state.get(AGE) == 7)
         {
-            BlockState belowState = world.getBlockState(pos.down());
-
-            if ( belowState != null )
-            {
-                ((BlockAdded)belowState.getBlock()).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
-            }
+            Block blockBelow = world.getBlockState(pos.down()).getBlock();
+            ((BlockAdded) blockBelow).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
         }
     }
 
 
 
-    //  Helper method to check if a block is TALL for a specific state more easily.
+    /**  Helper method to check if a block is TOP for a specific position more easily. **/
     protected boolean getIsTopBlock(BlockState state)
     {
         return state.get(TOP);
@@ -180,42 +166,51 @@ public class HempCropBlock extends CropBlock {
     {
         return getIsTopBlock(blockAccess.getBlockState(pos));
     }
+
+    protected BlockState setIsTopBlock(BlockState state, boolean bTop)
+    {
+        int age = state.get(AGE);
+
+        if ( bTop )
+        {
+            age |= 8;
+        }
+        else
+        {
+            age &= (~8);
+        }
+
+        return state.with(AGE, age);
+    }
     // ------------------- /
 
-    private boolean hasLightBlockAbove(World world, BlockPos pos)
+    private boolean isValidLightSourceAbove(World world, BlockPos pos)
     {
-        boolean isAbove = world.getBlockState(pos.up(1)).isOf(BTWR_Blocks.LIGHTBLOCK.getDefaultState().with(LightBlock.LIT, true).getBlock());
-        boolean isTwoAbove = world.getBlockState(pos.up(2)).isOf(BTWR_Blocks.LIGHTBLOCK.getDefaultState().with(LightBlock.LIT, true).getBlock());
+        BlockState lightBlockLit = BTWR_Blocks.LIGHTBLOCK.getDefaultState().with(LIT, true);
+        boolean isAbove = world.getBlockState(pos.up(1)).isOf(lightBlockLit.getBlock());
+        boolean isTwoAbove = world.getBlockState(pos.up(2)).isOf(lightBlockLit.getBlock());
 
-        return isAbove || isTwoAbove;
-
+        return (isAbove || isTwoAbove) || world.getLightLevel(pos) >= 15 ;
     }
 
     private float getBaseGrowthChance()
     {
-        return 0.1F;
+        return 185.1F;
     }
 
 
     private void checkForAdjacentToSlow(World world, BlockPos pos, BlockState state, Random random)
     {
-
         int age = state.get(AGE);
 
         if (hasCropsAdjacentOnEitherSides(world, pos))
         {
-            /**
             // Slow down growth by 40%
             if (random.nextFloat() < 0.4)
             {
-             **/
                 world.setBlockState(pos, state.with(AGE, age + 1));
-            /**
             }
-             **/
-
         }
-
     }
 
     // Check if there are crops in the adjacent north or south rows
