@@ -93,10 +93,11 @@ public class HempCropBlock extends CropBlock {
 
     // TODO: Fix being able to plant itself on top of a fully grown lower part...
     // TODO: Or find another way to make the plant persistent on top of the lower part.
+    // Most likely fixed by the last condition to check asItem but still double check...
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return super.canPlaceAt(state, world, pos) ||
-                ( world.getBlockState( pos.down() ) == this.withAge(7) && !getIsTopBlock(world, pos.down()) );
+                ( world.getBlockState( pos.down() ) == this.withAge(7) && !getIsTopBlock(world, pos.down() ) && world.getBlockState(pos).getBlock().asItem() == this.asItem() );
     }
 
     @Override
@@ -198,11 +199,11 @@ public class HempCropBlock extends CropBlock {
 
     private float getBaseGrowthChance()
     {
-        return 185.1F;
+        return 0.1F;
     }
 
 
-    private void checkForAdjacentToSlow(World world, BlockPos pos, BlockState state, Random random)
+    private void checkIfShouldSlowGrowth(World world, BlockPos pos, BlockState state, Random random)
     {
         int age = state.get(AGE);
 
