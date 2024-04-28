@@ -25,7 +25,6 @@ public class BTWRMod implements ModInitializer
     public static final Logger LOGGER = LoggerFactory.getLogger("btwr");
     public BTWRSettings settings;
     private static BTWRMod instance;
-
     public static BTWRMod getInstance() {
         return instance;
     }
@@ -45,33 +44,45 @@ public class BTWRMod implements ModInitializer
 
     }
 
-    public void loadSettings() {
+    public void loadSettings()
+    {
         File file = new File("./config/btwr/btwrCommon.json");
         Gson gson = new Gson();
-        if (file.exists()) {
-            try {
+        if (file.exists())
+        {
+            try
+            {
                 FileReader fileReader = new FileReader(file);
                 settings = gson.fromJson(fileReader, BTWRSettings.class);
                 fileReader.close();
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 LOGGER.warn("Could not load btwr settings: " + e.getLocalizedMessage());
             }
-        } else {
+        }
+        else
+        {
             settings = new BTWRSettings();
         }
     }
 
-    public void saveSettings() {
+    public void saveSettings()
+    {
         Gson gson = new Gson();
         File file = new File("./config/btwr/btwrCommon.json");
-        if (!file.getParentFile().exists()) {
+        if (!file.getParentFile().exists())
+        {
             file.getParentFile().mkdir();
         }
-        try {
+        try
+        {
             FileWriter fileWriter = new FileWriter(file);
             fileWriter.write(gson.toJson(settings));
             fileWriter.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             LOGGER.warn("Could not save btwr settings: " + e.getLocalizedMessage());
         }
     }

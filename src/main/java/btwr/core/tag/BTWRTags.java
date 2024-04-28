@@ -7,15 +7,14 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
-public class BTWRTags {
-
+public class BTWRTags
+{
 
     public static class Blocks
     {
 
 
-
-        private static TagKey<Block> createTag (String name) {
+        private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, new Identifier(BTWRMod.MOD_ID, name));
         }
     }
@@ -31,12 +30,8 @@ public class BTWRTags {
          * to all other BTWR sidemods to add their items.
          * This can't be done with datagen as not all items are present in this project. **/
         // ---------- TAGS THAT DON'T GENERATE ---------- //
-        public static final TagKey<Item> MEDIUM_VALUE_FUELS = createTag("medium_value_fuels");
-        public static final TagKey<Item> LOW_VALUE_FUELS = createTag("low_value_fuels");
 
 
-        // Item Tag for items that should do knockback if the config for knockback restriction is turned on.
-        public static final TagKey<Item> DO_KNOCKBACK_ITEMS = createTag("do_knockback_items");
 
 
 
@@ -54,18 +49,14 @@ public class BTWRTags {
         public static final TagKey<Item> SCOURED_LEATHERS = createTag("scoured_leathers");
         public static final TagKey<Item> TANNED_LEATHERS = createTag("tanned_leathers");
 
-
         public static final TagKey<Item> COOKED_EGGS = createTag("cooked_eggs");
         public static final TagKey<Item> FISH_FOR_FOOD = createTag("fish_for_food");
 
         public static final TagKey<Item> BARK_ITEMS = createTag("bark_items");
 
         public static final TagKey<Item> PICKAXES = createTag("pickaxes");
-        public static final TagKey<Item> PRIMITIVE_CHISELS = createTag("primitive_chisels");
-        public static final TagKey<Item> MODERN_CHISELS = createTag("modern_chisels");
         public static final TagKey<Item> MODERN_PICKAXES = createTag("modern_pickaxes");
         public static final TagKey<Item> PRIMITIVE_AXES = createTag("primitive_axes");
-        public static final TagKey<Item> AXES_MAKE_PLANKS = createTag("axes_make_planks");
         public static final TagKey<Item> PIG_BREEDING_ITEMS = createTag("pig_breeding_items");
         public static final TagKey<Item> PIG_TEMPT_ITEMS = createTag("pig_tempt_items");
 
@@ -77,17 +68,6 @@ public class BTWRTags {
         private static TagKey<Item> createTag (String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(BTWRMod.MOD_ID, name));
         }
-    }
-
-    public static class Mineable
-    {
-        public static final TagKey<Block> CHISEL_MINEABLE = register("mineable/chisel");
-
-        private static TagKey<Block> register(String id)
-        {
-            return TagKey.of(RegistryKeys.BLOCK, new Identifier(BTWRMod.MOD_ID, id));
-        }
-
     }
 
 

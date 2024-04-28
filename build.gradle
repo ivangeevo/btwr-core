@@ -10,6 +10,39 @@ base {
     archivesName = project.archives_base_name
 }
 
+def dataOutput = 'src/main/generated'
+
+loom {
+    runs {
+        //
+        // This adds a new gradle task that runs the datagen API: "gradlew runDatagenClient"
+        //
+        datagenClient {
+            inherit client
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file(dataOutput)}"
+            vmArg "-Dfabric-api.datagen.modid=btwr"
+
+            runDir "build/datagen"
+        }
+    }
+}
+
+
+//
+// Adds the generated files into the jar you distribute to players.
+//
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    'src/main/generated'
+            ]
+        }
+    }
+}
+
 repositories {
 
     maven { url "https://maven.shedaniel.me/" }
@@ -43,7 +76,7 @@ processResources {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version
-    }
+            }
 
 
     inputs.property "config", files("src/main/resources/btwr-core.mixins.json")
@@ -101,38 +134,7 @@ publishing {
     }
 
 
-    def dataOutput = 'src/main/generated'
-
-    loom {
-        runs {
-            //
-            // This adds a new gradle task that runs the datagen API: "gradlew runDatagenClient"
-            //
-            datagenClient {
-                inherit client
-                name "Data Generation"
-                vmArg "-Dfabric-api.datagen"
-                vmArg "-Dfabric-api.datagen.output-dir=${file(dataOutput)}"
-                vmArg "-Dfabric-api.datagen.modid=btwr"
-
-                runDir "build/datagen"
-            }
-        }
-    }
-
-
-    //
-// Adds the generated files into the jar you distribute to players.
-//
-    sourceSets {
-        main {
-            resources {
-                srcDirs += [
-                        'src/main/generated'
-                ]
-            }
-        }
-    }
+    
 
 
 }

@@ -2,8 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:iron_axe",
-    "minecraft:diamond_axe",
     "minecraft:golden_axe",
-    "minecraft:netherite_axe"
+    "minecraft:diamond_axe"
   ]
 }

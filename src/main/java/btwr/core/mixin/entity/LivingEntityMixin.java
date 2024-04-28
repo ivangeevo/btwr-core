@@ -4,6 +4,7 @@ import btwr.core.BTWRMod;
 import btwr.core.config.BTWRSettings;
 import btwr.core.config.SettingsGUI;
 import btwr.core.item.items.ClubItem;
+import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -37,7 +38,7 @@ public abstract class LivingEntityMixin
             {
                 ItemStack weaponStack = player.getMainHandStack();
 
-                if (!weaponStack.isIn(BTWRTags.Items.DO_KNOCKBACK_ITEMS))
+                if (!weaponStack.isIn(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS))
                 {
                     ci.cancel();
                 }

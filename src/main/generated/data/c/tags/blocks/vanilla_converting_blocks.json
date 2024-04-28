@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:birch_logs",
+    "#minecraft:spruce_logs",
+    "#minecraft:jungle_logs",
+    "#minecraft:acacia_logs",
+    "#minecraft:dark_oak_logs",
+    "#minecraft:mangrove_logs",
+    "#minecraft:cherry_logs",
+    "#minecraft:coal_ores",
+    "#minecraft:iron_ores",
+    "#minecraft:copper_ores",
+    "#minecraft:gold_ores",
+    "#minecraft:lapis_ores",
+    "#minecraft:redstone_ores",
+    "#minecraft:diamond_ores",
+    "#minecraft:emerald_ores",
+    "#minecraft:base_stone_overworld",
+    "#minecraft:base_stone_nether"
+  ]
+}
