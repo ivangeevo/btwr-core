@@ -22,32 +22,21 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 import static btwr.core.block.blocks.LightBlock.LIT;
 
+// TODO: Fix 2nd part of the block not growing.
 public class HempCropBlock extends CropBlock {
     public static final BooleanProperty TOP = BooleanProperty.of("top");
-    public static final IntProperty AGE = IntProperty.of("age", 0, 7);
+    public static final IntProperty AGE = IntProperty.of("age", 0, 8);
 
     public HempCropBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(TOP, false));
     }
-
-    private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{
-            // Define VoxelShapes for each stage from 0 to 8
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 2.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 4.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 6.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 8.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 10.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 12.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 14.0, 11.0),
-            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 16.0, 11.0)
-
-    };
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
@@ -56,10 +45,19 @@ public class HempCropBlock extends CropBlock {
     }
 
     @Override
+    public int getMaxAge() {
+        return 8;
+    }
+
+    @Override
+    protected IntProperty getAgeProperty() {
+        return AGE;
+    }
+
+    @Override
     protected ItemConvertible getSeedsItem() {
         return BTWR_Items.HEMP_SEEDS;
     }
-
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
@@ -68,21 +66,15 @@ public class HempCropBlock extends CropBlock {
     }
 
     @Override
-    public int getMaxAge() {
-        return 8;
-    }
-
-    @Override
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
 
-        super.afterBreak(world, player, pos, state, blockEntity, stack);
 
         if (stack.getItem() instanceof ShearsItem && player.getEquippedStack(EquipmentSlot.MAINHAND) != null) {
             // If the crop is fully grown, drop items
             dropStack(world, pos, new ItemStack(BTWR_Items.HEMP_LEAVES, 1));
 
-            // Generate a random number of hemp seeds between 0 and 2
-            int numHempSeeds = world.getRandom().nextInt(3); // Generates a number between 0 and 2 (inclusive)
+            // Generate a random number of hemp seeds between 0 and 1
+            int numHempSeeds = world.getRandom().nextInt(2); // Generates a number between 0 and 1 (inclusive)
 
             for (int i = 0; i < numHempSeeds; i++) {
                 dropStack(world, pos, new ItemStack(BTWR_Items.HEMP_SEEDS, 1));
@@ -90,32 +82,38 @@ public class HempCropBlock extends CropBlock {
         }
     }
 
-
     // TODO: Fix being able to plant itself on top of a fully grown lower part...
     // TODO: Or find another way to make the plant persistent on top of the lower part.
-    // Most likely fixed by the last condition to check asItem but still double check...
+    // maybe needs to check asItem but still double check... also it could not be growing because the spot is not valid to place on...
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return super.canPlaceAt(state, world, pos) ||
-                ( world.getBlockState( pos.down() ) == this.withAge(7) && !getIsTopBlock(world, pos.down() ) && world.getBlockState(pos).getBlock().asItem() == this.asItem() );
+                ( world.getBlockState( pos.down() ) == this.withAge(7) && !getIsTopBlock(world, pos.down() ) ) && world.getBlockState(pos).getBlock().asItem() == this.asItem();
     }
 
+
+
+
+
+    // TODO: Fix block not growing it's top part.
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 
-        if (!getIsTopBlock(world, pos) && isValidLightSourceAbove(world, pos)
-        /** && getWeedsGrowthLevel(world, pos) == 0 **/ )
+        if (!getIsTopBlock(world, pos)
+                && isValidLightSourceAbove(world, pos)
+        /**     && getWeedsGrowthLevel(world, pos) == 0 **/ )
         {
-            Block blockBelowPlant = world.getBlockState(pos.down()).getBlock();
+            Block blockBelow = world.getBlockState(pos.down()).getBlock();
 
-            if ( blockBelowPlant != null &&  ((BlockAdded)blockBelowPlant).isBlockHydratedForPlantGrowthOn(world, pos.down()) )
+            if ( blockBelow != null &&
+                    ((BlockAdded)blockBelow).isBlockHydratedForPlantGrowthOn(world, pos.down()) )
             {
                 // only the base of the plants grows, and only does if its on hydrated soil
 
-                if (state.get(AGE) < 7)
+                if (getGrowthLevel(world, pos) < 7)
                 {
                     float fChanceOfGrowth = getBaseGrowthChance() *
-                            ((BlockAdded)blockBelowPlant).getPlantGrowthOnMultiplier(world, pos.down(), this);
+                            ((BlockAdded)blockBelow).getPlantGrowthOnMultiplier(world, pos.down(), this);
 
                     if ( random.nextFloat() <= fChanceOfGrowth )
                     {
@@ -127,15 +125,16 @@ public class HempCropBlock extends CropBlock {
                     // check for growth of top block
 
                     float fChanceOfGrowth = (getBaseGrowthChance() / 4F ) *
-                            ((BlockAdded)blockBelowPlant).getPlantGrowthOnMultiplier(world, pos.down(), this);
+                            ((BlockAdded)blockBelow).getPlantGrowthOnMultiplier(world, pos.down(), this);
 
                     if ( random.nextFloat() <= fChanceOfGrowth )
                     {
-                        // top of the plant
-                        world.setBlockState( pos.up(), state.with(TOP, true),3);
+                        BlockState newState = setIsTopBlock(state, true);
 
-                        ((BlockAdded)blockBelowPlant).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
-                        //replace(blockBelowPlant, Blocks.FARMLAND.getDefaultState(), world, pos, 33 );
+
+                        // top of the plant
+                        world.setBlockState(pos.up(), state.with(AGE,7).with(TOP, true),3);
+                        ((BlockAdded)blockBelow).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
                     }
                 }
             }
@@ -145,27 +144,50 @@ public class HempCropBlock extends CropBlock {
 
 
 
+    protected int getGrowthLevel(WorldAccess blockAccess, BlockPos pos)
+    {
+        return getGrowthLevel(blockAccess.getBlockState(pos));
+    }
+
+    protected int getGrowthLevel(BlockState state)
+    {
+        return this.getAge(state);
+    }
+
     protected void incrementGrowthLevel(World world, BlockPos pos, BlockState state)
     {
         int iGrowthLevel = this.getAge(state) + 1;
 
-        world.setBlockState(pos, state.with(AGE, iGrowthLevel));
+        setGrowthLevel(world, pos, iGrowthLevel);
 
-        if (state.get(AGE) == 7)
+        if (iGrowthLevel == 7)
         {
             Block blockBelow = world.getBlockState(pos.down()).getBlock();
-            ((BlockAdded) blockBelow).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
+
+            if (blockBelow != null)
+            {
+                ((BlockAdded) blockBelow).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
+            }
         }
     }
 
+    protected void setGrowthLevel(World world, BlockPos pos, int iLevel)
+    {
+        BlockState state = world.getBlockState( pos ).with(AGE, iLevel);
+        world.setBlockState( pos, state );
+    }
 
-
-    /**  Helper method to check if a block is TOP for a specific position more easily. **/
+    /**  Helper methods to check if a block is of TOP state for a specific position more easily. **/
+    /**
     protected boolean getIsTopBlock(BlockState state)
     {
         return state.get(TOP);
     }
-
+     **/
+    protected boolean getIsTopBlock(BlockState state)
+    {
+        return ( state.get(AGE) & 8 ) != 0;
+    }
     protected boolean getIsTopBlock(WorldView blockAccess, BlockPos pos)
     {
         return getIsTopBlock(blockAccess.getBlockState(pos));
@@ -199,20 +221,22 @@ public class HempCropBlock extends CropBlock {
 
     private float getBaseGrowthChance()
     {
-        return 0.1F;
+        return 150.1F;
     }
 
 
+
+    // ------------------- /
+
     private void checkIfShouldSlowGrowth(World world, BlockPos pos, BlockState state, Random random)
     {
-        int age = state.get(AGE);
 
         if (hasCropsAdjacentOnEitherSides(world, pos))
         {
             // Slow down growth by 40%
             if (random.nextFloat() < 0.4)
             {
-                world.setBlockState(pos, state.with(AGE, age + 1));
+                world.setBlockState(pos, state.with(AGE, state.get(AGE) + 1));
             }
         }
     }
@@ -228,5 +252,18 @@ public class HempCropBlock extends CropBlock {
         return ((blockNorth.isOf(this) && blockSouth.isOf(this))
                 || (blockWest.isOf(this) && blockEast.isOf(this)));
     }
+
+    private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{
+            // Define VoxelShapes for each stage from 0 to 8
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 2.0, 11.0),
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 4.0, 11.0),
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 6.0, 11.0),
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 8.0, 11.0),
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 10.0, 11.0),
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 12.0, 11.0),
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 14.0, 11.0),
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 16.0, 11.0)
+
+    };
 
 }
