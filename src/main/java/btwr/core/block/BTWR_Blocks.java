@@ -18,7 +18,7 @@ public class BTWR_Blocks
 
     // Methods for registering blocks.
 
-    public static final Block CROP_HEMP = registerBlock("crop_hemp", new NewHempCropBlock(FabricBlockSettings.create().noCollision().ticksRandomly().nonOpaque().strength(0.5f).sounds(BlockSoundGroup.GRASS)));
+    public static final Block CROP_HEMP = registerBlock("crop_hemp", new HempCropBlock(FabricBlockSettings.create().noCollision().ticksRandomly().nonOpaque().strength(0.5f).sounds(BlockSoundGroup.GRASS)));
     public static final Block LIGHTBLOCK = registerBlock("lightblock", new LightBlock(FabricBlockSettings.create().hardness(1.8f).requiresTool()
             .luminance(state -> state.get(LightBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS).nonOpaque().solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
 
