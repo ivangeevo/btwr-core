@@ -3,6 +3,7 @@ package btwr.core.block.blocks;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.interfaces.BlockAdded;
 import btwr.core.item.BTWR_Items;
+import btwr.core.tag.BTWRConventionalTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
@@ -51,25 +52,6 @@ public class HempCropBlock extends CropBlock
     {
         super.appendProperties(builder);
         builder.add(TOP);
-    }
-
-
-    @Override
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack)
-    {
-        player.addExhaustion(0.2F);
-
-        if (stack.isOf(Items.SHEARS)) {
-            // If the crop is fully grown, drop items
-            dropStack(world, pos, new ItemStack(BTWR_Items.HEMP_LEAVES, 1));
-
-            // Generate a random number of hemp seeds between 0 and 2
-            int numHempSeeds = world.getRandom().nextInt(3); // Generates a number between 0 and 2 (inclusive)
-
-            for (int i = 0; i < numHempSeeds; i++) {
-                dropStack(world, pos, new ItemStack(BTWR_Items.HEMP_SEEDS, 1));
-            }
-        }
     }
 
     @Override
@@ -156,7 +138,7 @@ public class HempCropBlock extends CropBlock
 
     public float getBaseGrowthChance()
     {
-        return 380.1F;
+        return 0.1F;
     }
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]

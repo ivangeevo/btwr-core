@@ -54,9 +54,14 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_SCOURED_CUT,2).input(BTWR_Items.LEATHER_SCOURED).input(BTWRTags.Items.SHEARS).criterion("has_leather_scoured", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_TANNED_CUT,2).input(BTWR_Items.LEATHER_TANNED).input(BTWRTags.Items.SHEARS).criterion("has_leather_tanned", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
 
+
         // Other recipes
         offerShapelessRecipe(exporter, BTWR_Items.BRICK_UNFIRED, Items.CLAY_BALL, "group_btwr", 1);
         offerThreeInputShapelessRecipe(exporter, BTWR_Items.DIAMOND_INGOT, Items.IRON_INGOT, Items.DIAMOND, BTWR_Items.CREEPER_OYSTERS, "group_btwr",1);
+
+        offerShapelessRecipe(exporter, BTWR_Items.HEMP_FIBERS, BTWR_Items.ROPE, "group_btwr", 6);
+        offerShapelessRecipe(exporter, BTWR_Items.HEMP_FABRIC, BTWR_Items.ROPE, "group_btwr", 9);
+
     }
     public static void generateShapedRecipes(Consumer<RecipeJsonProvider> exporter)
     {

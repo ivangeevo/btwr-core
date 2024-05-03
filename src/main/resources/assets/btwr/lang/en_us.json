@@ -13,14 +13,25 @@
   "item.btwr.gear": "Gear",
   "item.btwr.diamond_ingot": "Diamond Ingot",
 
-  "item.btwr.creeper_oysters": "Creeper Oysters",
+  "item.btwr.leather_scoured": "Scoured Leather",
+  "item.btwr.leather_tanned": "Tanned Leather",
 
+  "item.btwr.leather_cut": "Cut Leather",
+  "item.btwr.leather_tanned_cut": "Cut Scoured Leather",
+  "item.btwr.leather_scoured_cut": "Cut Tanned Leather",
+
+  "item.btwr.netherrack_ground": "Ground Netherrack",
+  "item.btwr.dust_hellfire": "Hellfire Dust",
+  "item.btwr.coal_nether": "Nethercoal",
+
+  "item.btwr.creeper_oysters": "Creeper Oysters",
 
   "item.btwr.stone_brick": "Stone Brick",
   "item.btwr.brick_unfired": "Wet Brick",
 
   "item.btwr.club_wood": "Wooden Club",
   "item.btwr.club_bone": "Bone Club",
+  "item.btwr.diamond_shears": "Diamond Shears",
 
 
   "block.btwr.companioncube": "Companion Cube",
