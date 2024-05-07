@@ -47,6 +47,7 @@ repositories {
 
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.terraformersmc.com/releases/" }
+    maven { url "https://github.com/ivangeevo/btwr-shared-libs"}
 }
 
 dependencies {

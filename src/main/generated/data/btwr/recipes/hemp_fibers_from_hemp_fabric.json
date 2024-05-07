@@ -4,11 +4,11 @@
   "group": "group_btwr",
   "ingredients": [
     {
-      "item": "btwr:rope"
+      "item": "btwr:hemp_fabric"
     }
   ],
   "result": {
     "count": 9,
-    "item": "btwr:hemp_fabric"
+    "item": "btwr:hemp_fibers"
   }
 }

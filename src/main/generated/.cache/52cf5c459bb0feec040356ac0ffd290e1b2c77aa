@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-06T07:43:07.7237618	BTWR:Core/Recipes
+// 1.20.1	2024-05-08T00:12:24.645841	BTWR:Core/Recipes
 57406099f2356c83f477f815d5f559b63d35e61e data\btwr\recipes\belt.json
 4e4ca3bd49b719093451fe2b0813f3b9c22bc40b data\btwr\advancements\recipes\misc\brick_unfired_from_clay_ball.json
 512a151987f14509cb788b021f951f516370e884 data\btwr\recipes\leather_boots.json
@@ -10,14 +10,13 @@ f7ca23300d8d9d8665aca8bf2faee7da967adc96 data\btwr\advancements\recipes\misc\gea
 746febdbeddf00b0b8220a9cdb86b0597d85f51a data\btwr\recipes\club_wood.json
 ce2c938850c563e8bb820efde5844b0509e7555e data\btwr\advancements\recipes\combat\leather_boots.json
 267b4fcf545f6fcadf4b31e91fc210a069c9b532 data\btwr\advancements\recipes\misc\leather_scoured_cut.json
+c0909882595a6b0ec0c6fe03b403da617628a7c9 data\btwr\advancements\recipes\misc\hemp_fibers_from_hemp_fabric.json
 6c367f8a621856f2bf3c5de0ce5d10bf8d7ddaad data\btwr\advancements\recipes\misc\leather_cut.json
-75410e3015d94fe275a3542d1338ac7ce29784fa data\btwr\advancements\recipes\misc\hemp_fabric_from_rope.json
 664f08e0605c978edeb164fd14aa7d9f30c9834e data\btwr\recipes\leather_leggings.json
 b68b832e398bbd9021bf31a10360d98d9c3af667 data\btwr\recipes\leather_chestplate.json
 348790b4b0cd99b4d780a692438c17ef392fc4c1 data\btwr\advancements\recipes\misc\belt.json
 9652ee2d26b5f544aeeae21c65c820c731280bce data\btwr\recipes\club_bone.json
 d706497cd92068c4e0cb1ba411565d4f93f7817d data\btwr\advancements\recipes\misc\hemp_fabric.json
-17f54e7c276e80517fd77e2e81943b3b37cc54ed data\btwr\recipes\hemp_fabric_from_rope.json
 bf3d1941e9195241fb427f83a7217c4fe4e1f7e9 data\btwr\advancements\recipes\misc\diamond_ingot_from_iron_ingot.json
 abf84238f8c76cebbee4128afbf3853160e7adbf data\btwr\advancements\recipes\tools\diamond_shears.json
 7348d5488bb7e92000bfc21ebed4ef087a63c6cf data\btwr\advancements\recipes\misc\item_frame.json
@@ -28,7 +27,7 @@ f889639cb14290b0b0b2e9a847646e3306b6b8d0 data\btwr\recipes\leather_tanned_cut.js
 474210c8658b5a57ff18173661a20519edfc8363 data\btwr\recipes\leather_scoured_cut.json
 ea9a1f01f3089607d9544c18054f654fe0b814c7 data\btwr\advancements\recipes\misc\leather_horse_armor.json
 aa293937ad79af2713434df79d455fdfea23fc17 data\btwr\recipes\leather_cut.json
-85fd03e680fd4f69750a56ce13991bc267c441b3 data\btwr\recipes\gear.json
+2aa9ccee4d0860a7760dea7450a32ceac5ddec3c data\btwr\recipes\gear.json
 cb35ba129be6897d1235cd886d947a205cd7109f data\btwr\advancements\recipes\misc\hemp_fibers_from_rope.json
 1d93a74b578bbd8cacf5ee315904e17bd17cde12 data\btwr\advancements\recipes\combat\leather_leggings.json
 9300266f5b8b112925a921ab15dd293dcd3c6375 data\btwr\advancements\recipes\combat\club_bone.json
@@ -36,6 +35,7 @@ cb35ba129be6897d1235cd886d947a205cd7109f data\btwr\advancements\recipes\misc\hem
 69647227a57412532a795d3ca3c8f66750e84fbd data\btwr\recipes\rope.json
 b7715baeaaf743b6dc606b7e301cdb6723e94ba5 data\btwr\advancements\recipes\misc\leather_tanned_cut.json
 a46b9ebc5b60375a15d1447697c8aba0c3c3fa4e data\btwr\recipes\hemp_fabric.json
+0cea42164bb7698f8cfd1f6c6e4672f70b82da40 data\btwr\recipes\hemp_fibers_from_hemp_fabric.json
 59b933689d315522872f01275ee38510635d610a data\btwr\advancements\recipes\combat\leather_chestplate.json
 df0112e603bef5b96857b6111860d262733e189e data\btwr\recipes\diamond_ingot_from_iron_ingot.json
 40e9103aff35ccc0515174557bf624add71b06c7 data\btwr\recipes\diamond_shears.json
