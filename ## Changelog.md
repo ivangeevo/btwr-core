@@ -9,19 +9,13 @@ Most of that will happen in the BTWR Modpack itself.
   - Belt
   - Strap
   - Stone Brick
-  - Wet Brick
-  - Companion Cube
   - Hemp Crop, Hemp Fibers & Hemp Fabric
   - Light Block
   - Rope
   - Rope Coil
-  - Ground Netherrack
-  - Hellfire Dust
-  - Nether coal
   - Scoured & Tanned leather
   - Cut Leather for all 3 variations (normal, scoured, tanned)
 
-  
 + ### Added some Config options toggles through Mod Menu:
   - For disabling Baby Zombies spawning.
   - For knockback restrictions (needing a weapon item to do knockback to entities)

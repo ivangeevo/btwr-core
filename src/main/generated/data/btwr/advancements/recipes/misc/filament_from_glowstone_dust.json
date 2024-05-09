@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_clay_ball": {
+    "has_glowstone_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:clay_ball"
+              "minecraft:glowstone_dust"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:brick_unfired_from_clay_ball"
+        "recipe": "minecraft:filament_from_glowstone_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_clay_ball",
+      "has_glowstone_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_unfired_from_clay_ball"
+      "minecraft:filament_from_glowstone_dust"
     ]
   },
   "sends_telemetry_event": false

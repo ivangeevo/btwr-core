@@ -1,9 +1,7 @@
-// 1.20.1	2024-05-09T14:47:40.1399446	BTWR:Core/Recipes
+// 1.20.1	2024-05-09T18:44:05.1201696	BTWR:Core/Recipes
 57406099f2356c83f477f815d5f559b63d35e61e data\btwr\recipes\belt.json
-4e4ca3bd49b719093451fe2b0813f3b9c22bc40b data\btwr\advancements\recipes\misc\brick_unfired_from_clay_ball.json
 512a151987f14509cb788b021f951f516370e884 data\btwr\recipes\leather_boots.json
 590b491f3df8b846a047f3911f2d0dc9f1118b52 data\btwr\advancements\recipes\misc\rope.json
-d8c23a12787015be6dcc69a0b848651411a6d415 data\btwr\recipes\brick_unfired_from_clay_ball.json
 f71bc679a11b3457d32f8edcf2184ab0166b25c2 data\btwr\advancements\recipes\combat\club_wood.json
 f15d3b8d1e384dfe0b5b11bb5ac045814aa71ce3 data\btwr\recipes\leather_horse_armor.json
 f7ca23300d8d9d8665aca8bf2faee7da967adc96 data\btwr\advancements\recipes\misc\gear.json
@@ -16,13 +14,17 @@ c0909882595a6b0ec0c6fe03b403da617628a7c9 data\btwr\advancements\recipes\misc\hem
 b68b832e398bbd9021bf31a10360d98d9c3af667 data\btwr\recipes\leather_chestplate.json
 348790b4b0cd99b4d780a692438c17ef392fc4c1 data\btwr\advancements\recipes\misc\belt.json
 a28c4468c727995983de1a2938df11d19a9c54fc data\btwr\recipes\rope_coil.json
+a8a4fd3c135f8b4d5b3c71dbe48d3f66266a0a3c data\btwr\advancements\recipes\misc\lightblock.json
 9652ee2d26b5f544aeeae21c65c820c731280bce data\btwr\recipes\club_bone.json
 d706497cd92068c4e0cb1ba411565d4f93f7817d data\btwr\advancements\recipes\misc\hemp_fabric.json
 bf3d1941e9195241fb427f83a7217c4fe4e1f7e9 data\btwr\advancements\recipes\misc\diamond_ingot_from_iron_ingot.json
 abf84238f8c76cebbee4128afbf3853160e7adbf data\btwr\advancements\recipes\tools\diamond_shears.json
 7348d5488bb7e92000bfc21ebed4ef087a63c6cf data\btwr\advancements\recipes\misc\item_frame.json
 e226881c3aafbb0503e74a60569cdae692f665af data\btwr\recipes\leather_helmet.json
+fff43630ba3bd2590464e50354d9f27830297edf data\btwr\advancements\recipes\misc\filament_from_glowstone_dust.json
 e40e028f693588311b66ff84ee87e504e2de5834 data\btwr\advancements\recipes\combat\leather_helmet.json
+a2945731bd4e215bb1b98f767334bf27ae28547a data\btwr\recipes\filament_from_glowstone_dust.json
+2f90eeabb3e3683c0b3fde2a78a7248fa20ebd1b data\btwr\recipes\lightblock.json
 0a6af778fc13811bee1d984655670de3085c762f data\btwr\recipes\rope_from_rope_coil.json
 f889639cb14290b0b0b2e9a847646e3306b6b8d0 data\btwr\recipes\leather_tanned_cut.json
 01afaf2c26d93da1c708bc1f02f945bdfba70680 data\btwr\recipes\item_frame.json

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "group_btwr",
+  "ingredients": [
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "tag": "btwr:string_tool_materials"
+    }
+  ],
+  "result": {
+    "item": "btwr:filament"
+  }
+}

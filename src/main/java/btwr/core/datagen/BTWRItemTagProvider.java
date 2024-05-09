@@ -32,8 +32,8 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
 
         getOrCreateTagBuilder(BTWRTags.Items.CLAY_ITEMS)
-                .add(Items.CLAY_BALL)
-                .add(BTWR_Items.BRICK_UNFIRED);
+                .add(Items.CLAY_BALL);
+                //.add(BTWR_Items.BRICK_UNFIRED);
 
         getOrCreateTagBuilder(BTWRTags.Items.STRING_TOOL_MATERIALS)
                 .add(Items.STRING)

@@ -23,10 +23,13 @@ public class BTWR_Blocks
     public static final Block LIGHTBLOCK = registerBlock("lightblock", new LightBlock(FabricBlockSettings.create().hardness(1.8f).requiresTool()
             .luminance(state -> state.get(LightBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS).nonOpaque().solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
 
-    public static final Block COMPANIONCUBE = registerBlock("companioncube", new CompanionCube(FabricBlockSettings.create().strength(1.2f)
-            .ticksRandomly()));
+    //public static final Block COMPANIONCUBE = registerBlock("companioncube", new CompanionCube(FabricBlockSettings.create().strength(1.2f).ticksRandomly()));
 
     public static final Block ROPE_COIL = registerBlock("rope_coil", new PillarBlock(FabricBlockSettings.create().strength(1.2f).sounds(BlockSoundGroup.WOOD)));
+
+    //  TO BE ADDED:
+
+
     private static Block registerBlock(String name, Block block)
     {
         registerBlockItem(name, block);

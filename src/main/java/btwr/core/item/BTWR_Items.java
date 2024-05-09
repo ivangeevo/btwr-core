@@ -22,19 +22,15 @@ public class BTWR_Items {
     // The GROUP_BTWR is first, as it acts as an Item that is called in the BTWRItemGroup class.
     public static final Item GROUP_BTWR = registerItem( "group_btwr", new Item(new FabricItemSettings()));
 
-    // List of Items
     public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new FabricItemSettings().maxCount(16)));
     public static final Item DIAMOND_INGOT = registerItem( "diamond_ingot", new Item (new FabricItemSettings()));
     public static final Item STONE_BRICK = registerItem( "stone_brick", new Item (new FabricItemSettings()));
-    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new Item (new FabricItemSettings()));
 
     public static final Item HEMP_SEEDS = registerItem( "hemp_seeds",
             new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new FabricItemSettings()));
-
     public static final Item HEMP_LEAVES = registerItem( "hemp_leaves", new Item(new FabricItemSettings()));
     public static final Item HEMP_FIBERS = registerItem( "hemp_fibers", new Item(new FabricItemSettings()));
     public static final Item HEMP_FABRIC = registerItem( "hemp_fabric", new Item(new FabricItemSettings()));
-
     public static final Item ROPE = registerItem( "rope", new Item(new FabricItemSettings()));
 
     public static final Item LEATHER_CUT = registerItem( "leather_cut", new Item (new FabricItemSettings()));
@@ -43,13 +39,12 @@ public class BTWR_Items {
     public static final Item LEATHER_TANNED = registerItem( "leather_tanned", new Item (new FabricItemSettings()));
     public static final Item LEATHER_TANNED_CUT = registerItem( "leather_tanned_cut", new Item (new FabricItemSettings()));
 
-    public static final Item NETHERRACK_GROUND = registerItem( "netherrack_ground", new Item (new FabricItemSettings()));
-    public static final Item DUST_HELLFIRE = registerItem( "dust_hellfire", new Item (new FabricItemSettings()));
-    public static final Item COAL_NETHER = registerItem( "coal_nether", new Item (new FabricItemSettings()));
-
     public static final Item STRAP = registerItem( "strap", new Item (new FabricItemSettings()));
     public static final Item BELT = registerItem( "belt", new Item (new FabricItemSettings()));
     public static final Item GEAR = registerItem( "gear", new Item (new FabricItemSettings()));
+
+    public static final Item FILAMENT = registerItem( "filament", new Item (new FabricItemSettings()));
+
 
     // --------- //
 
@@ -65,13 +60,21 @@ public class BTWR_Items {
             new ShearsItem (new FabricItemSettings().maxDamage(500)));
 
 
+    // TO BE ADDED :
+
+    //public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new Item (new FabricItemSettings()));
+
+    //public static final Item NETHERRACK_GROUND = registerItem( "netherrack_ground", new Item (new FabricItemSettings()));
+    //public static final Item DUST_HELLFIRE = registerItem( "dust_hellfire", new Item (new FabricItemSettings()));
+    //public static final Item COAL_NETHER = registerItem( "coal_nether", new Item (new FabricItemSettings()));
+
+
+
 
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries)
     {
-
         entries.add(CREEPER_OYSTERS);
-
     }
 
     private static Item registerItem(String name, Item item)
