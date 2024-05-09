@@ -29,7 +29,7 @@ public class BTWR_Items {
     public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new Item (new FabricItemSettings()));
 
     public static final Item HEMP_SEEDS = registerItem( "hemp_seeds",
-            (Item) new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new FabricItemSettings()));
+            new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new FabricItemSettings()));
 
     public static final Item HEMP_LEAVES = registerItem( "hemp_leaves", new Item(new FabricItemSettings()));
     public static final Item HEMP_FIBERS = registerItem( "hemp_fibers", new Item(new FabricItemSettings()));

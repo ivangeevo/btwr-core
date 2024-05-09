@@ -32,13 +32,15 @@ public class HempCropBlock extends CropBlock
 {
     public static final BooleanProperty TOP = BooleanProperty.of("top");
 
-    public HempCropBlock(Settings settings) {
+    public HempCropBlock(Settings settings)
+    {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(this.getAgeProperty(), 0).with(TOP, false));
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
         return AGE_TO_SHAPE[state.get(this.getAgeProperty())];
     }
 
@@ -55,7 +57,8 @@ public class HempCropBlock extends CropBlock
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random)
+    {
 
         if (!state.get(TOP) &&
         /** getWeedsGrowthLevel(world, pos) && **/ isValidLightSourceAbove(world, pos))
@@ -95,7 +98,12 @@ public class HempCropBlock extends CropBlock
         }
     }
 
-
+    @Override
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos)
+    {
+        return super.canPlaceAt(state, world, pos) ||
+                world.getBlockState(pos.down()) == getStateWithProperties(state.with(TOP, false));
+    }
 
     @Override
     public boolean hasRandomTicks(BlockState state)
@@ -103,11 +111,6 @@ public class HempCropBlock extends CropBlock
         return !state.get(TOP);
     }
 
-    @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos)
-    {
-        return super.canPlaceAt(state, world, pos) || !world.getBlockState(pos.down()).get(TOP) ;
-    }
 
     protected void incrementGrowthLevel(World world, BlockPos pos, BlockState state)
     {
