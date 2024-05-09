@@ -29,17 +29,11 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
     private void addToModTags()
     {
-        getOrCreateTagBuilder(BTWRTags.Items.SHEARS)
-                .add(Items.SHEARS)
-                .add(BTWR_Items.DIAMOND_SHEARS);
-
-
-
 
 
         getOrCreateTagBuilder(BTWRTags.Items.CLAY_ITEMS)
-                .add(Items.CLAY_BALL)
-                .add(BTWR_Items.BRICK_UNFIRED);
+                .add(Items.CLAY_BALL);
+                //.add(BTWR_Items.BRICK_UNFIRED);
 
         getOrCreateTagBuilder(BTWRTags.Items.STRING_TOOL_MATERIALS)
                 .add(Items.STRING)
@@ -123,6 +117,10 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.NETHERITE_HOE);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.SHEARS)
+                .add(Items.SHEARS)
                 .add(BTWR_Items.DIAMOND_SHEARS);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.CHICKEN_TEMPT_ITEMS)
+                .add(BTWR_Items.HEMP_SEEDS);
         }
 }

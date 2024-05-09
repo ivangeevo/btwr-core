@@ -1,10 +1,12 @@
 package btwr.core.datagen;
 
+import btwr.core.block.BTWR_Blocks;
 import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
@@ -21,6 +23,23 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg)
+    {
+        addToModTags();
+        addToVanillaTags();
+        addToConventionalTags();
+    }
+
+    private void addToVanillaTags()
+    {
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(BTWR_Blocks.ROPE_COIL);
+    }
+
+    private void addToModTags()
+    {
+    }
+
+    private void addToConventionalTags()
     {
         getOrCreateTagBuilder(BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS)
                 .forceAddTag(BlockTags.BIRCH_LOGS)
@@ -45,9 +64,5 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BTWRConventionalTags.Blocks.FARMLAND_BLOCKS)
                 .add(Blocks.FARMLAND);
-
-
-
-
     }
 }

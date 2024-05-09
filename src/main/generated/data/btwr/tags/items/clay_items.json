@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:clay_ball",
-    "btwr:brick_unfired"
+    "minecraft:clay_ball"
   ]
 }

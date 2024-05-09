@@ -1,0 +1,36 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "btwr:rope_coil",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "tag": "c:axes"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "btwr:rope",
+              "functions": [
+                {
+                  "function": "minecraft:set_count",
+                  "count": 9
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

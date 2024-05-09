@@ -26,22 +26,6 @@ public abstract class ShearsItemMixin extends Item
         super(settings);
     }
 
-    // Injected logic to drop Grass item so that it doesn't overwrite the grass json here.
-    // -> It needs to be overwritten later in Self Sustainable.
-    @Inject(method = "postMine", at = @At("HEAD"))
-    private void injectedGrassDrop(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner, CallbackInfoReturnable<Boolean> cir)
-    {
-        if (!miner.getWorld().isClient) {
-            if (state.isOf(Blocks.GRASS) && stack.isOf(BTWR_Items.DIAMOND_SHEARS)) {
-                ItemStack grassStack = new ItemStack(Items.GRASS);
-
-                // Create an ItemEntity for the grass and spawn it in the world
-                ItemEntity grassEntity = new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, grassStack);
-                world.spawnEntity(grassEntity);
-            }
-        }
-    }
-
     // Adds remainder logic so the item doesn't get consumed on crafting.
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack)

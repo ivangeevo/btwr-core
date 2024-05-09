@@ -4,33 +4,29 @@
 I decided that by default this mod will not change the balance of the game.
 Most of that will happen in the BTWR Modpack itself.
 
-+ Added the following items:
++ ### Added the following items/blocks:
   - Gear
   - Belt
   - Strap
   - Stone Brick
-  - Wet Brick
-  - Companion Cube
   - Hemp Crop, Hemp Fibers & Hemp Fabric
   - Light Block
   - Rope
-  - Ground Netherrack
-  - Hellfire Dust
-  - Nether coal
+  - Rope Coil
   - Scoured & Tanned leather
   - Cut Leather for all 3 variations (normal, scoured, tanned)
 
-+ Added some Config options toggles through Mod Menu:
- - For disabling Baby Zombies spawning.
- - For knockback restrictions (needing a weapon item to do knockback to entities)
++ ### Added some Config options toggles through Mod Menu:
+  - For disabling Baby Zombies spawning.
+  - For knockback restrictions (needing a weapon item to do knockback to entities)
+  
 
 + Added Custom Conventional tags to handle interactions between the sidemods better.
 
 * Fixed being unable to shear sheep with Diamond Shears.
 
 + Brought back Wooden & Stone sword recipes.
-+ Restored vanilla mining speeds & durability of all tools. 
-
++ Restored vanilla mining speeds & durability of all tools.
 + Updated lang file to modify name of Stick to Shaft.
 
 ### v0.22

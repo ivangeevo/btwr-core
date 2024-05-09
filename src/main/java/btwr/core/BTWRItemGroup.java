@@ -26,7 +26,7 @@ public class BTWRItemGroup {
                         entries.add(BTWR_Items.CREEPER_OYSTERS);
                         entries.add(BTWR_Items.DIAMOND_INGOT);
                         entries.add(BTWR_Items.STONE_BRICK);
-                        entries.add(BTWR_Items.BRICK_UNFIRED);
+                        //entries.add(BTWR_Items.BRICK_UNFIRED);
                         entries.add(BTWR_Items.HEMP_SEEDS);
                         entries.add(BTWR_Items.HEMP_LEAVES);
                         entries.add(BTWR_Items.HEMP_FIBERS);
@@ -37,12 +37,13 @@ public class BTWRItemGroup {
                         entries.add(BTWR_Items.LEATHER_CUT);
                         entries.add(BTWR_Items.LEATHER_SCOURED_CUT);
                         entries.add(BTWR_Items.LEATHER_TANNED_CUT);
-                        entries.add(BTWR_Items.NETHERRACK_GROUND);
-                        entries.add(BTWR_Items.DUST_HELLFIRE);
-                        entries.add(BTWR_Items.COAL_NETHER);
+                        //entries.add(BTWR_Items.NETHERRACK_GROUND);
+                        //entries.add(BTWR_Items.DUST_HELLFIRE);
+                        //entries.add(BTWR_Items.COAL_NETHER);
                         entries.add(BTWR_Items.STRAP);
                         entries.add(BTWR_Items.BELT);
                         entries.add(BTWR_Items.GEAR);
+                        entries.add(BTWR_Items.FILAMENT);
 
 
                         // Tools
@@ -53,7 +54,8 @@ public class BTWRItemGroup {
                         /** BLOCKS **/
 
                         entries.add(BTWR_Blocks.LIGHTBLOCK);
-                        entries.add(BTWR_Blocks.COMPANIONCUBE);
+                        //entries.add(BTWR_Blocks.COMPANIONCUBE);
+                        entries.add(BTWR_Blocks.ROPE_COIL);
 
                     }).build());
 
