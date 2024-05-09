@@ -1,5 +1,6 @@
 package btwr.core.datagen;
 
+import btwr.core.block.BTWR_Blocks;
 import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
@@ -39,10 +40,8 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter)
     {
-
         generateShapelessRecipes(exporter);
         generateShapedRecipes(exporter);
-
     }
 
 
@@ -62,6 +61,8 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
         offerShapelessRecipe(exporter, BTWR_Items.HEMP_FIBERS, BTWR_Items.ROPE, "group_btwr", 6);
         offerShapelessRecipe(exporter, BTWR_Items.HEMP_FIBERS, BTWR_Items.HEMP_FABRIC, "group_btwr", 9);
+        offerShapelessRecipe(exporter, BTWR_Items.ROPE, BTWR_Blocks.ROPE_COIL, "group_btwr", 9);
+
 
 
     }
@@ -85,6 +86,9 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.GEAR,2).input('#', ItemTags.PLANKS).input('I', Items.STICK).pattern(" I ").pattern("I#I").pattern(" I ").criterion("has_stick", RecipeProvider.conditionsFromItem(Items.STICK)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.LEATHER_HORSE_ARMOR).input('#', BTWR_Items.LEATHER_CUT).pattern("# #").pattern("###").pattern("# #").criterion("has_leather_cut", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_CUT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.ITEM_FRAME).input('#', BTWR_Items.LEATHER_CUT).input('S', Items.STICK).pattern("SSS").pattern("S#S").pattern("SSS").criterion("has_leather_cut", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_CUT)).offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.ROPE_COIL).input('#', BTWR_Items.ROPE).pattern("###").pattern("###").pattern("###").criterion("has_rope", RecipeProvider.conditionsFromItem(BTWR_Items.ROPE)).offerTo(exporter);
+
     }
 
 

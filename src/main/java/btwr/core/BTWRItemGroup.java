@@ -54,6 +54,7 @@ public class BTWRItemGroup {
 
                         entries.add(BTWR_Blocks.LIGHTBLOCK);
                         entries.add(BTWR_Blocks.COMPANIONCUBE);
+                        entries.add(BTWR_Blocks.ROPE_COIL);
 
                     }).build());
 
