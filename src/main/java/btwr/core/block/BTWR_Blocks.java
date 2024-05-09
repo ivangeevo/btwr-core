@@ -26,7 +26,7 @@ public class BTWR_Blocks
     public static final Block COMPANIONCUBE = registerBlock("companioncube", new CompanionCube(FabricBlockSettings.create().strength(1.2f)
             .ticksRandomly()));
 
-    public static final Block ROPE_COIL = registerBlock("rope_coil", new PillarBlock(FabricBlockSettings.create().strength(1.2f)));
+    public static final Block ROPE_COIL = registerBlock("rope_coil", new PillarBlock(FabricBlockSettings.create().strength(1.2f).sounds(BlockSoundGroup.WOOD)));
     private static Block registerBlock(String name, Block block)
     {
         registerBlockItem(name, block);

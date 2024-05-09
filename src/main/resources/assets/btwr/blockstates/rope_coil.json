@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "btwr:block/rope_coil_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "btwr:block/rope_coil"
+    },
+    "axis=z": {
+      "model": "btwr:block/rope_coil_horizontal",
+      "x": 90
+    }
+  }
+}

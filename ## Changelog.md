@@ -4,7 +4,7 @@
 I decided that by default this mod will not change the balance of the game.
 Most of that will happen in the BTWR Modpack itself.
 
-+ ### Added the following items:
++ ### Added the following items/blocks:
   - Gear
   - Belt
   - Strap
