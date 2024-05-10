@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_glowstone_dust": {
+    "has_filament": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:glowstone_dust"
+              "btwr:filament"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:filament_from_glowstone_dust"
+        "recipe": "btwr:filament"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_glowstone_dust",
+      "has_filament",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:filament_from_glowstone_dust"
+      "btwr:filament"
     ]
   },
   "sends_telemetry_event": false

@@ -63,7 +63,8 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         offerShapelessRecipe(exporter, BTWR_Items.HEMP_FIBERS, BTWR_Items.HEMP_FABRIC, "group_btwr", 9);
         offerShapelessRecipe(exporter, BTWR_Items.ROPE, BTWR_Blocks.ROPE_COIL, "group_btwr", 9);
 
-        offerFilamentRecipe(exporter,BTWR_Items.FILAMENT, Items.GLOWSTONE_DUST, Items.REDSTONE, Ingredient.fromTag(BTWRTags.Items.STRING_TOOL_MATERIALS), "group_btwr", 1);
+        //offerFilamentRecipe(exporter,BTWR_Items.FILAMENT, Items.GLOWSTONE_DUST, Items.REDSTONE, Ingredient.fromTag(BTWRTags.Items.STRING_TOOL_MATERIALS), "group_btwr", 1);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.FILAMENT).input(Items.GLOWSTONE_DUST).input(Items.REDSTONE).input(BTWRTags.Items.STRING_TOOL_MATERIALS).criterion("has_filament", RecipeProvider.conditionsFromItem(BTWR_Items.FILAMENT)).offerTo(exporter);
 
         // TO BE ADDED:
         //offerShapelessRecipe(exporter, BTWR_Items.BRICK_UNFIRED, Items.CLAY_BALL, "group_btwr", 1);
