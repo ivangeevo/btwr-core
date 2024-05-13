@@ -1,7 +1,11 @@
 
 ### v0.23
-+ Updated the mod to Fabric Loader 0.15.10
+
++ Added Tanned Leather Armor.
++ Added Recipes for acquiring Scoured & Tanned Leather.
 + Increased Shears mining speed for effective blocks.
+
++ Updated the mod to Fabric Loader 0.15.10
 
 
 + ### v0.23

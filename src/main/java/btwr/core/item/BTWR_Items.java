@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -58,6 +59,14 @@ public class BTWR_Items {
 
     public static final Item DIAMOND_SHEARS = registerItem( "diamond_shears",
             new ShearsItem (new FabricItemSettings().maxDamage(500)));
+    
+    // Armor
+
+    public static final Item LEATHER_TANNED_HELMET = registerItem("leather_tanned_helmet", new ArmorItem(BTWR_ArmorMaterials.LEATHER_TANNED,  ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item LEATHER_TANNED_CHESTPLATE = registerItem("leather_tanned_chestplate", new ArmorItem(BTWR_ArmorMaterials.LEATHER_TANNED, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item LEATHER_TANNED_LEGGINGS = registerItem("leather_tanned_leggings", new ArmorItem(BTWR_ArmorMaterials.LEATHER_TANNED, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item LEATHER_TANNED_BOOTS = registerItem("leather_tanned_boots", new ArmorItem(BTWR_ArmorMaterials.LEATHER_TANNED, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+
 
 
     // TO BE ADDED :

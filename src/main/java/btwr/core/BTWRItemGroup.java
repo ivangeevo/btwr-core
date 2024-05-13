@@ -51,6 +51,12 @@ public class BTWRItemGroup {
                         entries.add(BTWR_Items.CLUB_BONE);
                         entries.add(BTWR_Items.CLUB_WOOD);
 
+                        // Armor
+                        entries.add(BTWR_Items.LEATHER_TANNED_HELMET);
+                        entries.add(BTWR_Items.LEATHER_TANNED_CHESTPLATE);
+                        entries.add(BTWR_Items.LEATHER_TANNED_LEGGINGS);
+                        entries.add(BTWR_Items.LEATHER_TANNED_BOOTS);
+
                         /** BLOCKS **/
 
                         entries.add(BTWR_Blocks.LIGHTBLOCK);
