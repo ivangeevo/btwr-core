@@ -1,5 +1,10 @@
 
 ### v0.23
++ Updated the mod to Fabric Loader 0.15.10
++ Increased Shears mining speed for effective blocks.
+
+
++ ### v0.23
 
 I decided that by default this mod will not change the balance of the game.
 Most of that will happen in the BTWR Modpack itself.

@@ -65,7 +65,7 @@ public abstract class ShearsItemMixin extends Item
         }
         else
         {
-            cir.setReturnValue( 15.0F );
+            cir.setReturnValue( 25.0F );
         }
 
     }
