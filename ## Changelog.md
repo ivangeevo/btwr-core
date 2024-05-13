@@ -1,5 +1,5 @@
 
-### v0.23
+### v0.23.1
 
 + Added Tanned Leather Armor.
 + Added Recipes for acquiring Scoured & Tanned Leather.
@@ -8,7 +8,7 @@
 + Updated the mod to Fabric Loader 0.15.10
 
 
-+ ### v0.23
+### v0.23
 
 I decided that by default this mod will not change the balance of the game.
 Most of that will happen in the BTWR Modpack itself.
