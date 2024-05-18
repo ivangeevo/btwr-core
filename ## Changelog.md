@@ -1,4 +1,11 @@
 
+## 123
+
+I once again decided to add some features to the mod that are by default change the balance, but I will try to not have
+any drastic changes.
+
++ Changed all diamond tool recipes to require a Diamond Ingot instead of just a Diamond.
+
 ### v0.23.1
 
 + Added Tanned Leather Armor.

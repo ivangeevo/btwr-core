@@ -33,7 +33,8 @@ public abstract class AxeItemMixin extends MiningToolItem
         super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
     }
 
-    // Adds remainder logic so the item doesn't get consumed on crafting.
+    // TODO: Fix Axe items from duping in Create mixing recipes.
+    // Probably needs a better remainder logic.
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack)
     {
@@ -73,13 +74,9 @@ public abstract class AxeItemMixin extends MiningToolItem
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner)
     {
-        boolean shouldDrainDurability = false;
+        boolean shouldDrainDurability = state.isReplaceable();
 
         // Check if the tool is used for the "wrong" activities
-        if (state.isReplaceable())
-        {
-            shouldDrainDurability = true;
-        }
 
         if (shouldDrainDurability)
         {
