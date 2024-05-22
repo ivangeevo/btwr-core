@@ -50,7 +50,6 @@ public class BlockManager
     {
         return tool.isOf(Items.STONE_AXE)
                 || tool.isIn(BTWRConventionalTags.Items.MODERN_PICKAXES)
-                || tool.isIn(BTWRConventionalTags.Items.MODERN_PICKAXES)
                 || tool.isIn(BTWRConventionalTags.Items.MODERN_AXES)
 
                 || tool.isIn(BTWRConventionalTags.Items.ADVANCED_PICKAXES)

@@ -1,10 +1,7 @@
+### 0.23.2
 
-## 123
-
-I once again decided to add some features to the mod that are by default change the balance, but I will try to not have
-any drastic changes.
-
-+ Changed all diamond tool recipes to require a Diamond Ingot instead of just a Diamond.
++ Fixed a bug with axes getting consumed on crafting with them.
++ Updated the mod to Fabric Loader 0.15.11
 
 ### v0.23.1
 
@@ -15,7 +12,7 @@ any drastic changes.
 + Updated the mod to Fabric Loader 0.15.10
 
 
-### v0.23
+## v0.23
 
 I decided that by default this mod will not change the balance of the game.
 Most of that will happen in the BTWR Modpack itself.
@@ -45,7 +42,7 @@ Most of that will happen in the BTWR Modpack itself.
 + Restored vanilla mining speeds & durability of all tools.
 + Updated lang file to modify name of Stick to Shaft.
 
-### v0.22
+## v0.22
 
 + Added Wooden & Bone Club weapons.
 + Added Creeper Oysters Item.
