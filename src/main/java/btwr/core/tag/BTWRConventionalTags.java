@@ -58,6 +58,8 @@ public class BTWRConventionalTags
         public static final TagKey<Item> MODERN_HOES = createTag("modern_hoes");
         public static final TagKey<Item> ADVANCED_HOES = createTag("advanced_hoes");
 
+        public static final TagKey<Item> SPIT_CAMPFIRE_ITEMS = createTag("spit_campfire_items");
+
         public static final TagKey<Item> SHEARS = createTag("shears");
 
         public static final TagKey<Item> CHICKEN_TEMPT_ITEMS = createTag("chicken_tempt_items");
