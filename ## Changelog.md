@@ -1,3 +1,11 @@
+### 0.24
+
++ Added missing recipe for making Strap.
++ Added Unfired Brick item & block & the ability to dry them into regular brick.
++ Fixed a bug with creepers not igniting with fire charge.
++ Changes to conventional tags.
+
+
 ### 0.23.2
 
 + Fixed a bug with axes getting consumed on crafting with them.

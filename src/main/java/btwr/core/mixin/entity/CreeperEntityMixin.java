@@ -21,6 +21,7 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
@@ -42,7 +43,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CreeperEntity.class)
-public abstract class CreeperEntityMixin extends HostileEntity implements CreeperEntityAdded {
+public abstract class CreeperEntityMixin extends HostileEntity implements CreeperEntityAdded
+{
     @Shadow
     @Final
     private static TrackedData<Boolean> CHARGED;
@@ -73,7 +75,8 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
     private boolean determinedToExplode = false;
 
     @Inject(method = "initGoals", at = @At("HEAD"), cancellable = true)
-    private void injectedInitGoals(CallbackInfo ci) {
+    private void injectedInitGoals(CallbackInfo ci)
+    {
         this.goalSelector.add(1, new SwimGoal(this));
 
         // Modified the exploding & swell behavior with a custom goal class
@@ -88,37 +91,47 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
         this.targetSelector.add(2, new RevengeGoal(this));
         ci.cancel();
     }
-    protected CreeperEntityMixin(EntityType<? extends HostileEntity> entityType, World world) {
+    protected CreeperEntityMixin(EntityType<? extends HostileEntity> entityType, World world)
+    {
         super(entityType, world);
     }
 
-    //Copying, modifying and cancelling the original tick logic with our custom conditions added.
+    // Copying, modifying and cancelling the original tick logic with our custom conditions added.
         @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-        private void injectedTick(CallbackInfo ci) {
-            if (this.isAlive()) {
+        private void injectedTick(CallbackInfo ci)
+        {
+            if (this.isAlive())
+            {
                 int i;
                 this.lastFuseTime = this.currentFuseTime;
-                if (this.isIgnited()) {
+                if (this.isIgnited())
+                {
                     this.setFuseSpeed(1);
                 }
-                    if ((i = this.getFuseSpeed()) > 0 && this.currentFuseTime == 0 && !this.isNeutered()) {
+                    if ((i = this.getFuseSpeed()) > 0 && this.currentFuseTime == 0 && !this.isNeutered())
+                    {
                         this.playSound(SoundEvents.ENTITY_CREEPER_PRIMED, 1.0f, 0.5f);
                         this.emitGameEvent(GameEvent.PRIME_FUSE);
                     }
 
                     this.currentFuseTime += i;
 
-                    if (this.currentFuseTime < 0) {
+                    if (this.currentFuseTime < 0)
+                    {
                         this.currentFuseTime = 0;
                     }
 
                 // Check if the creeper is not neutered
-                if (!this.isNeutered()) {
-                    if (this.currentFuseTime >= this.fuseTime) {
+                if (!this.isNeutered())
+                {
+                    if (this.currentFuseTime >= this.fuseTime)
+                    {
                         this.currentFuseTime = this.fuseTime;
                         this.explode();
                     }
-                } else {
+                }
+                else
+                {
                     // Reset fuse time when neutered
                     this.currentFuseTime = 0;
                 }
@@ -128,16 +141,19 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
         }
 
     @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
-    private void injectedInteractMob(PlayerEntity player2, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+    private void injectedInteractMob(PlayerEntity player2, Hand hand, CallbackInfoReturnable<ActionResult> cir)
+    {
 
         ItemStack itemStack = player2.getStackInHand(hand);
         ItemStack creeperOysters = new ItemStack(BTWR_Items.CREEPER_OYSTERS);
 
-        if (itemStack.getItem() instanceof ShearsItem && !this.isNeutered()) {
+        if (itemStack.getItem() instanceof ShearsItem && !this.isNeutered())
+        {
             player2.getWorld().playSound(null, player2.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             player2.getWorld().playSound(null ,player2.getBlockPos(),SoundEvents.ENTITY_SLIME_ATTACK,SoundCategory.HOSTILE, 1.0F, (player2.getWorld().random.nextFloat() - player2.getWorld().random.nextFloat()) * 0.1F + 0.7F);
 
-            if(!this.getWorld().isClient) {
+            if(!this.getWorld().isClient)
+            {
                 this.neuter();
 
                 ParticleEffect particleEffect = ParticleTypes.ITEM_SNOWBALL;
@@ -159,11 +175,21 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
             }
         }
 
-        if (itemStack.isOf(Items.FLINT_AND_STEEL)) {
-            this.getWorld().playSound(player2, this.getX(), this.getY(), this.getZ(), SoundEvents.ITEM_FLINTANDSTEEL_USE, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.4f + 0.8f);
-            if (!this.getWorld().isClient) {
+        if (itemStack.isIn(ItemTags.CREEPER_IGNITERS))
+        {
+            SoundEvent soundEvent = itemStack.isOf(Items.FIRE_CHARGE) ? SoundEvents.ITEM_FIRECHARGE_USE : SoundEvents.ITEM_FLINTANDSTEEL_USE;
+            this.getWorld().playSound(player2, this.getX(), this.getY(), this.getZ(), soundEvent, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.4f + 0.8f);
+            if (!this.getWorld().isClient)
+            {
                 this.ignite();
-                itemStack.damage(1, player2, player -> player.sendToolBreakStatus(hand));
+                if (!itemStack.isDamageable())
+                {
+                    itemStack.decrement(1);
+                }
+                else
+                {
+                    itemStack.damage(1, player2, playerx -> playerx.sendToolBreakStatus(hand));
+                }
             }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
         }

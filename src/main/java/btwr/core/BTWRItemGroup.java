@@ -25,7 +25,7 @@ public class BTWRItemGroup
                         entries.add(BTWR_Items.CREEPER_OYSTERS);
                         entries.add(BTWR_Items.DIAMOND_INGOT);
                         entries.add(BTWR_Items.STONE_BRICK);
-                        //entries.add(BTWR_Items.BRICK_UNFIRED);
+                        entries.add(BTWR_Items.BRICK_UNFIRED);
                         entries.add(BTWR_Items.HEMP_SEEDS);
                         entries.add(BTWR_Items.HEMP_LEAVES);
                         entries.add(BTWR_Items.HEMP_FIBERS);

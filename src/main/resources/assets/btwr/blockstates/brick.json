@@ -1,0 +1,10 @@
+{
+  "variants":
+  {
+    "facing=east": { "model": "btwr:block/brick",  "y": 270 },
+    "facing=north": { "model": "btwr:block/brick", "y": 180 },
+    "facing=south": { "model": "btwr:block/brick" },
+    "facing=west": { "model": "btwr:block/brick", "y": 90 }
+
+  }
+}

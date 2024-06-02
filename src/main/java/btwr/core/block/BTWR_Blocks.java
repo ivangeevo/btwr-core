@@ -9,6 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -27,6 +28,10 @@ public class BTWR_Blocks
 
     public static final Block ROPE_COIL = registerBlock("rope_coil", new PillarBlock(FabricBlockSettings.create().strength(1.2f).sounds(BlockSoundGroup.WOOD)));
 
+    // Blocks with no items registered.
+    public static final Block BRICK_UNFIRED = registerBlockNoItem("brick_unfired", new UnfiredBrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE), ParticleTypes.WHITE_ASH));
+    public static final Block BRICK = registerBlockNoItem("brick", new BrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
+
     //  TO BE ADDED:
 
 
@@ -36,11 +41,18 @@ public class BTWR_Blocks
         return Registry.register(Registries.BLOCK, new Identifier(BTWRMod.MOD_ID, name), block);
     }
 
+    private static Block registerBlockNoItem(String name, Block block)
+    {
+        return Registry.register(Registries.BLOCK, new Identifier(BTWRMod.MOD_ID, name), block);
+    }
+
     private static Item registerBlockItem(String name, Block block)
     {
         return Registry.register(Registries.ITEM, new Identifier(BTWRMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings()));
     }
+
+
 
     public static void registerModBlocks()
     {

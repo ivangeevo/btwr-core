@@ -35,10 +35,6 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.CLAY_BALL);
                 //.add(BTWR_Items.BRICK_UNFIRED);
 
-        getOrCreateTagBuilder(BTWRTags.Items.STRING_TOOL_MATERIALS)
-                .add(Items.STRING)
-                .add(BTWR_Items.HEMP_FIBERS);
-
         getOrCreateTagBuilder(BTWRTags.Items.NORMAL_LEATHERS)
                 .add(Items.LEATHER)
                 .add(BTWR_Items.LEATHER_CUT);
@@ -55,6 +51,11 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
     
     private void addToConventionalTags()
     {
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.STRING_TOOL_MATERIALS)
+                .add(Items.STRING)
+                .add(BTWR_Items.HEMP_FIBERS);
+
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS)
 
                 // Clubs do knockback

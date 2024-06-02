@@ -9,7 +9,7 @@
       "item": "minecraft:redstone"
     },
     {
-      "tag": "btwr:string_tool_materials"
+      "tag": "c:string_tool_materials"
     }
   ],
   "result": {

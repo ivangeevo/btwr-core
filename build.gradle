@@ -134,6 +134,10 @@ publishing {
 
     }
 
+    loom {
+        accessWidenerPath = file("src/main/resources/btwr.accesswidener")
+    }
+
 
     
 

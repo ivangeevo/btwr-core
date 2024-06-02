@@ -1,5 +1,4 @@
-// 1.20.1	2024-05-13T22:28:35.9322056	BTWR:Core/Tags for minecraft:item
-29078510981ac22cd241f448bd6117d176b5b276 data\btwr\tags\items\string_tool_materials.json
+// 1.20.1	2024-06-02T09:35:05.2884605	BTWR:Core/Tags for minecraft:item
 4143f25369fc887c428d0def462d6e12abda4f51 data\c\tags\items\advanced_hoes.json
 96a7dc799e8632b8de2002604dcad26b97a9a149 data\c\tags\items\advanced_axes.json
 3bb0a1be6b1f510bbeb3dc43818892112d03f5bf data\btwr\tags\items\clay_items.json
@@ -13,6 +12,7 @@ fc7851ff545e76da0a507013dfe2358bf47e9616 data\c\tags\items\primitive_axes.json
 fa05a36a55760bd8e5d228213512e71d80b05990 data\c\tags\items\modern_axes.json
 2babcdfc3142699ebc541487e4ccad30d6348c57 data\c\tags\items\modern_pickaxes.json
 ac9e850321aff304de63a6430c3925b0c74b6ba9 data\c\tags\items\shears.json
+29078510981ac22cd241f448bd6117d176b5b276 data\c\tags\items\string_tool_materials.json
 3d63e782965afc421d6aef84bfd19934a4d5d60b data\btwr\tags\items\normal_leathers.json
 e05f03ade4f312734c4f45e9c10a3f71c4022b62 data\c\tags\items\modern_hoes.json
 428fb3cee0e9aac23ba8d412d0e847b5a8cafa82 data\btwr\tags\items\scoured_leathers.json

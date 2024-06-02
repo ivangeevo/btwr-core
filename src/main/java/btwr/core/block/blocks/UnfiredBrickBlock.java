@@ -1,0 +1,203 @@
+package btwr.core.block.blocks;
+
+import btwr.core.block.BTWR_Blocks;
+import btwr.core.block.entity.UnfiredBrickBE;
+import btwr.core.entity.BTWR_EntityTypes;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.*;
+import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
+import org.jetbrains.annotations.Nullable;
+
+public class UnfiredBrickBlock extends BlockWithEntity
+{
+    public static final float BRICK_HEIGHT = (4F / 16F );
+    public static final float BRICK_WIDTH = (6F / 16F );
+    public static final float BRICK_HALF_WIDTH = (BRICK_WIDTH / 2F );
+    public static final float BRICK_LENGTH = (12F / 16F );
+    public static final float BRICK_HALF_LENGTH = (BRICK_LENGTH / 2F );
+    protected static final VoxelShape BOUNDING_SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 10.0, 10.0);
+    protected final ParticleEffect dryingParticle;
+    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final IntProperty DRYING_LEVEL = IntProperty.of("drying_level", 0, 7);
+    public UnfiredBrickBlock(Settings settings, ParticleEffect particle)
+    {
+        super(settings);
+        this.dryingParticle = particle;
+
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
+    {
+        builder.add( FACING, DRYING_LEVEL );
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
+    {
+        Direction facing = state.get(FACING);
+
+        if (facing.getAxis() == Direction.Axis.Z)
+        {
+            return VoxelShapes.cuboid(
+                    (0.5F - BRICK_HALF_LENGTH),
+                    0D,
+                    (0.5F - BRICK_HALF_WIDTH),
+                    (0.5F + BRICK_HALF_LENGTH),
+                    BRICK_HEIGHT,
+                    (0.5F + BRICK_HALF_WIDTH));
+        }
+        return VoxelShapes.cuboid(
+                (0.5F - BRICK_HALF_WIDTH),
+                0D,
+                (0.5F - BRICK_HALF_LENGTH),
+                (0.5F + BRICK_HALF_WIDTH),
+                BRICK_HEIGHT,
+                (0.5F + BRICK_HALF_LENGTH));
+
+    }
+
+    @Override
+    @Nullable
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return this.getDefaultState().with(DRYING_LEVEL, 0).with(FACING, ctx.getHorizontalPlayerFacing());
+    }
+
+    @Override
+    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity)
+    {
+        if (entity instanceof LivingEntity)
+        {
+            world.playSound(null, pos, SoundEvents.ENTITY_SLIME_ATTACK, SoundCategory.BLOCKS, ( 0.5F + 1.0F ) / 2.0F, 0.1F * 0.8F );
+            world.addBlockBreakParticles(pos, state); ;
+            dropBlockAsItem(world, pos);
+            world.removeBlock(pos, false);
+        }
+        super.onEntityCollision(state, world, pos, entity);
+    }
+
+
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved)
+    {
+        if (state.isOf(newState.getBlock()))
+        {
+            return;
+        }
+
+        world.playSound(null, pos, SoundEvents.ENTITY_SLIME_ATTACK, SoundCategory.BLOCKS, ( 0.5F + 1.0F ) / 2.0F, 0.1F * 0.8F );
+        super.onStateReplaced(state, world, pos, newState, moved);
+    }
+
+    @Override
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify)
+    {
+        if (!world.getBlockState(pos.down()).isSolidBlock(world, pos.down())) {
+            dropBlockAsItem(world, pos);
+            world.removeBlock(pos, false);
+        }
+        super.neighborUpdate(state, world, pos, block, fromPos, notify);
+    }
+
+    public void onFinishedCooking(World world, BlockPos pos, BlockState state)
+    {
+        BlockState dryState = BTWR_Blocks.BRICK.getDefaultState().with(FACING, state.get(FACING));
+        world.setBlockState(pos, dryState);
+    }
+
+    @Override public BlockRenderType getRenderType(BlockState state)
+    {
+        return BlockRenderType.MODEL;
+    }
+
+
+    @Override
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos)
+    {
+        return world.getBlockState(pos.down()).isSolidBlock(world, pos.down());
+    }
+    @Override
+    public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
+        return false;
+    }
+
+
+    private void dropBlockAsItem(World world, BlockPos pos)
+    {
+        ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), Items.CLAY_BALL.getDefaultStack());
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return UnfiredBrickBlock.checkType(type, BTWR_EntityTypes.Blocks.BRICK_UNFIRED, UnfiredBrickBE::serverTick);
+    }
+
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random)
+    {
+        // Drying particles display when its drying(only during daytime)
+        long timeOfDay = world.getTimeOfDay() % 24000; // Get the time of day (0 - 23999)
+
+        if (timeOfDay >= 0 && timeOfDay < 12000)
+        {
+
+            double d = (double)pos.getX() + 0.5;
+            double e = (double)pos.getY() + 0.7;
+            double f = (double)pos.getZ() + 0.5;
+            world.addParticle(ParticleTypes.SMOKE, d, e, f, 0.0, 0.0, 0.0);
+            world.addParticle(this.dryingParticle, d, e, f, 0.0, 0.0, 0.0);
+        }
+    }
+
+    public int getDryLevel(WorldAccess blockAccess, BlockPos pos)
+    {
+        return getDryLevel(blockAccess.getBlockState(pos));
+    }
+
+    public int getDryLevel(BlockState state)
+    {
+        return state.get(DRYING_LEVEL) >> 1;
+    }
+
+    public static void setDryingLevel(World world, BlockPos pos, int cookLevel) {
+        BlockState currentState = world.getBlockState(pos);
+        BlockState newState = setDryingLevel(currentState, cookLevel);
+        world.setBlockState(pos, newState, 3);
+    }
+
+    public static BlockState setDryingLevel(BlockState state, int iCookLevel)
+    {
+        return state.with(DRYING_LEVEL, iCookLevel);
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
+        return new UnfiredBrickBE(pos, state);
+    }
+
+
+}

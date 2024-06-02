@@ -67,11 +67,11 @@ public class BTWR_Items {
     public static final Item LEATHER_TANNED_LEGGINGS = registerItem("leather_tanned_leggings", new ArmorItem(BTWR_ArmorMaterials.LEATHER_TANNED, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item LEATHER_TANNED_BOOTS = registerItem("leather_tanned_boots", new ArmorItem(BTWR_ArmorMaterials.LEATHER_TANNED, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
+    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED ,new FabricItemSettings()));
 
 
     // TO BE ADDED :
 
-    //public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new Item (new FabricItemSettings()));
 
     //public static final Item NETHERRACK_GROUND = registerItem( "netherrack_ground", new Item (new FabricItemSettings()));
     //public static final Item DUST_HELLFIRE = registerItem( "dust_hellfire", new Item (new FabricItemSettings()));

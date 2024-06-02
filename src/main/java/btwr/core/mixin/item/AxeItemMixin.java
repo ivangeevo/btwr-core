@@ -10,14 +10,23 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.*;
+import net.minecraft.recipe.*;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.screen.CraftingScreenHandler;
+import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -33,21 +42,45 @@ public abstract class AxeItemMixin extends MiningToolItem
         super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
     }
 
+    @Override
+    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
+        super.onCraft(stack, world, player);
+    }
+
+    @Override
+    public ItemStack getRecipeRemainder(ItemStack stack)
+    {
+            // Apply the remainder logic
+            if (stack.getDamage() < stack.getMaxDamage() - 1)
+            {
+                ItemStack moreDamaged = stack.copy();
+                moreDamaged.setDamage(stack.getDamage() + 1);
+                return moreDamaged;
+            }
+
+            return ItemStack.EMPTY;
+    }
+
+
+
+    /**
     // TODO: Fix Axe items from duping in Create mixing recipes.
     // Probably needs a better remainder logic.
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack)
     {
-        if (stack.getDamage() < stack.getMaxDamage() - 1)
-        {
-            ItemStack moreDamaged = stack.copy();
-            moreDamaged.setDamage(stack.getDamage() + 1);
-            return moreDamaged;
-        }
-
-        return ItemStack.EMPTY;
-
+            // Check the current inventory and stack match any crafting recipe
+            if ( stack.getDamage() < stack.getMaxDamage() - 1 )
+            {
+                ItemStack moreDamaged = stack.copy();
+                moreDamaged.setDamage(stack.getDamage() + 1);
+                return moreDamaged;
+            }
+            return ItemStack.EMPTY;
     }
+     **/
+
+
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user)

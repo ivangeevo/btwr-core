@@ -43,5 +43,7 @@
       "net/minecraft/class_2248": ["btwr/core/block/interfaces/BlockAdded"]
 
     }
-  }
+  },
+
+  "accessWidener" : "btwr.accesswidener"
 }
