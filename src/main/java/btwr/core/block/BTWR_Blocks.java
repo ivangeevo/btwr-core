@@ -21,18 +21,16 @@ public class BTWR_Blocks
     // Methods for registering blocks.
 
     public static final Block CROP_HEMP = registerBlock("crop_hemp", new HempCropBlock(FabricBlockSettings.create().noCollision().ticksRandomly().nonOpaque().strength(0.5f).sounds(BlockSoundGroup.GRASS)));
-    public static final Block LIGHTBLOCK = registerBlock("lightblock", new LightBlock(FabricBlockSettings.create().hardness(1.8f).requiresTool()
-            .luminance(state -> state.get(LightBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS).nonOpaque().solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
-
-    //public static final Block COMPANIONCUBE = registerBlock("companioncube", new CompanionCube(FabricBlockSettings.create().strength(1.2f).ticksRandomly()));
-
+    public static final Block LIGHTBLOCK = registerBlock("lightblock", new LightBlock(FabricBlockSettings.create().hardness(1.8f).requiresTool().luminance(state -> state.get(LightBlock.LIT) ? 15 : 0).sounds(BlockSoundGroup.GLASS).nonOpaque().solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
     public static final Block ROPE_COIL = registerBlock("rope_coil", new PillarBlock(FabricBlockSettings.create().strength(1.2f).sounds(BlockSoundGroup.WOOD)));
+
 
     // Blocks with no items registered.
     public static final Block BRICK_UNFIRED = registerBlockNoItem("brick_unfired", new UnfiredBrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE), ParticleTypes.WHITE_ASH));
     public static final Block BRICK = registerBlockNoItem("brick", new BrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
 
     //  TO BE ADDED:
+    //public static final Block COMPANIONCUBE = registerBlock("companioncube", new CompanionCube(FabricBlockSettings.create().strength(1.2f).ticksRandomly()));
 
 
     private static Block registerBlock(String name, Block block)
