@@ -36,7 +36,9 @@ public class UnfiredBrickBlock extends BlockWithEntity
     public static final float BRICK_HALF_WIDTH = (BRICK_WIDTH / 2F );
     public static final float BRICK_LENGTH = (12F / 16F );
     public static final float BRICK_HALF_LENGTH = (BRICK_LENGTH / 2F );
-    protected static final VoxelShape BOUNDING_SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 10.0, 10.0);
+    protected static final VoxelShape SHAPE_Z_AXIS = VoxelShapes.cuboid((0.5F - BRICK_HALF_LENGTH), 0D, (0.5F - BRICK_HALF_WIDTH), (0.5F + BRICK_HALF_LENGTH), BRICK_HEIGHT, (0.5F + BRICK_HALF_WIDTH));
+    protected static final VoxelShape SHAPE_X_AXIS = VoxelShapes.cuboid((0.5F - BRICK_HALF_WIDTH), 0D, (0.5F - BRICK_HALF_LENGTH), (0.5F + BRICK_HALF_WIDTH), BRICK_HEIGHT, (0.5F + BRICK_HALF_LENGTH));
+
     protected final ParticleEffect dryingParticle;
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty DRYING_LEVEL = IntProperty.of("drying_level", 0, 7);
@@ -56,25 +58,11 @@ public class UnfiredBrickBlock extends BlockWithEntity
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
     {
-        Direction facing = state.get(FACING);
-
-        if (facing.getAxis() == Direction.Axis.Z)
+        if (state.get(FACING).getAxis() == Direction.Axis.Z)
         {
-            return VoxelShapes.cuboid(
-                    (0.5F - BRICK_HALF_LENGTH),
-                    0D,
-                    (0.5F - BRICK_HALF_WIDTH),
-                    (0.5F + BRICK_HALF_LENGTH),
-                    BRICK_HEIGHT,
-                    (0.5F + BRICK_HALF_WIDTH));
+            return SHAPE_Z_AXIS;
         }
-        return VoxelShapes.cuboid(
-                (0.5F - BRICK_HALF_WIDTH),
-                0D,
-                (0.5F - BRICK_HALF_LENGTH),
-                (0.5F + BRICK_HALF_WIDTH),
-                BRICK_HEIGHT,
-                (0.5F + BRICK_HALF_LENGTH));
+        return SHAPE_X_AXIS;
 
     }
 
@@ -90,7 +78,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
         if (entity instanceof LivingEntity)
         {
             world.playSound(null, pos, SoundEvents.ENTITY_SLIME_ATTACK, SoundCategory.BLOCKS, ( 0.5F + 1.0F ) / 2.0F, 0.1F * 0.8F );
-            world.addBlockBreakParticles(pos, state); ;
+            world.addBlockBreakParticles(pos, state);
             dropBlockAsItem(world, pos);
             world.removeBlock(pos, false);
         }
@@ -150,9 +138,11 @@ public class UnfiredBrickBlock extends BlockWithEntity
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return UnfiredBrickBlock.checkType(type, BTWR_EntityTypes.Blocks.BRICK_UNFIRED, UnfiredBrickBE::serverTick);
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
+    {
+        return UnfiredBrickBlock.checkType(type, BTWR_EntityTypes.Blocks.BRICK_UNFIRED, UnfiredBrickBE::tick);
     }
+
 
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random)
@@ -163,13 +153,18 @@ public class UnfiredBrickBlock extends BlockWithEntity
         if (timeOfDay >= 0 && timeOfDay < 12000)
         {
 
-            double d = (double)pos.getX() + 0.5;
-            double e = (double)pos.getY() + 0.7;
-            double f = (double)pos.getZ() + 0.5;
-            world.addParticle(ParticleTypes.SMOKE, d, e, f, 0.0, 0.0, 0.0);
-            world.addParticle(this.dryingParticle, d, e, f, 0.0, 0.0, 0.0);
+            double d = pos.getX() + 0.25F + world.random.nextFloat() * 0.5F;
+            double e = pos.getY() + 0.5F + world.random.nextFloat() * 0.25F;
+            double f = pos.getZ() + 0.25F + world.random.nextFloat() * 0.5F;
+
+            if ( world.random.nextInt( 2 ) == 0 )
+            {
+                world.addParticle(this.dryingParticle, d, e, f, 0.0, 0.0, 0.0);
+            }
+
         }
     }
+
 
     public int getDryLevel(WorldAccess blockAccess, BlockPos pos)
     {

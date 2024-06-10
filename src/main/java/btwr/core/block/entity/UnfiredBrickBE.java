@@ -52,26 +52,9 @@ public class UnfiredBrickBE extends BlockEntity
         return BlockEntityUpdateS2CPacket.create(this);
     }
 
-    public static void serverTick(World world, BlockPos pos, BlockState state, UnfiredBrickBE be)
+    public static void tick(World world, BlockPos pos, BlockState state, UnfiredBrickBE be)
     {
-        if ( !world.isClient )
-        {
-            be.updateDrying();
-        }
-        else
-        {
-            if (be.isDrying)
-            {
-                if ( world.random.nextInt( 20 ) == 0 )
-                {
-                    double xPos = pos.getX() + 0.25F + world.random.nextFloat() * 0.5F;
-                    double yPos = pos.getY() + 0.5F + world.random.nextFloat() * 0.25F;
-                    double zPos = pos.getZ() + 0.25F + world.random.nextFloat() * 0.5F;
-
-                    world.addParticle(ParticleTypes.WHITE_ASH, xPos, yPos, zPos, 0.0D, 0.0D, 0.0D );
-                }
-            }
-        }
+        if ( !world.isClient ) be.updateDrying();
     }
 
     public void updateDrying()

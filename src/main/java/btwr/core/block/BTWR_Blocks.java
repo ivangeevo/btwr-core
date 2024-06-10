@@ -26,7 +26,7 @@ public class BTWR_Blocks
 
 
     // Blocks with no items registered.
-    public static final Block BRICK_UNFIRED = registerBlockNoItem("brick_unfired", new UnfiredBrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE), ParticleTypes.WHITE_ASH));
+    public static final Block BRICK_UNFIRED = registerBlockNoItem("brick_unfired", new UnfiredBrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE), ParticleTypes.CLOUD));
     public static final Block BRICK = registerBlockNoItem("brick", new BrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
 
     //  TO BE ADDED:
