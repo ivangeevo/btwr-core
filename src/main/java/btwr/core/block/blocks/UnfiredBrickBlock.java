@@ -157,7 +157,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
             double e = pos.getY() + 0.5F + world.random.nextFloat() * 0.25F;
             double f = pos.getZ() + 0.25F + world.random.nextFloat() * 0.5F;
 
-            if ( world.random.nextInt( 2 ) == 0 )
+            if ( world.random.nextInt( 20 ) == 0 )
             {
                 world.addParticle(this.dryingParticle, d, e, f, 0.0, 0.0, 0.0);
             }

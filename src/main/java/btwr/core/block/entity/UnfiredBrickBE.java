@@ -60,11 +60,8 @@ public class UnfiredBrickBE extends BlockEntity
     public void updateDrying()
     {
         boolean bNewDrying;
-        assert world != null;
-        //int iBlockMaxNaturalLight = world.getMaxLightLevel();
-        //int iBlockCurrentNaturalLight = iBlockMaxNaturalLight - world.getBaseLightLevel(pos,0);
 
-        //bNewDrying = iBlockCurrentNaturalLight >= 15;
+        assert world != null;
         bNewDrying = world.getLightLevel(pos) >= 15;
 
         BlockState stateAbove = world.getBlockState( pos.up() );
