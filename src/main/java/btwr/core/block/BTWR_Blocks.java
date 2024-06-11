@@ -29,6 +29,8 @@ public class BTWR_Blocks
     public static final Block BRICK_UNFIRED = registerBlockNoItem("brick_unfired", new UnfiredBrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE), ParticleTypes.CLOUD));
     public static final Block BRICK = registerBlockNoItem("brick", new BrickBlock(FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
 
+
+
     //  TO BE ADDED:
     //public static final Block COMPANIONCUBE = registerBlock("companioncube", new CompanionCube(FabricBlockSettings.create().strength(1.2f).ticksRandomly()));
 

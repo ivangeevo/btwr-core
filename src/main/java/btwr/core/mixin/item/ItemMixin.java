@@ -35,7 +35,7 @@ public abstract class ItemMixin
             {
                 BlockPos placePos = pos.up(); // Position to place the new block
 
-                // Create an ItemPlacementContext for the new block position
+                //TODO: Possibly not good idea to access widen getHitResult(the last parameter) try something else if compatability issues arise.                // Create an ItemPlacementContext for the new block position
                 ItemPlacementContext placementContext = new ItemPlacementContext(Objects.requireNonNull(context.getPlayer()), context.getHand(), heldStack, context.getHitResult());
 
                 // Get the block state using the placement context
@@ -51,5 +51,6 @@ public abstract class ItemMixin
                 }
             }
         }
+
     }
 }
