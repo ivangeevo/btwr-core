@@ -1,7 +1,9 @@
 ### 0.24
 
-+ Added missing recipe for making Strap.
-+ Added Unfired Brick item & block & the ability to dry them into regular brick.
++ Added recipe for making Strap.
++ Added Unfired Brick item & block & the ability to sun dry them into regular bricks.
++ Made regular brick also placeable in the world.
++ Added Fuel values to all "flammable" items from the mod.
 + Fixed a bug with creepers not igniting with fire charge.
 + Changes to BTWR conventional tags.
 
