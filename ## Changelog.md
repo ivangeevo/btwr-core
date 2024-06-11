@@ -3,7 +3,7 @@
 + Added missing recipe for making Strap.
 + Added Unfired Brick item & block & the ability to dry them into regular brick.
 + Fixed a bug with creepers not igniting with fire charge.
-+ Changes to conventional tags.
++ Changes to BTWR conventional tags.
 
 
 ### 0.23.2
