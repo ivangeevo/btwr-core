@@ -3,7 +3,7 @@
 + Added recipe for making Strap.
 + Added Unfired Brick item & block & the ability to sun dry them into regular bricks.
 + Made regular brick also placeable in the world.
-+ Added Fuel values to all "flammable" items from the mod.
++ Added Fuel values to all "flammable" items like wooden club, gear and all hemp derivatives.
 + Fixed a bug with creepers not igniting with fire charge.
 + Changes to BTWR conventional tags.
 

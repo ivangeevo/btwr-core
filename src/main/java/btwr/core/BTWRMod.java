@@ -5,6 +5,7 @@ import btwr.core.config.BTWRSettings;
 import btwr.core.config.SettingsGUI;
 import btwr.core.entity.BTWR_EntityTypes;
 import btwr.core.item.BTWR_Items;
+import btwr.core.registry.ModFuelItems;
 import com.google.gson.Gson;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
@@ -40,6 +41,7 @@ public class BTWRMod implements ModInitializer
         BTWRItemGroup.registerItemGroups();
         BTWR_Blocks.registerModBlocks();
         BTWR_Items.registerModItems();
+        ModFuelItems.registerFuelEntries();
 
         BTWR_EntityTypes.Blocks.registerBlockEntities();
 
