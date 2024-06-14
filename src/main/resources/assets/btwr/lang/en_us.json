@@ -47,6 +47,11 @@
   "block.btwr.lightblock": "Light Block",
   "block.btwr.rope_coil": "Coil of Rope",
 
+  "item.btwr.egg_raw": "Raw Egg",
+  "item.btwr.egg_scrambled_raw": "Raw Scrambled Eggs",
+  "item.btwr.egg_scrambled_cooked": "Scrambled Eggs",
+  "item.btwr.egg_fried": "Fried Egg",
+  "item.btwr.egg_poached": "Poached Egg",
 
 
   "title.btwr.config": "BTWR:Core Configuration Menu",

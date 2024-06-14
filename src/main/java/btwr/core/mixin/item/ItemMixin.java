@@ -1,6 +1,7 @@
 package btwr.core.mixin.item;
 
 import btwr.core.block.BTWR_Blocks;
+import btwr.core.block.blocks.BrickBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -34,6 +35,15 @@ public abstract class ItemMixin
             if (!world.isClient)
             {
                 BlockPos placePos = pos.up(); // Position to place the new block
+
+                // Check the block below the target position
+                BlockState belowBlockState = world.getBlockState(pos);
+                if (belowBlockState.getBlock() instanceof BrickBlock)
+                {
+                    // Prevent placing the block on top of itself
+                    cir.setReturnValue(ActionResult.FAIL);
+                    return;
+                }
 
                 //TODO: Possibly not good idea to access widen getHitResult(the last parameter) try something else if compatability issues arise.                // Create an ItemPlacementContext for the new block position
                 ItemPlacementContext placementContext = new ItemPlacementContext(Objects.requireNonNull(context.getPlayer()), context.getHand(), heldStack, context.getHitResult());

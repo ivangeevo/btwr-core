@@ -70,6 +70,17 @@ public class BTWR_Items {
     public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED ,new FabricItemSettings()));
 
 
+    // Food items
+
+    public static final Item EGG_RAW = registerItem("egg_raw", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_RAW)));
+    public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_SCRAMBLED_RAW)));
+    public static final Item EGG_FRIED = registerItem("egg_fried", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_COOKED)));
+    public static final Item EGG_POACHED = registerItem("egg_poached", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_COOKED)));
+    public static final Item EGG_SCRAMBLED_COOKED = registerItem("egg_scrambled_cooked", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_SCRAMBLED_COOKED)));
+
+
+
+
     // TO BE ADDED :
 
 

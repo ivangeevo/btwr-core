@@ -3,14 +3,14 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "btwr:leather_tanned_cut"
+      "item": "btwr:egg_raw"
     },
     {
-      "tag": "c:shears"
+      "item": "minecraft:milk_bucket"
     }
   ],
   "result": {
-    "count": 4,
-    "item": "btwr:strap"
+    "count": 2,
+    "item": "btwr:egg_scrambled_raw"
   }
 }

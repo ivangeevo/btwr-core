@@ -1,16 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "group_btwr",
   "ingredients": [
     {
-      "item": "btwr:leather_tanned_cut"
-    },
-    {
-      "tag": "c:shears"
+      "item": "minecraft:egg"
     }
   ],
   "result": {
-    "count": 4,
-    "item": "btwr:strap"
+    "item": "btwr:egg_raw"
   }
 }

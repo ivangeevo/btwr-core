@@ -150,7 +150,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
         // Drying particles display when its drying(only during daytime)
         long timeOfDay = world.getTimeOfDay() % 24000; // Get the time of day (0 - 23999)
 
-        if (timeOfDay >= 0 && timeOfDay < 12000)
+        if (timeOfDay >= 0 && timeOfDay < 12000 && !world.hasRain(pos))
         {
 
             double d = pos.getX() + 0.25F + world.random.nextFloat() * 0.5F;

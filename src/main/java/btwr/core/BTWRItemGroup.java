@@ -56,6 +56,13 @@ public class BTWRItemGroup
                         entries.add(BTWR_Items.LEATHER_TANNED_LEGGINGS);
                         entries.add(BTWR_Items.LEATHER_TANNED_BOOTS);
 
+                        entries.add(BTWR_Items.EGG_RAW);
+                        entries.add(BTWR_Items.EGG_FRIED);
+                        entries.add(BTWR_Items.EGG_POACHED);
+                        entries.add(BTWR_Items.EGG_SCRAMBLED_RAW);
+                        entries.add(BTWR_Items.EGG_SCRAMBLED_COOKED);
+
+
                         /** BLOCKS **/
 
                         entries.add(BTWR_Blocks.LIGHTBLOCK);

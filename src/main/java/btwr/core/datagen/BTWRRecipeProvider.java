@@ -61,12 +61,23 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.FILAMENT).input(Items.GLOWSTONE_DUST).input(Items.REDSTONE).input(BTWRConventionalTags.Items.STRING_TOOL_MATERIALS).criterion("has_filament", RecipeProvider.conditionsFromItem(BTWR_Items.FILAMENT)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_SCOURED).input(Items.LEATHER).input(Items.WATER_BUCKET).criterion("has_water_bucket", RecipeProvider.conditionsFromItem(Items.WATER_BUCKET)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_TANNED).input(BTWR_Items.LEATHER_SCOURED).input(ItemTags.LOGS).criterion("has_leather_scoured", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.STRAP).input(BTWR_Items.LEATHER_TANNED_CUT).input(BTWRConventionalTags.Items.SHEARS).criterion("has_leather_tanned_cut", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_TANNED_CUT)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.STRAP,4).input(BTWR_Items.LEATHER_TANNED_CUT).input(BTWRConventionalTags.Items.SHEARS).criterion("has_leather_tanned_cut", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_TANNED_CUT)).offerTo(exporter);
 
         offerShapelessRecipe(exporter, BTWR_Items.HEMP_FIBERS, BTWR_Items.ROPE, "group_btwr", 6);
         offerShapelessRecipe(exporter, BTWR_Items.HEMP_FIBERS, BTWR_Items.HEMP_FABRIC, "group_btwr", 9);
         offerShapelessRecipe(exporter, BTWR_Items.ROPE, BTWR_Blocks.ROPE_COIL, "group_btwr", 9);
         offerShapelessRecipe(exporter, BTWR_Items.BRICK_UNFIRED, Items.CLAY_BALL, "group_btwr", 1);
+
+
+        offerShapelessRecipe(exporter, BTWR_Items.EGG_RAW, Items.EGG, "group_btwr",1);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.EGG_SCRAMBLED_RAW,2).input(BTWR_Items.EGG_RAW).input(Items.MILK_BUCKET).criterion("has_egg_raw", RecipeProvider.conditionsFromItem(BTWR_Items.EGG_RAW)).offerTo(exporter);
+
+        offerFoodCookingRecipe(exporter, "smelting", RecipeSerializer.SMELTING,200, BTWR_Items.EGG_RAW, BTWR_Items.EGG_FRIED, 0.35f);
+        offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING,100, BTWR_Items.EGG_RAW, BTWR_Items.EGG_POACHED, 0.35f);
+        offerFoodCookingRecipe(exporter, "smelting", RecipeSerializer.SMELTING,200, BTWR_Items.EGG_SCRAMBLED_RAW, BTWR_Items.EGG_SCRAMBLED_COOKED, 0.35f);
+        offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING,100, BTWR_Items.EGG_SCRAMBLED_RAW, BTWR_Items.EGG_SCRAMBLED_COOKED, 0.35f);
+
 
         // TO BE ADDED:
 
@@ -75,6 +86,19 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
 
     }
+
+    public static void generateCookingRecipes(Consumer<RecipeJsonProvider> exporter, String cooker, RecipeSerializer<? extends AbstractCookingRecipe> serializer, int cookingTime) {
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.BEEF, Items.COOKED_BEEF, 0.35F);
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.CHICKEN, Items.COOKED_CHICKEN, 0.35F);
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.COD, Items.COOKED_COD, 0.35F);
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.KELP, Items.DRIED_KELP, 0.1F);
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.SALMON, Items.COOKED_SALMON, 0.35F);
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.MUTTON, Items.COOKED_MUTTON, 0.35F);
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.PORKCHOP, Items.COOKED_PORKCHOP, 0.35F);
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.POTATO, Items.BAKED_POTATO, 0.35F);
+        offerFoodCookingRecipe(exporter, cooker, serializer, cookingTime, Items.RABBIT, Items.COOKED_RABBIT, 0.35F);
+    }
+
     public static void generateShapedRecipes(Consumer<RecipeJsonProvider> exporter)
     {
         // Tools
@@ -107,5 +131,9 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
     }
 
+    private void generateCookingRecipes()
+    {
+
+    }
 
 }
