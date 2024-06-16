@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "minecraft:iron_pickaxe",
-    "minecraft:golden_pickaxe",
-    "minecraft:diamond_pickaxe"
+    "minecraft:golden_pickaxe"
   ]
 }

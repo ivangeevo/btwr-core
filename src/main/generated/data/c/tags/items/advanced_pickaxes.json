@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:netherite_pickaxe"
+    "minecraft:netherite_pickaxe",
+    "minecraft:diamond_pickaxe"
   ]
 }

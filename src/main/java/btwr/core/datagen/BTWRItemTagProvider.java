@@ -82,11 +82,12 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.MODERN_PICKAXES)
                 .add(Items.IRON_PICKAXE)
-                .add(Items.GOLDEN_PICKAXE)
-                .add(Items.DIAMOND_PICKAXE);
+                .add(Items.GOLDEN_PICKAXE);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ADVANCED_PICKAXES)
-                .add(Items.NETHERITE_PICKAXE);
+                .add(Items.NETHERITE_PICKAXE)
+                .add(Items.DIAMOND_PICKAXE);
+
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.PRIMITIVE_AXES)
                 .add(Items.WOODEN_AXE)
