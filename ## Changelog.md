@@ -3,12 +3,13 @@
 + Added recipe for making Strap.
 + Added Unfired Brick item & block & the ability to sun dry them into regular bricks.
 + Added Egg Items (Raw, Fried, Poached & Scrambled).
++ Rebalanced Shears block breaking speed.
 + Made regular brick also placeable in the world.
 + Added Fuel values to all "flammable" items like wooden club, gear and all hemp derivatives.
 + Fixed a bug with creepers not igniting with fire charge.
 + Fixed Strap recipe only giving 1 strap instead of 4
 + Changes to BTWR conventional tags.
-
++ Rebalanced Shears block breaking speed.
 
 ### 0.23.2
 

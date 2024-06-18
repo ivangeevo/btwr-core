@@ -17,9 +17,7 @@ import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.*;
 import net.minecraft.recipe.*;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.screen.CraftingScreenHandler;
-import net.minecraft.screen.PlayerScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.screen.*;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
@@ -34,6 +32,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AxeItem.class)
 public abstract class AxeItemMixin extends MiningToolItem
 {
+    private final RecipeManager.MatchGetter<RecipeInputInventory, CraftingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(RecipeType.CRAFTING);
 
 
     public AxeItemMixin(float attackDamage, float attackSpeed, ToolMaterial material,
@@ -47,6 +46,9 @@ public abstract class AxeItemMixin extends MiningToolItem
         super.onCraft(stack, world, player);
     }
 
+
+
+    // TODO: Fix Axe items from duping in Create mixing recipes.
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack)
     {
@@ -60,27 +62,6 @@ public abstract class AxeItemMixin extends MiningToolItem
 
             return ItemStack.EMPTY;
     }
-
-
-
-    /**
-    // TODO: Fix Axe items from duping in Create mixing recipes.
-    // Probably needs a better remainder logic.
-    @Override
-    public ItemStack getRecipeRemainder(ItemStack stack)
-    {
-            // Check the current inventory and stack match any crafting recipe
-            if ( stack.getDamage() < stack.getMaxDamage() - 1 )
-            {
-                ItemStack moreDamaged = stack.copy();
-                moreDamaged.setDamage(stack.getDamage() + 1);
-                return moreDamaged;
-            }
-            return ItemStack.EMPTY;
-    }
-     **/
-
-
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user)
