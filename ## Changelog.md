@@ -1,14 +1,18 @@
+### 0.24.1
+
++ Removed recipe for cooking brick on campfires.
+
 ### 0.24
 
-+ Added missing recipe for making Strap.
 + Added Unfired Brick item & block & the ability to sun dry them into regular bricks.
++ Added Diamond Armor Plate item and changed recipes for making diamond armor.
 + Added Fuel values to all "flammable" items like wooden club, gear and all hemp derivatives.
 + Added recipes for cut leather to be used with some existing recipes that require normal leather.
-+ Added Diamond Armor Plate item and changed recipes for making diamond armor.
++ Added missing recipe for making Strap.
 + Rebalanced Shears block breaking speed.
 + Made the Brick item placeable in the world as a block.
 + Fixed a bug with creepers not igniting with fire charge.
-+ Fixed Strap recipe only giving 1 strap instead of 4
++ Fixed Strap recipe only giving one strap instead of 4
 + Changes to BTWR conventional tags.
 
 ### 0.23.2
