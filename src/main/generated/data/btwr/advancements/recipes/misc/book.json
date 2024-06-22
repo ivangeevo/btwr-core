@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_egg_raw": {
+    "has_paper": {
       "conditions": {
         "items": [
           {
             "items": [
-              "btwr:egg_raw"
+              "minecraft:paper"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:egg_fried_from_smelting"
+        "recipe": "minecraft:book"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_egg_raw",
+      "has_paper",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:egg_fried_from_smelting"
+      "minecraft:book"
     ]
   },
   "sends_telemetry_event": false

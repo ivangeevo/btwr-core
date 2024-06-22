@@ -46,9 +46,10 @@ public class BTWR_Items {
     public static final Item STRAP = registerItem( "strap", new Item (new FabricItemSettings()));
     public static final Item BELT = registerItem( "belt", new Item (new FabricItemSettings()));
     public static final Item GEAR = registerItem( "gear", new Item (new FabricItemSettings()));
-
     public static final Item FILAMENT = registerItem( "filament", new Item (new FabricItemSettings()));
 
+
+    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED ,new FabricItemSettings()));
 
     // --------- //
 
@@ -70,16 +71,15 @@ public class BTWR_Items {
     public static final Item LEATHER_TANNED_LEGGINGS = registerItem("leather_tanned_leggings", new ArmorItem(BTWR_ArmorMaterials.LEATHER_TANNED, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item LEATHER_TANNED_BOOTS = registerItem("leather_tanned_boots", new ArmorItem(BTWR_ArmorMaterials.LEATHER_TANNED, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED ,new FabricItemSettings()));
 
 
     // Food items
 
-    public static final Item EGG_RAW = registerItem("egg_raw", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_RAW)));
-    public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_SCRAMBLED_RAW)));
-    public static final Item EGG_FRIED = registerItem("egg_fried", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_COOKED)));
-    public static final Item EGG_POACHED = registerItem("egg_poached", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_COOKED)));
-    public static final Item EGG_SCRAMBLED_COOKED = registerItem("egg_scrambled_cooked", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_SCRAMBLED_COOKED)));
+    //public static final Item EGG_RAW = registerItem("egg_raw", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_RAW)));
+    //public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_SCRAMBLED_RAW)));
+    //public static final Item EGG_FRIED = registerItem("egg_fried", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_COOKED)));
+    //public static final Item EGG_POACHED = registerItem("egg_poached", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_COOKED)));
+    //public static final Item EGG_SCRAMBLED_COOKED = registerItem("egg_scrambled_cooked", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_SCRAMBLED_COOKED)));
 
 
 
