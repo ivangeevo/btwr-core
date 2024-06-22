@@ -4,6 +4,7 @@
 + Added Unfired Brick item & block & the ability to sun dry them into regular bricks.
 + Added Fuel values to all "flammable" items like wooden club, gear and all hemp derivatives.
 + Added recipes for cut leather to be used with some existing recipes that require normal leather.
++ Added Diamond Armor Plate item and changed recipes for making diamond armor.
 + Rebalanced Shears block breaking speed.
 + Made regular brick item placeable in the world as a block.
 + Fixed a bug with creepers not igniting with fire charge.

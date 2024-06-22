@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-19T13:39:24.9313866	BTWR:Core/Recipes
+// 1.20.1	2024-06-22T18:39:01.768886	BTWR:Core/Recipes
 57406099f2356c83f477f815d5f559b63d35e61e data\btwr\recipes\belt.json
 bb88a7af1d24e5a9bba72e7880ceecc0c2a2b1cd data\btwr\advancements\recipes\combat\leather_tanned_leggings.json
 118dc5251fb2623838c6594717a5e1c2b01092de data\btwr\recipes\filament.json
@@ -14,12 +14,14 @@ a8a4fd3c135f8b4d5b3c71dbe48d3f66266a0a3c data\btwr\advancements\recipes\misc\lig
 d706497cd92068c4e0cb1ba411565d4f93f7817d data\btwr\advancements\recipes\misc\hemp_fabric.json
 72340dde24b669845720b3ad246f1bed4de2c1d8 data\btwr\recipes\diamond_ingot.json
 abf84238f8c76cebbee4128afbf3853160e7adbf data\btwr\advancements\recipes\tools\diamond_shears.json
+cc61004aa402d93142bfe8b29c214f9deffb562a data\btwr\advancements\recipes\combat\diamond_plate.json
 7348d5488bb7e92000bfc21ebed4ef087a63c6cf data\btwr\advancements\recipes\misc\item_frame.json
 e226881c3aafbb0503e74a60569cdae692f665af data\btwr\recipes\leather_helmet.json
 e40e028f693588311b66ff84ee87e504e2de5834 data\btwr\advancements\recipes\combat\leather_helmet.json
 0a6af778fc13811bee1d984655670de3085c762f data\btwr\recipes\rope_from_rope_coil.json
 034af5c905cc806b46d860929c3cc1d66abd53fd data\btwr\advancements\recipes\combat\leather_tanned_boots.json
 9dc649001ce7d65ba86c57d4d5ab23c9529e61ee data\btwr\advancements\recipes\misc\book.json
+37d857bf7e3e8753bfd44c4747b685e2f4782b9a data\btwr\recipes\diamond_plate.json
 01afaf2c26d93da1c708bc1f02f945bdfba70680 data\btwr\recipes\item_frame.json
 dc866f9054728f15c27b0f992c12267a703a3963 data\btwr\advancements\recipes\misc\rope_coil.json
 b303b29d7bb5144560ab5f394694e60ac237c0a4 data\btwr\advancements\recipes\misc\rope_from_rope_coil.json

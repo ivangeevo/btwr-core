@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "btwr:diamond_ingot"
+    },
+    "S": {
+      "item": "btwr:strap"
+    }
+  },
+  "pattern": [
+    "SIS"
+  ],
+  "result": {
+    "item": "btwr:diamond_plate"
+  },
+  "show_notification": true
+}
