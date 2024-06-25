@@ -2,17 +2,11 @@ package btwr.core;
 
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.config.BTWRSettings;
-import btwr.core.config.SettingsGUI;
 import btwr.core.entity.BTWR_EntityTypes;
 import btwr.core.item.BTWR_Items;
 import btwr.core.registry.ModFuelItems;
 import com.google.gson.Gson;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
-import net.minecraft.util.ActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +38,8 @@ public class BTWRMod implements ModInitializer
         ModFuelItems.registerFuelEntries();
 
         BTWR_EntityTypes.Blocks.registerBlockEntities();
+
+
 
 
 

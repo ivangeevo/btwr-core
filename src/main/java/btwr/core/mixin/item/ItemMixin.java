@@ -3,18 +3,15 @@ package btwr.core.mixin.item;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.blocks.BrickBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.Items;
-import net.minecraft.state.property.Properties;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.item.ItemPlacementContext;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Objects;
@@ -61,6 +58,16 @@ public abstract class ItemMixin
                 }
             }
         }
+    }
 
+    @Inject(method = "usageTick", at = @At("HEAD"), cancellable = true)
+    private void onUsageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks, CallbackInfo ci) {
+        if (user.isUsingItem() && remainingUseTicks <= 1)
+        {
+            // Stop using the item
+            user.stopUsingItem();
+            // Cancel further processing to stop continuous usage
+            ci.cancel();
+        }
     }
 }
