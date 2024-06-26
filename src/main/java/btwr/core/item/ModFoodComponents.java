@@ -30,6 +30,9 @@ public class ModFoodComponents
     public static final FoodComponent EGG_SCRAMBLED_COOKED =
             new FoodComponent.Builder().hunger(4).saturationModifier(0.012f).build();
 
+    public static final FoodComponent SANDWICH =
+            new FoodComponent.Builder().hunger(5).saturationModifier(0.012f).build();
+
     private static StatusEffectInstance silentHungerStatusEffect(int dur, int amp)
     {
         return new StatusEffectInstance(StatusEffects.HUNGER, dur, amp, false, false, false);

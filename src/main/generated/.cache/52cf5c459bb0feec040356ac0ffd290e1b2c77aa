@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-22T18:39:01.768886	BTWR:Core/Recipes
+// 1.20.1	2024-06-26T11:20:04.0470424	BTWR:Core/Recipes
 57406099f2356c83f477f815d5f559b63d35e61e data\btwr\recipes\belt.json
 bb88a7af1d24e5a9bba72e7880ceecc0c2a2b1cd data\btwr\advancements\recipes\combat\leather_tanned_leggings.json
 118dc5251fb2623838c6594717a5e1c2b01092de data\btwr\recipes\filament.json
@@ -21,6 +21,7 @@ e40e028f693588311b66ff84ee87e504e2de5834 data\btwr\advancements\recipes\combat\l
 0a6af778fc13811bee1d984655670de3085c762f data\btwr\recipes\rope_from_rope_coil.json
 034af5c905cc806b46d860929c3cc1d66abd53fd data\btwr\advancements\recipes\combat\leather_tanned_boots.json
 9dc649001ce7d65ba86c57d4d5ab23c9529e61ee data\btwr\advancements\recipes\misc\book.json
+1e5f84f8efeac3339047ab95cb7016055059c666 data\btwr\advancements\recipes\food\sandwich.json
 37d857bf7e3e8753bfd44c4747b685e2f4782b9a data\btwr\recipes\diamond_plate.json
 01afaf2c26d93da1c708bc1f02f945bdfba70680 data\btwr\recipes\item_frame.json
 dc866f9054728f15c27b0f992c12267a703a3963 data\btwr\advancements\recipes\misc\rope_coil.json
@@ -44,6 +45,7 @@ ce2c938850c563e8bb820efde5844b0509e7555e data\btwr\advancements\recipes\combat\l
 267b4fcf545f6fcadf4b31e91fc210a069c9b532 data\btwr\advancements\recipes\misc\leather_scoured_cut.json
 142e977cc0a9434562f06c7ded87311cd7f2a5cd data\btwr\recipes\leather_tanned_helmet.json
 6c367f8a621856f2bf3c5de0ce5d10bf8d7ddaad data\btwr\advancements\recipes\misc\leather_cut.json
+6cb634dd456196369b2a72174aff78bf98ef3da9 data\btwr\recipes\sandwich.json
 348790b4b0cd99b4d780a692438c17ef392fc4c1 data\btwr\advancements\recipes\misc\belt.json
 a28c4468c727995983de1a2938df11d19a9c54fc data\btwr\recipes\rope_coil.json
 9652ee2d26b5f544aeeae21c65c820c731280bce data\btwr\recipes\club_bone.json

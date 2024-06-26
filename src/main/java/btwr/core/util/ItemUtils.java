@@ -111,7 +111,7 @@ public class ItemUtils
 
         for (ItemStack droppedItems : Block.getDroppedStacks(state, (ServerWorld) world, pos, blockEntity, player, stack))
         {
-            dropStack(world, pos, miningDirection, droppedItems);
+            dropStack(world, pos, direction, droppedItems);
         }
 
         state.onStacksDropped((ServerWorld) world, pos, stack, true);

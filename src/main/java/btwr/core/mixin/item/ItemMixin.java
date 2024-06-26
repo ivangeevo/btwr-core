@@ -59,15 +59,4 @@ public abstract class ItemMixin
             }
         }
     }
-
-    @Inject(method = "usageTick", at = @At("HEAD"), cancellable = true)
-    private void onUsageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks, CallbackInfo ci) {
-        if (user.isUsingItem() && remainingUseTicks <= 1)
-        {
-            // Stop using the item
-            user.stopUsingItem();
-            // Cancel further processing to stop continuous usage
-            ci.cancel();
-        }
-    }
 }

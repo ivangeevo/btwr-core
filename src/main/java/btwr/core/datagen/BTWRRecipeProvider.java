@@ -69,11 +69,14 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         offerShapelessRecipe(exporter, BTWR_Items.BRICK_UNFIRED, Items.CLAY_BALL, "group_btwr", 1);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BOOK).input(BTWR_Items.LEATHER_CUT).input(Items.PAPER).input(Items.PAPER).input(Items.PAPER).criterion("has_paper", conditionsFromItem(Items.PAPER)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.SANDWICH,2).input(Items.BREAD).input(BTWRTags.Items.MEATS_FOR_SANDWICH).criterion("has_bread", RecipeProvider.conditionsFromItem(Items.BREAD)).offerTo(exporter);
 
 
         //offerShapelessRecipe(exporter, BTWR_Items.EGG_RAW, Items.EGG, "group_btwr",1);
         //ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.EGG_SCRAMBLED_RAW,2).input(BTWR_Items.EGG_RAW).input(Items.MILK_BUCKET).criterion("has_egg_raw", RecipeProvider.conditionsFromItem(BTWR_Items.EGG_RAW)).offerTo(exporter);
         //generateCookingRecipes(exporter,
+
+
 
         // TO BE ADDED:
 

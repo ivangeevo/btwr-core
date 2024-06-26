@@ -23,7 +23,7 @@ public abstract class BlockMixin implements BlockAdded
     @Inject(method = "dropStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)V", at = @At("HEAD"), cancellable = true)
     private static void customDropStacks(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool, CallbackInfo ci)
     {
-        BlockManager.dropStacksInDirectionOrElse(state, world, pos, blockEntity, entity, tool);
+        BlockManager.getInstance().dropStacksInDirectionOrElse(state, world, pos, blockEntity, entity, tool);
         ci.cancel();
     }
 

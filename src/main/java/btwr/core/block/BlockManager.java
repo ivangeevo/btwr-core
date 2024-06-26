@@ -24,14 +24,22 @@ import static net.minecraft.block.Block.getDroppedStacks;
 
 public class BlockManager
 {
+    private static final BlockManager instance = new BlockManager();
 
-    public static void dropStacksInDirectionOrElse(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool) {
+    // Private constructor to prevent instantiation
+    private BlockManager() {}
+    public static BlockManager getInstance()
+    {
+        return instance;
+    }
+
+    public void dropStacksInDirectionOrElse(BlockState state, World world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack tool) {
 
         if (world instanceof ServerWorld)
         {
 
             if ((state.isIn(BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS) || state.isIn(BTWRConventionalTags.Blocks.MODDED_CONVERTING_BLOCKS))
-                    && !BlockManager.isFullyBreakingTool(tool))
+                    && !BlockManager.getInstance().isFullyBreakingTool(tool))
             {
                 ItemUtils.ejectStackFromBlockTowardsFacing(world, (PlayerEntity) entity, pos, state, blockEntity, tool, getBlockHitSide());
             }
@@ -46,7 +54,7 @@ public class BlockManager
         }
     }
 
-    public static boolean isFullyBreakingTool(ItemStack tool)
+    public boolean isFullyBreakingTool(ItemStack tool)
     {
         return tool.isOf(Items.STONE_AXE)
                 || tool.isIn(BTWRConventionalTags.Items.MODERN_PICKAXES)
@@ -58,7 +66,7 @@ public class BlockManager
     }
 
     @NotNull
-    public static Direction getBlockHitSide()
+    public Direction getBlockHitSide()
     {
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
         ClientPlayerEntity player = minecraftClient.player;

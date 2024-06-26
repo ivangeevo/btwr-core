@@ -1,6 +1,10 @@
-### 0.24.1
+### 0.25
 
++ Added sandwich food item.
 + Removed recipe for cooking brick on campfires.
++ Changed water buckets to place non-persistent water, instead of source blocks.
++ Optimized directional dropping code for mods that support it (like Sturdy Trees & Tough Environment)
++ Fixed code to work on the server side as well.
 
 ### 0.24
 

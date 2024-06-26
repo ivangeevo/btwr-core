@@ -76,6 +76,9 @@ public class BTWR_Items {
 
     // Food items
 
+    public static final Item SANDWICH = registerItem( "sandwich", new Item (new FabricItemSettings().food(ModFoodComponents.SANDWICH)));
+
+
     //public static final Item EGG_RAW = registerItem("egg_raw", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_RAW)));
     //public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_SCRAMBLED_RAW)));
     //public static final Item EGG_FRIED = registerItem("egg_fried", new Item( new FabricItemSettings().food(ModFoodComponents.EGG_COOKED)));
