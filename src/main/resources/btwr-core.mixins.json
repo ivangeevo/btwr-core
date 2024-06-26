@@ -6,6 +6,7 @@
   "mixins": [
     "block.BlockMixin",
     "block.FarmlandBlockMixin",
+    "block.FluidBlockMixin",
     "block.GrassBlockMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
