@@ -16,8 +16,5 @@ public class ModFuelItems
         FuelRegistry.INSTANCE.add(BTWR_Items.HEMP_SEEDS, 15);
         FuelRegistry.INSTANCE.add(BTWR_Items.ROPE, 150);
 
-
-
-
     }
 }
