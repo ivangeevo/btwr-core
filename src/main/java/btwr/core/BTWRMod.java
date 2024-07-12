@@ -35,7 +35,7 @@ public class BTWRMod implements ModInitializer
         BTWRItemGroup.registerItemGroups();
         BTWR_Blocks.registerModBlocks();
         BTWR_Items.registerModItems();
-        ModFuelItems.registerFuelEntries();
+        ModFuelItems.register();
 
         BTWR_EntityTypes.Blocks.registerBlockEntities();
 

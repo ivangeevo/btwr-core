@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 public class ModFuelItems
 {
 
-    public static void registerFuelEntries()
+    public static void register()
     {
         FuelRegistry.INSTANCE.add(BTWR_Items.GEAR, 300);
         FuelRegistry.INSTANCE.add(BTWR_Items.CLUB_WOOD, 100);

@@ -39,14 +39,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BucketItem.class)
-public abstract class BucketItemMixin extends Item implements FluidModificationItem {
+public abstract class ONLYWATER_BucketItemMixin extends Item implements FluidModificationItem {
     @Shadow
     @Final
     private Fluid fluid;
 
     @Shadow protected abstract void playEmptyingSound(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos);
 
-    public BucketItemMixin(Settings settings) {
+    public ONLYWATER_BucketItemMixin(Settings settings) {
         super(settings);
     }
 
@@ -81,15 +81,6 @@ public abstract class BucketItemMixin extends Item implements FluidModificationI
                 if (fluidState.isOf(Fluids.FLOWING_WATER))
                 {
                     cir.setReturnValue(TypedActionResult.fail(itemStack));
-                }
-
-                // Check if the block contains flowing lava or lava, and handle accordingly
-                if (fluidState.isOf(Fluids.FLOWING_LAVA) || fluidState.isOf(Fluids.LAVA)) {
-                    cir.setReturnValue(TypedActionResult.fail(itemStack));
-                    itemStack.decrement(1);
-                    user.damage(user.getDamageSources().inFire(), 1.0f); // Using IN_FIRE damage source for lava damage
-                    world.playSound(null, blockPos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.PLAYERS, 0.8f, 1.0f);
-                    return;
                 }
 
                 // Continue with original logic if not flowing water

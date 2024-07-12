@@ -2,8 +2,10 @@ package btwr.core.block;
 
 import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.util.ItemUtils;
+import btwr.core.util.MiscUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -21,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static net.minecraft.block.Block.dropStack;
 import static net.minecraft.block.Block.getDroppedStacks;
+import static net.minecraft.state.property.Properties.WATERLOGGED;
 
 public class BlockManager
 {
@@ -88,5 +91,22 @@ public class BlockManager
         // Return a default direction if the conditions are not met
         return Direction.NORTH;
     }
+
+    public void handleCustomWaterlogging(World world, BlockPos pos, BlockState state, PlayerEntity player)
+    {
+        if ( state.contains(WATERLOGGED) && state.get(WATERLOGGED) && !world.isClient )
+        {
+            world.setBlockState(pos, Blocks.AIR.getDefaultState());
+            if (player.getAbilities().creativeMode)
+            {
+                MiscUtils.placeNonPersistentWater(world, pos);
+            }
+            else
+            {
+                MiscUtils.placeNonPersistentWater(world, pos);
+            }
+        }
+    }
+
 
 }
