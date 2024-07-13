@@ -4,8 +4,10 @@ import btwr.core.entity.ai.goal.CreeperSwellBehavior;
 import btwr.core.entity.interfaces.CreeperEntityAdded;
 import btwr.core.item.BTWR_Items;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.HostileEntity;
@@ -169,7 +171,7 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
                     ((ServerWorld) this.getWorld()).spawnParticles(particleEffect, particleX, particleY, particleZ, 1, particleVelX, particleVelY, particleVelZ, 0.0);
                 }
 
-                itemStack.damage(10, player2, player -> player.sendToolBreakStatus(hand));
+                itemStack.damage(10, player2, getSlotForHand(hand));
                 this.dropStack(creeperOysters);
 
             }
@@ -188,7 +190,7 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
                 }
                 else
                 {
-                    itemStack.damage(1, player2, playerx -> playerx.sendToolBreakStatus(hand));
+                    itemStack.damage(1, player2, getSlotForHand(hand));
                 }
             }
             cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
@@ -199,8 +201,8 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
     }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
-    private void injectedInitDataTracker(CallbackInfo ci) {
-        this.getDataTracker().startTracking(NEUTERED, false);
+    private void injectedInitDataTracker(DataTracker.Builder builder, CallbackInfo ci) {
+        builder.add(NEUTERED, false);
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"), cancellable = true)

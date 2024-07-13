@@ -6,6 +6,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.util.Identifier;
@@ -20,30 +22,25 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ShapelessRecipe.Serializer.class)
 public abstract class ShapelessRecipeSerializerMixin {
 
-    @Inject(method = "read(Lnet/minecraft/util/Identifier;Lcom/google/gson/JsonObject;)Lnet/minecraft/recipe/ShapelessRecipe;",
+    /**
+    @Inject(method = "read(Lnet/minecraft/network/RegistryByteBuf;)Lnet/minecraft/recipe/ShapelessRecipe;",
             at = @At("RETURN"), cancellable = true)
-    protected void read(Identifier identifier, JsonObject jsonObject, CallbackInfoReturnable<ShapelessRecipe> cir)
+    protected static void read(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir)
     {
-        handleRecipeSerialization(cir, jsonObject);
+        handleRecipeSerialization(cir, buf);
     }
 
-    @Inject(method = "read(Lnet/minecraft/util/Identifier;Lnet/minecraft/network/PacketByteBuf;)Lnet/minecraft/recipe/ShapelessRecipe;",
-            at = @At("RETURN"), cancellable = true)
-    protected void readBuf(Identifier identifier, PacketByteBuf packetByteBuf, CallbackInfoReturnable<ShapelessRecipe> cir) {
-        handleRecipeSerialization(cir, packetByteBuf);
-    }
-
-    @Inject(method = "write(Lnet/minecraft/network/PacketByteBuf;Lnet/minecraft/recipe/ShapelessRecipe;)V", at = @At("TAIL"))
-    protected void writeBuf(PacketByteBuf packetByteBuf, ShapelessRecipe shapelessRecipe, CallbackInfo ci) {
-        DefaultedList<ItemStack> secondaryDrops = ((ShapelessRecipeAdded) shapelessRecipe).getSecondaryOutput();
-        packetByteBuf.writeVarInt(secondaryDrops.size());
-        for (ItemStack itemStack : secondaryDrops)
+    @Inject(method = "write(Lnet/minecraft/network/RegistryByteBuf;Lnet/minecraft/recipe/ShapelessRecipe;)V", at = @At("TAIL"))
+    protected static void writeBuf(RegistryByteBuf buf, ShapelessRecipe recipe, CallbackInfo ci) {
+        DefaultedList<ItemStack> secondaryDrops = ((ShapelessRecipeAdded) recipe).getSecondaryOutput();
+        buf.writeVarInt(secondaryDrops.size());
+        for (ItemStack secondary : secondaryDrops)
         {
-            packetByteBuf.writeItemStack(itemStack);
+            Ingredient.PACKET_CODEC.encode(buf, Ingredient.ofStacks(secondary));
         }
     }
 
-    private static void handleRecipeSerialization(CallbackInfoReturnable<ShapelessRecipe> cir, Object parameter) {
+    private static void handleRecipeSerialization(CallbackInfoReturnable<ShapelessRecipe> cir, RegistryByteBuf buf) {
         ShapelessRecipe shapelessRecipe = cir.getReturnValue();
         DefaultedList<ItemStack> defaultedList;
 
@@ -60,9 +57,10 @@ public abstract class ShapelessRecipeSerializerMixin {
         }
         else if (parameter instanceof PacketByteBuf)
         {
-            int k = ((PacketByteBuf) parameter).readVarInt();
+            int k = buf.readVarInt();
+
             defaultedList = DefaultedList.ofSize(k, ItemStack.EMPTY);
-            defaultedList.replaceAll(ignored -> ((PacketByteBuf) parameter).readItemStack());
+            defaultedList.replaceAll(empty -> (Ingredient)Ingredient.PACKET_CODEC.decode(buf));
         }
         else
         {
@@ -77,7 +75,7 @@ public abstract class ShapelessRecipeSerializerMixin {
         DefaultedList<ItemStack> defaultedList = DefaultedList.of();
 
         for (int i = 0; i < json.size(); ++i) {
-            ItemStack itemStack = ShapedRecipe.outputFromJson((JsonObject) json.get(i));
+            ItemStack itemStack = ShapedRecipe.Serializer.DR(JsonObject) json.get(i));
             if (!itemStack.isEmpty()) {
                 defaultedList.add(itemStack);
             }
@@ -85,4 +83,5 @@ public abstract class ShapelessRecipeSerializerMixin {
 
         return defaultedList;
     }
+    **/
 }

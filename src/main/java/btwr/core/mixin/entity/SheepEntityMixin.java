@@ -2,6 +2,7 @@ package btwr.core.mixin.entity;
 
 import btwr.core.item.BTWR_Items;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -38,9 +39,7 @@ public abstract class SheepEntityMixin extends AnimalEntity
             if (!this.getWorld().isClient && this.isShearable()) {
                 this.sheared(SoundCategory.PLAYERS);
                 this.emitGameEvent(GameEvent.SHEAR, player);
-                itemStack.damage(1, player, (playerx) -> {
-                    playerx.sendToolBreakStatus(hand);
-                });
+                itemStack.damage(1, player, getSlotForHand(hand));
                 cir.setReturnValue( ActionResult.SUCCESS );
             } else {
                 cir.setReturnValue( ActionResult.CONSUME );

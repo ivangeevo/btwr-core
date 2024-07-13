@@ -34,16 +34,14 @@ public abstract class AxeItemMixin extends MiningToolItem
 {
     private final RecipeManager.MatchGetter<RecipeInputInventory, CraftingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(RecipeType.CRAFTING);
 
-
-    public AxeItemMixin(float attackDamage, float attackSpeed, ToolMaterial material,
-                        TagKey<Block> effectiveBlocks, Settings settings)
-    {
-        super(attackDamage, attackSpeed, material, effectiveBlocks, settings);
+    public AxeItemMixin(ToolMaterial material, TagKey<Block> effectiveBlocks, Settings settings) {
+        super(material, effectiveBlocks, settings);
     }
 
+
     @Override
-    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
-        super.onCraft(stack, world, player);
+    public void onCraftByPlayer(ItemStack stack, World world, PlayerEntity player) {
+        super.onCraftByPlayer(stack, world, player);
     }
 
 
@@ -98,7 +96,7 @@ public abstract class AxeItemMixin extends MiningToolItem
             {
 
                 // Drain durability 2x faster
-                stack.damage(2, miner, entity -> entity.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+                stack.damage(2, miner, EquipmentSlot.MAINHAND);
             }
         }
 

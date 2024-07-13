@@ -9,6 +9,7 @@ import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.CraftingRecipe;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.registry.tag.ItemTags;
@@ -54,9 +55,9 @@ public abstract class CraftingResultSlotMixin {
 
     // Method to create the secondary optional drop.
     private void setSecondaryOutput(MinecraftServer server, PlayerEntity player) {
-        Optional<CraftingRecipe> optional = server.getRecipeManager().getFirstMatch(RecipeType.CRAFTING, this.input, player.getWorld());
+        Optional<RecipeEntry<CraftingRecipe>> optional = server.getRecipeManager().getFirstMatch(RecipeType.CRAFTING, this.input, player.getWorld());
         CraftingRecipe craftingRecipe;
-        if (optional.isPresent() && (craftingRecipe = optional.get()) instanceof ShapelessRecipe) {
+        if (optional.isPresent() && (craftingRecipe = optional.get().value()) instanceof ShapelessRecipe) {
 
             DefaultedList<ItemStack> drops = ((ShapelessRecipeAdded) craftingRecipe).getSecondaryOutput();
             if (!drops.isEmpty())

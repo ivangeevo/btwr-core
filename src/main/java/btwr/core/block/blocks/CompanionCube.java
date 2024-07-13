@@ -3,6 +3,7 @@
  */
 package btwr.core.block.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -23,6 +24,11 @@ public class CompanionCube extends FacingBlock
         super(settings);
     }
 
+    @Override
+    protected MapCodec<? extends FacingBlock> getCodec() {
+        return null;
+    }
+
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
 
@@ -38,11 +44,12 @@ public class CompanionCube extends FacingBlock
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
     {
         super.onBreak(world, pos, state, player);
         world.playSound(player, pos, SoundEvents.ENTITY_WOLF_DEATH, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
+        return state;
     }
 
 

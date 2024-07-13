@@ -17,11 +17,13 @@ import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class BTWRRecipeProvider extends FabricRecipeProvider
@@ -33,13 +35,13 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
     private static final List<ItemConvertible> TANNED_LEATHERS = List.of(BTWR_Items.LEATHER_TANNED,BTWR_Items.LEATHER_TANNED_CUT);
 
-
-    public BTWRRecipeProvider(FabricDataOutput output) {
-        super(output);
+    public BTWRRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
     }
 
+
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter)
+    public void generate(RecipeExporter exporter)
     {
         generateShapelessRecipes(exporter);
         generateShapedRecipes(exporter);
@@ -48,7 +50,7 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
 
 
-    public static void generateShapelessRecipes(Consumer<RecipeJsonProvider> exporter)
+    public static void generateShapelessRecipes(RecipeExporter exporter)
     {
         // Shears cutting recipes
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_CUT,2).input(Items.LEATHER).input(BTWRConventionalTags.Items.SHEARS).criterion("has_leather", RecipeProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
@@ -86,7 +88,7 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
     }
 
-    public static void generateCookingRecipes(Consumer<RecipeJsonProvider> exporter, String cooker, RecipeSerializer<? extends AbstractCookingRecipe> serializer, int cookingTime)
+    public static void generateCookingRecipes(RecipeExporter exporter, String cooker, RecipeSerializer<? extends AbstractCookingRecipe> serializer, int cookingTime)
     {
         //offerFoodCookingRecipe(exporter, "smelting", RecipeSerializer.SMELTING,200, BTWR_Items.EGG_RAW, BTWR_Items.EGG_FRIED, 0.35f);
         //offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING,100, BTWR_Items.EGG_RAW, BTWR_Items.EGG_POACHED, 0.35f);
@@ -95,7 +97,7 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
     }
 
-    public static void generateShapedRecipes(Consumer<RecipeJsonProvider> exporter)
+    public static void generateShapedRecipes(RecipeExporter exporter)
     {
         // Tools
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.CLUB_BONE).input('#', Items.BONE).pattern("#").pattern("#").criterion("has_bone", RecipeProvider.conditionsFromItem(Items.BONE)).offerTo(exporter);

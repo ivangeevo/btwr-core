@@ -3,6 +3,7 @@ package btwr.core.block.blocks;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.entity.UnfiredBrickBE;
 import btwr.core.entity.BTWR_EntityTypes;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -114,6 +115,11 @@ public class UnfiredBrickBlock extends BlockWithEntity
         world.setBlockState(pos, dryState);
     }
 
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return null;
+    }
+
     @Override public BlockRenderType getRenderType(BlockState state)
     {
         return BlockRenderType.MODEL;
@@ -140,7 +146,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
     {
-        return UnfiredBrickBlock.checkType(type, BTWR_EntityTypes.Blocks.BRICK_UNFIRED, UnfiredBrickBE::tick);
+        return UnfiredBrickBlock.validateTicker(type, BTWR_EntityTypes.Blocks.BRICK_UNFIRED, UnfiredBrickBE::tick);
     }
 
 

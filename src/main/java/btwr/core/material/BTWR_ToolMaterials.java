@@ -1,61 +1,66 @@
 package btwr.core.material;
 
 import btwr.core.data.constants.BTWR_MiningLevels;
+import com.google.common.base.Suppliers;
+import net.minecraft.block.Block;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 
 import java.util.function.Supplier;
 
 public enum BTWR_ToolMaterials implements ToolMaterial {
 
-    BONE(BTWR_MiningLevels.WOOD, 25, 1f, 1f, 1,() -> Ingredient.ofItems(Items.BONE));
+    BONE(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 25, 1f, 1f, 1,() -> Ingredient.ofItems(Items.BONE));
 
-    //STEEL(BTWR_MiningLevels.STEEL, 2550, 3.9f, 1.0f, 10, () -> Ingredient.ofItems(BTWR_Items.STEEL_INGOT));
-
-    private final int miningLevel;
+    private final TagKey<Block> inverseTag;
     private final int itemDurability;
     private final float miningSpeed;
     private final float attackDamage;
     private final int enchantability;
-
     private final Supplier<Ingredient> repairIngredient;
 
-    BTWR_ToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage,
-                       int enchantability, Supplier<Ingredient> repairIngredient)
-    {
-        this.miningLevel = miningLevel;
+    BTWR_ToolMaterials(TagKey<Block> inverseTag, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
+        this.inverseTag = inverseTag;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairIngredient = repairIngredient;
+        this.repairIngredient = Suppliers.memoize(repairIngredient::get);
     }
 
     @Override
     public int getDurability() {
         return this.itemDurability;
     }
+
     @Override
     public float getMiningSpeedMultiplier() {
         return this.miningSpeed;
     }
+
     @Override
     public float getAttackDamage() {
         return this.attackDamage;
     }
+
     @Override
-    public int getMiningLevel() {
-        return this.miningLevel;
+    public TagKey<Block> getInverseTag() {
+        return this.inverseTag;
     }
+
     @Override
     public int getEnchantability() {
         return this.enchantability;
     }
+
     @Override
     public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
+
 
 
 }
