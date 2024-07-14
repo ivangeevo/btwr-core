@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "btwr:diamond_ingot"
-            ]
+            "items": "btwr:diamond_ingot"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_diamond_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_diamond_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
       "btwr:diamond_plate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

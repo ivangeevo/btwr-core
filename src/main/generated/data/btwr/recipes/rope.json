@@ -12,7 +12,7 @@
     "##"
   ],
   "result": {
-    "item": "btwr:rope"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "btwr:rope"
+  }
 }

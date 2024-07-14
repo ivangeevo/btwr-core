@@ -50,7 +50,7 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
 
 
-    public static void generateShapelessRecipes(RecipeExporter exporter)
+    public void generateShapelessRecipes(RecipeExporter exporter)
     {
         // Shears cutting recipes
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_CUT,2).input(Items.LEATHER).input(BTWRConventionalTags.Items.SHEARS).criterion("has_leather", RecipeProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
@@ -65,12 +65,17 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_TANNED).input(BTWR_Items.LEATHER_SCOURED).input(ItemTags.LOGS).criterion("has_leather_scoured", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.STRAP,4).input(BTWR_Items.LEATHER_TANNED_CUT).input(BTWRConventionalTags.Items.SHEARS).criterion("has_leather_tanned_cut", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_TANNED_CUT)).offerTo(exporter);
 
-        offerShapelessRecipe(exporter, BTWR_Items.HEMP_FIBERS, BTWR_Items.ROPE, "group_btwr", 6);
-        offerShapelessRecipe(exporter, BTWR_Items.HEMP_FIBERS, BTWR_Items.HEMP_FABRIC, "group_btwr", 9);
-        offerShapelessRecipe(exporter, BTWR_Items.ROPE, BTWR_Blocks.ROPE_COIL, "group_btwr", 9);
-        offerShapelessRecipe(exporter, BTWR_Items.BRICK_UNFIRED, Items.CLAY_BALL, "group_btwr", 1);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BOOK).input(BTWR_Items.LEATHER_CUT).input(Items.PAPER).input(Items.PAPER).input(Items.PAPER).criterion("has_paper", conditionsFromItem(Items.PAPER)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.HEMP_FIBERS, 6).input(BTWR_Items.ROPE);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.HEMP_FIBERS, 9).input(BTWR_Items.HEMP_FABRIC);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.ROPE, 9).input(BTWR_Items.HEMP_FABRIC);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.BRICK_UNFIRED).input(Items.CLAY_BALL);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BOOK).input(BTWR_Items.LEATHER_CUT)
+                .input(Items.PAPER)
+                .input(Items.PAPER)
+                .input(Items.PAPER).criterion("has_paper", conditionsFromItem(Items.PAPER)).offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.SANDWICH,2).input(Items.BREAD).input(BTWRTags.Items.MEATS_FOR_SANDWICH).criterion("has_bread", RecipeProvider.conditionsFromItem(Items.BREAD)).offerTo(exporter);
 
 
@@ -88,7 +93,7 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
 
     }
 
-    public static void generateCookingRecipes(RecipeExporter exporter, String cooker, RecipeSerializer<? extends AbstractCookingRecipe> serializer, int cookingTime)
+    public  void generateCookingRecipes(RecipeExporter exporter, String cooker, RecipeSerializer<? extends AbstractCookingRecipe> serializer, int cookingTime)
     {
         //offerFoodCookingRecipe(exporter, "smelting", RecipeSerializer.SMELTING,200, BTWR_Items.EGG_RAW, BTWR_Items.EGG_FRIED, 0.35f);
         //offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING,100, BTWR_Items.EGG_RAW, BTWR_Items.EGG_POACHED, 0.35f);
@@ -120,8 +125,10 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.LEATHER_HORSE_ARMOR).input('#', BTWR_Items.LEATHER_CUT).pattern("# #").pattern("###").pattern("# #").criterion("has_leather_cut", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_CUT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.ITEM_FRAME).input('#', BTWR_Items.LEATHER_CUT).input('S', Items.STICK).pattern("SSS").pattern("S#S").pattern("SSS").criterion("has_leather_cut", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_CUT)).offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.ROPE_COIL).input('#', BTWR_Items.ROPE).pattern("###").pattern("###").pattern("###").criterion("has_rope", RecipeProvider.conditionsFromItem(BTWR_Items.ROPE)).offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.LIGHTBLOCK).input('#', Blocks.GLASS_PANE).input('F', BTWR_Items.FILAMENT).input('R', Items.REDSTONE).pattern(" # ").pattern("#F#").pattern(" R ").criterion("has_filament", RecipeProvider.conditionsFromItem(BTWR_Items.FILAMENT)).offerTo(exporter);
+        //TODO: Fix blocksset as results cause the data generation to fail.
+        // this happened with 1.21. It was working fine in 1.20.1
+        //ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.ROPE_COIL.asItem()).input('#', BTWR_Items.ROPE).pattern("###").pattern("###").pattern("###").criterion("has_rope", RecipeProvider.conditionsFromItem(BTWR_Items.ROPE)).offerTo(exporter);
+        //ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.LIGHTBLOCK.asItem()).input('#', Blocks.GLASS_PANE).input('F', BTWR_Items.FILAMENT).input('R', Items.REDSTONE).pattern(" # ").pattern("#F#").pattern(" R ").criterion("has_filament", RecipeProvider.conditionsFromItem(BTWR_Items.FILAMENT)).offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_HELMET).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("XXX").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_CHESTPLATE).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("X X").pattern("XXX").pattern("XXX").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);

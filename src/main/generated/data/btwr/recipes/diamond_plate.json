@@ -13,7 +13,7 @@
     "SIS"
   ],
   "result": {
-    "item": "btwr:diamond_plate"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "btwr:diamond_plate"
+  }
 }

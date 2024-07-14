@@ -11,7 +11,7 @@
     "#"
   ],
   "result": {
-    "item": "btwr:club_wood"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "btwr:club_wood"
+  }
 }

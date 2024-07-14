@@ -12,7 +12,7 @@
     "XXX"
   ],
   "result": {
-    "item": "btwr:leather_tanned_chestplate"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "btwr:leather_tanned_chestplate"
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "btwr:filament"
-            ]
+            "items": "btwr:filament"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_filament",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_filament"
     ]
   ],
   "rewards": {
     "recipes": [
       "btwr:filament"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

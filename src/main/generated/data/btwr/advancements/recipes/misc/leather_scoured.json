@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:water_bucket"
-            ]
+            "items": "minecraft:water_bucket"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_water_bucket",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_water_bucket"
     ]
   ],
   "rewards": {
     "recipes": [
       "btwr:leather_scoured"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

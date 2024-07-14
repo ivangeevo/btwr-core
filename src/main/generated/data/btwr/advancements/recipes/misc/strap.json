@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "btwr:leather_tanned_cut"
-            ]
+            "items": "btwr:leather_tanned_cut"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_leather_tanned_cut",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_leather_tanned_cut"
     ]
   ],
   "rewards": {
     "recipes": [
       "btwr:strap"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

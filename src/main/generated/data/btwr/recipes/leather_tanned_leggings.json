@@ -12,7 +12,7 @@
     "X X"
   ],
   "result": {
-    "item": "btwr:leather_tanned_leggings"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "btwr:leather_tanned_leggings"
+  }
 }

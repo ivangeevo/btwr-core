@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "btwr:hemp_fibers"
-            ]
+            "items": "btwr:hemp_fibers"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_hemp_fibers",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_hemp_fibers"
     ]
   ],
   "rewards": {
     "recipes": [
       "btwr:hemp_fabric"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
