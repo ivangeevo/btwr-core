@@ -4,14 +4,30 @@ import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapelessRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ShapelessRecipe.class)
-public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded {
+public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded
+{
 
-     @Unique private DefaultedList<Ingredient> secondaryDrops;
+    @Unique
+    DefaultedList<Ingredient> secondaryResult;
+    @Unique private DefaultedList<Ingredient> secondaryDrops;
+
+
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void injectedConstructor(String group, CraftingRecipeCategory category, ItemStack result, DefaultedList ingredients, CallbackInfo ci)
+    {
+        this.secondaryResult = getSecondaryOutput();
+    }
+
+
     @Override
     public void setSecondaryOutput(DefaultedList<Ingredient> secondaryOutput) {
         this.secondaryDrops = secondaryOutput;

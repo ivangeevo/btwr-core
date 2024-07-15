@@ -18,24 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ShapelessRecipe.Serializer.class)
 public abstract class ShapelessRecipeSerializerMixin {
 
-
-    @Inject(method = "read(Lnet/minecraft/network/RegistryByteBuf;)Lnet/minecraft/recipe/ShapelessRecipe;", at = @At("RETURN"), cancellable = true)
+    //@Inject(method = "read(Lnet/minecraft/network/RegistryByteBuf;)Lnet/minecraft/recipe/ShapelessRecipe;", at = @At("RETURN"), cancellable = true)
     private static void read(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir) {
-        ShapelessRecipe recipe = cir.getReturnValue();
-
-        // Read secondary drops
-        buf.readString();
-        int k = buf.readVarInt();
-
-        DefaultedList<Ingredient> secondaryDrops = DefaultedList.ofSize(k, Ingredient.EMPTY);
-        secondaryDrops.replaceAll(empty -> Ingredient.PACKET_CODEC.decode(buf));
-        ItemStack itemStack = (ItemStack)ItemStack.PACKET_CODEC.decode(buf);
-
-
-        // Cast to your custom interface and set secondary drops
-        ((ShapelessRecipeAdded) recipe).setSecondaryOutput(secondaryDrops);
-
-        cir.setReturnValue( recipe );
 
     }
 
@@ -49,6 +33,7 @@ public abstract class ShapelessRecipeSerializerMixin {
         for (Ingredient drop : secondaryDrops) {
             Ingredient.PACKET_CODEC.encode(buf, drop);
         }
+        Ingredient.PACKET_CODEC.encode(buf, getSecondaryDrops(buf).getFirst() );
     }
 
     @Unique
