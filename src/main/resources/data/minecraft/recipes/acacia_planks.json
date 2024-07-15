@@ -11,15 +11,15 @@
   ],
   "result": {
     "count": 3,
-    "item": "minecraft:acacia_planks"
+    "id": "minecraft:acacia_planks"
   },
   "secondaryResult": [
     {
-      "item": "minecraft:cobblestone",
+      "id": "minecraft:cobblestone",
       "count": 1
     },
     {
-      "item": "minecraft:oak_log",
+      "id": "minecraft:oak_log",
       "count": 1
     }
   ]

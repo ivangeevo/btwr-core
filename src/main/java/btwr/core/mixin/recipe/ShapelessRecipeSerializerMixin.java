@@ -5,6 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapelessRecipe;
+import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -22,24 +24,25 @@ public abstract class ShapelessRecipeSerializerMixin {
         ShapelessRecipe recipe = cir.getReturnValue();
 
         // Read secondary drops
-        DefaultedList<Ingredient> secondaryDrops = DefaultedList.ofSize(buf.readVarInt(), Ingredient.EMPTY);
-        secondaryDrops.replaceAll(ignored -> Ingredient.PACKET_CODEC.decode(buf));
+        buf.readString();
+        int k = buf.readVarInt();
+
+        DefaultedList<Ingredient> secondaryDrops = DefaultedList.ofSize(k, Ingredient.EMPTY);
+        secondaryDrops.replaceAll(empty -> Ingredient.PACKET_CODEC.decode(buf));
+        ItemStack itemStack = (ItemStack)ItemStack.PACKET_CODEC.decode(buf);
+
 
         // Cast to your custom interface and set secondary drops
         ((ShapelessRecipeAdded) recipe).setSecondaryOutput(secondaryDrops);
 
-        cir.setReturnValue(recipe);
+        cir.setReturnValue( recipe );
+
     }
 
     @Inject(method = "write(Lnet/minecraft/network/RegistryByteBuf;Lnet/minecraft/recipe/ShapelessRecipe;)V", at = @At("TAIL"))
     private static void writeBuf(RegistryByteBuf buf, ShapelessRecipe recipe, CallbackInfo ci) {
         DefaultedList<Ingredient> secondaryDrops = ((ShapelessRecipeAdded) recipe).getSecondaryOutput();
 
-        if (secondaryDrops == null) {
-            // Handle the case where secondaryDrops is null, e.g., log an error or do default behavior
-            buf.writeVarInt(0); // Write zero as a placeholder or handle differently
-            return;
-        }
         buf.writeString("secondaryResult");
         buf.writeVarInt(secondaryDrops.size());
 
