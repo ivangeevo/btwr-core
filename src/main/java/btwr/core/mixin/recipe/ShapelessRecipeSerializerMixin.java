@@ -1,7 +1,10 @@
 package btwr.core.mixin.recipe;
 
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapelessRecipe;
@@ -18,8 +21,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ShapelessRecipe.Serializer.class)
 public abstract class ShapelessRecipeSerializerMixin {
 
-    //@Inject(method = "read(Lnet/minecraft/network/RegistryByteBuf;)Lnet/minecraft/recipe/ShapelessRecipe;", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "read(Lnet/minecraft/network/RegistryByteBuf;)Lnet/minecraft/recipe/ShapelessRecipe;", at = @At("RETURN"), cancellable = true)
     private static void read(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir) {
+        ShapelessRecipe shapelessRecipe = cir.getReturnValue();
+        buf.readString();
+        DefaultedList<Ingredient> defaultedList = DefaultedList.ofSize(buf.readVarInt(), Ingredient.EMPTY);
+        defaultedList.replaceAll(ignored -> Ingredient.PACKET_CODEC.decode(buf));
+
+
+        ((ShapelessRecipeAdded) shapelessRecipe).setSecondaryOutput(defaultedList);
+
+        cir.setReturnValue(shapelessRecipe);
 
     }
 
