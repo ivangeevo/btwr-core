@@ -60,18 +60,22 @@ public class BTWRItemGroup
                         entries.add(BTWR_Items.SANDWICH);
 
 
+
+                        // TO BE ADDED (maybe)
                         //entries.add(BTWR_Items.EGG_RAW);
                         //entries.add(BTWR_Items.EGG_FRIED);
                         //entries.add(BTWR_Items.EGG_POACHED);
                         //entries.add(BTWR_Items.EGG_SCRAMBLED_RAW);
                         //entries.add(BTWR_Items.EGG_SCRAMBLED_COOKED);
 
+                        //entries.add(BTWR_Blocks.COMPANIONCUBE);
+
 
                         /** BLOCKS **/
 
-                        entries.add(BTWR_Blocks.LIGHTBLOCK);
-                        //entries.add(BTWR_Blocks.COMPANIONCUBE);
-                        entries.add(BTWR_Blocks.ROPE_COIL);
+                        // excluded because of some stack size error
+                        //entries.add(BTWR_Blocks.LIGHTBLOCK);
+                        //entries.add(BTWR_Blocks.ROPE_COIL);
 
                     }).build());
 

@@ -1,7 +1,6 @@
 package btwr.core.mixin.recipe;
 
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
-import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapelessRecipe;
@@ -14,37 +13,27 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ShapelessRecipe.Serializer.class)
-public abstract class ShapelessRecipeSerializerMixin {
+public abstract class OGShapelessRecipeSerializerMixin
+{
 
 
     @Inject(method = "read(Lnet/minecraft/network/RegistryByteBuf;)Lnet/minecraft/recipe/ShapelessRecipe;", at = @At("RETURN"), cancellable = true)
-    private static void read(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir) {
+    private static void read(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir)
+    {
         ShapelessRecipe recipe = cir.getReturnValue();
-
-        // Read secondary drops
-        DefaultedList<Ingredient> secondaryDrops = DefaultedList.ofSize(buf.readVarInt(), Ingredient.EMPTY);
-        secondaryDrops.replaceAll(ignored -> Ingredient.PACKET_CODEC.decode(buf));
-
-        // Cast to your custom interface and set secondary drops
-        ((ShapelessRecipeAdded) recipe).setSecondaryOutput(secondaryDrops);
+        DefaultedList<Ingredient> defaultedList = getSecondaryDrops(buf);
+        ((ShapelessRecipeAdded) recipe).setSecondaryOutput(defaultedList);
 
         cir.setReturnValue(recipe);
+
     }
 
     @Inject(method = "write(Lnet/minecraft/network/RegistryByteBuf;Lnet/minecraft/recipe/ShapelessRecipe;)V", at = @At("TAIL"))
     private static void writeBuf(RegistryByteBuf buf, ShapelessRecipe recipe, CallbackInfo ci) {
         DefaultedList<Ingredient> secondaryDrops = ((ShapelessRecipeAdded) recipe).getSecondaryOutput();
-
-        if (secondaryDrops == null) {
-            // Handle the case where secondaryDrops is null, e.g., log an error or do default behavior
-            buf.writeVarInt(0); // Write zero as a placeholder or handle differently
-            return;
-        }
-        buf.writeString("secondaryResult");
-        buf.writeVarInt(secondaryDrops.size());
-
-        for (Ingredient drop : secondaryDrops) {
-            Ingredient.PACKET_CODEC.encode(buf, drop);
+        for (Ingredient droppedStack: secondaryDrops)
+        {
+            Ingredient.PACKET_CODEC.encode(buf, droppedStack);
         }
     }
 

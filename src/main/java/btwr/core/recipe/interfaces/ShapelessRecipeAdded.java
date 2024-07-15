@@ -6,8 +6,8 @@ import net.minecraft.util.collection.DefaultedList;
 
 public interface ShapelessRecipeAdded {
 
-    DefaultedList<ItemStack> getSecondaryOutput();
+    DefaultedList<Ingredient> getSecondaryOutput();
 
-    void setSecondaryOutput(DefaultedList<ItemStack> secondaryOutput);
+    void setSecondaryOutput(DefaultedList<Ingredient> secondaryOutput);
 
 }
