@@ -17,9 +17,7 @@
     "item.BucketItemMixin",
     "item.ItemMixin",
     "item.ShearsItemMixin",
-    "recipe.CraftingResultSlotMixin",
-    "recipe.ShapelessRecipeMixin",
-    "recipe.ShapelessRecipeSerializerMixin"
+    "recipe.CraftingResultSlotMixin"
   ],
   "client": [
     "entity.CreeperEntityRendererMixin"

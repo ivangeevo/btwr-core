@@ -51,17 +51,18 @@ public abstract class CraftingResultSlotMixin {
         // ---------- Class specific methods ---------- //
 
     // Method to create the secondary optional drop.
+    @Unique
     private void setSecondaryOutput(MinecraftServer server, PlayerEntity player) {
         Optional<RecipeEntry<CraftingRecipe>> optional = server.getRecipeManager().getFirstMatch(RecipeType.CRAFTING, this.input, player.getWorld());
         CraftingRecipe craftingRecipe;
         if (optional.isPresent() && (craftingRecipe = optional.get().value()) instanceof ShapelessRecipe) {
 
-            DefaultedList<Ingredient> drops = ((ShapelessRecipeAdded) craftingRecipe).getSecondaryOutput();
+            DefaultedList<ItemStack> drops = ((ShapelessRecipeAdded) craftingRecipe).getSecondaryOutput();
             if (!drops.isEmpty())
             {
-                for (Ingredient itemStack : drops)
+                for (ItemStack itemStack : drops)
                 {
-                    ItemStack[] matchingStacks = itemStack.getMatchingStacks();
+                    ItemStack[] matchingStacks = new ItemStack[]{itemStack};
                     ItemStack dropStack = matchingStacks[0];
                     player.dropStack(dropStack);
                 }

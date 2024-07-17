@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.Unique;
 public interface ShapelessRecipeAdded
 {
 
-    DefaultedList<Ingredient> getSecondaryOutput();
+    DefaultedList<ItemStack> getSecondaryOutput();
 
-    void setSecondaryOutput(DefaultedList<Ingredient> secondaryOutput);
+    void setSecondaryOutput(DefaultedList<ItemStack> secondaryOutput);
 
 }

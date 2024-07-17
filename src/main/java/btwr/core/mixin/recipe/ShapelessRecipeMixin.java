@@ -17,24 +17,23 @@ public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded
 {
 
     @Unique
-    DefaultedList<Ingredient> secondaryResult;
-    @Unique private DefaultedList<Ingredient> secondaryDrops;
+    DefaultedList<ItemStack> secondaryResult;
 
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    private void injectedConstructor(String group, CraftingRecipeCategory category, ItemStack result, DefaultedList ingredients, CallbackInfo ci)
+    private void injectedConstructor(String group, CraftingRecipeCategory category, ItemStack result, DefaultedList<Ingredient> ingredients, CallbackInfo ci)
     {
         this.secondaryResult = getSecondaryOutput();
     }
 
 
     @Override
-    public void setSecondaryOutput(DefaultedList<Ingredient> secondaryOutput) {
-        this.secondaryDrops = secondaryOutput;
+    public void setSecondaryOutput(DefaultedList<ItemStack> secondaryOutput) {
+        this.secondaryResult = secondaryOutput;
     }
     @Override
-    public DefaultedList<Ingredient> getSecondaryOutput() {
-        return this.secondaryDrops;
+    public DefaultedList<ItemStack> getSecondaryOutput() {
+        return this.secondaryResult;
     }
 
 

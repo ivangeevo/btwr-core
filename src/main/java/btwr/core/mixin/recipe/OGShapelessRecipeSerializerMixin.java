@@ -1,6 +1,7 @@
 package btwr.core.mixin.recipe;
 
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapelessRecipe;
@@ -21,7 +22,7 @@ public abstract class OGShapelessRecipeSerializerMixin
     private static void read(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir)
     {
         ShapelessRecipe recipe = cir.getReturnValue();
-        DefaultedList<Ingredient> defaultedList = getSecondaryDrops(buf);
+        DefaultedList<ItemStack> defaultedList = getSecondaryDrops(buf);
         ((ShapelessRecipeAdded) recipe).setSecondaryOutput(defaultedList);
 
         cir.setReturnValue(recipe);
@@ -30,20 +31,20 @@ public abstract class OGShapelessRecipeSerializerMixin
 
     @Inject(method = "write(Lnet/minecraft/network/RegistryByteBuf;Lnet/minecraft/recipe/ShapelessRecipe;)V", at = @At("TAIL"))
     private static void writeBuf(RegistryByteBuf buf, ShapelessRecipe recipe, CallbackInfo ci) {
-        DefaultedList<Ingredient> secondaryDrops = ((ShapelessRecipeAdded) recipe).getSecondaryOutput();
-        for (Ingredient droppedStack: secondaryDrops)
+        DefaultedList<ItemStack> secondaryDrops = ((ShapelessRecipeAdded) recipe).getSecondaryOutput();
+        for (ItemStack droppedStack: secondaryDrops)
         {
-            Ingredient.PACKET_CODEC.encode(buf, droppedStack);
+            ItemStack.PACKET_CODEC.encode(buf, droppedStack);
         }
     }
 
     @Unique
-    private static DefaultedList<Ingredient> getSecondaryDrops(RegistryByteBuf buf) {
-        DefaultedList<Ingredient> ingredients = DefaultedList.of();
+    private static DefaultedList<ItemStack> getSecondaryDrops(RegistryByteBuf buf) {
+        DefaultedList<ItemStack> ingredients = DefaultedList.of();
 
         int ingredientCount = buf.readVarInt();
         for (int i = 0; i < ingredientCount; ++i) {
-            ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+            ingredients.add(ItemStack.PACKET_CODEC.decode(buf));
         }
 
         return ingredients;
