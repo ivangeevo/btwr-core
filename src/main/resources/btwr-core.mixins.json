@@ -10,6 +10,7 @@
     "block.GrassBlockMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
+    "entity.MobEntityMixin",
     "entity.PlayerEntityMixin",
     "entity.SheepEntityMixin",
     "entity.ZombieEntityMixin",
@@ -17,7 +18,8 @@
     "item.BucketItemMixin",
     "item.ItemMixin",
     "item.ShearsItemMixin",
-    "recipe.CraftingResultSlotMixin"
+    "recipe.CraftingResultSlotMixin",
+    "recipe.ShapelessRecipeSerializerMixin"
   ],
   "client": [
     "entity.CreeperEntityRendererMixin"

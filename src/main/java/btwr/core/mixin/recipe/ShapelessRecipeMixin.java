@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded
 {
 
+    /**
     @Unique
     DefaultedList<ItemStack> secondaryResult;
 
@@ -35,6 +36,7 @@ public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded
     public DefaultedList<ItemStack> getSecondaryOutput() {
         return this.secondaryResult;
     }
+    **/
 
 
 }

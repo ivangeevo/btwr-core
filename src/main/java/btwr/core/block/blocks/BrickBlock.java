@@ -3,6 +3,7 @@ package btwr.core.block.blocks;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.entity.UnfiredBrickBE;
 import btwr.core.entity.BTWR_EntityTypes;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -45,6 +46,8 @@ public class BrickBlock extends Block
     {
         super(settings);
     }
+
+
 
 
     @Override

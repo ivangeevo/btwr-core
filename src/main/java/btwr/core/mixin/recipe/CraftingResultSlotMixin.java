@@ -31,6 +31,7 @@ public abstract class CraftingResultSlotMixin {
 
     @Shadow @Final private RecipeInputInventory input;
 
+    /**
     @Inject(method = "onTakeItem", at = @At("HEAD"))
     protected void setSecondaryDropsAndCraftSound(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
         MinecraftServer server = player.getWorld().getServer();
@@ -70,6 +71,7 @@ public abstract class CraftingResultSlotMixin {
 
         }
     }
+    **/
 
 
     // Plays a different sound depending on the item being crafted.

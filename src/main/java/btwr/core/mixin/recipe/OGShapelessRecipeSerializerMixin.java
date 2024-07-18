@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class OGShapelessRecipeSerializerMixin
 {
 
+    /**
 
     @Inject(method = "read(Lnet/minecraft/network/RegistryByteBuf;)Lnet/minecraft/recipe/ShapelessRecipe;", at = @At("RETURN"), cancellable = true)
     private static void read(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir)
@@ -49,5 +50,6 @@ public abstract class OGShapelessRecipeSerializerMixin
 
         return ingredients;
     }
+    **/
 
 }
