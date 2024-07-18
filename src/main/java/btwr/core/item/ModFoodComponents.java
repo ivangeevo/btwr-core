@@ -11,13 +11,13 @@ public class ModFoodComponents
     public static final FoodComponent EGG_RAW =
             new FoodComponent.Builder()
                     .nutrition(2)
-                    .saturationModifier(0.003f)
+                    .saturationModifier(0.15f)
                     .statusEffect(silentHungerStatusEffect(1200, 2), 0.4f)
                     .build();
     public static final FoodComponent EGG_SCRAMBLED_RAW =
             new FoodComponent.Builder()
                     .nutrition(3)
-                    .saturationModifier(0.008f)
+                    .saturationModifier(0.2f)
                     .statusEffect(silentHungerStatusEffect(1200, 2), 0.4f)
                     .build();
 
@@ -26,12 +26,12 @@ public class ModFoodComponents
 
     /** Poached ang Fried egg have the same food component. **/
     public static final FoodComponent EGG_COOKED =
-            new FoodComponent.Builder().nutrition(3).saturationModifier(0.008f).build();
+            new FoodComponent.Builder().nutrition(3).saturationModifier(0.25f).build();
     public static final FoodComponent EGG_SCRAMBLED_COOKED =
-            new FoodComponent.Builder().nutrition(4).saturationModifier(0.012f).build();
+            new FoodComponent.Builder().nutrition(4).saturationModifier(0.35f).build();
 
     public static final FoodComponent SANDWICH =
-            new FoodComponent.Builder().nutrition(5).saturationModifier(0.012f).build();
+            new FoodComponent.Builder().nutrition(5).saturationModifier(0.45f).build();
 
     private static StatusEffectInstance silentHungerStatusEffect(int dur, int amp)
     {
