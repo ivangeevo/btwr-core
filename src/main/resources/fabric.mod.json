@@ -10,7 +10,7 @@
   "contact": {
     "repo": "https://github.com/ivangeevo/btwr-core"
   },
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "icon": "assets/btwr/btwr-circle.png",
   "environment": "*",
   "entrypoints": {

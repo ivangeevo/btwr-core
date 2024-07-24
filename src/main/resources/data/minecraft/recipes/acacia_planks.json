@@ -1,19 +1,19 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "btwr:crafting_shapeless_with_drops",
   "group": "planks",
   "ingredients": [
     {
       "item": "minecraft:acacia_log"
     },
     {
-      "tag": "c:axes_make_planks"
+      "item": "minecraft:iron_axe"
     }
   ],
   "result": {
     "count": 3,
-    "item": "minecraft:acacia_planks"
+    "id": "minecraft:acacia_planks"
   },
-  "secondaryResult": [
+  "additionalDrops": [
     {
       "item": "minecraft:oak_log",
       "count": 1
