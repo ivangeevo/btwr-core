@@ -27,7 +27,6 @@ import java.util.function.Function;
 public class ShapelessRecipeWithDrops
         implements CraftingRecipe
 {
-
     final String group;
     final CraftingRecipeCategory category;
     final ItemStack result;
