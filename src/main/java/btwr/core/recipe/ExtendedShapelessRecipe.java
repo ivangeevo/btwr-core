@@ -6,6 +6,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -37,10 +38,6 @@ public class ExtendedShapelessRecipe extends ShapelessRecipe implements Shapeles
     @Override
     public void setAdditionalDrops(DefaultedList<Ingredient> secondaryOutput) {
 
-    }
-
-    public boolean hasAdditionalDrops() {
-        return !this.getAdditionalDrops().isEmpty();
     }
 
 

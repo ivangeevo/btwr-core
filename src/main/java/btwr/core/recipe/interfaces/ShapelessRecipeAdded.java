@@ -10,4 +10,6 @@ public interface ShapelessRecipeAdded
 
     void setAdditionalDrops(DefaultedList<Ingredient> secondaryOutput);
 
+
+
 }

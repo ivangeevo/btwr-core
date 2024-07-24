@@ -36,16 +36,18 @@ public abstract class ShapelessRecipeSerializerMixin {
                 instance.group(
                         Codec.STRING.optionalFieldOf("group", "")
                                 .forGetter(ShapelessRecipe::getGroup),
-                        CraftingRecipeCategory.CODEC.fieldOf("category")
+                        CraftingRecipeCategory.CODEC
+                                .fieldOf("category")
                                 .orElse(CraftingRecipeCategory.MISC)
                                 .forGetter(ShapelessRecipe::getCategory),
                         ItemStack.CODEC.fieldOf("result")
                                 .forGetter(recipe -> recipe.getResult(null)),
-                        Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients")
+                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
+                                .fieldOf("ingredients")
                                 .flatXmap(INGREDIENTS_VALIDATOR, DataResult::success)
                                 .forGetter(ShapelessRecipe::getIngredients),
                         Ingredient.ALLOW_EMPTY_CODEC.listOf()
-                                .optionalFieldOf("additionalDrops", DefaultedList.of())
+                                .fieldOf("additionalDrops")
                                 .flatXmap(ADDITIONAL_DROPS_VALIDATOR, DataResult::success)
                                 .forGetter(recipe -> ((ExtendedShapelessRecipe) recipe).getAdditionalDrops())
                 ).apply(instance, ExtendedShapelessRecipeFactory::create)
