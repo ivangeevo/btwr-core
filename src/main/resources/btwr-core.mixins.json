@@ -18,6 +18,8 @@
     "item.ItemMixin",
     "item.ShearsItemMixin",
     "recipe.CraftingResultSlotMixin",
+    "recipe.ShapelessRecipeJsonBuilderMixin",
+    "recipe.ShapelessRecipeMixin",
     "recipe.ShapelessRecipeSerializerMixin"
   ],
   "client": [

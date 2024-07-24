@@ -6,7 +6,7 @@ import net.minecraft.util.collection.DefaultedList;
 public interface ShapelessRecipeAdded
 {
 
-    DefaultedList<Ingredient> getAdditonalDrops();
+    DefaultedList<Ingredient> getAdditionalDrops();
 
     void setAdditionalDrops(DefaultedList<Ingredient> secondaryOutput);
 

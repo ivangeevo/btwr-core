@@ -1,7 +1,7 @@
 package btwr.core.mixin.recipe;
 
 import btwr.core.item.BTWR_Items;
-import btwr.core.recipe.ShapelessRecipeWithDrops;
+import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
 import btwr.core.tag.BTWRTags;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.RecipeInputInventory;
@@ -54,9 +54,9 @@ public abstract class CraftingResultSlotMixin
     private void dropAdditionalItemsOnTake(MinecraftServer server, PlayerEntity player) {
         Optional<RecipeEntry<CraftingRecipe>> optional = server.getRecipeManager().getFirstMatch(RecipeType.CRAFTING, this.input, player.getWorld());
         CraftingRecipe craftingRecipe;
-        if (optional.isPresent() && (craftingRecipe = optional.get().value()) instanceof ShapelessRecipeWithDrops) {
+        if (optional.isPresent() && (craftingRecipe = optional.get().value()) instanceof ShapelessRecipe) {
 
-            DefaultedList<Ingredient> drops = ((ShapelessRecipeWithDrops) craftingRecipe).getAdditionalDrops();
+            DefaultedList<Ingredient> drops = ((ShapelessRecipeAdded) craftingRecipe).getAdditionalDrops();
             if (!drops.isEmpty())
             {
                 for (Ingredient itemStack : drops)

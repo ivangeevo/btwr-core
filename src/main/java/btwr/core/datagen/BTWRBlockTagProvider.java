@@ -2,13 +2,11 @@ package btwr.core.datagen;
 
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.tag.BTWRConventionalTags;
-import btwr.core.tag.BTWRTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.block.Block;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
+
 import net.minecraft.block.Blocks;
-import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 
@@ -20,6 +18,7 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     public BTWRBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
     {
         super(output, registriesFuture);
+
     }
 
     @Override

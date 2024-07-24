@@ -1,4 +1,4 @@
-// 1.20.6	2024-07-15T13:26:14.2376199	BTWR:Core/Recipes
+// 1.20.6	2024-07-24T22:34:35.0191955	BTWR:Core/Recipes
 e4163e46f64d759be3cfcbc9e9931d6a5d35d24c data\btwr\recipes\leather_chestplate.json
 15db141f0779ae3733e092817e0352a17ec1bcdc data\btwr\advancements\recipes\misc\leather_horse_armor.json
 95f680966cc3ca08ce009adbf5050278519d1540 data\btwr\recipes\leather_tanned_boots.json
@@ -46,8 +46,8 @@ f9b58fb2bda31d2d88d66f7591432e3b20406e1d data\btwr\advancements\recipes\misc\str
 edf4a8c6d3143c6a0a06f657dc82d8682af6d3a1 data\btwr\recipes\hemp_fabric.json
 28faa2609520b5172ed1e78cb9a9b87e69b117da data\btwr\recipes\strap.json
 6a0affd966740614628833b8794f99f154c8df35 data\btwr\advancements\recipes\tools\diamond_shears.json
-cb178053af85fc17306675e5dba69cb8bb8b173e data\btwr\advancements\recipes\combat\leather_tanned_helmet.json
 22c9870408887f5b6e62dcbda37167fa74b487d1 data\btwr\recipes\leather_tanned_chestplate.json
+cb178053af85fc17306675e5dba69cb8bb8b173e data\btwr\advancements\recipes\combat\leather_tanned_helmet.json
 9ea6311eae07a9a1bece3250aba03069dd6b9e8d data\btwr\recipes\leather_helmet.json
 36a571f5df9e38171c0d000271faf9f44e2028df data\btwr\advancements\recipes\misc\leather_tanned.json
 4875ca0d4bad9922f739a299fdc70834b8843200 data\btwr\advancements\recipes\combat\diamond_plate.json

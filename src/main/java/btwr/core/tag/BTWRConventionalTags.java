@@ -1,5 +1,6 @@
 package btwr.core.tag;
 
+import net.fabricmc.fabric.impl.tag.convention.v2.TagRegistration;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
@@ -21,9 +22,12 @@ public class BTWRConventionalTags
 
         public static final TagKey<Block> FARMLAND_BLOCKS = createTag("farmland_blocks");
 
-        private static TagKey<Block> createTag(String name) {
-            return TagKey.of(RegistryKeys.BLOCK, new Identifier("c", name));
+
+
+        private static TagKey<Block> createTag(String tagId) {
+            return TagRegistration.BLOCK_TAG.registerC(tagId);
         }
+
     }
 
     public static class Items
