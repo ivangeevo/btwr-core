@@ -20,6 +20,7 @@ public class BTWRConventionalTags
         // Stump blocks grouped; initially used for Sturdy Tree's Stump blocks
         public static final TagKey<Block> STUMP_BLOCKS = createTag("stump_blocks");
 
+        // Farmland viable blocks (can be planted on them)
         public static final TagKey<Block> FARMLAND_BLOCKS = createTag("farmland_blocks");
 
 
@@ -75,9 +76,14 @@ public class BTWRConventionalTags
          */
         public static final TagKey<Item> DO_KNOCKBACK_ITEMS = createTag("do_knockback_items");
 
-
+/**
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier("c", name));
+        }
+ **/
+
+        private static TagKey<Item> createTag(String tagId) {
+            return TagRegistration.ITEM_TAG.registerC(tagId);
         }
     }
 }

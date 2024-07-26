@@ -1,9 +1,6 @@
 package btwr.core;
 
-import btwr.core.datagen.BTWRBlockTagProvider;
-import btwr.core.datagen.BTWRItemTagProvider;
-import btwr.core.datagen.BTWRModelGenerator;
-import btwr.core.datagen.BTWRRecipeProvider;
+import btwr.core.datagen.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -15,6 +12,7 @@ public class BTWRDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(BTWRRecipeProvider::new);
         pack.addProvider(BTWRBlockTagProvider::new);
         pack.addProvider(BTWRItemTagProvider::new);
+        pack.addProvider(BTWRLootTableGenerator::new);
         pack.addProvider(BTWRModelGenerator::new);
 
     }
