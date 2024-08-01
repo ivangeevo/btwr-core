@@ -33,6 +33,9 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     {
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(BTWR_Blocks.ROPE_COIL);
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(BTWR_Blocks.LIGHTBLOCK);
+
     }
 
     private void addToModTags()

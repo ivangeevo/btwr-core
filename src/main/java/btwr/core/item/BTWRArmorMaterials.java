@@ -33,7 +33,12 @@ public class BTWRArmorMaterials
         map.put(ArmorItem.Type.CHESTPLATE, 4);
         map.put(ArmorItem.Type.HELMET, 2);
         map.put(ArmorItem.Type.BODY, 7);
-    }), 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0f, 0.0f, () -> Ingredient.ofItems(Items.LEATHER), List.of(new ArmorMaterial.Layer(new Identifier(BTWRMod.MOD_ID, "leather_tanned"), "", true), new ArmorMaterial.Layer(new Identifier(BTWRMod.MOD_ID, "leather_tanned"), "", false)));
+    }), 15,
+            SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0f, 0.0f,
+            () -> Ingredient.ofItems(Items.LEATHER),
+            List.of(new ArmorMaterial.Layer(new Identifier(BTWRMod.MOD_ID, "leather_tanned"), "", true),
+                    new ArmorMaterial.Layer(new Identifier(BTWRMod.MOD_ID, "leather_tanned"), "", false)));
+
 
 
 

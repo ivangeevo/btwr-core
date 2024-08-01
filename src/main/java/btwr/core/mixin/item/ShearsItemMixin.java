@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.registry.tag.BlockTags;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -35,7 +36,6 @@ public abstract class ShearsItemMixin extends Item
         }
 
         return ItemStack.EMPTY;
-
     }
 
     @Inject(method = "createToolComponent", at = @At("RETURN"), cancellable = true)
@@ -44,6 +44,7 @@ public abstract class ShearsItemMixin extends Item
         cir.setReturnValue(newComponent());
     }
 
+    @Unique
     private static ToolComponent newComponent()
     {
         return new ToolComponent(
@@ -56,36 +57,5 @@ public abstract class ShearsItemMixin extends Item
                 ),
                 1.0f, 1);
     }
-    /**
-    @Inject(method = "isSuitableFor", at = @At("RETURN"), cancellable = true)
-    private void injectedCustomBlocks(BlockState state, CallbackInfoReturnable<Boolean> cir)
-    {
-        cir.setReturnValue(state.isOf(BTWR_Blocks.CROP_HEMP) || state.isOf(Blocks.COBWEB) || state.isOf(Blocks.REDSTONE_WIRE) || state.isOf(Blocks.TRIPWIRE));
-    }
 
-    //TODO: Maybe include some of this logic in the new ToolComponent builder
-
-    @Inject(method = "getMiningSpeedMultiplier", at = @At("HEAD"), cancellable = true)
-    private void injectedCustomSpeed(ItemStack stack, BlockState state, CallbackInfoReturnable<Float> cir)
-    {
-
-        if (!state.isOf(Blocks.COBWEB) && !state.isIn(BlockTags.LEAVES) && !state.isOf(BTWR_Blocks.CROP_HEMP))
-        {
-            if (state.isIn(BlockTags.WOOL))
-            {
-                cir.setReturnValue(5.0F);
-            }
-            else
-            {
-                cir.setReturnValue( !state.isOf(Blocks.VINE) && !state.isOf(Blocks.GLOW_LICHEN) ? super.getMiningSpeedMultiplier(stack, state) : 2.0F );
-            }
-
-        }
-        else
-        {
-            cir.setReturnValue( 15.0F );
-        }
-
-    }
-    **/
 }

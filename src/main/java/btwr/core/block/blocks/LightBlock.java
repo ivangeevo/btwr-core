@@ -3,8 +3,10 @@
  */
 package btwr.core.block.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.RedstoneBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -23,9 +26,16 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class LightBlock
-        extends Block {
+        extends Block
+{
+    public static final MapCodec<LightBlock> CODEC = createCodec(LightBlock::new);
 
-    public static final BooleanProperty LIT = BooleanProperty.of("lit");
+    @Override
+    public MapCodec<LightBlock> getCodec() {
+        return CODEC;
+    }
+
+    public static final BooleanProperty LIT = Properties.LIT;
 
 
     public LightBlock(Settings settings) {
@@ -37,7 +47,6 @@ public class LightBlock
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(LIT, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
     }
-
 
     @Override
     public VoxelShape getCameraCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -84,8 +93,4 @@ public class LightBlock
         builder.add(LIT);
     }
 
-    @Override
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
-        super.afterBreak(world, player, pos, state, blockEntity, stack);
-    }
 }

@@ -1,13 +1,15 @@
-// 1.20.6	2024-07-27T00:07:44.4328513	BTWR:Core/BTWR Block Loot Tables
-41b99a058f28cdb7e783b2e9caa9dabd8472b43c data\minecraft\loot_tables\blocks\azalea_leaves.json
+// 1.20.6	2024-07-27T09:39:43.8372213	BTWR:Core/BTWR Block Loot Tables
 684025e7bf11af693e05dfdd0a0fc6155448e617 data\minecraft\loot_tables\blocks\dark_oak_leaves.json
+41b99a058f28cdb7e783b2e9caa9dabd8472b43c data\minecraft\loot_tables\blocks\azalea_leaves.json
 4bc6c5aa37e36ae5ed9794c89d966ec57d62b940 data\minecraft\loot_tables\blocks\oak_leaves.json
-6ea53e8fc5e7c4e8604a4e0fb0532209d6d86502 data\minecraft\loot_tables\blocks\acacia_leaves.json
 6be8d1fc877cc3a2db4258c52bbc603f8c35f9c0 data\btwr\loot_tables\blocks\brick.json
+6ea53e8fc5e7c4e8604a4e0fb0532209d6d86502 data\minecraft\loot_tables\blocks\acacia_leaves.json
 64758567c819894c4d92efde9c0812192a645274 data\minecraft\loot_tables\blocks\cherry_leaves.json
-9e9f58ea6993acc9a976c9d3134dce53a5c73975 data\btwr\loot_tables\blocks\crop_hemp.json
 9d0fdb6e1579a8ebb4f31997a7c80278c494e0d5 data\minecraft\loot_tables\blocks\flowering_azalea_leaves.json
+9e9f58ea6993acc9a976c9d3134dce53a5c73975 data\btwr\loot_tables\blocks\crop_hemp.json
 75bb957447a885d99f3b459930ab4f49e8ca316a data\minecraft\loot_tables\blocks\jungle_leaves.json
 e17e1e50bafbbae2664e8cf0cea3849cc1c4d687 data\minecraft\loot_tables\blocks\spruce_leaves.json
+f1af626883dbe67b2a42778a74d496b556df01eb data\btwr\loot_tables\blocks\lightblock.json
 bafe4d237740d379b6b7862499749528a3157bc7 data\minecraft\loot_tables\blocks\birch_leaves.json
 27774292c20e324216e3ad4184a7b862883721bb data\btwr\loot_tables\blocks\brick_unfired.json
+c3d91f818e3002fba4826fb68a72669a53646917 data\btwr\loot_tables\blocks\rope_coil.json

@@ -15,6 +15,7 @@ import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.*;
+import net.minecraft.loot.entry.AlternativeEntry;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
@@ -24,6 +25,7 @@ import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.state.property.Property;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -77,34 +79,55 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
     private void initMiscDrops()
     {
         this.addDrop(BTWR_Blocks.BRICK, drops(Items.BRICK));
+        this.addDrop(BTWR_Blocks.LIGHTBLOCK);
+
         this.addDrop(BTWR_Blocks.BRICK_UNFIRED, drops(Items.CLAY_BALL));
-        this.addDrop(BTWR_Blocks.CROP_HEMP, block -> this.hempCropDrops(block, BTWR_Items.HEMP_LEAVES, BTWR_Items.HEMP_SEEDS));    }
+        this.addDrop(BTWR_Blocks.CROP_HEMP, block -> this.hempCropDrops(block, BTWR_Items.HEMP_LEAVES, BTWR_Items.HEMP_SEEDS));
+        this.addDrop(BTWR_Blocks.ROPE_COIL, block -> this.ropeCoilDrops());
+    }
 
     public LootTable.Builder hempCropDrops(Block block, Item hempLeaves, Item hempSeeds) {
         // Create a loot pool for shears condition with hemp leaves drop
-        LootPool.Builder shearsPool = LootPool.builder()
-                .with(ItemEntry.builder(hempLeaves))
+        LootPool.Builder leavesPool = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1.0f))
+                .with(ItemEntry.builder(hempLeaves))
                 .conditionally(CONVENTIONAL_WITH_SHEARS);
 
         // Create a loot pool for shears condition with hemp seeds drop (50% chance)
         LootPool.Builder seedsPool = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(1.0f))
                 .with(ItemEntry.builder(hempSeeds)
                         .conditionally(RandomChanceLootCondition.builder(0.5f))
                         .conditionally(BlockStatePropertyLootCondition.builder(block)
                                 .properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.TOP, true))))
-                .rolls(ConstantLootNumberProvider.create(1.0f))
                 .conditionally(CONVENTIONAL_WITH_SHEARS);
 
         // Combine both pools into the loot table
         return LootTable.builder()
-                .pool(shearsPool)
+                .pool(leavesPool)
                 .pool(seedsPool);
     }
 
-
-
-
+    private LootTable.Builder ropeCoilDrops()
+    {
+       return LootTable.builder()
+                .pool(
+                        LootPool.builder()
+                                .rolls(ConstantLootNumberProvider.create(1))
+                                .with(
+                                        AlternativeEntry.builder(
+                                                ItemEntry.builder(BTWR_Items.ROPE_COIL)
+                                                        .conditionally(
+                                                                MatchToolLootCondition.builder(
+                                                                        ItemPredicate.Builder.create().tag(ItemTags.AXES)
+                                                                )
+                                                        ),
+                                                ItemEntry.builder(BTWR_Items.ROPE)
+                                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(9)))
+                                        )
+                                )
+                );
+    }
 
     public LootTable.Builder leavesDrops(Block leaves, Block drop, float... chance) {
         return dropsWithSilkTouchOrShears(

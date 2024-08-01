@@ -3,9 +3,7 @@ package btwr.core.mixin.recipe;
 import btwr.core.recipe.ExtendedShapelessRecipe;
 import btwr.core.recipe.ExtendedShapelessRecipeFactory;
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.DataResult;
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
@@ -13,9 +11,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
 import net.minecraft.util.collection.DefaultedList;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,11 +24,9 @@ import java.util.function.Function;
 @Mixin(ShapelessRecipe.Serializer.class)
 public abstract class ShapelessRecipeSerializerMixin {
 
-    @Shadow @Final private static MapCodec<ShapelessRecipe> CODEC;
-
     @Inject(method = "codec", at = @At("HEAD"), cancellable = true)
     public void injectGetCodec(CallbackInfoReturnable<MapCodec<ShapelessRecipe>> cir) {
-        MapCodec<ShapelessRecipe> codec = RecordCodecBuilder.mapCodec(instance ->
+        MapCodec<ShapelessRecipe> extendedCodec = RecordCodecBuilder.mapCodec(instance ->
                 instance.group(
                         Codec.STRING.optionalFieldOf("group", "")
                                 .forGetter(ShapelessRecipe::getGroup),
@@ -47,37 +41,32 @@ public abstract class ShapelessRecipeSerializerMixin {
                                 .flatXmap(INGREDIENTS_VALIDATOR, DataResult::success)
                                 .forGetter(ShapelessRecipe::getIngredients),
                         Ingredient.ALLOW_EMPTY_CODEC.listOf()
-                                .fieldOf("additionalDrops")
+                                .optionalFieldOf("additionalDrops", DefaultedList.of())
                                 .flatXmap(ADDITIONAL_DROPS_VALIDATOR, DataResult::success)
                                 .forGetter(recipe -> ((ExtendedShapelessRecipe) recipe).getAdditionalDrops())
                 ).apply(instance, ExtendedShapelessRecipeFactory::create)
         );
 
-        cir.setReturnValue(codec);
+        cir.setReturnValue(extendedCodec);
     }
-
 
     @Inject(method = "read", at = @At("RETURN"), cancellable = true)
     private static void onRead(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir) {
         ShapelessRecipe recipe = cir.getReturnValue();
         DefaultedList<Ingredient> addedDropsList = getAdditionalDrops(buf);
 
-        if (recipe instanceof ShapelessRecipeAdded) {
-            ((ShapelessRecipeAdded) recipe).setAdditionalDrops(addedDropsList);
-        }
+        ((ShapelessRecipeAdded) recipe).setAdditionalDrops(addedDropsList);
 
         cir.setReturnValue(recipe);
     }
 
     @Inject(method = "write", at = @At("TAIL"))
     private static void onWrite(RegistryByteBuf buf, ShapelessRecipe recipe, CallbackInfo ci) {
-        if (recipe instanceof ShapelessRecipeAdded) {
-            DefaultedList<Ingredient> addedDropsList = ((ShapelessRecipeAdded) recipe).getAdditionalDrops();
+        DefaultedList<Ingredient> addedDropsList = ((ShapelessRecipeAdded) recipe).getAdditionalDrops();
 
-            buf.writeVarInt(addedDropsList.size());
-            for (Ingredient droppedStack : addedDropsList) {
-                Ingredient.PACKET_CODEC.encode(buf, droppedStack);
-            }
+        buf.writeVarInt(addedDropsList.size());
+        for (Ingredient droppedStack : addedDropsList) {
+            Ingredient.PACKET_CODEC.encode(buf, droppedStack);
         }
     }
 

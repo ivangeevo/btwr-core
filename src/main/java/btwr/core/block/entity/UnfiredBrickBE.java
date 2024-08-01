@@ -55,6 +55,7 @@ public class UnfiredBrickBE extends BlockEntity
         return BlockEntityUpdateS2CPacket.create(this);
     }
 
+
     public static void tick(World world, BlockPos pos, BlockState state, UnfiredBrickBE be)
     {
         if ( !world.isClient ) be.updateDrying();

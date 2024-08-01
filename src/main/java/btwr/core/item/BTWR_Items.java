@@ -2,15 +2,22 @@ package btwr.core.item;
 
 import btwr.core.BTWRMod;
 import btwr.core.block.BTWR_Blocks;
+import btwr.core.block.blocks.HempCropBlock;
+import btwr.core.block.blocks.LightBlock;
 import btwr.core.item.items.ClubItem;
 import btwr.core.material.BTWR_ToolMaterials;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 
@@ -85,6 +92,10 @@ public class BTWR_Items {
     //public static final Item EGG_SCRAMBLED_COOKED = registerItem("egg_scrambled_cooked", new Item( new Item.Settings().food(ModFoodComponents.EGG_SCRAMBLED_COOKED)));
 
 
+    // Blocks to Items experiment
+    public static final Item LIGHTBLOCK = register(BTWR_Blocks.LIGHTBLOCK);
+    public static final Item ROPE_COIL = register(BTWR_Blocks.ROPE_COIL);
+
 
 
     // TO BE ADDED :
@@ -112,6 +123,30 @@ public class BTWR_Items {
     {
         BTWRMod.LOGGER.info("Registering Mod Items for " + BTWRMod.MOD_ID);
         //ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(BTWR_Items::addItemsToIngredientItemGroup);
+    }
+
+    public static Item register(Block block) {
+        return register(new BlockItem(block, new Item.Settings()));
+    }
+
+    public static Item register(BlockItem item) {
+        return register(item.getBlock(), item);
+    }
+
+    public static Item register(Block block, Item item) {
+        return register(Registries.BLOCK.getId(block), item);
+    }
+
+    public static Item register(Identifier id, Item item) {
+        return register(RegistryKey.of(Registries.ITEM.getKey(), id), item);
+    }
+
+    public static Item register(RegistryKey<Item> key, Item item) {
+        if (item instanceof BlockItem) {
+            ((BlockItem)item).appendBlocks(Item.BLOCK_ITEMS, item);
+        }
+
+        return Registry.register(Registries.ITEM, key, item);
     }
 
 

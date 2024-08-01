@@ -3,29 +3,21 @@ package btwr.core.block.blocks;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.interfaces.BlockAdded;
 import btwr.core.item.BTWR_Items;
-import btwr.core.tag.BTWRConventionalTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import org.jetbrains.annotations.Nullable;
-
-import static net.minecraft.state.property.Properties.LIT;
 
 
 public class HempCropBlock extends CropBlock
@@ -60,8 +52,8 @@ public class HempCropBlock extends CropBlock
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random)
     {
 
-        if (!state.get(TOP) &&
-        /** getWeedsGrowthLevel(world, pos) && **/ isValidLightSourceAbove(world, pos))
+        if (!state.get(TOP) && ( world.getLightLevel(pos) >= 15 || isValidAlternateLightSourceAbove(world, pos))
+        /** && getWeedsGrowthLevel(world, pos) **/ )
         {
             Block blockBelow = world.getBlockState(pos.down()).getBlock();
 
@@ -130,13 +122,13 @@ public class HempCropBlock extends CropBlock
     }
 
 
-    private boolean isValidLightSourceAbove(World world, BlockPos pos)
+    private boolean isValidAlternateLightSourceAbove(World world, BlockPos pos)
     {
-        Block lightBlockLit = BTWR_Blocks.LIGHTBLOCK.getDefaultState().with(LIT, true).getBlock();
-        boolean isAbove = world.getBlockState(pos.up(1)).isOf(lightBlockLit);
-        boolean isTwoAbove = world.getBlockState(pos.up(2)).isOf(lightBlockLit);
+        BlockState lightBlockState = BTWR_Blocks.LIGHTBLOCK.getDefaultState();
 
-        return (isAbove || isTwoAbove) || world.getLightLevel(pos) >= 15 ;
+        return world.getBlockState(pos.up()) == lightBlockState.with(Properties.LIT, true) ||
+                world.getBlockState(pos.up(2)) == lightBlockState.with(Properties.LIT, true);
+
     }
 
     public float getBaseGrowthChance()

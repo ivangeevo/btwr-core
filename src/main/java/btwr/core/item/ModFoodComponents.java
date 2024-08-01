@@ -23,7 +23,6 @@ public class ModFoodComponents
 
 
     // Cooked
-
     /** Poached ang Fried egg have the same food component. **/
     public static final FoodComponent EGG_COOKED =
             new FoodComponent.Builder().nutrition(3).saturationModifier(0.25f).build();
