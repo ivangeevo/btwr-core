@@ -1,3 +1,8 @@
+### 0.25.1
+
++ Removed the hardcore bucket logic into its own separate mod called "Hardcore Fluid Overhaul"
++ Updated the mod to Fabric API 0.92.2
+
 ### 0.25
 
 + Added sandwich food item.
