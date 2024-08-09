@@ -14,7 +14,6 @@
     "entity.SheepEntityMixin",
     "entity.ZombieEntityMixin",
     "item.AxeItemMixin",
-    "item.BucketItemMixin",
     "item.ItemMixin",
     "item.ShearsItemMixin",
     "recipe.CraftingResultSlotMixin",
