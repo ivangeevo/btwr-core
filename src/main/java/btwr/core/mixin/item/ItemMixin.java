@@ -5,6 +5,7 @@ import btwr.core.block.blocks.BrickBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -34,21 +35,22 @@ public abstract class ItemMixin
                 BlockPos placePos = pos.up(); // Position to place the new block
 
                 // Check the block below the target position
-                BlockState belowBlockState = world.getBlockState(pos);
-                if (belowBlockState.getBlock() instanceof BrickBlock)
+                BlockState blockBelowState = world.getBlockState(pos);
+                if (blockBelowState.getBlock() instanceof BrickBlock)
                 {
                     // Prevent placing the block on top of itself
                     cir.setReturnValue(ActionResult.FAIL);
                     return;
                 }
 
-                //TODO: Possibly not good idea to access widen getHitResult(the last parameter) try something else if compatability issues arise.                // Create an ItemPlacementContext for the new block position
+                //TODO: Possibly not good idea to access widen getHitResult(the last parameter) try something else if compatability issues arise.
+                //Create an ItemPlacementContext for the new block position
                 ItemPlacementContext placementContext = new ItemPlacementContext(Objects.requireNonNull(context.getPlayer()), context.getHand(), heldStack, context.getHitResult());
 
                 // Get the block state using the placement context
                 BlockState brickBlockState = BTWR_Blocks.BRICK.getPlacementState(placementContext);
 
-                if (world.isAir(placePos) && brickBlockState != null) // Check if the position is air before placing the block
+                if ( (world.isAir(placePos) || context.getWorld().getBlockState(placePos).isIn(BlockTags.REPLACEABLE)) && brickBlockState != null ) // Check if the position is air before placing the block
                 {
                     world.setBlockState(placePos, brickBlockState);
                     heldStack.decrement(1);

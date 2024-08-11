@@ -1,6 +1,0 @@
-{
-  "parent": "item/fishing_rod",
-  "textures": {
-    "layer0": "btwr:item/fishing_rod_baited"
-  }
-}
