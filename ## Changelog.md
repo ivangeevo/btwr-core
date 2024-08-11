@@ -1,6 +1,6 @@
 ### 0.25.1
 
-+ Updated to latest version
++ Updated 0.25.1 to latest minecraft versions
 
 ### 0.25
 
