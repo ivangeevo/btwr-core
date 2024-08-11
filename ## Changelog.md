@@ -1,3 +1,7 @@
+### 0.25.1
+
++ Updated to latest version
+
 ### 0.25
 
 + Added sandwich food item.
