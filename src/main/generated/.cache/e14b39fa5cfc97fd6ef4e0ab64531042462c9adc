@@ -1,5 +1,5 @@
-// 1.20.6	2024-07-27T09:39:43.8352198	BTWR:Core/Tags for minecraft:block
-b1df2a414a6371a646275c4e55149de1c7c23cb7 data\c\tags\blocks\vanilla_converting_blocks.json
-6cd3f2c3336a01730f5791c7584c784a5bd2fdf1 data\minecraft\tags\blocks\mineable\pickaxe.json
-fe6abd56b64d13d85f0782973d1c71621e6f1d94 data\minecraft\tags\blocks\mineable\axe.json
-91298092263229c22ed59f780495f30405f23e44 data\c\tags\blocks\farmland_blocks.json
+// 1.21	2024-08-12T21:35:55.3460032	BTWR:Core/Tags for minecraft:block
+91298092263229c22ed59f780495f30405f23e44 data\c\tags\block\farmland_blocks.json
+6cd3f2c3336a01730f5791c7584c784a5bd2fdf1 data\minecraft\tags\block\mineable\pickaxe.json
+fe6abd56b64d13d85f0782973d1c71621e6f1d94 data\minecraft\tags\block\mineable\axe.json
+b1df2a414a6371a646275c4e55149de1c7c23cb7 data\c\tags\block\vanilla_converting_blocks.json

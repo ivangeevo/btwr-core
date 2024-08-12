@@ -15,7 +15,7 @@ public class BTWRTags
 
 
         private static TagKey<Block> createTag(String name) {
-            return TagKey.of(RegistryKeys.BLOCK, new Identifier(BTWRMod.MOD_ID, name));
+            return TagKey.of(RegistryKeys.BLOCK, Identifier.of(BTWRMod.MOD_ID, name));
         }
     }
 
@@ -66,7 +66,7 @@ public class BTWRTags
 
 
         private static TagKey<Item> createTag (String name) {
-            return TagKey.of(RegistryKeys.ITEM, new Identifier(BTWRMod.MOD_ID, name));
+            return TagKey.of(RegistryKeys.ITEM, Identifier.of(BTWRMod.MOD_ID, name));
         }
     }
 

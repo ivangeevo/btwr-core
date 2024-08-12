@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -23,6 +24,7 @@ import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.state.property.Property;
@@ -31,6 +33,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
 
+    private static final float[] LEAVES_STICK_DROP_CHANCE = new float[]{0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F};
 
     public BTWRLootTableGenerator(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, registryLookup);
@@ -41,7 +44,7 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
 
 
     public static final LootCondition.Builder CONVENTIONAL_WITH_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ConventionalItemTags.SHEARS_TOOLS));
-    public static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = CONVENTIONAL_WITH_SHEARS.or(WITH_SILK_TOUCH);
+    public final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = CONVENTIONAL_WITH_SHEARS.or(this.createSilkTouchCondition());
     private static final float[] JUNGLE_SAPLING_DROP_CHANCE = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
 
 
@@ -130,21 +133,22 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
     }
 
     public LootTable.Builder leavesDrops(Block leaves, Block drop, float... chance) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return dropsWithSilkTouchOrShears(
-                leaves, this.addSurvivesExplosionCondition(leaves, ItemEntry.builder(drop)).conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, chance))
-        )
+                leaves, this.addSurvivesExplosionCondition(leaves, ItemEntry.builder(drop)).conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), chance)
+        ))
                 .pool(
                         LootPool.builder()
                                 .rolls(ConstantLootNumberProvider.create(1.0F))
                                 .conditionally(WITH_SILK_TOUCH_OR_SHEARS.invert())
                                 .with(
                                         this.applyExplosionDecay(leaves, ItemEntry.builder(Items.STICK).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
-                                                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, LEAVES_STICK_DROP_CHANCE))
-                                )
-                );
+                                                .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), LEAVES_STICK_DROP_CHANCE)
+                                )));
     }
 
     public LootTable.Builder oakLeavesDrops(Block leaves, Block drop, float... chance) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return this.leavesDrops(leaves, drop, chance)
                 .pool(
                         LootPool.builder()
@@ -152,26 +156,27 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
                                 .conditionally(WITH_SILK_TOUCH_OR_SHEARS.invert())
                                 .with(
                                         this.addSurvivesExplosionCondition(leaves, ItemEntry.builder(Items.APPLE))
-                                                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))
+                                                .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))
                                 )
                 );
     }
 
     public LootTable.Builder mangroveLeavesDrops(Block leaves) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return dropsWithSilkTouchOrShears(
                 leaves,
                 this.applyExplosionDecay(
                                 Blocks.MANGROVE_LEAVES, ItemEntry.builder(Items.STICK).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F)))
                         )
-                        .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, LEAVES_STICK_DROP_CHANCE))
+                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), LEAVES_STICK_DROP_CHANCE))
         );
     }
 
-    public static LootTable.Builder dropsWithSilkTouchOrShears(Block drop, LootPoolEntry.Builder<?> child) {
+    public LootTable.Builder dropsWithSilkTouchOrShears(Block drop, LootPoolEntry.Builder<?> child) {
         return drops(drop, WITH_SILK_TOUCH_OR_SHEARS, child);
     }
 
-    public static LootTable.Builder dropsWithShears(Block drop, LootPoolEntry.Builder<?> child) {
+    public LootTable.Builder dropsWithShears(Block drop, LootPoolEntry.Builder<?> child) {
         return drops(drop, CONVENTIONAL_WITH_SHEARS, child);
     }
     @Override

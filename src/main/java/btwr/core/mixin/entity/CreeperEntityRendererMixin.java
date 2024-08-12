@@ -20,7 +20,7 @@ public abstract class CreeperEntityRendererMixin extends MobEntityRenderer<Creep
 {
     @Shadow @Final private static Identifier TEXTURE;
     @Unique private static final Identifier NEUTERED_TEXTURE =
-            new Identifier(BTWRMod.MOD_ID, "textures/entity/neutered_creeper.png");
+            Identifier.of(BTWRMod.MOD_ID, "textures/entity/neutered_creeper.png");
 
     public CreeperEntityRendererMixin(EntityRendererFactory.Context context,
                                       CreeperEntityModel<CreeperEntity> entityModel, float f)

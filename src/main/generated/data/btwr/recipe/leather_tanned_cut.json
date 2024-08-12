@@ -1,17 +1,16 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "additionalDrops": [],
   "category": "misc",
   "ingredients": [
     {
-      "item": "btwr:leather_tanned_cut"
+      "item": "btwr:leather_tanned"
     },
     {
       "tag": "c:shears"
     }
   ],
   "result": {
-    "count": 4,
-    "id": "btwr:strap"
+    "count": 2,
+    "id": "btwr:leather_tanned_cut"
   }
 }

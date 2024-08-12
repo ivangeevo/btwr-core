@@ -36,8 +36,8 @@ public class BTWRArmorMaterials
     }), 15,
             SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0f, 0.0f,
             () -> Ingredient.ofItems(Items.LEATHER),
-            List.of(new ArmorMaterial.Layer(new Identifier(BTWRMod.MOD_ID, "leather_tanned"), "", true),
-                    new ArmorMaterial.Layer(new Identifier(BTWRMod.MOD_ID, "leather_tanned"), "", false)));
+            List.of(new ArmorMaterial.Layer(Identifier.of(BTWRMod.MOD_ID, "leather_tanned"), "", true),
+                    new ArmorMaterial.Layer(Identifier.of(BTWRMod.MOD_ID, "leather_tanned"), "", false)));
 
 
 
@@ -47,16 +47,16 @@ public class BTWRArmorMaterials
     }
 
     private static RegistryEntry<ArmorMaterial> register(String id, EnumMap<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(new Identifier(id)));
+        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(Identifier.of(id)));
         return BTWRArmorMaterials.register(id, defense, enchantability, equipSound, toughness, knockbackResistance, repairIngredient, list);
     }
 
     private static RegistryEntry<ArmorMaterial> register(String id, EnumMap<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient, List<ArmorMaterial.Layer> layers) {
-        EnumMap<ArmorItem.Type, Integer> enumMap = new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class);
+        EnumMap<ArmorItem.Type, Integer> enumMap = new EnumMap<>(ArmorItem.Type.class);
         for (ArmorItem.Type type : ArmorItem.Type.values()) {
             enumMap.put(type, defense.get(type));
         }
-        return Registry.registerReference(Registries.ARMOR_MATERIAL, new Identifier(id), new ArmorMaterial(enumMap, enchantability, equipSound, repairIngredient, layers, toughness, knockbackResistance));
+        return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(id), new ArmorMaterial(enumMap, enchantability, equipSound, repairIngredient, layers, toughness, knockbackResistance));
     }
 
 }

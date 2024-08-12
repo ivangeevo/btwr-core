@@ -32,7 +32,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AxeItem.class)
 public abstract class AxeItemMixin extends MiningToolItem
 {
-    private final RecipeManager.MatchGetter<RecipeInputInventory, CraftingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(RecipeType.CRAFTING);
+    //private final RecipeManager.MatchGetter<RecipeInputInventory, CraftingRecipe> matchGetter = RecipeManager.createCachedMatchGetter(RecipeType.CRAFTING);
 
     public AxeItemMixin(ToolMaterial material, TagKey<Block> effectiveBlocks, Settings settings) {
         super(material, effectiveBlocks, settings);

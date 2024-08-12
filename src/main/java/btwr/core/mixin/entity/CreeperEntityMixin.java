@@ -250,7 +250,7 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
 
     // Add a drop on death with a chance, instead of modifying the loot table.
     @Inject(method = "dropEquipment", at = @At("TAIL"))
-    private void onDropEquipment(DamageSource source, int lootingMultiplier, boolean allowDrops, CallbackInfo ci) {
+    private void onDropEquipment(ServerWorld world, DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
         if (random.nextInt(3) == 0) {
             if(!this.isNeutered()) {
                 // Drop creeper oysters

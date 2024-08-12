@@ -15,7 +15,7 @@ public class BTWRItemGroup
     public static void registerItemGroups()
     {
         Registry.register(Registries.ITEM_GROUP,
-                new Identifier(BTWRMod.MOD_ID, "group_btwr"),
+                Identifier.of(BTWRMod.MOD_ID, "group_btwr"),
                 FabricItemGroup.builder()
                         .displayName(Text.translatable("itemgroup.group_btwr"))
                         .icon(() -> new ItemStack(BTWR_Items.GROUP_BTWR))

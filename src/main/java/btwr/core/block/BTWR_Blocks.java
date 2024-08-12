@@ -28,13 +28,13 @@ public class BTWR_Blocks {
 
     // Method for registering blocks
     private static Block registerBlock(String name, Block block) {
-        return Registry.register(Registries.BLOCK, new Identifier(BTWRMod.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, Identifier.of(BTWRMod.MOD_ID, name), block);
     }
 
     // Method for registering block items
     private static Block registerBlockWithItem(String name, Block block) {
         Block registeredBlock = registerBlock(name, block);
-        Registry.register(Registries.ITEM, new Identifier(BTWRMod.MOD_ID, name), new BlockItem(registeredBlock, new Item.Settings()));
+        Registry.register(Registries.ITEM, Identifier.of(BTWRMod.MOD_ID, name), new BlockItem(registeredBlock, new Item.Settings()));
         return registeredBlock;
     }
 
