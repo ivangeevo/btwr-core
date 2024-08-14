@@ -1,3 +1,7 @@
+### 0.25.2
+
++ Fixed placement code for bricks items as blocks to work much better(and as intended).
+
 ### 0.25.1
 
 + Removed the hardcore bucket logic into its own separate mod called "Hardcore Fluid Overhaul"
