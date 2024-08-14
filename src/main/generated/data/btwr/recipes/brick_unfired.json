@@ -3,14 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "btwr:leather_tanned_cut"
-    },
-    {
-      "tag": "c:shears"
+      "item": "minecraft:clay_ball"
     }
   ],
   "result": {
-    "count": 4,
-    "id": "btwr:strap"
+    "count": 1,
+    "id": "btwr:brick_unfired"
   }
 }

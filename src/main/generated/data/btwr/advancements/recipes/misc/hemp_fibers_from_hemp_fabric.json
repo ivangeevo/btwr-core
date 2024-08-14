@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hemp_fabric": {
+    "has_rope": {
       "conditions": {
         "items": [
           {
-            "items": "btwr:hemp_fabric"
+            "items": "btwr:rope"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "btwr:rope"
+        "recipe": "btwr:hemp_fibers_from_hemp_fabric"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_hemp_fabric"
+      "has_rope"
     ]
   ],
   "rewards": {
     "recipes": [
-      "btwr:rope"
+      "btwr:hemp_fibers_from_hemp_fabric"
     ]
   }
 }

@@ -3,14 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "btwr:leather_tanned_cut"
-    },
-    {
-      "tag": "c:shears"
+      "item": "btwr:hemp_fabric"
     }
   ],
   "result": {
-    "count": 4,
-    "id": "btwr:strap"
+    "count": 9,
+    "id": "btwr:hemp_fibers"
   }
 }
