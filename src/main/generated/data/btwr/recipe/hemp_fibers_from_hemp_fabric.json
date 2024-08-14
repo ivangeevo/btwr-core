@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "btwr:hemp_fabric"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "btwr:hemp_fibers"
+  }
+}
