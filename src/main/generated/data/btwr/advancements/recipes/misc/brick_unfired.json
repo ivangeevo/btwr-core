@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:brick_unfired_from_clay_ball"
+        "recipe": "btwr:brick_unfired"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:brick_unfired_from_clay_ball"
+      "btwr:brick_unfired"
     ]
   },
   "sends_telemetry_event": false
