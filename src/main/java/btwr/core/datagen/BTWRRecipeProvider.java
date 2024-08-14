@@ -1,5 +1,6 @@
 package btwr.core.datagen;
 
+import btwr.core.BTWRMod;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRConventionalTags;
@@ -20,6 +21,7 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -65,39 +67,19 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_TANNED).input(BTWR_Items.LEATHER_SCOURED).input(ItemTags.LOGS).criterion("has_leather_scoured", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.STRAP,4).input(BTWR_Items.LEATHER_TANNED_CUT).input(BTWRConventionalTags.Items.SHEARS).criterion("has_leather_tanned_cut", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_TANNED_CUT)).offerTo(exporter);
 
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.HEMP_FIBERS, 6).input(BTWR_Items.ROPE);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.HEMP_FIBERS, 9).input(BTWR_Items.HEMP_FABRIC);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.ROPE, 9).input(BTWR_Items.HEMP_FABRIC);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.BRICK_UNFIRED).input(Items.CLAY_BALL);
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BOOK).input(BTWR_Items.LEATHER_CUT)
-                .input(Items.PAPER).input(Items.PAPER).input(Items.PAPER)
-                .criterion("has_paper", conditionsFromItem(Items.PAPER)).offerTo(exporter);
-
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.BRICK_UNFIRED).input(Items.CLAY_BALL).criterion("has_clay_ball", conditionsFromItem(Items.CLAY_BALL)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BOOK).input(BTWR_Items.LEATHER_CUT).input(Items.PAPER).input(Items.PAPER).input(Items.PAPER).criterion("has_paper", conditionsFromItem(Items.PAPER)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.SANDWICH,2).input(Items.BREAD).input(BTWRTags.Items.MEATS_FOR_SANDWICH).criterion("has_bread", RecipeProvider.conditionsFromItem(Items.BREAD)).offerTo(exporter);
+
+        // Special export condition
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.HEMP_FIBERS, 6).input(BTWR_Items.ROPE).criterion("has_rope", RecipeProvider.conditionsFromItem(BTWR_Items.ROPE)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "hemp_fibers_from_rope"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.HEMP_FIBERS, 9).input(BTWR_Items.HEMP_FABRIC).criterion("has_rope", RecipeProvider.conditionsFromItem(BTWR_Items.ROPE)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "hemp_fibers_from_hemp_fabric"));
 
 
         //offerShapelessRecipe(exporter, BTWR_Items.EGG_RAW, Items.EGG, "group_btwr",1);
         //ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.EGG_SCRAMBLED_RAW,2).input(BTWR_Items.EGG_RAW).input(Items.MILK_BUCKET).criterion("has_egg_raw", RecipeProvider.conditionsFromItem(BTWR_Items.EGG_RAW)).offerTo(exporter);
         //generateCookingRecipes(exporter,
 
-
-
-        // TO BE ADDED:
-
-
-
-
-
-    }
-
-    public  void generateCookingRecipes(RecipeExporter exporter, String cooker, RecipeSerializer<? extends AbstractCookingRecipe> serializer, int cookingTime)
-    {
-        //offerFoodCookingRecipe(exporter, "smelting", RecipeSerializer.SMELTING,200, BTWR_Items.EGG_RAW, BTWR_Items.EGG_FRIED, 0.35f);
-        //offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING,100, BTWR_Items.EGG_RAW, BTWR_Items.EGG_POACHED, 0.35f);
-        //offerFoodCookingRecipe(exporter, "smelting", RecipeSerializer.SMELTING,200, BTWR_Items.EGG_SCRAMBLED_RAW, BTWR_Items.EGG_SCRAMBLED_COOKED, 0.35f);
-        //offerFoodCookingRecipe(exporter, "smoking", RecipeSerializer.SMOKING,100, BTWR_Items.EGG_SCRAMBLED_RAW, BTWR_Items.EGG_SCRAMBLED_COOKED, 0.35f);
 
     }
 
@@ -114,7 +96,6 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.LEATHER_LEGGINGS).input('X', BTWR_Items.LEATHER_CUT).pattern("XXX").pattern("X X").pattern("X X").criterion("has_leather_cut", conditionsFromItem(BTWR_Items.LEATHER_CUT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.LEATHER_BOOTS).input('X', BTWR_Items.LEATHER_CUT).pattern("X X").pattern("X X").criterion("has_leather_cut", conditionsFromItem(BTWR_Items.LEATHER_CUT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.DIAMOND_PLATE).input('S', BTWR_Items.STRAP).input('I', BTWR_Items.DIAMOND_INGOT).pattern("SIS").criterion("has_diamond_ingot", conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
-
 
         // Misc
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.ROPE).input('#', BTWR_Items.HEMP_FIBERS).pattern("##").pattern("##").pattern("##").criterion("has_hemp_fibers", RecipeProvider.conditionsFromItem(BTWR_Items.HEMP_FIBERS)).offerTo(exporter);
@@ -136,11 +117,6 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_LEGGINGS).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("XXX").pattern("X X").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_BOOTS).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("X X").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
 
-
-    }
-
-    private void generateCookingRecipes()
-    {
 
     }
 
