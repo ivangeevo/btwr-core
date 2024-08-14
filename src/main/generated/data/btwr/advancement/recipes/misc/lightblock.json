@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hemp_fibers": {
+    "has_filament": {
       "conditions": {
         "items": [
           {
-            "items": "btwr:hemp_fibers"
+            "items": "btwr:filament"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "btwr:rope"
+        "recipe": "btwr:lightblock"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_hemp_fibers"
+      "has_filament"
     ]
   ],
   "rewards": {
     "recipes": [
-      "btwr:rope"
+      "btwr:lightblock"
     ]
   }
 }
