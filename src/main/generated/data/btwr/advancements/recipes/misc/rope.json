@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hemp_fabric": {
+    "has_hemp_fibers": {
       "conditions": {
         "items": [
           {
-            "items": "btwr:hemp_fabric"
+            "items": "btwr:hemp_fibers"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_hemp_fabric"
+      "has_hemp_fibers"
     ]
   ],
   "rewards": {
