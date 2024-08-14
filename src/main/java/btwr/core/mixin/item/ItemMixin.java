@@ -16,7 +16,6 @@ import java.util.Objects;
 @Mixin(Item.class)
 public abstract class ItemMixin
 {
-
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
     private void injectedUseOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir)
     {
