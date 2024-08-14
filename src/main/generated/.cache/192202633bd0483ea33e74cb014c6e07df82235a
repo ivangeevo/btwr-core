@@ -1,4 +1,4 @@
-// 1.21	2024-08-12T21:35:55.3470036	BTWR:Core/BTWR Block Loot Tables
+// 1.21.1	2024-08-14T11:43:25.5267011	BTWR:Core/BTWR Block Loot Tables
 35fa00a372b383362193ad8569d31f96e5e2e2bb data\minecraft\loot_table\blocks\cherry_leaves.json
 c3d91f818e3002fba4826fb68a72669a53646917 data\btwr\loot_table\blocks\rope_coil.json
 eb3617fc2efd703fbc0659486f5e5d74fd495af0 data\minecraft\loot_table\blocks\spruce_leaves.json
