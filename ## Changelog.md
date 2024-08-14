@@ -2,7 +2,6 @@
 
 + Fixed placement code for bricks items as blocks to work much better(and as intended).
 
-
 ### 0.25.1
 
 + Updated 0.25.1 to latest minecraft versions
