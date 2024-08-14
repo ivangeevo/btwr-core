@@ -1,18 +1,14 @@
 package btwr.core.mixin.item;
 
 import btwr.core.block.BTWR_Blocks;
-import btwr.core.block.blocks.BrickBlock;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Objects;
@@ -34,24 +30,27 @@ public abstract class ItemMixin
             {
                 BlockPos placePos = pos.up(); // Position to place the new block
 
-                // Check the block below the target position
+                // Get the block state of the block you're trying to place the brick on
                 BlockState blockBelowState = world.getBlockState(pos);
-                if (blockBelowState.getBlock() instanceof BrickBlock)
+
+                // Check if the block below can support a block on top of it
+                if (!blockBelowState.isSolidBlock(world, pos))
                 {
-                    // Prevent placing the block on top of itself
+                    // Prevent placing the block on non-solid blocks like flowers, tall grass, etc.
                     cir.setReturnValue(ActionResult.FAIL);
                     return;
                 }
 
-                //TODO: Possibly not good idea to access widen getHitResult(the last parameter) try something else if compatability issues arise.
-                //Create an ItemPlacementContext for the new block position
+                // Create an ItemPlacementContext for the new block position
                 ItemPlacementContext placementContext = new ItemPlacementContext(Objects.requireNonNull(context.getPlayer()), context.getHand(), heldStack, context.getHitResult());
 
                 // Get the block state using the placement context
                 BlockState brickBlockState = BTWR_Blocks.BRICK.getPlacementState(placementContext);
 
-                if ( (world.isAir(placePos) || context.getWorld().getBlockState(placePos).isIn(BlockTags.REPLACEABLE)) && brickBlockState != null ) // Check if the position is air before placing the block
+                // Check if the target position is air or a replaceable block
+                if ((world.isAir(placePos) || world.getBlockState(placePos).canReplace(placementContext)) && brickBlockState != null)
                 {
+                    // Replace the block at the target position with the brick block
                     world.setBlockState(placePos, brickBlockState);
                     heldStack.decrement(1);
 
