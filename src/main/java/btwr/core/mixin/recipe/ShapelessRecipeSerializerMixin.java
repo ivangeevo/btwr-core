@@ -28,7 +28,8 @@ public abstract class ShapelessRecipeSerializerMixin {
     public void injectGetCodec(CallbackInfoReturnable<MapCodec<ShapelessRecipe>> cir) {
         MapCodec<ShapelessRecipe> extendedCodec = RecordCodecBuilder.mapCodec(instance ->
                 instance.group(
-                        Codec.STRING.optionalFieldOf("group", "")
+                        Codec.STRING
+                                .optionalFieldOf("group", "")
                                 .forGetter(ShapelessRecipe::getGroup),
                         CraftingRecipeCategory.CODEC
                                 .fieldOf("category")
@@ -36,11 +37,13 @@ public abstract class ShapelessRecipeSerializerMixin {
                                 .forGetter(ShapelessRecipe::getCategory),
                         ItemStack.CODEC.fieldOf("result")
                                 .forGetter(recipe -> recipe.getResult(null)),
-                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
+                        Ingredient.DISALLOW_EMPTY_CODEC
+                                .listOf()
                                 .fieldOf("ingredients")
                                 .flatXmap(INGREDIENTS_VALIDATOR, DataResult::success)
                                 .forGetter(ShapelessRecipe::getIngredients),
-                        Ingredient.ALLOW_EMPTY_CODEC.listOf()
+                        Ingredient.DISALLOW_EMPTY_CODEC
+                                .listOf()
                                 .optionalFieldOf("additionalDrops", DefaultedList.of())
                                 .flatXmap(ADDITIONAL_DROPS_VALIDATOR, DataResult::success)
                                 .forGetter(recipe -> ((ExtendedShapelessRecipe) recipe).getAdditionalDrops())

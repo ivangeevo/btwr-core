@@ -26,7 +26,6 @@ import java.util.Optional;
 @Mixin(CraftingResultSlot.class)
 public abstract class CraftingResultSlotMixin
 {
-    
     @Shadow @Final private RecipeInputInventory input;
 
 
