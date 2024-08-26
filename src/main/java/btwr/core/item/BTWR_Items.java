@@ -12,6 +12,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -69,7 +70,7 @@ public class BTWR_Items {
             new ClubItem(BTWR_ToolMaterials.BONE, new Item.Settings().attributeModifiers(ClubItem.createAttributeModifiers(BTWR_ToolMaterials.BONE,2, -1.3f))));
 
     public static final Item DIAMOND_SHEARS = registerItem( "diamond_shears",
-            new ShearsItem (new Item.Settings().maxDamage(500)));
+            new ShearsItem (new Item.Settings().maxDamage(500).component(DataComponentTypes.TOOL, ShearsItem.createToolComponent())));
     
     // Armor
 
