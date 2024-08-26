@@ -4,10 +4,7 @@
     "btwr:club_bone",
     "#minecraft:swords",
     "minecraft:trident",
-    "minecraft:bow",
-    "minecraft:crossbow",
-    "minecraft:iron_axe",
-    "minecraft:diamond_axe",
-    "minecraft:netherite_axe"
+    "#c:modern_axes",
+    "#c:advanced_axes"
   ]
 }
