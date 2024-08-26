@@ -18,13 +18,6 @@ public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded
     @Unique
     DefaultedList<Ingredient> additionalDrops;
 
-    @Inject(method = "<init>", at = @At("TAIL"))
-    private void injectedConstructor(String group, CraftingRecipeCategory category, ItemStack result, DefaultedList<ShapelessRecipe> ingredients, CallbackInfo ci)
-    {
-        this.additionalDrops = getAdditionalDrops();
-    }
-
-
     @Override
     public DefaultedList<Ingredient> getAdditionalDrops() {
         return this.additionalDrops;

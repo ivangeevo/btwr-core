@@ -8,10 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.CraftingRecipe;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.*;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.server.MinecraftServer;
@@ -60,7 +57,7 @@ public abstract class CraftingResultSlotMixin
         Optional<RecipeEntry<CraftingRecipe>> optional = server.getRecipeManager().getFirstMatch(RecipeType.CRAFTING, this.input.createRecipeInput(), player.getWorld());
         CraftingRecipe craftingRecipe;
 
-        if (optional.isPresent() && (craftingRecipe = optional.get().value()) instanceof ExtendedShapelessRecipe) {
+        if (optional.isPresent() && (craftingRecipe = optional.get().value()) instanceof ShapelessRecipe) {
 
             DefaultedList<Ingredient> drops = ((ShapelessRecipeAdded) craftingRecipe).getAdditionalDrops();
             if (!drops.isEmpty())

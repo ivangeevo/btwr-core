@@ -40,7 +40,7 @@ public abstract class ShapelessRecipeSerializerMixin {
                                 .fieldOf("ingredients")
                                 .flatXmap(INGREDIENTS_VALIDATOR, DataResult::success)
                                 .forGetter(ShapelessRecipe::getIngredients),
-                        Ingredient.ALLOW_EMPTY_CODEC.listOf()
+                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
                                 .optionalFieldOf("additionalDrops", DefaultedList.of())
                                 .flatXmap(ADDITIONAL_DROPS_VALIDATOR, DataResult::success)
                                 .forGetter(recipe -> ((ExtendedShapelessRecipe) recipe).getAdditionalDrops())
