@@ -76,14 +76,10 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
                 // Special weapon items
                 .add(Items.TRIDENT)
-                .add(Items.BOW)
-                .add(Items.CROSSBOW)
 
-                // Axes do knockback only if iron or above
-                .add(Items.IRON_AXE)
-                .add(Items.DIAMOND_AXE)
-                .add(Items.NETHERITE_AXE);
-
+                // Axes do knockback only if iron or above (aka modern, or advanced)
+                .addTag(BTWRConventionalTags.Items.MODERN_AXES)
+                .addTag(BTWRConventionalTags.Items.ADVANCED_AXES);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.PRIMITIVE_PICKAXES)
                 .add(Items.WOODEN_PICKAXE)
