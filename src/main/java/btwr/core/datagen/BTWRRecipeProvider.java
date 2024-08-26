@@ -5,28 +5,19 @@ import btwr.core.block.BTWR_Blocks;
 import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.*;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
 
 public class BTWRRecipeProvider extends FabricRecipeProvider
 {
@@ -45,14 +36,25 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
     @Override
     public void generate(RecipeExporter exporter)
     {
-        generateShapelessRecipes(exporter);
-        generateShapedRecipes(exporter);
+        forVanilla(exporter);
+        forModded(exporter);
     }
 
+    private void forVanilla(RecipeExporter exporter)
+    {
+        generateVanillaShapeless(exporter);
+        generateVanillaShaped(exporter);
 
+    }
 
+    private void forModded(RecipeExporter exporter)
+    {
+        generateModShapeless(exporter);
+        generateModShaped(exporter);
 
-    public void generateShapelessRecipes(RecipeExporter exporter)
+    }
+
+    public void generateModShapeless(RecipeExporter exporter)
     {
         // Shears cutting recipes
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_CUT,2).input(Items.LEATHER).input(BTWRConventionalTags.Items.SHEARS).criterion("has_leather", RecipeProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
@@ -80,10 +82,9 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         //ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.EGG_SCRAMBLED_RAW,2).input(BTWR_Items.EGG_RAW).input(Items.MILK_BUCKET).criterion("has_egg_raw", RecipeProvider.conditionsFromItem(BTWR_Items.EGG_RAW)).offerTo(exporter);
         //generateCookingRecipes(exporter,
 
-
     }
 
-    public static void generateShapedRecipes(RecipeExporter exporter)
+    public static void generateModShaped(RecipeExporter exporter)
     {
         // Tools
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.CLUB_BONE).input('#', Items.BONE).pattern("#").pattern("#").criterion("has_bone", RecipeProvider.conditionsFromItem(Items.BONE)).offerTo(exporter);
@@ -113,6 +114,15 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_LEGGINGS).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("XXX").pattern("X X").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_BOOTS).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("X X").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
 
+    }
+
+    private static void generateVanillaShapeless(RecipeExporter exporter)
+    {
+
+    }
+
+    private static void generateVanillaShaped(RecipeExporter exporter)
+    {
 
     }
 
