@@ -23,7 +23,7 @@ import java.util.function.Function;
 
 public class ExtendedShapelessRecipe extends ShapelessRecipe implements ShapelessRecipeAdded
 {
-    private final DefaultedList<Ingredient> additionalDrops;
+    private DefaultedList<Ingredient> additionalDrops;
 
     public ExtendedShapelessRecipe(String group, CraftingRecipeCategory category, ItemStack result, DefaultedList<Ingredient> ingredients, DefaultedList<Ingredient> additionalDrops) {
         super(group, category, result, ingredients);
@@ -36,8 +36,8 @@ public class ExtendedShapelessRecipe extends ShapelessRecipe implements Shapeles
     }
 
     @Override
-    public void setAdditionalDrops(DefaultedList<Ingredient> secondaryOutput) {
-
+    public void setAdditionalDrops(DefaultedList<Ingredient> additionalDrops) {
+        this.additionalDrops = additionalDrops;
     }
 
 
