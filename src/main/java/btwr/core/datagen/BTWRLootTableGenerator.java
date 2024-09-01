@@ -22,17 +22,12 @@ import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.StatePredicate;
-import net.minecraft.predicate.item.EnchantmentPredicate;
-import net.minecraft.predicate.item.EnchantmentsPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
-import net.minecraft.predicate.item.ItemSubPredicateTypes;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class BTWRLootTableGenerator extends FabricBlockLootTableProvider

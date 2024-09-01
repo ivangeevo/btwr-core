@@ -3,9 +3,7 @@ package btwr.core.tag;
 import net.fabricmc.fabric.impl.tag.convention.v2.TagRegistration;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
 
 public class BTWRConventionalTags
 {

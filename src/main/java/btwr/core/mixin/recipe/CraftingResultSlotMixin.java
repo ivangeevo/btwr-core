@@ -1,7 +1,6 @@
 package btwr.core.mixin.recipe;
 
 import btwr.core.item.BTWR_Items;
-import btwr.core.recipe.ExtendedShapelessRecipe;
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
 import btwr.core.tag.BTWRTags;
 import net.minecraft.entity.player.PlayerEntity;

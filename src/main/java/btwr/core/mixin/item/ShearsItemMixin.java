@@ -1,7 +1,6 @@
 package btwr.core.mixin.item;
 
 import btwr.core.block.BTWR_Blocks;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.component.type.ToolComponent;
 import net.minecraft.item.Item;

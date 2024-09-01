@@ -1,12 +1,8 @@
-/*
- * Decompiled with CFR 0.2.1 (FabricMC 53fa44c9).
- */
 package btwr.core.item;
 
 import btwr.core.BTWRMod;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ArmorMaterials;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
@@ -15,7 +11,6 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Lazy;
 import net.minecraft.util.Util;
 
 import java.util.EnumMap;

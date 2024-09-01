@@ -23,9 +23,6 @@ public class BTWR_Blocks {
     public static final Block BRICK_UNFIRED = registerBlockWithItem("brick_unfired", new UnfiredBrickBlock(AbstractBlock.Settings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE), ParticleTypes.CLOUD));
     public static final Block BRICK = registerBlockWithItem("brick", new BrickBlock(AbstractBlock.Settings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
 
-    // TO BE ADDED:
-    // public static final Block COMPANIONCUBE = registerBlockWithItem("companioncube", new CompanionCube(AbstractBlock.Settings.create().strength(1.2f).ticksRandomly()));
-
     // Method for registering blocks
     private static Block registerBlock(String name, Block block) {
         return Registry.register(Registries.BLOCK, Identifier.of(BTWRMod.MOD_ID, name), block);

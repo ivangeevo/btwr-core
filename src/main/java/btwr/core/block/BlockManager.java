@@ -21,8 +21,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
-import static net.minecraft.block.Block.dropStack;
-import static net.minecraft.block.Block.getDroppedStacks;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 
 public class BlockManager
