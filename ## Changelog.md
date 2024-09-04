@@ -2,8 +2,7 @@
 + Fixed a bug with custom shapeless recipes that have additional drops to drop properly.
 + Fixed placement code for bricks items as blocks to work much better(and as intended).
 + Fixed missing recipes and generally improved the code that generates them.
-+ Updated the mod to require Fabric API 0.16.3, (optional) Mod Menu 11.0.2 & Cloth Config 15.0.130
-+ 
+
 ### 0.25.1
 
 + Updated 0.25.1 to latest minecraft versions
