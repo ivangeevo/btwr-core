@@ -1,3 +1,9 @@
+### 0.25.3
+
++ Fixed a bug with custom shapeless recipes that have additional drops to drop properly.
++ Fixed Diamond Shears breaking leaves slower than iron ones & fixed some leaves loot tables to drop properly.
++ Fixed a bug where you could do knockback with a bow or crossbow from melee hits to entities.
+
 ### 0.25.2
 
 + Fixed placement code for bricks items as blocks to work much better(and as intended).
