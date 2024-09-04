@@ -1,6 +1,7 @@
 package btwr.core.mixin.recipe;
 
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
+import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.util.collection.DefaultedList;
@@ -11,15 +12,15 @@ import org.spongepowered.asm.mixin.Unique;
 public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded
 {
     @Unique
-    DefaultedList<Ingredient> additionalDrops;
+    DefaultedList<ItemStack> additionalDrops;
 
     @Override
-    public DefaultedList<Ingredient> getAdditionalDrops() {
+    public DefaultedList<ItemStack> getAdditionalDrops() {
         return this.additionalDrops;
     }
 
     @Override
-    public void setAdditionalDrops(DefaultedList<Ingredient> drops)
+    public void setAdditionalDrops(DefaultedList<ItemStack> drops)
     {
         this.additionalDrops = drops;
     }

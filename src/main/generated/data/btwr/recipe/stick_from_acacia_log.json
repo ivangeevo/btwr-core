@@ -15,11 +15,11 @@
   },
   "additionalDrops": [
     {
-      "item": "minecraft:cobblestone",
+      "id": "minecraft:cobblestone",
       "count": 5
     },
     {
-      "item": "minecraft:netherrack",
+      "id": "minecraft:netherrack",
       "count": 1
     }
   ]
