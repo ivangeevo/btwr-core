@@ -4,6 +4,7 @@
 + Fixed Diamond Shears breaking leaves slower than iron ones & fixed some leaves loot tables to drop properly.
 + Fixed a bug where you could do knockback with a bow or crossbow from melee hits to entities.
 + Updated the mod to require Fabric Loader 0.16.3, (Optional) Mod Menu 11.0.2 & Cloth Config 15.0.130
++ Updated the mod to Fabric API 0.103.0
 
 ### 0.25.2
 
