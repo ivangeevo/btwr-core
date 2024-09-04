@@ -38,7 +38,7 @@ public abstract class ShapelessRecipeJsonBuilderMixin implements ShapelessRecipe
     @Shadow @Final private DefaultedList<Ingredient> inputs;
     @Shadow @Nullable private String group;
     @Shadow @Final private Map<String, AdvancementCriterion<?>> advancementBuilder;
-    @Unique private DefaultedList<Ingredient> additionalDrops = DefaultedList.of();
+    @Unique private DefaultedList<ItemStack> additionalDrops = DefaultedList.of();
 
     @Shadow protected abstract void validate(Identifier recipeId);
 
@@ -70,12 +70,12 @@ public abstract class ShapelessRecipeJsonBuilderMixin implements ShapelessRecipe
     }
 
     @Override
-    public ShapelessRecipeJsonBuilder additionalDrop(Ingredient ingredient) {
+    public ShapelessRecipeJsonBuilder additionalDrop(ItemStack ingredient) {
         return this.additionalDrop(ingredient, 1);
     }
 
     @Override
-    public ShapelessRecipeJsonBuilder additionalDrop(Ingredient ingredient, int size) {
+    public ShapelessRecipeJsonBuilder additionalDrop(ItemStack ingredient, int size) {
         for (int i = 0; i < size; ++i) {
             this.additionalDrops.add(ingredient);
         }

@@ -5,6 +5,7 @@ import btwr.core.recipe.ExtendedShapelessRecipeFactory;
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.recipe.Ingredient;
@@ -34,13 +35,16 @@ public abstract class ShapelessRecipeSerializerMixin {
                                 .fieldOf("category")
                                 .orElse(CraftingRecipeCategory.MISC)
                                 .forGetter(ShapelessRecipe::getCategory),
-                        ItemStack.CODEC.fieldOf("result")
+                        ItemStack.VALIDATED_CODEC
+                                .fieldOf("result")
                                 .forGetter(recipe -> recipe.getResult(null)),
-                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
+                        Ingredient.DISALLOW_EMPTY_CODEC
+                                .listOf()
                                 .fieldOf("ingredients")
                                 .flatXmap(INGREDIENTS_VALIDATOR, DataResult::success)
                                 .forGetter(ShapelessRecipe::getIngredients),
-                        Ingredient.ALLOW_EMPTY_CODEC.listOf()
+                        ItemStack.CODEC
+                                .listOf()
                                 .optionalFieldOf("additionalDrops", DefaultedList.of())
                                 .flatXmap(ADDITIONAL_DROPS_VALIDATOR, DataResult::success)
                                 .forGetter(recipe -> ((ExtendedShapelessRecipe) recipe).getAdditionalDrops())
@@ -53,7 +57,7 @@ public abstract class ShapelessRecipeSerializerMixin {
     @Inject(method = "read", at = @At("RETURN"), cancellable = true)
     private static void onRead(RegistryByteBuf buf, CallbackInfoReturnable<ShapelessRecipe> cir) {
         ShapelessRecipe recipe = cir.getReturnValue();
-        DefaultedList<Ingredient> addedDropsList = getAdditionalDrops(buf);
+        DefaultedList<ItemStack> addedDropsList = getAdditionalDrops(buf);
 
         ((ShapelessRecipeAdded) recipe).setAdditionalDrops(addedDropsList);
 
@@ -62,21 +66,21 @@ public abstract class ShapelessRecipeSerializerMixin {
 
     @Inject(method = "write", at = @At("TAIL"))
     private static void onWrite(RegistryByteBuf buf, ShapelessRecipe recipe, CallbackInfo ci) {
-        DefaultedList<Ingredient> addedDropsList = ((ShapelessRecipeAdded) recipe).getAdditionalDrops();
+        DefaultedList<ItemStack> addedDropsList = ((ShapelessRecipeAdded) recipe).getAdditionalDrops();
 
         buf.writeVarInt(addedDropsList.size());
-        for (Ingredient droppedStack : addedDropsList) {
-            Ingredient.PACKET_CODEC.encode(buf, droppedStack);
+        for (ItemStack droppedStack : addedDropsList) {
+            ItemStack.PACKET_CODEC.encode(buf, droppedStack);
         }
     }
 
     @Unique
-    private static DefaultedList<Ingredient> getAdditionalDrops(RegistryByteBuf buf) {
-        DefaultedList<Ingredient> ingredients = DefaultedList.of();
+    private static DefaultedList<ItemStack> getAdditionalDrops(RegistryByteBuf buf) {
+        DefaultedList<ItemStack> ingredients = DefaultedList.of();
 
         int ingredientCount = buf.readVarInt();
         for (int i = 0; i < ingredientCount; ++i) {
-            ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+            ingredients.add(ItemStack.PACKET_CODEC.decode(buf));
         }
         return ingredients;
     }
@@ -93,9 +97,9 @@ public abstract class ShapelessRecipeSerializerMixin {
     };
 
     @Unique
-    private static final Function<List<Ingredient>, DataResult<DefaultedList<Ingredient>>>
+    private static final Function<List<ItemStack>, DataResult<DefaultedList<ItemStack>>>
             ADDITIONAL_DROPS_VALIDATOR = drops -> {
-        Ingredient[] dropsArray = drops.stream().filter(ingredient -> !ingredient.isEmpty()).toArray(Ingredient[]::new);
-        return DataResult.success(DefaultedList.copyOf(Ingredient.EMPTY, dropsArray));
+        ItemStack[] dropsArray = drops.stream().filter(ingredient -> !ingredient.isEmpty()).toArray(ItemStack[]::new);
+        return DataResult.success(DefaultedList.copyOf(ItemStack.EMPTY, dropsArray));
     };
 }

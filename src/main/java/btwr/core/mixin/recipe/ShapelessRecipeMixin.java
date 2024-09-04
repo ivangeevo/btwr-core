@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded
 {
     @Unique
-    DefaultedList<Ingredient> additionalDrops;
+    DefaultedList<ItemStack> additionalDrops;
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void injectedConstructor(String group, CraftingRecipeCategory category, ItemStack result, DefaultedList<ShapelessRecipe> ingredients, CallbackInfo ci)
@@ -26,12 +26,12 @@ public abstract class ShapelessRecipeMixin implements ShapelessRecipeAdded
 
 
     @Override
-    public DefaultedList<Ingredient> getAdditionalDrops() {
+    public DefaultedList<ItemStack> getAdditionalDrops() {
         return this.additionalDrops;
     }
 
     @Override
-    public void setAdditionalDrops(DefaultedList<Ingredient> drops)
+    public void setAdditionalDrops(DefaultedList<ItemStack> drops)
     {
         this.additionalDrops = drops;
     }
