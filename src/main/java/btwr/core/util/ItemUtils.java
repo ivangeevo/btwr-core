@@ -6,17 +6,14 @@ package btwr.core.util;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
-import net.minecraft.loot.context.LootContextParameterSet;
-import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -24,7 +21,6 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 import static net.minecraft.block.Block.dropStack;
@@ -107,65 +103,44 @@ public class ItemUtils
     // TODO: Fix stacks dropping in random places sometimes when broken.
     static public void ejectStackFromBlockTowardsFacing(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack, Direction direction) {
 
-        Direction miningDirection = VectorUtils.getMiningDirection(player, world, pos);
+        //Direction miningDirection = VectorUtils.getMiningDirection(player, world, pos);
 
         for (ItemStack droppedItems : Block.getDroppedStacks(state, (ServerWorld) world, pos, blockEntity, player, stack))
         {
-            dropStack(world, pos, direction, droppedItems);
+            dropInDirection(world, pos, direction, droppedItems);
         }
 
         state.onStacksDropped((ServerWorld) world, pos, stack, true);
     }
 
+    public static void dropInDirection(World world, BlockPos pos, Direction direction, ItemStack stack) {
+        int i = direction.getOffsetX(); // X offset based on direction
+        int j = direction.getOffsetY(); // Y offset based on direction
+        int k = direction.getOffsetZ(); // Z offset based on direction
 
-    private static void spawnItemEntity(World world, Supplier<ItemEntity> itemEntitySupplier, Direction direction) {
-        ItemEntity entity = itemEntitySupplier.get();
-        Vec3d ejectVel;
+        double d = (double) EntityType.ITEM.getWidth() / 2.0;
+        double e = (double)EntityType.ITEM.getHeight() / 2.0;
 
-        if (direction.getAxis().isVertical()) {
-            ejectVel = new Vec3d(
-                    world.getRandom().nextDouble() * 0.1D - 0.05D,
-                    0.2D,
-                    world.getRandom().nextDouble() * 0.1D - 0.05D
-            );
-        } else {
-            ejectVel = new Vec3d(
-                    world.getRandom().nextDouble() * 0.1D - 0.05D,
-                    world.getRandom().nextDouble() * 0.1D - 0.05D,
-                    world.getRandom().nextDouble() * 0.1D - 0.05D
-            );
-        }
+        // Calculate exact drop position based on the direction without randomness
+        double f = (double)pos.getX() + 0.5 + i * (0.5 + d); // X position
+        double g = (double)pos.getY() + 0.5 + j * (0.5 + e) - e; // Y position, adjust for height
+        double h = (double)pos.getZ() + 0.5 + k * (0.5 + d); // Z position
 
-        ejectVel = ejectVel.normalize().multiply(0.2D);
+        // Remove the random motion and set velocity to zero
+        double l = i * 0.1; // X velocity
+        double m = j * 0.1 + 0.1; // Y velocity (a slight upward motion to prevent items from falling instantly)
+        double n = k * 0.1; // Z velocity
 
-        entity.setVelocity(ejectVel.x, ejectVel.y, ejectVel.z);
-        entity.setToDefaultPickupDelay();
-        world.spawnEntity(entity);
+        // Spawn the item with the fixed position and no randomness
+        dropStack(world, () -> new ItemEntity(world, f, g, h, stack, l, m, n), stack);
     }
 
-
-    /**
-     * Yaws the vector around the origin of the J axis. Assumes that the initial facing is along the negative K axis (facing 2).
-     */
-    public static void rotateAsVectorAroundJToFacing(Vec3d vector, int iFacing) {
-        if (iFacing > 2) {
-            if (iFacing == 5) // i + 1
-            {
-                double tempZ = vector.x;
-
-                vector = new Vec3d(-vector.z, vector.y, tempZ);
-            } else if (iFacing == 4) // i - 1
-            {
-                double tempZ = -vector.x;
-
-                vector = new Vec3d(vector.z, vector.y, tempZ);
-            } else // if ( iFacing == 3 ) // k + 1
-            {
-                vector = new Vec3d(-vector.x, -vector.y, -vector.z);
-            }
+    private static void dropStack(World world, Supplier<ItemEntity> itemEntitySupplier, ItemStack stack) {
+        if (!world.isClient && !stack.isEmpty() && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS)) {
+            ItemEntity itemEntity = itemEntitySupplier.get();
+            itemEntity.setToDefaultPickupDelay();
+            world.spawnEntity(itemEntity);
         }
     }
-
-
 
 }
