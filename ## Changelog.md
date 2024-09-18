@@ -1,6 +1,6 @@
 ### 0.26
 + Slightly reworked directional drop logic so items should drop better than before.
-
++ Updated the mod to Fabric Loader 0.16.5 & Fabric API 0.104.0
 
 # 0.25.3
 
