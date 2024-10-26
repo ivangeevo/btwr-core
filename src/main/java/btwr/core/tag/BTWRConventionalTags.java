@@ -71,6 +71,10 @@ public class BTWRConventionalTags
 
         public static final TagKey<Item> STRING_TOOL_MATERIALS = createTag("string_tool_materials");
 
+        // all mechanical gear items used in recipes normally
+        public static final TagKey<Item> GEARS = createTag("gears");
+
+
         /** Tag for items that should do knockback if the config for
          *  knockback restriction is turned on.
          */

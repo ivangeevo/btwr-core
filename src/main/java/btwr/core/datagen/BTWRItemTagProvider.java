@@ -5,6 +5,7 @@ import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
@@ -61,9 +62,17 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
     private void addToConventionalTags()
     {
 
+        // Fabric Conventional Tags
+        getOrCreateTagBuilder(ConventionalItemTags.STRINGS)
+                .add(BTWR_Items.HEMP_FIBERS);
+
+        // BTWR Added Conventional Tags
         getOrCreateTagBuilder(BTWRConventionalTags.Items.STRING_TOOL_MATERIALS)
                 .add(Items.STRING)
                 .add(BTWR_Items.HEMP_FIBERS);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.GEARS)
+                .add(BTWR_Items.GEAR);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS)
 
