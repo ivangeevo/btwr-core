@@ -128,7 +128,9 @@ public class ItemUtils
 
         // Remove the random motion and set velocity to zero
         double l = i * 0.1; // X velocity
-        double m = j * 0.1 + 0.1; // Y velocity (a slight upward motion to prevent items from falling instantly)
+        // TODO: Currently testing for dropping them without the upward motion to see if this
+        //  fixes the weird behaviour for certain drops in direction.
+        double m = j * 0.1 /** + 0.1 **/; // Y velocity (a slight upward motion to prevent items from falling instantly)
         double n = k * 0.1; // Z velocity
 
         // Spawn the item with the fixed position and no randomness

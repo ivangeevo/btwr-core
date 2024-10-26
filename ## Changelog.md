@@ -1,4 +1,12 @@
+
+### 0.26.1
+
++ Conventional tags changes;
+  added new gears item tag for all mechanical gear items that are interchangeable for btwr ones.
+  moved hemp fibers to the "strings" conventional item tag from fabric.
+
 ### 0.26
+
 + Slightly reworked directional drop logic so items should drop better than before.
 + Updated the mod to Fabric Loader 0.16.5 & Fabric API 0.104.0
 
@@ -8,6 +16,7 @@
 + Fixed a bug where you could do knockback with a bow or crossbow from melee hits to entities.
 
 ### 0.25.2
+
 + Fixed a bug with custom shapeless recipes that have additional drops to drop properly.
 + Fixed placement code for bricks items as blocks to work much better(and as intended).
 + Fixed missing recipes and generally improved the code that generates them.

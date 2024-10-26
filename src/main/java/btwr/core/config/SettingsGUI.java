@@ -23,12 +23,11 @@ public class SettingsGUI
     static BTWRSettings settingsCommon = BTWRMod.getInstance().settings;
 
     public static Screen createConfigScreen(Screen parent) {
-        ConfigBuilder builder = ConfigBuilder.create().setParentScreen(parent).setTitle(Text.translatable("title.btwr.config"));
-        builder.setSavingRunnable(() -> {
+        ConfigBuilder builder = ConfigBuilder.create()
+                .setParentScreen(parent)
+                .setTitle(Text.translatable("title.btwr.config"));
 
-            BTWRMod.getInstance().saveSettings();
-
-        });
+        builder.setSavingRunnable(() -> { BTWRMod.getInstance().saveSettings(); });
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
