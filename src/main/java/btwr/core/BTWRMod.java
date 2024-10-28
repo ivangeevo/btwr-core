@@ -7,6 +7,8 @@ import btwr.core.item.BTWR_Items;
 import btwr.core.registry.ModFuelItems;
 import com.google.gson.Gson;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.block.Blocks;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,6 +41,8 @@ public class BTWRMod implements ModInitializer
         ModFuelItems.register();
 
         BTWR_EntityTypes.Blocks.registerBlockEntities();
+
+        //modifyLeavesLootTables();
 
     }
 
@@ -84,5 +88,27 @@ public class BTWRMod implements ModInitializer
             LOGGER.warn("Could not save btwr settings: " + e.getLocalizedMessage());
         }
     }
+
+    // TODO: Change loot tables modification to add conventional shears tag, to instead be handled with Events if possible
+    /**
+    private void modifyLeavesLootTables()
+    {
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+            // Check if the loot table is for leaves
+            if (id.equals(Blocks.OAK_LEAVES. ||
+                    id.equals(Blocks.SPRUCE_LEAVES.getLootTableId()) ||
+                    id.equals(Blocks.BIRCH_LEAVES.getLootTableId()) ||
+                    id.equals(Blocks.JUNGLE_LEAVES.getLootTableId()) ||
+                    id.equals(Blocks.ACACIA_LEAVES.getLootTableId()) ||
+                    id.equals(Blocks.DARK_OAK_LEAVES.getLootTableId())) {
+
+                // Modify drops only if the tool is the custom shears
+                tableBuilder.pool(builder -> builder.rolls(1).conditionally((lootContext) -> {
+                    return lootContext.get(LootContextParameters.TOOL).getItem() instanceof CustomShearsItem;
+                }).with(ItemStack.of(Blocks.OAK_LEAVES)));
+            }
+        });
+    }
+     **/
 
 }

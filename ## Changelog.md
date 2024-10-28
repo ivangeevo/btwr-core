@@ -1,6 +1,7 @@
 
 ### 0.26.1
 
++ Fixed a bug where breaking leaves with shears didn't drop them.
 + Conventional tags changes;
   added new gears item tag for all mechanical gear items that are interchangeable for btwr ones.
   moved hemp fibers to the "strings" conventional item tag from fabric.

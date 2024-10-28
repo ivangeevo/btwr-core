@@ -43,8 +43,8 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
     public static final LootCondition.Builder WITH_AXE_HARVEST_FULL_BLOCK = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(BTWRConventionalTags.Items.AXES_HARVEST_FULL_BLOCK));
 
 
-    public static final LootCondition.Builder CONVENTIONAL_WITH_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ConventionalItemTags.SHEARS_TOOLS));
-    public final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = CONVENTIONAL_WITH_SHEARS.or(this.createSilkTouchCondition());
+    public static final LootCondition.Builder WITH_CONVENTIONAL_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ConventionalItemTags.SHEAR_TOOLS));
+    public final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_CONVENTIONAL_SHEARS.or(this.createSilkTouchCondition());
     private static final float[] JUNGLE_SAPLING_DROP_CHANCE = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
 
 
@@ -77,6 +77,8 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
         this.addDrop(Blocks.CHERRY_LEAVES, block -> this.leavesDrops(block, Blocks.CHERRY_SAPLING, SAPLING_DROP_CHANCE));
         this.addDrop(Blocks.AZALEA_LEAVES, block -> this.leavesDrops(block, Blocks.AZALEA, SAPLING_DROP_CHANCE));
         this.addDrop(Blocks.FLOWERING_AZALEA_LEAVES, block -> this.leavesDrops(block, Blocks.FLOWERING_AZALEA, SAPLING_DROP_CHANCE));
+        this.addDrop(Blocks.MANGROVE_LEAVES, this::mangroveLeavesDrops);
+
     }
 
     private void initMiscDrops()
@@ -94,7 +96,7 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
         LootPool.Builder leavesPool = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1.0f))
                 .with(ItemEntry.builder(hempLeaves))
-                .conditionally(CONVENTIONAL_WITH_SHEARS);
+                .conditionally(WITH_CONVENTIONAL_SHEARS);
 
         // Create a loot pool for shears condition with hemp seeds drop (50% chance)
         LootPool.Builder seedsPool = LootPool.builder()
@@ -103,7 +105,7 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
                         .conditionally(RandomChanceLootCondition.builder(0.5f))
                         .conditionally(BlockStatePropertyLootCondition.builder(block)
                                 .properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.TOP, true))))
-                .conditionally(CONVENTIONAL_WITH_SHEARS);
+                .conditionally(WITH_CONVENTIONAL_SHEARS);
 
         // Combine both pools into the loot table
         return LootTable.builder()
@@ -177,7 +179,7 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
     }
 
     public LootTable.Builder dropsWithShears(Block drop, LootPoolEntry.Builder<?> child) {
-        return drops(drop, CONVENTIONAL_WITH_SHEARS, child);
+        return drops(drop, WITH_CONVENTIONAL_SHEARS, child);
     }
     @Override
     public String getName() {
