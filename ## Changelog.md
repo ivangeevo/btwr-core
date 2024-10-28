@@ -1,10 +1,11 @@
 
 ### 0.26.1
 
-+ Fixed a bug where breaking leaves with shears didn't drop them.
++ Fixed a bug where breaking leaves with Diamond Shears didn't drop the block & another one where it was breaking them very slow.
 + Conventional tags changes;
   added new gears item tag for all mechanical gear items that are interchangeable for btwr ones.
   moved hemp fibers to the "strings" conventional item tag from fabric.
++ Updated the mod to Fabric Loader 0.16.7 & Fabric API 0.107.0
 
 ### 0.26
 
