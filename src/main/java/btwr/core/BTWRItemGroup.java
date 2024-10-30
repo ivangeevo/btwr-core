@@ -60,6 +60,11 @@ public class BTWRItemGroup
                             entries.add(BTWR_Items.LEATHER_TANNED_BOOTS);
 
                             entries.add(BTWR_Items.SANDWICH);
+                            entries.add(BTWR_Items.HAM_AND_EGGS);
+                            entries.add(BTWR_Items.EGG_SCRAMBLED_RAW);
+                            entries.add(BTWR_Items.EGG_SCRAMBLED_COOKED);
+                            entries.add(BTWR_Items.MUSHROOM_OMELETTE_RAW);
+                            entries.add(BTWR_Items.MUSHROOM_OMELETTE_COOKED);
 
 
 

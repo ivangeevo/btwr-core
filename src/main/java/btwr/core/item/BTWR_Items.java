@@ -85,13 +85,13 @@ public class BTWR_Items {
 
     public static final Item SANDWICH = registerItem( "sandwich", new Item (new Item.Settings().food(ModFoodComponents.SANDWICH)));
 
+    public static final Item HAM_AND_EGGS = registerItem( "ham_and_eggs", new Item (new Item.Settings().food(ModFoodComponents.HAM_AND_EGGS)));
 
-    //public static final Item EGG_RAW = registerItem("egg_raw", new Item( new Item.Settings().food(ModFoodComponents.EGG_RAW)));
-    //public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new Item.Settings().food(ModFoodComponents.EGG_SCRAMBLED_RAW)));
-    //public static final Item EGG_FRIED = registerItem("egg_fried", new Item( new Item.Settings().food(ModFoodComponents.EGG_COOKED)));
-    //public static final Item EGG_POACHED = registerItem("egg_poached", new Item( new Item.Settings().food(ModFoodComponents.EGG_COOKED)));
-    //public static final Item EGG_SCRAMBLED_COOKED = registerItem("egg_scrambled_cooked", new Item( new Item.Settings().food(ModFoodComponents.EGG_SCRAMBLED_COOKED)));
+    public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new Item.Settings().food(ModFoodComponents.EGGS_SCRAMBLED_RAW)));
+    public static final Item EGG_SCRAMBLED_COOKED = registerItem("egg_scrambled_cooked", new Item( new Item.Settings().food(ModFoodComponents.EGG_SCRAMBLED_COOKED)));
 
+    public static final Item MUSHROOM_OMELETTE_RAW = registerItem("mushroom_omelette_raw", new Item( new Item.Settings().food(ModFoodComponents.MUSHROOM_OMELETTE_RAW)));
+    public static final Item MUSHROOM_OMELETTE_COOKED = registerItem("mushroom_omelette_cooked", new Item( new Item.Settings().food(ModFoodComponents.MUSHROOM_OMELETTE_COOKED)));
 
     // Blocks to Items experiment
     public static final Item LIGHTBLOCK = register(BTWR_Blocks.LIGHTBLOCK);

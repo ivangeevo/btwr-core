@@ -7,32 +7,58 @@ import net.minecraft.entity.effect.StatusEffects;
 /** Contains all the default food components used in BTWR food items. **/
 public class ModFoodComponents
 {
-    // Raw
-    public static final FoodComponent EGG_RAW =
-            new FoodComponent.Builder()
-                    .nutrition(2)
-                    .saturationModifier(0.15f)
-                    .statusEffect(silentHungerStatusEffect(1200, 2), 0.4f)
-                    .build();
-    public static final FoodComponent EGG_SCRAMBLED_RAW =
+    // Raw foods
+    public static final FoodComponent EGGS_SCRAMBLED_RAW =
             new FoodComponent.Builder()
                     .nutrition(3)
                     .saturationModifier(0.2f)
-                    .statusEffect(silentHungerStatusEffect(1200, 2), 0.4f)
+                    .statusEffect(addHungerStatusEffect(600, 2), 0.3f)
+                    .build();
+
+    public static final FoodComponent MUSHROOM_OMELETTE_RAW =
+            new FoodComponent.Builder()
+                    .nutrition(3)
+                    .saturationModifier(0.15f)
+                    .statusEffect(addHungerStatusEffect(600, 2), 0.3f)
                     .build();
 
 
-    // Cooked
-    /** Poached ang Fried egg have the same food component. **/
-    public static final FoodComponent EGG_COOKED =
-            new FoodComponent.Builder().nutrition(3).saturationModifier(0.25f).build();
+    // Cooked foods
     public static final FoodComponent EGG_SCRAMBLED_COOKED =
-            new FoodComponent.Builder().nutrition(4).saturationModifier(0.35f).build();
+            new FoodComponent.Builder()
+                    .nutrition(4)
+                    .saturationModifier(0.25f)
+                    .build();
+
+    public static final FoodComponent MUSHROOM_OMELETTE_COOKED =
+            new FoodComponent.Builder()
+                    .nutrition(4)
+                    .saturationModifier(0.25f)
+                    .build();
 
     public static final FoodComponent SANDWICH =
-            new FoodComponent.Builder().nutrition(5).saturationModifier(0.45f).build();
+            new FoodComponent.Builder()
+                    .nutrition(5)
+                    .saturationModifier(0.45f)
+                    .build();
 
-    private static StatusEffectInstance silentHungerStatusEffect(int dur, int amp)
+    public static final FoodComponent HAM_AND_EGGS =
+            new FoodComponent.Builder()
+                    .nutrition(6)
+                    .saturationModifier(0.40f)
+                    .build();
+
+
+    // Weird foods
+    public static final FoodComponent CREEPER_OYSTERS =
+            new FoodComponent.Builder()
+                    .nutrition(1)
+                    .saturationModifier(0.10f)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 100,1),1f)
+                    .build();
+
+
+    private static StatusEffectInstance addHungerStatusEffect(int dur, int amp)
     {
         return new StatusEffectInstance(StatusEffects.HUNGER, dur, amp, false, false, false);
     }

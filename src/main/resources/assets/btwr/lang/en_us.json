@@ -40,12 +40,12 @@
   "item.btwr.leather_tanned_leggings": "Tanned Leather Leggings",
   "item.btwr.leather_tanned_boots": "Tanned Leather Boots",
 
-  "item.btwr.egg_raw": "Raw Egg",
   "item.btwr.egg_scrambled_raw": "Raw Scrambled Eggs",
   "item.btwr.egg_scrambled_cooked": "Scrambled Eggs",
-  "item.btwr.egg_fried": "Fried Egg",
-  "item.btwr.egg_poached": "Poached Egg",
+  "item.btwr.mushroom_omelette_raw": "Raw Mushroom Omelette",
+  "item.btwr.mushroom_omelette_cooked": "Mushroom Omelette",
   "item.btwr.sandwich": "Tasty Sandwich",
+  "item.btwr.ham_and_eggs": "Ham and Eggs",
 
 
   "item.btwr.diamond_plate": "Diamond Armor Plate",

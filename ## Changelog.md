@@ -1,4 +1,13 @@
 
+### 0.27
+
++ Added new food items:
+1. Ham and Eggs
+2. Scrambled Eggs (raw and cooked)
+3. Mushroom Omelette (raw and cooked)
+
++ test
+
 ### 0.26.1
 
 + Fixed a bug where breaking leaves with Diamond Shears didn't drop the block & another one where it was breaking them very slow.
