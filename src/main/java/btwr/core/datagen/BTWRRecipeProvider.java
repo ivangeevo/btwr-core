@@ -25,12 +25,6 @@ import java.util.concurrent.CompletableFuture;
 public class BTWRRecipeProvider extends FabricRecipeProvider
 {
 
-    private static final List<ItemConvertible> NORMAL_LEATHERS = List.of(Items.LEATHER,BTWR_Items.LEATHER_CUT);
-
-    private static final List<ItemConvertible> SCOURED_LEATHERS = List.of(BTWR_Items.LEATHER_SCOURED,BTWR_Items.LEATHER_SCOURED_CUT);
-
-    private static final List<ItemConvertible> TANNED_LEATHERS = List.of(BTWR_Items.LEATHER_TANNED,BTWR_Items.LEATHER_TANNED_CUT);
-
     public BTWRRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
