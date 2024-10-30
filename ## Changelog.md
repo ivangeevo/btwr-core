@@ -6,9 +6,10 @@
 2. Scrambled Eggs (raw and cooked)
 3. Mushroom Omelette (raw and cooked)
 4. Chowder
-5. Boiled Potato
-6. Steak and Potatoes
-
+5. Steak and Potatoes
+6. Kebab (raw and cooked)
+7. Steak, Pork & Wolf Dinner Stews
+8. Chicken Soup & Hearty Stew
 + Changed the newly added food items max stack limit to 16
 
 + test

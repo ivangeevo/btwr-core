@@ -112,7 +112,7 @@ public class ModFoodComponents
             new FoodComponent.Builder()
                     .nutrition(1)
                     .saturationModifier(0.10f)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 100,1),1f)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 100,0),1f)
                     .build();
 
     public static final FoodComponent BEAST_LIVER_RAW =

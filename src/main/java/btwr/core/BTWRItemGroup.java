@@ -58,24 +58,26 @@ public class BTWRItemGroup
                             entries.add(BTWR_Items.LEATHER_TANNED_LEGGINGS);
                             entries.add(BTWR_Items.LEATHER_TANNED_BOOTS);
 
+                            // Food
                             entries.add(BTWR_Items.SANDWICH);
                             entries.add(BTWR_Items.HAM_AND_EGGS);
                             entries.add(BTWR_Items.CHOWDER);
+                            entries.add(BTWR_Items.EGG_SCRAMBLED_RAW);
+                            entries.add(BTWR_Items.EGG_SCRAMBLED_COOKED);
+                            entries.add(BTWR_Items.MUSHROOM_OMELETTE_RAW);
+                            entries.add(BTWR_Items.MUSHROOM_OMELETTE_COOKED);
+                            entries.add(BTWR_Items.STEAK_AND_POTATOES);
                             entries.add(BTWR_Items.RAW_KEBAB);
                             entries.add(BTWR_Items.COOKED_KEBAB);
                             entries.add(BTWR_Items.STEAK_DINNER);
                             entries.add(BTWR_Items.PORK_DINNER);
-                            entries.add(BTWR_Items.WOLF_DINNER);
+                            //entries.add(BTWR_Items.WOLF_DINNER);
                             entries.add(BTWR_Items.CHICKEN_SOUP);
                             entries.add(BTWR_Items.HEARTY_STEW);
                             entries.add(BTWR_Items.BEAST_LIVER_RAW);
                             entries.add(BTWR_Items.BEAST_LIVER_COOKED);
                             entries.add(BTWR_Items.CREEPER_OYSTERS);
 
-                            entries.add(BTWR_Items.EGG_SCRAMBLED_RAW);
-                            entries.add(BTWR_Items.EGG_SCRAMBLED_COOKED);
-                            entries.add(BTWR_Items.MUSHROOM_OMELETTE_RAW);
-                            entries.add(BTWR_Items.MUSHROOM_OMELETTE_COOKED);
 
 
 

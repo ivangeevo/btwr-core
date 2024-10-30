@@ -93,7 +93,7 @@ public class BTWR_Items {
     public static final Item MUSHROOM_OMELETTE_COOKED = registerItem("mushroom_omelette_cooked", new Item( new Item.Settings().food(ModFoodComponents.MUSHROOM_OMELETTE_COOKED)));
 
     // Special food items
-    public static final Item BOILED_POTATO = registerItem( "boiled_potato", new Item (new Item.Settings().food(ModFoodComponents.BOILED_POTATO).maxCount(16)));
+    //public static final Item BOILED_POTATO = registerItem( "boiled_potato", new Item (new Item.Settings().food(ModFoodComponents.BOILED_POTATO).maxCount(16)));
     public static final Item SANDWICH = registerItem( "sandwich", new Item (new Item.Settings().food(ModFoodComponents.SANDWICH).maxCount(16)));
     public static final Item HAM_AND_EGGS = registerItem( "ham_and_eggs", new Item (new Item.Settings().food(ModFoodComponents.HAM_AND_EGGS).maxCount(16)));
     public static final Item CHOWDER = registerItem( "chowder", new Item (new Item.Settings().food(ModFoodComponents.CHOWDER).maxCount(16)));
@@ -102,12 +102,12 @@ public class BTWR_Items {
     public static final Item COOKED_KEBAB = registerItem( "cooked_kebab", new Item (new Item.Settings().food(ModFoodComponents.KEBAB_COOKED).maxCount(16)));
     public static final Item STEAK_DINNER = registerItem( "steak_dinner", new Item (new Item.Settings().food(ModFoodComponents.STEAK_DINNER).maxCount(16)));
     public static final Item PORK_DINNER = registerItem( "pork_dinner", new Item (new Item.Settings().food(ModFoodComponents.PORK_DINNER).maxCount(16)));
-    public static final Item WOLF_DINNER = registerItem( "wolf_dinner", new Item (new Item.Settings().food(ModFoodComponents.WOLF_DINNER).maxCount(16)));
+    //public static final Item WOLF_DINNER = registerItem( "wolf_dinner", new Item (new Item.Settings().food(ModFoodComponents.WOLF_DINNER).maxCount(16)));
 
     public static final Item CHICKEN_SOUP = registerItem( "chicken_soup", new Item (new Item.Settings().food(ModFoodComponents.CHICKEN_SOUP).maxCount(16)));
     public static final Item HEARTY_STEW = registerItem( "hearty_stew", new Item (new Item.Settings().food(ModFoodComponents.HEARTY_STEW).maxCount(16)));
 
-    // Weird food items
+    // Unique food items
     public static final Item BEAST_LIVER_RAW = registerItem( "beast_liver_raw", new Item (new Item.Settings().food(ModFoodComponents.BEAST_LIVER_RAW).maxCount(16)));
     public static final Item BEAST_LIVER_COOKED = registerItem( "beast_liver_cooked", new Item (new Item.Settings().food(ModFoodComponents.BEAST_LIVER_COOKED).maxCount(16)));
     public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new Item.Settings().food(ModFoodComponents.CREEPER_OYSTERS).maxCount(16)));
