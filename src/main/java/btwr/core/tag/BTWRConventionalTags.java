@@ -75,6 +75,8 @@ public class BTWRConventionalTags
         // food
         public static final TagKey<Item> COOKED_EGG_FOODS = createTag("foods/cooked_egg");
 
+        public static final TagKey<Item> COOKED_POTATO_FOODS = createTag("foods/cooked_potato");
+
 
 
         /** Tag for items that should do knockback if the config for

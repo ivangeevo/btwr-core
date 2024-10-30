@@ -24,7 +24,6 @@ public class BTWRItemGroup
                             /** ITEMS **/
 
                             // Uncategorized
-                            entries.add(BTWR_Items.CREEPER_OYSTERS);
                             entries.add(BTWR_Items.DIAMOND_INGOT);
                             entries.add(BTWR_Items.DIAMOND_PLATE);
                             entries.add(BTWR_Items.STONE_BRICK);
@@ -61,6 +60,18 @@ public class BTWRItemGroup
 
                             entries.add(BTWR_Items.SANDWICH);
                             entries.add(BTWR_Items.HAM_AND_EGGS);
+                            entries.add(BTWR_Items.CHOWDER);
+                            entries.add(BTWR_Items.RAW_KEBAB);
+                            entries.add(BTWR_Items.COOKED_KEBAB);
+                            entries.add(BTWR_Items.STEAK_DINNER);
+                            entries.add(BTWR_Items.PORK_DINNER);
+                            entries.add(BTWR_Items.WOLF_DINNER);
+                            entries.add(BTWR_Items.CHICKEN_SOUP);
+                            entries.add(BTWR_Items.HEARTY_STEW);
+                            entries.add(BTWR_Items.BEAST_LIVER_RAW);
+                            entries.add(BTWR_Items.BEAST_LIVER_COOKED);
+                            entries.add(BTWR_Items.CREEPER_OYSTERS);
+
                             entries.add(BTWR_Items.EGG_SCRAMBLED_RAW);
                             entries.add(BTWR_Items.EGG_SCRAMBLED_COOKED);
                             entries.add(BTWR_Items.MUSHROOM_OMELETTE_RAW);

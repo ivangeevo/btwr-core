@@ -5,6 +5,11 @@
 1. Ham and Eggs
 2. Scrambled Eggs (raw and cooked)
 3. Mushroom Omelette (raw and cooked)
+4. Chowder
+5. Boiled Potato
+6. Steak and Potatoes
+
++ Changed the newly added food items max stack limit to 16
 
 + test
 

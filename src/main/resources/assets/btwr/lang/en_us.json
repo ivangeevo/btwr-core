@@ -24,7 +24,6 @@
   "item.btwr.dust_hellfire": "Hellfire Dust",
   "item.btwr.coal_nether": "Nethercoal",
 
-  "item.btwr.creeper_oysters": "Creeper Oysters",
 
   "item.btwr.stone_brick": "Stone Brick",
   "item.btwr.brick_unfired": "Wet Brick",
@@ -46,6 +45,18 @@
   "item.btwr.mushroom_omelette_cooked": "Mushroom Omelette",
   "item.btwr.sandwich": "Tasty Sandwich",
   "item.btwr.ham_and_eggs": "Ham and Eggs",
+  "item.btwr.chowder": "Chowder",
+  "item.btwr.steak_and_potatoes": "Steak and Potatoes",
+  "item.btwr.raw_kebab": "Raw Kebab",
+  "item.btwr.cooked_kebab": "Cooked Kebab",
+  "item.btwr.steak_dinner": "Steak Dinner",
+  "item.btwr.pork_dinner": "Pork Dinner",
+  "item.btwr.wolf_dinner": "Wolf Dinner",
+  "item.btwr.chicken_soup": "Chicken Soup",
+  "item.btwr.hearty_stew": "Hearty Stew",
+  "item.btwr.beast_liver_raw": "Liver Of The Beast",
+  "item.btwr.beast_liver_cooked": "Cooked Liver",
+  "item.btwr.creeper_oysters": "Creeper Oysters",
 
 
   "item.btwr.diamond_plate": "Diamond Armor Plate",
