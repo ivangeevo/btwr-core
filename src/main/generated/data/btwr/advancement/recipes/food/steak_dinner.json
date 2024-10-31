@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carrot": {
+    "has_cooked_carrot": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:carrot"
+            "items": "btwr:cooked_carrot"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_carrot"
+      "has_cooked_carrot"
     ]
   ],
   "rewards": {

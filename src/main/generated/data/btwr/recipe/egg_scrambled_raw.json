@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bwt:raw_egg"
+      "item": "minecraft:egg"
     },
     {
       "item": "minecraft:milk_bucket"

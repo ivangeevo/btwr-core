@@ -22,7 +22,6 @@ public class ModFoodComponents
                     .build();
 
 
-
     // Raw foods
     public static final FoodComponent EGGS_SCRAMBLED_RAW =
             new FoodComponent.Builder()
@@ -47,6 +46,12 @@ public class ModFoodComponents
 
 
     // Cooked foods
+    public static final FoodComponent COOKED_CARROT =
+            new FoodComponent.Builder()
+                    .nutrition(2)
+                    .saturationModifier(0.25f)
+                    .build();
+
     public static final FoodComponent EGG_SCRAMBLED_COOKED =
             new FoodComponent.Builder()
                     .nutrition(4)
@@ -102,7 +107,6 @@ public class ModFoodComponents
                     .build();
 
     public static final FoodComponent CHICKEN_SOUP = createStew(8, 0.40f).build();
-
     public static final FoodComponent HEARTY_STEW = createStew(10, 0.46f).build();
 
 

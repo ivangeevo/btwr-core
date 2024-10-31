@@ -6,10 +6,10 @@
       "tag": "c:foods/cooked_meats"
     },
     {
-      "item": "minecraft:carrot"
+      "item": "btwr:cooked_carrot"
     },
     {
-      "item": "minecraft:baked_potato"
+      "item": "btwr:boiled_potato"
     },
     {
       "item": "minecraft:brown_mushroom"

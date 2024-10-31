@@ -6,10 +6,10 @@
       "item": "minecraft:cooked_chicken"
     },
     {
-      "item": "minecraft:carrot"
+      "item": "btwr:cooked_carrot"
     },
     {
-      "item": "minecraft:baked_potato"
+      "item": "btwr:boiled_potato"
     },
     {
       "item": "minecraft:bowl"

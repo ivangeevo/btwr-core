@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_egg": {
+    "has_egg": {
       "conditions": {
         "items": [
           {
-            "items": "bwt:raw_egg"
+            "items": "minecraft:egg"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_raw_egg"
+      "has_egg"
     ]
   ],
   "rewards": {

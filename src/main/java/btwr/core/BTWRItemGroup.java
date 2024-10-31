@@ -59,6 +59,8 @@ public class BTWRItemGroup
                             entries.add(BTWR_Items.LEATHER_TANNED_BOOTS);
 
                             // Food
+                            entries.add(BTWR_Items.BOILED_POTATO);
+                            entries.add(BTWR_Items.COOKED_CARROT);
                             entries.add(BTWR_Items.SANDWICH);
                             entries.add(BTWR_Items.HAM_AND_EGGS);
                             entries.add(BTWR_Items.CHOWDER);
@@ -71,7 +73,7 @@ public class BTWRItemGroup
                             entries.add(BTWR_Items.COOKED_KEBAB);
                             entries.add(BTWR_Items.STEAK_DINNER);
                             entries.add(BTWR_Items.PORK_DINNER);
-                            //entries.add(BTWR_Items.WOLF_DINNER);
+                            entries.add(BTWR_Items.WOLF_DINNER);
                             entries.add(BTWR_Items.CHICKEN_SOUP);
                             entries.add(BTWR_Items.HEARTY_STEW);
                             entries.add(BTWR_Items.BEAST_LIVER_RAW);
@@ -82,12 +84,6 @@ public class BTWRItemGroup
 
 
                             // TO BE ADDED (maybe)
-                            //entries.add(BTWR_Items.EGG_RAW);
-                            //entries.add(BTWR_Items.EGG_FRIED);
-                            //entries.add(BTWR_Items.EGG_POACHED);
-                            //entries.add(BTWR_Items.EGG_SCRAMBLED_RAW);
-                            //entries.add(BTWR_Items.EGG_SCRAMBLED_COOKED);
-
                             //entries.add(BTWR_Blocks.COMPANIONCUBE);
 
 

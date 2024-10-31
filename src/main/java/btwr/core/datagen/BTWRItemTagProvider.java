@@ -80,7 +80,7 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(BwtItems.poachedEggItem);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.COOKED_POTATO_FOODS)
-                //.add(BTWR_Items.BOILED_POTATO)
+                .add(BTWR_Items.BOILED_POTATO)
                 .add(Items.BAKED_POTATO);
 
 
