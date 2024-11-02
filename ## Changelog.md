@@ -1,3 +1,6 @@
+### 0.27
++ Fixed being able to melee knockback entities with crossbow or bow while knockback restrictions are enabled.
+
 
 ### 0.26.1
 

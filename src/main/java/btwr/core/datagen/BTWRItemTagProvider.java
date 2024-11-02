@@ -85,8 +85,6 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
                 // Special weapon items
                 .add(Items.TRIDENT)
-                .add(Items.BOW)
-                .add(Items.CROSSBOW)
 
                 // Axes do knockback only if iron or above
                 .add(Items.IRON_AXE)
