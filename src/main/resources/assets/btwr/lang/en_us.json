@@ -24,7 +24,6 @@
   "item.btwr.dust_hellfire": "Hellfire Dust",
   "item.btwr.coal_nether": "Nethercoal",
 
-  "item.btwr.creeper_oysters": "Creeper Oysters",
 
   "item.btwr.stone_brick": "Stone Brick",
   "item.btwr.brick_unfired": "Wet Brick",
@@ -40,12 +39,26 @@
   "item.btwr.leather_tanned_leggings": "Tanned Leather Leggings",
   "item.btwr.leather_tanned_boots": "Tanned Leather Boots",
 
-  "item.btwr.egg_raw": "Raw Egg",
+  "item.btwr.boiled_potato": "Boiled Potato",
+  "item.btwr.cooked_carrot": "Cooked Carrot",
   "item.btwr.egg_scrambled_raw": "Raw Scrambled Eggs",
   "item.btwr.egg_scrambled_cooked": "Scrambled Eggs",
-  "item.btwr.egg_fried": "Fried Egg",
-  "item.btwr.egg_poached": "Poached Egg",
+  "item.btwr.mushroom_omelette_raw": "Raw Mushroom Omelette",
+  "item.btwr.mushroom_omelette_cooked": "Mushroom Omelette",
   "item.btwr.sandwich": "Tasty Sandwich",
+  "item.btwr.ham_and_eggs": "Ham and Eggs",
+  "item.btwr.chowder": "Chowder",
+  "item.btwr.steak_and_potatoes": "Steak and Potatoes",
+  "item.btwr.raw_kebab": "Raw Kebab",
+  "item.btwr.cooked_kebab": "Cooked Kebab",
+  "item.btwr.steak_dinner": "Steak Dinner",
+  "item.btwr.pork_dinner": "Pork Dinner",
+  "item.btwr.wolf_dinner": "Wolf Dinner",
+  "item.btwr.chicken_soup": "Chicken Soup",
+  "item.btwr.hearty_stew": "Hearty Stew",
+  "item.btwr.beast_liver_raw": "Liver Of The Beast",
+  "item.btwr.beast_liver_cooked": "Cooked Liver",
+  "item.btwr.creeper_oysters": "Creeper Oysters",
 
 
   "item.btwr.diamond_plate": "Diamond Armor Plate",

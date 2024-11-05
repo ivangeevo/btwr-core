@@ -3,9 +3,7 @@ package btwr.core.tag;
 import net.fabricmc.fabric.impl.tag.convention.v2.TagRegistration;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
 
 public class BTWRConventionalTags
 {
@@ -73,6 +71,13 @@ public class BTWRConventionalTags
 
         // all mechanical gear items used in recipes normally
         public static final TagKey<Item> GEARS = createTag("gears");
+
+        // food
+        public static final TagKey<Item> COOKED_EGG_FOODS = createTag("foods/cooked_egg");
+
+        public static final TagKey<Item> COOKED_POTATO_FOODS = createTag("foods/cooked_potato");
+        public static final TagKey<Item> COOKED_MEATS = createTag("foods/cooked_meats");
+
 
 
         /** Tag for items that should do knockback if the config for

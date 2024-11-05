@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:foods/cooked_meats"
+    },
+    {
+      "item": "btwr:cooked_carrot"
+    },
+    {
+      "item": "btwr:boiled_potato"
+    },
+    {
+      "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "btwr:hearty_stew"
+  }
+}

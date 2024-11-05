@@ -3,6 +3,7 @@ package btwr.core.datagen;
 import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
+import com.bwt.items.BwtItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -73,6 +74,15 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.GEARS)
                 .add(BTWR_Items.GEAR);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.COOKED_EGG_FOODS)
+                .add(BwtItems.friedEggItem)
+                .add(BwtItems.poachedEggItem);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.COOKED_POTATO_FOODS)
+                .add(BTWR_Items.BOILED_POTATO)
+                .add(Items.BAKED_POTATO);
+
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS)
 

@@ -6,6 +6,7 @@ import btwr.core.block.blocks.HempCropBlock;
 import btwr.core.block.blocks.LightBlock;
 import btwr.core.item.items.ClubItem;
 import btwr.core.material.BTWR_ToolMaterials;
+import com.terraformersmc.modmenu.util.mod.Mod;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
@@ -13,6 +14,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -30,7 +32,6 @@ public class BTWR_Items {
     // The GROUP_BTWR is first, as it acts as an Item that is called in the BTWRItemGroup class.
     public static final Item GROUP_BTWR = registerItem( "group_btwr", new Item(new Item.Settings()));
 
-    public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new Item.Settings().maxCount(16)));
     public static final Item DIAMOND_INGOT = registerItem( "diamond_ingot", new Item (new Item.Settings()));
 
     public static final Item DIAMOND_PLATE = registerItem("diamond_plate", new Item(new Item.Settings()));
@@ -83,14 +84,34 @@ public class BTWR_Items {
 
     // Food items
 
-    public static final Item SANDWICH = registerItem( "sandwich", new Item (new Item.Settings().food(ModFoodComponents.SANDWICH)));
+    // Raw
+    public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new Item.Settings().food(ModFoodComponents.EGGS_SCRAMBLED_RAW).maxCount(16)));
+    public static final Item MUSHROOM_OMELETTE_RAW = registerItem("mushroom_omelette_raw", new Item( new Item.Settings().food(ModFoodComponents.MUSHROOM_OMELETTE_RAW).maxCount(16)));
 
+    // Cooked
+    public static final Item EGG_SCRAMBLED_COOKED = registerItem("egg_scrambled_cooked", new Item( new Item.Settings().food(ModFoodComponents.EGG_SCRAMBLED_COOKED).maxCount(16)));
+    public static final Item MUSHROOM_OMELETTE_COOKED = registerItem("mushroom_omelette_cooked", new Item( new Item.Settings().food(ModFoodComponents.MUSHROOM_OMELETTE_COOKED).maxCount(16)));
+    public static final Item BOILED_POTATO = registerItem( "boiled_potato", new Item (new Item.Settings().food(ModFoodComponents.BOILED_POTATO).maxCount(16)));
+    public static final Item COOKED_CARROT = registerItem( "cooked_carrot", new Item (new Item.Settings().food(ModFoodComponents.COOKED_CARROT).maxCount(16)));
 
-    //public static final Item EGG_RAW = registerItem("egg_raw", new Item( new Item.Settings().food(ModFoodComponents.EGG_RAW)));
-    //public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new Item.Settings().food(ModFoodComponents.EGG_SCRAMBLED_RAW)));
-    //public static final Item EGG_FRIED = registerItem("egg_fried", new Item( new Item.Settings().food(ModFoodComponents.EGG_COOKED)));
-    //public static final Item EGG_POACHED = registerItem("egg_poached", new Item( new Item.Settings().food(ModFoodComponents.EGG_COOKED)));
-    //public static final Item EGG_SCRAMBLED_COOKED = registerItem("egg_scrambled_cooked", new Item( new Item.Settings().food(ModFoodComponents.EGG_SCRAMBLED_COOKED)));
+    // Special food items
+    public static final Item SANDWICH = registerItem( "sandwich", new Item (new Item.Settings().food(ModFoodComponents.SANDWICH).maxCount(16)));
+    public static final Item HAM_AND_EGGS = registerItem( "ham_and_eggs", new Item (new Item.Settings().food(ModFoodComponents.HAM_AND_EGGS).maxCount(16)));
+    public static final Item CHOWDER = registerItem( "chowder", new Item (new Item.Settings().food(ModFoodComponents.CHOWDER).maxCount(16)));
+    public static final Item STEAK_AND_POTATOES = registerItem( "steak_and_potatoes", new Item (new Item.Settings().food(ModFoodComponents.STEAK_AND_POTATOES).maxCount(16)));
+    public static final Item RAW_KEBAB = registerItem( "raw_kebab", new Item (new Item.Settings().food(ModFoodComponents.KEBAB_RAW).maxCount(16)));
+    public static final Item COOKED_KEBAB = registerItem( "cooked_kebab", new Item (new Item.Settings().food(ModFoodComponents.KEBAB_COOKED).maxCount(16)));
+    public static final Item STEAK_DINNER = registerItem( "steak_dinner", new Item (new Item.Settings().food(ModFoodComponents.STEAK_DINNER).maxCount(16)));
+    public static final Item PORK_DINNER = registerItem( "pork_dinner", new Item (new Item.Settings().food(ModFoodComponents.PORK_DINNER).maxCount(16)));
+    public static final Item WOLF_DINNER = registerItem( "wolf_dinner", new Item (new Item.Settings().food(ModFoodComponents.WOLF_DINNER).maxCount(16)));
+
+    public static final Item CHICKEN_SOUP = registerItem( "chicken_soup", new Item (new Item.Settings().food(ModFoodComponents.CHICKEN_SOUP).maxCount(16)));
+    public static final Item HEARTY_STEW = registerItem( "hearty_stew", new Item (new Item.Settings().food(ModFoodComponents.HEARTY_STEW).maxCount(16)));
+
+    // Unique food items
+    public static final Item BEAST_LIVER_RAW = registerItem( "beast_liver_raw", new Item (new Item.Settings().food(ModFoodComponents.BEAST_LIVER_RAW).maxCount(16)));
+    public static final Item BEAST_LIVER_COOKED = registerItem( "beast_liver_cooked", new Item (new Item.Settings().food(ModFoodComponents.BEAST_LIVER_COOKED).maxCount(16)));
+    public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new Item.Settings().food(ModFoodComponents.CREEPER_OYSTERS).maxCount(16)));
 
 
     // Blocks to Items experiment
@@ -101,13 +122,9 @@ public class BTWR_Items {
 
     // TO BE ADDED :
 
-
     //public static final Item NETHERRACK_GROUND = registerItem( "netherrack_ground", new Item (new Item.Settings()));
     //public static final Item DUST_HELLFIRE = registerItem( "dust_hellfire", new Item (new Item.Settings()));
     //public static final Item COAL_NETHER = registerItem( "coal_nether", new Item (new Item.Settings()));
-
-
-
 
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries)

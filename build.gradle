@@ -65,6 +65,8 @@ dependencies {
 
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
+    modImplementation files("libs/better_with_time-1.7.jar")
+
 }
 
 processResources {
