@@ -11,11 +11,10 @@
 4. Chowder
 5. Steak and Potatoes
 6. Kebab (raw and cooked)
-7. Steak, Pork & Wolf Dinner Stews
+7. Steak, Pork & Wolf Dinner Stews (Wolf dinner unacquirable because no wolf meat)
 8. Chicken Soup & Hearty Stew
-+ Changed the newly added food items max stack limit to 16
 
-+ test
++ Changed the newly added food items max stack limit to 16
 
 ### 0.26.1
 
