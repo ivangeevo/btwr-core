@@ -89,6 +89,7 @@ public class BTWRMod implements ModInitializer
         }
     }
 
+
     // TODO: Change loot tables modification to add conventional shears tag, to instead be handled with Events if possible
     /**
     private void modifyLeavesLootTables()
