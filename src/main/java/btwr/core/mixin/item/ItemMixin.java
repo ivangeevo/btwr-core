@@ -1,63 +1,62 @@
 package btwr.core.mixin.item;
 
 import btwr.core.block.BTWR_Blocks;
+import btwr.core.util.ItemAndToolMixinManager;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Objects;
 
 @Mixin(Item.class)
-public abstract class ItemMixin
+public abstract class ItemMixin implements FabricItem
 {
+    @Unique
+    private static final ItemAndToolMixinManager itemMixinManager = ItemAndToolMixinManager.getInstance();
+
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
     private void injectedUseOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir)
     {
-        World world = context.getWorld();
-        BlockPos pos = context.getBlockPos();
-        ItemStack heldStack = context.getStack();
-
-        if (heldStack.isOf(Items.BRICK))
-        {
-            // Ensure the block is placed on the server side
-            if (!world.isClient)
-            {
-                BlockPos placePos = pos.up(); // Position to place the new block
-
-                // Get the block state of the block you're trying to place the brick on
-                BlockState blockBelowState = world.getBlockState(pos);
-
-                // Check if the block below can support a block on top of it
-                if (!blockBelowState.isSolidBlock(world, pos))
-                {
-                    // Prevent placing the block on non-solid blocks like flowers, tall grass, etc.
-                    cir.setReturnValue(ActionResult.FAIL);
-                    return;
-                }
-
-                // Create an ItemPlacementContext for the new block position
-                ItemPlacementContext placementContext = new ItemPlacementContext(Objects.requireNonNull(context.getPlayer()), context.getHand(), heldStack, context.getHitResult());
-
-                // Get the block state using the placement context
-                BlockState brickBlockState = BTWR_Blocks.BRICK.getPlacementState(placementContext);
-
-                // Check if the target position is air or a replaceable block
-                if ((world.isAir(placePos) || world.getBlockState(placePos).canReplace(placementContext)) && brickBlockState != null)
-                {
-                    // Replace the block at the target position with the brick block
-                    world.setBlockState(placePos, brickBlockState);
-                    heldStack.decrement(1);
-
-                    // Indicate the interaction was successful
-                    cir.setReturnValue(ActionResult.SUCCESS);
-                }
-            }
-        }
+        cir.setReturnValue(itemMixinManager.onUseOnBlock(context));
     }
+
+    // Adds remainder logic so the item doesn't get consumed on crafting.
+    @Override
+    public ItemStack getRecipeRemainder(ItemStack stack)
+    {
+       return itemMixinManager.setDamageOnCraft(stack);
+    }
+
+    @Inject(method = "finishUsing", at = @At("RETURN"))
+    private void onFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir)
+    {
+        itemMixinManager.onFinishUsingAxe(stack, world, user, (Item)(Object)this );
+    }
+
+    @Inject(method = "postMine", at = @At("RETURN"), cancellable = true)
+    private void onPostMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner, CallbackInfoReturnable<Boolean> cir)
+    {
+        // save the super call
+        boolean original = cir.getReturnValue();
+
+        // set all without the super call
+        itemMixinManager.onPostMineAxe(stack, world, state, pos, miner);
+        // and here we return it
+        cir.setReturnValue(original);
+    }
+
 }

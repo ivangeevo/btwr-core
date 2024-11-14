@@ -13,7 +13,6 @@
     "entity.PlayerEntityMixin",
     "entity.SheepEntityMixin",
     "entity.ZombieEntityMixin",
-    "item.AxeItemMixin",
     "item.ItemMixin",
     "item.ShearsItemMixin",
     "recipe.CraftingResultSlotMixin",
