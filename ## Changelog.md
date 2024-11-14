@@ -1,6 +1,7 @@
-### 0.27
+### 0.28
 + Fixed being able to melee knockback entities with crossbow or bow while knockback restrictions are enabled.
-
++ Fixed Shear tools from being too slow in breaking hemp plants.
++ Code refactoring/improvements
 
 ### 0.27
 
