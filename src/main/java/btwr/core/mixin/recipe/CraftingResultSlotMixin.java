@@ -81,12 +81,8 @@ public abstract class CraftingResultSlotMixin
         float higher = 1.25F + (player.getWorld().random.nextFloat() * 0.25F);
         float lower = (player.getWorld().random.nextFloat() - player.getWorld().random.nextFloat()) * 0.2F + 0.6F;
 
-        if (stack.isOf(Items.STICK)) {
+        if (stack.isOf(Items.STICK) || stack.isIn(ItemTags.PLANKS)) {
             player.playSound(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR, 0.1F, higher);
-        }
-        else if (stack.isIn(ItemTags.PLANKS))
-        {
-            player.playSound(SoundEvents.ENTITY_ZOMBIE_ATTACK_WOODEN_DOOR, 0.1F, higher);
         }
         else if (stack.isOf(BTWR_Items.DIAMOND_INGOT) || stack.isIn(BTWRTags.Items.CLAY_ITEMS))
         {
