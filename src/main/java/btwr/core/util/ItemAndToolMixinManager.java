@@ -15,7 +15,6 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 import java.util.Objects;
@@ -83,7 +82,7 @@ public class ItemAndToolMixinManager
         return ActionResult.PASS;
     }
 
-    public ItemStack setDamageOnCraft(ItemStack stack)
+    public ItemStack damageOnCrafting(ItemStack stack)
     {
         if (stack.getItem() instanceof ShearsItem || stack.getItem() instanceof AxeItem)
         {
@@ -121,23 +120,26 @@ public class ItemAndToolMixinManager
 
     public ItemStack onFinishUsingAxe(ItemStack stack, World world, LivingEntity user, Item axeItem)
     {
-        if (user instanceof ServerPlayerEntity serverPlayerEntity)
+        if (stack.getItem() instanceof AxeItem)
         {
-            Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
-            serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(axeItem));
-        }
+            if (user instanceof ServerPlayerEntity serverPlayerEntity)
+            {
+                Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+                serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(axeItem));
+            }
 
-        if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode)
-        {
-            stack.decrement(1);
-        }
+            if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode)
+            {
+                stack.decrement(1);
+            }
 
-        if (!world.isClient) {
-            user.clearStatusEffects();
+            if (!world.isClient) {
+                user.clearStatusEffects();
+            }
+
         }
 
         return stack;
-
     }
 
     public static List<ToolComponent.Rule> MODIFIED_SHEARS_COMPONENT_LIST = List.of(

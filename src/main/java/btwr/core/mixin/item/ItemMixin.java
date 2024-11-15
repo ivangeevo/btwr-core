@@ -1,9 +1,6 @@
 package btwr.core.mixin.item;
 
-import btwr.core.block.BTWR_Blocks;
 import btwr.core.util.ItemAndToolMixinManager;
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -12,15 +9,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Objects;
 
 @Mixin(Item.class)
 public abstract class ItemMixin implements FabricItem
@@ -38,7 +30,7 @@ public abstract class ItemMixin implements FabricItem
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack)
     {
-       return itemMixinManager.setDamageOnCraft(stack);
+       return itemMixinManager.damageOnCrafting(stack);
     }
 
     @Inject(method = "finishUsing", at = @At("RETURN"))
@@ -55,7 +47,7 @@ public abstract class ItemMixin implements FabricItem
 
         // set all without the super call
         itemMixinManager.onPostMineAxe(stack, world, state, pos, miner);
-        
+
         // and here we return it
         cir.setReturnValue(original);
     }
