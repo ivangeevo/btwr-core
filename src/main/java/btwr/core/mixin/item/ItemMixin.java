@@ -55,6 +55,7 @@ public abstract class ItemMixin implements FabricItem
 
         // set all without the super call
         itemMixinManager.onPostMineAxe(stack, world, state, pos, miner);
+        
         // and here we return it
         cir.setReturnValue(original);
     }
