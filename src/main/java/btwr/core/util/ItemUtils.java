@@ -2,7 +2,6 @@
 
 package btwr.core.util;
 
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -103,7 +102,6 @@ public class ItemUtils
     // TODO: Fix stacks dropping in random places sometimes when broken.
     static public void ejectStackFromBlockTowardsFacing(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack, Direction direction) {
 
-        //Direction miningDirection = VectorUtils.getMiningDirection(player, world, pos);
 
         for (ItemStack droppedItems : Block.getDroppedStacks(state, (ServerWorld) world, pos, blockEntity, player, stack))
         {

@@ -2,32 +2,19 @@ package btwr.core.item;
 
 import btwr.core.BTWRMod;
 import btwr.core.block.BTWR_Blocks;
-import btwr.core.block.blocks.HempCropBlock;
-import btwr.core.block.blocks.LightBlock;
 import btwr.core.item.items.ClubItem;
 import btwr.core.material.BTWR_ToolMaterials;
-import com.terraformersmc.modmenu.util.mod.Mod;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.PillarBlock;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.FoodComponent;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 
 // This class registers all BTWR items.
-public class BTWR_Items {
-
-
+public class BTWR_Items
+{
 
     // The GROUP_BTWR is first, as it acts as an Item that is called in the BTWRItemGroup class.
     public static final Item GROUP_BTWR = registerItem( "group_btwr", new Item(new Item.Settings()));
@@ -38,8 +25,12 @@ public class BTWR_Items {
 
     public static final Item STONE_BRICK = registerItem( "stone_brick", new Item (new Item.Settings()));
 
+    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired",
+            new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED, new Item.Settings()));
+
     public static final Item HEMP_SEEDS = registerItem( "hemp_seeds",
             new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new Item.Settings()));
+
     public static final Item HEMP_LEAVES = registerItem( "hemp_leaves", new Item(new Item.Settings()));
     public static final Item HEMP_FIBERS = registerItem( "hemp_fibers", new Item(new Item.Settings()));
     public static final Item HEMP_FABRIC = registerItem( "hemp_fabric", new Item(new Item.Settings()));
@@ -55,10 +46,8 @@ public class BTWR_Items {
     public static final Item BELT = registerItem( "belt", new Item (new Item.Settings()));
     public static final Item GEAR = registerItem( "gear", new Item (new Item.Settings()));
     public static final Item FILAMENT = registerItem( "filament", new Item (new Item.Settings()));
+    public static final Item ELEMENT = registerItem( "element", new Item (new Item.Settings()));
 
-
-
-    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired", new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED ,new Item.Settings()));
 
     // --------- //
 
@@ -115,8 +104,8 @@ public class BTWR_Items {
 
 
     // Blocks to Items experiment
-    public static final Item LIGHTBLOCK = register(BTWR_Blocks.LIGHTBLOCK);
-    public static final Item ROPE_COIL = register(BTWR_Blocks.ROPE_COIL);
+    //public static final Item LIGHTBLOCK = register(BTWR_Blocks.LIGHTBLOCK);
+    //public static final Item ROPE_COIL = register(BTWR_Blocks.ROPE_COIL);
 
 
 
@@ -142,32 +131,6 @@ public class BTWR_Items {
         BTWRMod.LOGGER.info("Registering Mod Items for " + BTWRMod.MOD_ID);
         //ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(BTWR_Items::addItemsToIngredientItemGroup);
     }
-
-    public static Item register(Block block) {
-        return register(new BlockItem(block, new Item.Settings()));
-    }
-
-    public static Item register(BlockItem item) {
-        return register(item.getBlock(), item);
-    }
-
-    public static Item register(Block block, Item item) {
-        return register(Registries.BLOCK.getId(block), item);
-    }
-
-    public static Item register(Identifier id, Item item) {
-        return register(RegistryKey.of(Registries.ITEM.getKey(), id), item);
-    }
-
-    public static Item register(RegistryKey<Item> key, Item item) {
-        if (item instanceof BlockItem) {
-            ((BlockItem)item).appendBlocks(Item.BLOCK_ITEMS, item);
-        }
-
-        return Registry.register(Registries.ITEM, key, item);
-    }
-
-
 
     // ---------------------- //
 }

@@ -1,14 +1,10 @@
 package btwr.core.mixin.item;
 
-import btwr.core.block.BTWR_Blocks;
 import btwr.core.util.ItemAndToolMixinManager;
-import net.minecraft.block.Blocks;
 import net.minecraft.component.type.ToolComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ShearsItem;
-import net.minecraft.registry.tag.BlockTags;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;

@@ -33,16 +33,7 @@ public abstract class CreeperEntityRendererMixin extends MobEntityRenderer<Creep
             at = @At("HEAD"), cancellable = true)
     private void injectedGetTexture(CreeperEntity creeperEntity, CallbackInfoReturnable<Identifier> cir)
     {
-
-        if (creeperEntity.isNeutered())
-        {
-            cir.setReturnValue(NEUTERED_TEXTURE);
-        }
-        else
-        {
-            cir.setReturnValue(TEXTURE);
-        }
-
+        cir.setReturnValue(creeperEntity.isNeutered() ? NEUTERED_TEXTURE : TEXTURE);
     }
 
 }

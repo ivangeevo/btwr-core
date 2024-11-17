@@ -37,6 +37,7 @@ public class BTWRMod implements ModInitializer
         BTWRItemGroup.registerItemGroups();
         BTWR_Blocks.registerModBlocks();
         BTWR_Items.registerModItems();
+
         //ModRecipesRegistry.registerModRecipes();
         ModFuelItems.register();
 
@@ -90,7 +91,7 @@ public class BTWRMod implements ModInitializer
     }
 
 
-    // TODO: Change loot tables modification to add conventional shears tag, to instead be handled with Events if possible
+    // TODO: Change loot tables modification that add conventional shears tag, to instead be handled with Events if possible
     /**
     private void modifyLeavesLootTables()
     {

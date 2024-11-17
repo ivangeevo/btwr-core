@@ -24,6 +24,9 @@ public class BrickBlock extends Block
     public static final float BRICK_HALF_WIDTH = (BRICK_WIDTH / 2F );
     public static final float BRICK_LENGTH = (12F / 16F );
     public static final float BRICK_HALF_LENGTH = (BRICK_LENGTH / 2F );
+    private static final VoxelShape BRICK_SHAPE_VERTICAL = VoxelShapes.cuboid((0.5F - BRICK_HALF_WIDTH), 0D, (0.5F - BRICK_HALF_LENGTH), (0.5F + BRICK_HALF_WIDTH), BRICK_HEIGHT, (0.5F + BRICK_HALF_LENGTH));
+    private static final VoxelShape BRICK_SHAPE_HORIZONTAL = VoxelShapes.cuboid((0.5F - BRICK_HALF_LENGTH), 0D, (0.5F - BRICK_HALF_WIDTH), (0.5F + BRICK_HALF_LENGTH), BRICK_HEIGHT, (0.5F + BRICK_HALF_WIDTH));
+
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
     public BrickBlock(Settings settings)
@@ -43,26 +46,7 @@ public class BrickBlock extends Block
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
     {
-        Direction facing = state.get(FACING);
-
-        if (facing.getAxis() == Direction.Axis.Z)
-        {
-            return VoxelShapes.cuboid(
-                    (0.5F - BRICK_HALF_LENGTH),
-                    0D,
-                    (0.5F - BRICK_HALF_WIDTH),
-                    (0.5F + BRICK_HALF_LENGTH),
-                    BRICK_HEIGHT,
-                    (0.5F + BRICK_HALF_WIDTH));
-        }
-        return VoxelShapes.cuboid(
-                (0.5F - BRICK_HALF_WIDTH),
-                0D,
-                (0.5F - BRICK_HALF_LENGTH),
-                (0.5F + BRICK_HALF_WIDTH),
-                BRICK_HEIGHT,
-                (0.5F + BRICK_HALF_LENGTH));
-
+        return state.get(FACING).getAxis() == Direction.Axis.Z ? BRICK_SHAPE_HORIZONTAL : BRICK_SHAPE_VERTICAL;
     }
 
     @Override
@@ -75,9 +59,10 @@ public class BrickBlock extends Block
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify)
     {
         if (!world.getBlockState(pos.down()).isSolidBlock(world, pos.down())) {
-            dropAsItem(world, pos);
+            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), Items.BRICK.getDefaultStack());
             world.removeBlock(pos, false);
         }
+
         super.neighborUpdate(state, world, pos, block, fromPos, notify);
     }
 
@@ -92,6 +77,7 @@ public class BrickBlock extends Block
     {
         return world.getBlockState(pos.down()).isSolidBlock(world, pos.down());
     }
+
     @Override
     public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
         return false;
@@ -108,14 +94,5 @@ public class BrickBlock extends Block
     public boolean isBlockHydratedForPlantGrowthOn(World world, BlockPos pos) {
         return false;
     }
-
-    // -------- Class specific methods -------- //
-
-    private void dropAsItem(World world, BlockPos pos)
-    {
-        ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), Items.BRICK.getDefaultStack());
-    }
-
-    // -------- -------------------- -------- //
 
 }

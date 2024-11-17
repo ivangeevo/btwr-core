@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
+import net.minecraft.resource.featuretoggle.ToggleableFeature;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -15,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Item.class)
-public abstract class ItemMixin implements FabricItem
+public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, FabricItem
 {
     @Unique
     private static final ItemAndToolMixinManager itemMixinManager = ItemAndToolMixinManager.getInstance();
