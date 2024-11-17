@@ -12,46 +12,62 @@ import org.jetbrains.annotations.NotNull;
 public class VectorUtils
 {
 
-    public static Direction getMiningDirection(PlayerEntity player, World world, BlockPos pos)
-    {
+    /**
+     * Determines the direction in which the block is being mined.
+     *
+     * @param player The player mining the block (can be null on the server).
+     * @param world  The world where the block is located.
+     * @param pos    The block position.
+     * @return The direction from which the block is being mined, or NORTH if unavailable.
+     */
+    public static Direction getMiningDirection(PlayerEntity player, World world, BlockPos pos) {
+        // Check if the player is null
+        if (player == null) {
+            // Default to NORTH when player is unavailable
+            return Direction.NORTH;
+        }
+
         // Get the player's eye position
         Vec3d start = player.getCameraPosVec(1.0F);
 
-        // Calculate the look vector based on the player's pitch and yaw
-        Vec3d end = getVec3d(player, start);
+        // Calculate the end vector for the raycast
+        Vec3d end = calculateReachVector(player, start, 5.0D); // 5 blocks reach distance
 
+        // Create a raycast context
         RaycastContext context = new RaycastContext(
                 start, end, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, player
         );
 
+        // Perform the raycast
         BlockHitResult result = world.raycast(context);
 
-        if (result != null)
-        {
-            Direction hitDirection = result.getSide();
-            return hitDirection.getOpposite(); // Get the opposite direction
+        if (result != null && result.getBlockPos().equals(pos)) {
+            // Return the opposite of the hit side to represent the mining direction
+            return result.getSide().getOpposite();
         }
-        else
-        {
-            return null;
-        }
+
+        // Default to NORTH if no valid result
+        return Direction.NORTH;
     }
 
-    @NotNull
-    private static Vec3d getVec3d(PlayerEntity player, Vec3d start)
-    {
+    /**
+     * Calculates the reach vector based on the player's rotation.
+     *
+     * @param player       The player (must not be null).
+     * @param start        The starting position (eye position).
+     * @param reachDistance The maximum reach distance.
+     * @return The endpoint of the raycast vector.
+     */
+    private static Vec3d calculateReachVector(PlayerEntity player, Vec3d start, double reachDistance) {
         float pitch = player.getPitch();
         float yaw = player.getYaw();
 
-        // Adjust the look vector to point at the center of the block
-        double reachDistance = 5.0D; // Adjust the reach distance as needed
         double x = start.x + Math.sin(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch)) * reachDistance;
         double y = start.y + Math.sin(Math.toRadians(pitch)) * reachDistance;
         double z = start.z - Math.cos(Math.toRadians(yaw)) * Math.cos(Math.toRadians(pitch)) * reachDistance;
 
         return new Vec3d(x, y, z);
     }
-
 
 
     public static Vec3d tiltVector(Vec3d originalVector, int facing)
