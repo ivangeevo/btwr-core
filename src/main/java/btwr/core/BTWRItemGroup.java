@@ -3,7 +3,9 @@ package btwr.core;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.item.BTWR_Items;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -12,8 +14,7 @@ import net.minecraft.util.Identifier;
 
 public class BTWRItemGroup
 {
-    public static void registerItemGroups()
-    {
+    public static void registerItemGroups() {
         Registry.register(Registries.ITEM_GROUP,
                 Identifier.of(BTWRMod.MOD_ID, "group_btwr"),
                 FabricItemGroup.builder()
@@ -80,18 +81,6 @@ public class BTWRItemGroup
                             entries.add(BTWR_Items.BEAST_LIVER_COOKED);
                             entries.add(BTWR_Items.CREEPER_OYSTERS);
 
-
-
-
-                            // TO BE ADDED (maybe)
-                            //entries.add(BTWR_Blocks.COMPANIONCUBE);
-
-
-                            /** BLOCKS **/
-
-                            // excluded because of some stack size error
-                            entries.add(BTWR_Items.LIGHTBLOCK);
-                            entries.add(BTWR_Items.ROPE_COIL);
                         }).build());
     }
 }

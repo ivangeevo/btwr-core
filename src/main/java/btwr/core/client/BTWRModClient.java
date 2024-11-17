@@ -14,7 +14,7 @@ public class BTWRModClient implements ClientModInitializer
     @Override
     public void onInitializeClient()
     {
-        BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.LIGHTBLOCK, RenderLayer.getCutout());
+        //BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.LIGHTBLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.CROP_HEMP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.BRICK_UNFIRED, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.BRICK, RenderLayer.getCutout());

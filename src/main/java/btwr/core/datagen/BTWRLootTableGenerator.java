@@ -84,11 +84,11 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
     private void initMiscDrops()
     {
         this.addDrop(BTWR_Blocks.BRICK, drops(Items.BRICK));
-        this.addDrop(BTWR_Blocks.LIGHTBLOCK);
+        //this.addDrop(BTWR_Blocks.LIGHTBLOCK);
 
         this.addDrop(BTWR_Blocks.BRICK_UNFIRED, drops(Items.CLAY_BALL));
         this.addDrop(BTWR_Blocks.CROP_HEMP, block -> this.hempCropDrops(block, BTWR_Items.HEMP_LEAVES, BTWR_Items.HEMP_SEEDS));
-        this.addDrop(BTWR_Blocks.ROPE_COIL, block -> this.ropeCoilDrops());
+        //this.addDrop(BTWR_Blocks.ROPE_COIL, block -> this.ropeCoilDrops());
     }
 
     public LootTable.Builder hempCropDrops(Block block, Item hempLeaves, Item hempSeeds) {
@@ -113,6 +113,7 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
                 .pool(seedsPool);
     }
 
+    /**
     private LootTable.Builder ropeCoilDrops()
     {
        return LootTable.builder()
@@ -121,7 +122,7 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
                                 .rolls(ConstantLootNumberProvider.create(1))
                                 .with(
                                         AlternativeEntry.builder(
-                                                ItemEntry.builder(BTWR_Items.ROPE_COIL)
+                                                ItemEntry.builder(BTWR_Blocks.ROPE_COIL)
                                                         .conditionally(
                                                                 MatchToolLootCondition.builder(
                                                                         ItemPredicate.Builder.create().tag(ItemTags.AXES)
@@ -133,6 +134,7 @@ public class BTWRLootTableGenerator extends FabricBlockLootTableProvider {
                                 )
                 );
     }
+     **/
 
     public LootTable.Builder leavesDrops(Block leaves, Block drop, float... chance) {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
