@@ -3,10 +3,9 @@ package btwr.core.block.blocks;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.interfaces.BlockAdded;
 import btwr.core.item.BTWR_Items;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.ShapeContext;
+import com.bwt.blocks.BwtBlocks;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -124,7 +123,16 @@ public class HempCropBlock extends CropBlock
 
     private boolean isValidAlternateLightSourceAbove(World world, BlockPos pos)
     {
-        BlockState lightBlockState = BTWR_Blocks.LIGHTBLOCK.getDefaultState();
+        BlockState lightBlockState;
+
+        if (FabricLoader.getInstance().isModLoaded("bwt"))
+        {
+            lightBlockState = BwtBlocks.lightBlockBlock.getDefaultState();
+        }
+        else
+        {
+            lightBlockState = Blocks.REDSTONE_LAMP.getDefaultState();
+        }
 
         return world.getBlockState(pos.up()) == lightBlockState.with(Properties.LIT, true) ||
                 world.getBlockState(pos.up(2)) == lightBlockState.with(Properties.LIT, true);
