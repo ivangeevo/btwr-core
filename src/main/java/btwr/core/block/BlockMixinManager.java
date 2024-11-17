@@ -41,12 +41,13 @@ public class BlockMixinManager
 
         if (world instanceof ServerWorld)
         {
-            Direction dropDirection = VectorUtils.getMiningDirection((PlayerEntity)entity, world, pos);
+            // the opposite direction
+            Direction lookDirection = VectorUtils.getMiningDirection((PlayerEntity)entity, world, pos);
 
             if ((state.isIn(BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS) || state.isIn(BTWRConventionalTags.Blocks.MODDED_CONVERTING_BLOCKS))
                     && !BlockMixinManager.getInstance().isFullyBreakingTool(tool))
             {
-                ItemUtils.ejectStackFromBlockTowardsFacing(world, (PlayerEntity) entity, pos, state, blockEntity, tool, dropDirection);
+                ItemUtils.ejectStackFromBlockTowardsFacing(world, (PlayerEntity) entity, pos, state, blockEntity, tool, lookDirection.getOpposite());
             }
             else
             {

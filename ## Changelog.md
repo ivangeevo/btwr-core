@@ -1,10 +1,11 @@
 ### 0.28
 + Removed LightBlock and Rope Coil block
-+ Directional drop logic for blocks has been rewriten
++ Removal of the LightBlock also fixed a bug that caused its item to get registered twice and crashed the client on connecting to dedicated servers.
++ Directional drop logic for blocks has been rewritten (To be tested further)
 + Fixed being able to melee knockback entities with crossbow or bow while knockback restrictions are enabled.
 + Fixed a server side bug that caused breaking of directional dropping blocks to crash the client.
-+ Fixed a bug that caused the items for the unfired brick block and the Lightblock to get registered twice and crashed the client on connecting to dedicated servers.
 + Fixed Shear tools from being too slow in breaking hemp plants.
+
 + Code refactoring/improvements
 
 ### 0.27

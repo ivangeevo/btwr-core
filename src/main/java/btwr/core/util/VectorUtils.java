@@ -2,6 +2,7 @@ package btwr.core.util;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -21,32 +22,38 @@ public class VectorUtils
      * @return The direction from which the block is being mined, or NORTH if unavailable.
      */
     public static Direction getMiningDirection(PlayerEntity player, World world, BlockPos pos) {
-        // Check if the player is null
-        if (player == null) {
-            // Default to NORTH when player is unavailable
-            return Direction.NORTH;
+        // Ensure the player and world are not null
+        if (player == null || world == null) {
+            return Direction.NORTH; // Default direction
         }
 
         // Get the player's eye position
-        Vec3d start = player.getCameraPosVec(1.0F);
+        Vec3d eyePosition = player.getCameraPosVec(1.0F);
 
-        // Calculate the end vector for the raycast
-        Vec3d end = calculateReachVector(player, start, 5.0D); // 5 blocks reach distance
+        // Get the direction the player is facing
+        Vec3d lookVector = player.getRotationVec(1.0F);
 
-        // Create a raycast context
-        RaycastContext context = new RaycastContext(
-                start, end, RaycastContext.ShapeType.COLLIDER, RaycastContext.FluidHandling.NONE, player
+        // Calculate the endpoint of the raycast (max reach of 5 blocks)
+        Vec3d reachEnd = eyePosition.add(lookVector.multiply(5.0D));
+
+        // Perform the raycast in the world
+        RaycastContext raycastContext = new RaycastContext(
+                eyePosition,
+                reachEnd,
+                RaycastContext.ShapeType.COLLIDER,
+                RaycastContext.FluidHandling.NONE,
+                player
         );
 
-        // Perform the raycast
-        BlockHitResult result = world.raycast(context);
+        BlockHitResult hitResult = world.raycast(raycastContext);
 
-        if (result != null && result.getBlockPos().equals(pos)) {
-            // Return the opposite of the hit side to represent the mining direction
-            return result.getSide().getOpposite();
+        // Check if the raycast hit the target block
+        if (hitResult != null && hitResult.getType() == HitResult.Type.BLOCK && hitResult.getBlockPos().equals(pos)) {
+            // Return the opposite face of the block hit
+            return hitResult.getSide().getOpposite();
         }
 
-        // Default to NORTH if no valid result
+        // Default to NORTH if no valid block is hit
         return Direction.NORTH;
     }
 
