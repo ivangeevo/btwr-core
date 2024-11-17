@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:glowstone_dust"
+      "item": "minecraft:blaze_powder"
     },
     {
       "item": "minecraft:redstone"
@@ -14,6 +14,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "btwr:filament"
+    "id": "btwr:element"
   }
 }
