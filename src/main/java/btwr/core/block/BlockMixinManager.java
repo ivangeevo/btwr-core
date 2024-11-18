@@ -30,6 +30,7 @@ public class BlockMixinManager
 
     // Private constructor to prevent instantiation
     private BlockMixinManager() {}
+
     public static BlockMixinManager getInstance()
     {
         return instance;

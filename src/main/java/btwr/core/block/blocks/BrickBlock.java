@@ -18,7 +18,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class BrickBlock extends Block
 {
-
     public static final float BRICK_HEIGHT = (4F / 16F );
     public static final float BRICK_WIDTH = (6F / 16F );
     public static final float BRICK_HALF_WIDTH = (BRICK_WIDTH / 2F );
@@ -33,9 +32,6 @@ public class BrickBlock extends Block
     {
         super(settings);
     }
-
-
-
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
@@ -83,16 +79,5 @@ public class BrickBlock extends Block
         return false;
     }
 
-    @Override
-    public void notifyOfFullStagePlantGrowthOn(World world, BlockPos pos, Block plantBlock) {}
-
-    @Override
-    public float getPlantGrowthOnMultiplier(World world, BlockPos pos, Block plantBlock) {
-        return 0;
-    }
-    @Override
-    public boolean isBlockHydratedForPlantGrowthOn(World world, BlockPos pos) {
-        return false;
-    }
 
 }

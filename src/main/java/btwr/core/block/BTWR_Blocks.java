@@ -20,10 +20,9 @@ public class BTWR_Blocks {
     //public static final Block ROPE_COIL = register("rope_coil", new PillarBlock(AbstractBlock.Settings.create().strength(1.2f).sounds(BlockSoundGroup.WOOD)));
 
     public static final Block CROP_HEMP = registerWithoutItem("crop_hemp", new HempCropBlock(AbstractBlock.Settings.create().noCollision().ticksRandomly().nonOpaque().strength(0.5f).sounds(BlockSoundGroup.GRASS)));
-    public static final Block BRICK_UNFIRED = registerWithoutItem("brick_unfired", new UnfiredBrickBlock(AbstractBlock.Settings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE), ParticleTypes.CLOUD));
+    public static final Block BRICK_UNFIRED = registerWithoutItem("brick_unfired", new UnfiredBrickBlock(AbstractBlock.Settings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
     public static final Block BRICK = registerWithoutItem("brick", new BrickBlock(AbstractBlock.Settings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
 
-    // TODO: FIX
     // tried making non-lit light blocks to not see through other LIT blocks, but didn't work
     //private static Block createLightBlock() {
         //AbstractBlock.ContextPredicate contextPredicate = (state, world, pos) -> state.get(LightBlock.LIT);
