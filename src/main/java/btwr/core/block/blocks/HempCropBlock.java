@@ -1,8 +1,7 @@
 package btwr.core.block.blocks;
 
-import btwr.core.block.BTWR_Blocks;
-import btwr.core.block.interfaces.BlockAdded;
 import btwr.core.item.BTWR_Items;
+import btwr.lib.added.BlockAdded;
 import com.bwt.blocks.BwtBlocks;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
