@@ -12,7 +12,6 @@ import net.minecraft.item.*;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -38,7 +37,7 @@ public class ItemAndToolMixinManager
 
     // TODO: Abstract into separate methods for placement so it can be made to work for an API (eventually)
     // This placing code could be used by Tough Environment, BTWR and the Bind mod, for placing items as blocks in the world
-    public ActionResult onUseOnBlock(ItemUsageContext context)
+    public void placeAsBlock(ItemUsageContext context)
     {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
@@ -57,7 +56,7 @@ public class ItemAndToolMixinManager
                 // Check if the block below can support a block on top of it
                 if (!blockBelowState.isSolidBlock(world, pos))
                 {
-                    return ActionResult.FAIL;
+                    return;
                 }
 
                 // Create an ItemPlacementContext for the new block position
@@ -74,12 +73,10 @@ public class ItemAndToolMixinManager
                     heldStack.decrement(1);
 
                     // Indicate the interaction was successful
-                    return ActionResult.SUCCESS;
                 }
             }
         }
 
-        return ActionResult.PASS;
     }
 
     public ItemStack damageOnCrafting(ItemStack stack)

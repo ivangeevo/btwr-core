@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version
+version = project.mod_version + "-" + project.minecraft_version
 group = project.maven_group
 
 base {
@@ -47,7 +47,7 @@ repositories {
 
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.terraformersmc.com/releases/" }
-    maven { url "https://github.com/ivangeevo/btwr-shared-libs"}
+    //maven { url "https://ivangeevo.github.io/btwr-shared-lib/" }
 }
 
 dependencies {
@@ -66,6 +66,9 @@ dependencies {
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
     modImplementation files("libs/better_with_time-1.7.jar")
+
+    modImplementation files("libs/btwr-shared-lib-1.0-SNAPSHOT.jar")
+
 
 }
 
@@ -119,11 +122,6 @@ publishing {
         // Notice: This block does NOT have the same function as the block in the top level.
         // The repositories here will be used for publishing your artifact, not for
         // retrieving dependencies.
-
-        maven {
-            url uri('/btwr-core-mvn') // Local folder where artifacts will be published
-        }
-
 
     }
 

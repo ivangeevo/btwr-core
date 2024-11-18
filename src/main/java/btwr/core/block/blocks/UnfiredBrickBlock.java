@@ -40,14 +40,12 @@ public class UnfiredBrickBlock extends BlockWithEntity
     protected static final VoxelShape SHAPE_Z_AXIS = VoxelShapes.cuboid((0.5F - BRICK_HALF_LENGTH), 0D, (0.5F - BRICK_HALF_WIDTH), (0.5F + BRICK_HALF_LENGTH), BRICK_HEIGHT, (0.5F + BRICK_HALF_WIDTH));
     protected static final VoxelShape SHAPE_X_AXIS = VoxelShapes.cuboid((0.5F - BRICK_HALF_WIDTH), 0D, (0.5F - BRICK_HALF_LENGTH), (0.5F + BRICK_HALF_WIDTH), BRICK_HEIGHT, (0.5F + BRICK_HALF_LENGTH));
 
-    protected final ParticleEffect dryingParticle;
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty DRYING_LEVEL = IntProperty.of("drying_level", 0, 7);
-    public UnfiredBrickBlock(Settings settings, ParticleEffect particle)
+
+    public UnfiredBrickBlock(Settings settings)
     {
         super(settings);
-        this.dryingParticle = particle;
-
     }
 
     @Override
@@ -59,12 +57,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
     {
-        if (state.get(FACING).getAxis() == Direction.Axis.Z)
-        {
-            return SHAPE_Z_AXIS;
-        }
-        return SHAPE_X_AXIS;
-
+        return state.get(FACING).getAxis() == Direction.Axis.Z ? SHAPE_Z_AXIS : SHAPE_X_AXIS;
     }
 
     @Override
@@ -131,6 +124,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
     {
         return world.getBlockState(pos.down()).isSolidBlock(world, pos.down());
     }
+
     @Override
     public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
         return false;
@@ -165,7 +159,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
 
             if ( world.random.nextInt( 20 ) == 0 )
             {
-                world.addParticle(this.dryingParticle, d, e, f, 0.0, 0.0, 0.0);
+                world.addParticle(ParticleTypes.CLOUD, d, e, f, 0.0, 0.0, 0.0);
             }
 
         }

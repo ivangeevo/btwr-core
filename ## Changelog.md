@@ -5,6 +5,7 @@
 + Fixed being able to melee knockback entities with crossbow or bow while knockback restrictions are enabled.
 + Fixed a server side bug that caused breaking of directional dropping blocks to crash the client.
 + Fixed Shear tools from being too slow in breaking hemp plants.
++ Fixed placement sounds for some brick blocks
 
 + Code refactoring/improvements
 

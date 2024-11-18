@@ -24,7 +24,8 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
     @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
     private void injectedUseOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir)
     {
-        cir.setReturnValue(itemMixinManager.onUseOnBlock(context));
+        itemMixinManager.placeAsBlock(context);
+        //cir.setReturnValue(itemMixinManager.onUseOnBlock(context));
     }
 
     // Adds remainder logic so the item doesn't get consumed on crafting.
