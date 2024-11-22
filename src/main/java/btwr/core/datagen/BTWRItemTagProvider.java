@@ -144,5 +144,19 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.CHICKEN_TEMPT_ITEMS)
                 .add(BTWR_Items.HEMP_SEEDS);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_WOODEN_SOUND)
+                .forceAddTag(ItemTags.PLANKS)
+                .add(Items.STICK);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SLIME_SOUND)
+                .addTag(BTWRTags.Items.CLAY_ITEMS)
+                .add(BTWR_Items.DIAMOND_INGOT);
+
+
+
+
         }
+
+
 }

@@ -6,8 +6,8 @@
 + Fixed a server side bug that caused breaking of directional dropping blocks to crash the client.
 + Fixed Shear tools from being too slow in breaking hemp plants.
 + Fixed placement sounds for some brick blocks
-
 + Code refactoring/improvements
++ Updated the mod to Fabric API 0.109.0 & Fabric Loader 0.16.9
 
 ### 0.27
 

@@ -47,7 +47,7 @@ repositories {
 
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.terraformersmc.com/releases/" }
-    //maven { url "https://ivangeevo.github.io/btwr-shared-lib/" }
+    maven { url "https://ivangeevo.github.io/btwr-shared-lib/" }
 }
 
 dependencies {
@@ -65,9 +65,10 @@ dependencies {
 
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
+    modImplementation("org.ivangeevo:btwr-shared-lib:1.0-SNAPSHOT")
+
     modImplementation files("libs/better_with_time-1.7.jar")
 
-    modImplementation files("libs/btwr-shared-lib-1.0-SNAPSHOT.jar")
 
 
 }
@@ -83,7 +84,6 @@ processResources {
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version
             }
-
 
     inputs.property "config", files("src/main/resources/btwr-core.mixins.json")
 }

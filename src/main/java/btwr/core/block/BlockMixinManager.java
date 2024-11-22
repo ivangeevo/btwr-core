@@ -56,8 +56,6 @@ public class BlockMixinManager
                 state.onStacksDropped((ServerWorld)world, pos, tool, true);
             }
 
-
-
         }
     }
 
