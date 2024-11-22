@@ -5,7 +5,6 @@ import btwr.core.recipe.ExtendedShapelessRecipeFactory;
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
 import com.mojang.serialization.*;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.recipe.Ingredient;

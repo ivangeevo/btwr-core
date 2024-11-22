@@ -2,6 +2,7 @@ package btwr.core.mixin.recipe;
 
 import btwr.core.item.BTWR_Items;
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
+import btwr.core.tag.BTWRConventionalTags;
 import btwr.core.tag.BTWRTags;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.RecipeInputInventory;
@@ -81,13 +82,13 @@ public abstract class CraftingResultSlotMixin
         float higher = 1.25F + (player.getWorld().random.nextFloat() * 0.25F);
         float lower = (player.getWorld().random.nextFloat() - player.getWorld().random.nextFloat()) * 0.2F + 0.6F;
 
-        if (stack.isOf(Items.STICK) || stack.isIn(ItemTags.PLANKS)) {
+        if (stack.isIn(BTWRConventionalTags.Items.ON_CRAFT_WOODEN_SOUND))
+        {
             player.playSound(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR, 0.1F, higher);
         }
-        else if (stack.isOf(BTWR_Items.DIAMOND_INGOT) || stack.isIn(BTWRTags.Items.CLAY_ITEMS))
+        else if (stack.isIn(BTWRConventionalTags.Items.ON_CRAFT_SLIME_SOUND))
         {
             player.playSound(SoundEvents.ENTITY_SLIME_ATTACK, 0.1F, lower);
-
         }
 
     }
