@@ -1,22 +1,14 @@
 package btwr.core.mixin.entity;
 
+import btwr.btwrds.tag.BTWRConventionalTags;
 import btwr.core.BTWRMod;
-import btwr.core.config.BTWRSettings;
-import btwr.core.config.SettingsGUI;
-import btwr.core.item.items.ClubItem;
-import btwr.core.tag.BTWRConventionalTags;
-import btwr.core.tag.BTWRTags;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.registry.tag.ItemTags;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin

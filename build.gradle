@@ -65,7 +65,7 @@ dependencies {
 
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
-    modImplementation("org.ivangeevo:btwr-shared-lib:0.1-SNAPSHOT")
+    modImplementation("org.ivangeevo:btwr-shared-lib:0.2-SNAPSHOT")
 
     modImplementation files("libs/better_with_time-1.7.jar")
 

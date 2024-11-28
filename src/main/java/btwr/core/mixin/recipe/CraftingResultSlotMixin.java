@@ -1,16 +1,13 @@
 package btwr.core.mixin.recipe;
 
-import btwr.core.item.BTWR_Items;
+import btwr.btwrds.lib.interfaces.added.PlayerEntityAdded;
+import btwr.btwrds.tag.BTWRConventionalTags;
 import btwr.core.recipe.interfaces.ShapelessRecipeAdded;
-import btwr.core.tag.BTWRConventionalTags;
-import btwr.core.tag.BTWRTags;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.input.CraftingRecipeInput;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.sound.SoundEvents;
@@ -46,7 +43,7 @@ public abstract class CraftingResultSlotMixin
 
     @Inject(method = "onTakeItem", at = @At("TAIL"))
     protected void setTickCraftLogic(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
-        player.setTimesCraftedThisTick(player.timesCraftedThisTick() + 1);
+        ((PlayerEntityAdded)player).setTimesCraftedThisTick(((PlayerEntityAdded)player).timesCraftedThisTick() + 1);
     }
 
         // ---------- Class specific methods ---------- //

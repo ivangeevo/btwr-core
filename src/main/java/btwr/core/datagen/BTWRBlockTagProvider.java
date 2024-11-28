@@ -1,10 +1,7 @@
 package btwr.core.datagen;
 
-import btwr.core.block.BTWR_Blocks;
-import btwr.core.tag.BTWRConventionalTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
