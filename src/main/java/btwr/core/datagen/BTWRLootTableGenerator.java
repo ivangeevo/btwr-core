@@ -1,5 +1,6 @@
 package btwr.core.datagen;
 
+import btwr.btwrsl.tag.BTWRConventionalTags;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.blocks.HempCropBlock;
 import btwr.core.item.BTWR_Items;

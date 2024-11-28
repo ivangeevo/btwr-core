@@ -1,6 +1,6 @@
 package btwr.core.mixin.entity;
 
-import btwr.btwrds.tag.BTWRConventionalTags;
+import btwr.btwrsl.tag.BTWRConventionalTags;
 import btwr.core.BTWRMod;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

@@ -1,6 +1,6 @@
 package btwr.core.block;
 
-import btwr.btwrds.tag.BTWRConventionalTags;
+import btwr.btwrsl.tag.BTWRConventionalTags;
 import btwr.core.util.ItemUtils;
 import btwr.core.util.MiscUtils;
 import btwr.core.util.VectorUtils;
@@ -23,8 +23,9 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
-import static btwr.btwrds.tag.BTWRConventionalTags.Blocks.MODDED_CONVERTING_BLOCKS;
-import static btwr.btwrds.tag.BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS;
+import static btwr.btwrsl.tag.BTWRConventionalTags.Blocks.MODDED_CONVERTING_BLOCKS;
+import static btwr.btwrsl.tag.BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS;
+
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 
 public class BlockMixinManager

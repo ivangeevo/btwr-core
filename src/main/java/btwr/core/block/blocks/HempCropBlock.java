@@ -1,6 +1,5 @@
 package btwr.core.block.blocks;
 
-import btwr.btwrds.lib.interfaces.added.BlockAdded;
 import btwr.core.item.BTWR_Items;
 import com.bwt.blocks.BwtBlocks;
 import net.fabricmc.loader.api.FabricLoader;
@@ -55,7 +54,7 @@ public class HempCropBlock extends CropBlock
         {
             Block blockBelow = world.getBlockState(pos.down()).getBlock();
 
-            if (blockBelow != null && ((BlockAdded)blockBelow).isBlockHydratedForPlantGrowthOn(world, pos.down()))
+            if (blockBelow != null && blockBelow.isBlockHydratedForPlantGrowthOn(world, pos.down()))
             {
                 // only the base of the plants grows, and only does if its on hydrated soil
 
@@ -63,7 +62,7 @@ public class HempCropBlock extends CropBlock
                 {
 
                     float growthChance = getBaseGrowthChance() *
-                            ((BlockAdded)blockBelow).getPlantGrowthOnMultiplier(world, pos.down(), this);
+                            blockBelow.getPlantGrowthOnMultiplier(world, pos.down(), this);
 
                     if (random.nextFloat() <= growthChance)
                     {
@@ -75,12 +74,12 @@ public class HempCropBlock extends CropBlock
                 {
 
                     float topGrowthChance = (getBaseGrowthChance() / 4F) *
-                            ((BlockAdded)blockBelow).getPlantGrowthOnMultiplier(world, pos.down(), this);
+                            blockBelow.getPlantGrowthOnMultiplier(world, pos.down(), this);
 
                     if (random.nextFloat() <= topGrowthChance)
                     {
                         world.setBlockState(pos.up(), state.with(TOP, true).with(AGE, 7),3);
-                        ((BlockAdded)blockBelow).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
+                        blockBelow.notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
                     }
 
                 }
@@ -114,7 +113,7 @@ public class HempCropBlock extends CropBlock
 
             if ( blockBelow != null )
             {
-                ((BlockAdded)blockBelow).notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
+                blockBelow.notifyOfFullStagePlantGrowthOn(world, pos.down(), this);
             }
         }
     }

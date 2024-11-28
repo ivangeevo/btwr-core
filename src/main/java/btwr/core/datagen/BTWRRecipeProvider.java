@@ -1,5 +1,6 @@
 package btwr.core.datagen;
 
+import btwr.btwrsl.tag.BTWRConventionalTags;
 import btwr.core.BTWRMod;
 import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRTags;
