@@ -9,7 +9,6 @@
     "block.GrassBlockMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
-    "entity.PlayerEntityMixin",
     "entity.SheepEntityMixin",
     "entity.ZombieEntityMixin",
     "item.ItemMixin",
