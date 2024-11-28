@@ -1,5 +1,6 @@
 package btwr.core.util;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -21,17 +22,17 @@ public class VectorUtils
      * @param pos    The block position.
      * @return The direction from which the block is being mined, or NORTH if unavailable.
      */
-    public static Direction getMiningDirection(PlayerEntity player, World world, BlockPos pos) {
+    public static Direction getMiningDirection(Entity entity, World world, BlockPos pos) {
         // Ensure the player and world are not null
-        if (player == null || world == null) {
+        if (entity == null || world == null) {
             return Direction.NORTH; // Default direction
         }
 
         // Get the player's eye position
-        Vec3d eyePosition = player.getCameraPosVec(1.0F);
+        Vec3d eyePosition = entity.getCameraPosVec(1.0F);
 
         // Get the direction the player is facing
-        Vec3d lookVector = player.getRotationVec(1.0F);
+        Vec3d lookVector = entity.getRotationVec(1.0F);
 
         // Calculate the endpoint of the raycast (max reach of 5 blocks)
         Vec3d reachEnd = eyePosition.add(lookVector.multiply(5.0D));
@@ -42,7 +43,7 @@ public class VectorUtils
                 reachEnd,
                 RaycastContext.ShapeType.COLLIDER,
                 RaycastContext.FluidHandling.NONE,
-                player
+                entity
         );
 
         BlockHitResult hitResult = world.raycast(raycastContext);
