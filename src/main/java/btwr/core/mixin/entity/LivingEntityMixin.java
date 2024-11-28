@@ -38,7 +38,7 @@ public abstract class LivingEntityMixin
             {
                 ItemStack weaponStack = player.getMainHandStack();
 
-                if (!weaponStack.isIn(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS))
+                if (!weaponStack.isIn(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS) && !player.isSprinting())
                 {
                     ci.cancel();
                 }
