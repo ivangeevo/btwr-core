@@ -7,6 +7,7 @@ import btwr.core.util.VectorUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.InfestedBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -22,6 +23,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
+import static btwr.core.tag.BTWRConventionalTags.Blocks.MODDED_CONVERTING_BLOCKS;
+import static btwr.core.tag.BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS;
 import static net.minecraft.state.property.Properties.WATERLOGGED;
 
 public class BlockMixinManager
@@ -43,10 +46,9 @@ public class BlockMixinManager
         if (world instanceof ServerWorld)
         {
             // the opposite direction
-            Direction lookDirection = VectorUtils.getMiningDirection((PlayerEntity)entity, world, pos);
+            Direction lookDirection = VectorUtils.getMiningDirection(entity, world, pos);
 
-            if ((state.isIn(BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS) || state.isIn(BTWRConventionalTags.Blocks.MODDED_CONVERTING_BLOCKS))
-                    && !BlockMixinManager.getInstance().isFullyBreakingTool(tool))
+            if (isDroppingInDirectionBlock(state) && !BlockMixinManager.getInstance().isFullyBreakingTool(tool))
             {
                 ItemUtils.ejectStackFromBlockTowardsFacing(world, (PlayerEntity) entity, pos, state, blockEntity, tool, lookDirection.getOpposite());
             }
@@ -68,6 +70,15 @@ public class BlockMixinManager
                 || tool.isIn(BTWRConventionalTags.Items.ADVANCED_PICKAXES)
                 || tool.isIn(BTWRConventionalTags.Items.ADVANCED_AXES);
 
+    }
+
+    private boolean isDroppingInDirectionBlock(BlockState state)
+    {
+        if (state.getBlock() instanceof InfestedBlock) {
+            return false;
+        }
+
+        return (state.isIn(VANILLA_CONVERTING_BLOCKS) || state.isIn(MODDED_CONVERTING_BLOCKS));
     }
 
     @NotNull
