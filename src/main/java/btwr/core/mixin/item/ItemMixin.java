@@ -1,6 +1,6 @@
 package btwr.core.mixin.item;
 
-import btwr.core.util.ItemAndToolMixinManager;
+import btwr.core.item.ItemAndToolMixinManager;
 import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;

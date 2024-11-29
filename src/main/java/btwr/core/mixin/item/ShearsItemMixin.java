@@ -1,6 +1,6 @@
 package btwr.core.mixin.item;
 
-import btwr.core.util.ItemAndToolMixinManager;
+import btwr.core.item.ItemAndToolMixinManager;
 import net.minecraft.component.type.ToolComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ShearsItem;

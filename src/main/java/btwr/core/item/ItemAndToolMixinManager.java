@@ -1,4 +1,4 @@
-package btwr.core.util;
+package btwr.core.item;
 
 import btwr.core.block.BTWR_Blocks;
 import net.minecraft.advancement.criterion.Criteria;
