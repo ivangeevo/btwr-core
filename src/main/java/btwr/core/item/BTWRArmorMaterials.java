@@ -1,6 +1,3 @@
-/*
- * Decompiled with CFR 0.2.1 (FabricMC 53fa44c9).
- */
 package btwr.core.item;
 
 import btwr.core.BTWRMod;
@@ -22,8 +19,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class BTWRArmorMaterials
-{
+public class BTWRArmorMaterials {
 
 
 

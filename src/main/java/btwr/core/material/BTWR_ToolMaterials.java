@@ -1,6 +1,5 @@
 package btwr.core.material;
 
-import btwr.core.data.constants.BTWR_MiningLevels;
 import com.google.common.base.Suppliers;
 import net.minecraft.block.Block;
 import net.minecraft.item.Items;

@@ -13,8 +13,7 @@ import net.minecraft.util.Identifier;
 
 
 // This class registers all BTWR items.
-public class BTWR_Items
-{
+public class BTWR_Items {
 
     // The GROUP_BTWR is first, as it acts as an Item that is called in the BTWRItemGroup class.
     public static final Item GROUP_BTWR = registerItem( "group_btwr", new Item(new Item.Settings()));
@@ -34,19 +33,12 @@ public class BTWR_Items
     public static final Item HEMP_LEAVES = registerItem( "hemp_leaves", new Item(new Item.Settings()));
     public static final Item HEMP_FIBERS = registerItem( "hemp_fibers", new Item(new Item.Settings()));
     public static final Item HEMP_FABRIC = registerItem( "hemp_fabric", new Item(new Item.Settings()));
-    public static final Item ROPE = registerItem( "rope", new Item(new Item.Settings()));
 
     public static final Item LEATHER_CUT = registerItem( "leather_cut", new Item (new Item.Settings()));
     public static final Item LEATHER_SCOURED = registerItem( "leather_scoured", new Item (new Item.Settings()));
     public static final Item LEATHER_SCOURED_CUT = registerItem( "leather_scoured_cut", new Item (new Item.Settings()));
     public static final Item LEATHER_TANNED = registerItem( "leather_tanned", new Item (new Item.Settings()));
     public static final Item LEATHER_TANNED_CUT = registerItem( "leather_tanned_cut", new Item (new Item.Settings()));
-
-    public static final Item STRAP = registerItem( "strap", new Item (new Item.Settings()));
-    public static final Item BELT = registerItem( "belt", new Item (new Item.Settings()));
-    public static final Item GEAR = registerItem( "gear", new Item (new Item.Settings()));
-    public static final Item FILAMENT = registerItem( "filament", new Item (new Item.Settings()));
-    public static final Item ELEMENT = registerItem( "element", new Item (new Item.Settings()));
 
 
     // --------- //
@@ -103,31 +95,12 @@ public class BTWR_Items
     public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new Item.Settings().food(ModFoodComponents.CREEPER_OYSTERS).maxCount(16)));
 
 
-    // Blocks to Items experiment
-    //public static final Item LIGHTBLOCK = register(BTWR_Blocks.LIGHTBLOCK);
-    //public static final Item ROPE_COIL = register(BTWR_Blocks.ROPE_COIL);
 
-
-
-    // TO BE ADDED :
-
-    //public static final Item NETHERRACK_GROUND = registerItem( "netherrack_ground", new Item (new Item.Settings()));
-    //public static final Item DUST_HELLFIRE = registerItem( "dust_hellfire", new Item (new Item.Settings()));
-    //public static final Item COAL_NETHER = registerItem( "coal_nether", new Item (new Item.Settings()));
-
-
-    private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries)
-    {
-        entries.add(CREEPER_OYSTERS);
-    }
-
-    private static Item registerItem(String name, Item item)
-    {
+    private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BTWRMod.MOD_ID, name), item);
     }
 
-    public static void registerModItems()
-    {
+    public static void registerModItems() {
         BTWRMod.LOGGER.info("Registering Mod Items for " + BTWRMod.MOD_ID);
         //ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(BTWR_Items::addItemsToIngredientItemGroup);
     }

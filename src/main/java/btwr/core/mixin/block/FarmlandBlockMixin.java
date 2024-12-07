@@ -12,8 +12,7 @@ import static net.minecraft.block.FarmlandBlock.MOISTURE;
 public abstract class FarmlandBlockMixin implements BlockAdded
 {
     @Override
-    public boolean isBlockHydratedForPlantGrowthOn(World world, BlockPos pos)
-    {
+    public boolean isBlockHydratedForPlantGrowthOn(World world, BlockPos pos) {
         return world.getBlockState(pos).get(MOISTURE) == 7;
     }
 

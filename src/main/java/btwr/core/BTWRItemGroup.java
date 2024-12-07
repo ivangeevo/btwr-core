@@ -1,19 +1,14 @@
 package btwr.core;
 
-import btwr.core.block.BTWR_Blocks;
 import btwr.core.item.BTWR_Items;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class BTWRItemGroup
-{
+public class BTWRItemGroup {
     public static void registerItemGroups() {
         Registry.register(Registries.ITEM_GROUP,
                 Identifier.of(BTWRMod.MOD_ID, "group_btwr"),
@@ -33,20 +28,11 @@ public class BTWRItemGroup
                             entries.add(BTWR_Items.HEMP_LEAVES);
                             entries.add(BTWR_Items.HEMP_FIBERS);
                             entries.add(BTWR_Items.HEMP_FABRIC);
-                            entries.add(BTWR_Items.ROPE);
                             entries.add(BTWR_Items.LEATHER_SCOURED);
                             entries.add(BTWR_Items.LEATHER_TANNED);
                             entries.add(BTWR_Items.LEATHER_CUT);
                             entries.add(BTWR_Items.LEATHER_SCOURED_CUT);
                             entries.add(BTWR_Items.LEATHER_TANNED_CUT);
-                            //entries.add(BTWR_Items.NETHERRACK_GROUND);
-                            //entries.add(BTWR_Items.DUST_HELLFIRE);
-                            //entries.add(BTWR_Items.COAL_NETHER);
-                            entries.add(BTWR_Items.STRAP);
-                            entries.add(BTWR_Items.BELT);
-                            entries.add(BTWR_Items.GEAR);
-                            entries.add(BTWR_Items.FILAMENT);
-
 
                             // Tools
                             entries.add(BTWR_Items.DIAMOND_SHEARS);

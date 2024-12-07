@@ -1,5 +1,6 @@
 package btwr.core.item;
 
+import btwr.btwrsl.tag.BTWRConventionalTags;
 import btwr.core.block.BTWR_Blocks;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
@@ -22,7 +23,6 @@ import java.util.Objects;
  *
  * <p>If a method is not prefixed with a tool name ("onUseAxe"), then it's simply mixing in for the Item.class
  * **/
-
 public class ItemAndToolMixinManager
 {
     private static final ItemAndToolMixinManager instance = new ItemAndToolMixinManager();
@@ -34,54 +34,9 @@ public class ItemAndToolMixinManager
         return instance;
     }
 
-
-    // TODO: Abstract into separate methods for placement so it can be made to work for an API (eventually)
-    // This placing code could be used by Tough Environment, BTWR and the Bind mod, for placing items as blocks in the world
-    public void placeAsBlock(ItemUsageContext context)
-    {
-        World world = context.getWorld();
-        BlockPos pos = context.getBlockPos();
-        ItemStack heldStack = context.getStack();
-
-        if (heldStack.isOf(Items.BRICK))
-        {
-            // Ensure the block is placed on the server side
-            if (!world.isClient)
-            {
-                BlockPos placePos = pos.up(); // Position to place the new block
-
-                // Get the block state of the block you're trying to place the brick on
-                BlockState blockBelowState = world.getBlockState(pos);
-
-                // Check if the block below can support a block on top of it
-                if (!blockBelowState.isSolidBlock(world, pos))
-                {
-                    return;
-                }
-
-                // Create an ItemPlacementContext for the new block position
-                ItemPlacementContext placementContext = new ItemPlacementContext(Objects.requireNonNull(context.getPlayer()), context.getHand(), heldStack, context.getHitResult());
-
-                // Get the block state using the placement context
-                BlockState brickBlockState = BTWR_Blocks.BRICK.getPlacementState(placementContext);
-
-                // Check if the target position is air or a replaceable block
-                if ((world.isAir(placePos) || world.getBlockState(placePos).canReplace(placementContext)) && brickBlockState != null)
-                {
-                    // Replace the block at the target position with the brick block
-                    world.setBlockState(placePos, brickBlockState);
-                    heldStack.decrement(1);
-
-                    // Indicate the interaction was successful
-                }
-            }
-        }
-
-    }
-
     public ItemStack damageOnCrafting(ItemStack stack)
     {
-        if (stack.getItem() instanceof ShearsItem || stack.getItem() instanceof AxeItem)
+        if (stack.getItem() instanceof ShearsItem || isValidAxeItem(stack))
         {
             if (stack.getDamage() < stack.getMaxDamage() - 1)
             {
@@ -96,7 +51,7 @@ public class ItemAndToolMixinManager
 
     public void onPostMineAxe(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner)
     {
-        if (stack.getItem() instanceof AxeItem)
+        if (isValidAxeItem(stack))
         {
             boolean shouldDrainDurability = state.isReplaceable();
 
@@ -117,7 +72,7 @@ public class ItemAndToolMixinManager
 
     public ItemStack onFinishUsingAxe(ItemStack stack, World world, LivingEntity user, Item axeItem)
     {
-        if (stack.getItem() instanceof AxeItem)
+        if (isValidAxeItem(stack))
         {
             if (user instanceof ServerPlayerEntity serverPlayerEntity)
             {
@@ -140,7 +95,7 @@ public class ItemAndToolMixinManager
     }
 
     public static List<ToolComponent.Rule> MODIFIED_SHEARS_COMPONENT_LIST = List.of(
-            ToolComponent.Rule.ofAlwaysDropping(List.of(Blocks.COBWEB), 15.0f),
+            ToolComponent.Rule.ofAlwaysDropping(BTWRConventionalTags.Blocks.WEB_BLOCKS, 15.0f),
             ToolComponent.Rule.of(BlockTags.LEAVES, 15.0f),
             ToolComponent.Rule.of(BlockTags.WOOL, 5.0f),
             ToolComponent.Rule.of(List.of(Blocks.VINE, Blocks.GLOW_LICHEN), 2.0f),
@@ -148,6 +103,17 @@ public class ItemAndToolMixinManager
             // added crop hemp; all above are the original ones
             ToolComponent.Rule.of(List.of(BTWR_Blocks.CROP_HEMP),20.0f)
     );
+
+    private boolean isValidAxeItem(ItemStack stack) {
+
+        return stack.getItem() instanceof AxeItem || isBWTAxe(stack);
+    }
+
+    private boolean isBWTAxe(ItemStack stack)
+    {
+        // special case added originally for BWT's BattleAxe because it's a mining tool and it should be in this tag
+        return (stack.getItem() instanceof MiningToolItem && stack.isIn(BTWRConventionalTags.Items.AXES_MAKE_PLANKS));
+    }
 
 
 

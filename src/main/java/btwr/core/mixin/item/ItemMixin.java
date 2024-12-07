@@ -21,12 +21,6 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
     @Unique
     private static final ItemAndToolMixinManager itemMixinManager = ItemAndToolMixinManager.getInstance();
 
-    @Inject(method = "useOnBlock", at = @At("HEAD"), cancellable = true)
-    private void injectedUseOnBlock(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir)
-    {
-        itemMixinManager.placeAsBlock(context);
-    }
-
     // Adds remainder logic so the item doesn't get consumed on crafting.
     @Override
     public ItemStack getRecipeRemainder(ItemStack stack)
@@ -43,7 +37,7 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
     @Inject(method = "postMine", at = @At("RETURN"), cancellable = true)
     private void onPostMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner, CallbackInfoReturnable<Boolean> cir)
     {
-        // save the super call
+        // save the original return (super call)
         boolean original = cir.getReturnValue();
 
         // set all without the super call

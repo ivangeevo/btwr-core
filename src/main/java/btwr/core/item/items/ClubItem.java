@@ -55,6 +55,7 @@ public class ClubItem extends ToolItem
             if (stack.getItem() == BTWR_Items.CLUB_WOOD) {
                 player.playSound(SoundEvents.ENTITY_ZOMBIE_BREAK_WOODEN_DOOR, 0.1F, 1.25F + (world.random.nextFloat() * 0.2F));
             }
+
             if (stack.getItem() == BTWR_Items.CLUB_BONE) {
                 player.playSound(SoundEvents.ENTITY_SKELETON_DEATH, 0.3F, 0.10F );
                 player.playSound(SoundEvents.ENTITY_SKELETON_DEATH, 0.1F, 0.8F + (world.random.nextFloat() * 0.35F));

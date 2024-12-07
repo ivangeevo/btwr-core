@@ -18,11 +18,11 @@ public abstract class GrassBlockMixin extends SpreadableBlock implements Fertili
     }
 
     @Override
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack)
+    {
 
-        if (stack.isIn(ItemTags.HOES))
-        {
-            world.setBlockState(pos, Blocks.DIRT.getDefaultState());
+        if (stack.isIn(ItemTags.HOES)) {
+            world.setBlockState(pos, Blocks.DIRT.getDefaultState(), 4, 0);
         }
 
         super.afterBreak(world, player, pos, state, blockEntity, stack);

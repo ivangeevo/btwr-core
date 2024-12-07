@@ -7,14 +7,11 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 import org.slf4j.Logger;
 
-public class BTWRModClient implements ClientModInitializer
-{
+public class BTWRModClient implements ClientModInitializer {
 
     public static final Logger LOGGER = BTWRMod.LOGGER;
     @Override
-    public void onInitializeClient()
-    {
-        //BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.LIGHTBLOCK, RenderLayer.getCutout());
+    public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.CROP_HEMP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.BRICK_UNFIRED, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.BRICK, RenderLayer.getCutout());

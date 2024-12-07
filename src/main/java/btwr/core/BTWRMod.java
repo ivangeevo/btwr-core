@@ -7,8 +7,6 @@ import btwr.core.item.BTWR_Items;
 import btwr.core.registry.ModFuelItems;
 import com.google.gson.Gson;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.minecraft.block.Blocks;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,8 +15,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class BTWRMod implements ModInitializer
-{
+public class BTWRMod implements ModInitializer {
     public static final String MOD_ID = "btwr";
     public static final Logger LOGGER = LoggerFactory.getLogger("btwr");
     public BTWRSettings settings;
@@ -28,14 +25,14 @@ public class BTWRMod implements ModInitializer
     }
 
     @Override
-    public void onInitialize()
-    {
+    public void onInitialize() {
         LOGGER.info("Initializing BTWR-Core.");
         loadSettings();
         instance = this;
 
         BTWRItemGroup.registerItemGroups();
         BTWR_Blocks.registerModBlocks();
+        BTWR_Blocks.registerItemsPlaceableAsBlocks();
         BTWR_Items.registerModItems();
 
         //ModRecipesRegistry.registerModRecipes();
@@ -43,12 +40,12 @@ public class BTWRMod implements ModInitializer
 
         BTWR_EntityTypes.Blocks.registerBlockEntities();
 
+
         //modifyLeavesLootTables();
 
     }
 
-    public void loadSettings()
-    {
+    public void loadSettings() {
         File file = new File("./config/btwr/btwrCommon.json");
         Gson gson = new Gson();
         if (file.exists())

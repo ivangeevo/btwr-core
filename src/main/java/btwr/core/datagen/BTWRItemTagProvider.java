@@ -63,8 +63,6 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(BTWRConventionalTags.Items.STRING_TOOL_MATERIALS)
                 .add(BTWR_Items.HEMP_FIBERS);
 
-        getOrCreateTagBuilder(BTWRConventionalTags.Items.GEARS)
-                .add(BTWR_Items.GEAR);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.COOKED_POTATO_FOODS)
                 .add(BTWR_Items.BOILED_POTATO);
