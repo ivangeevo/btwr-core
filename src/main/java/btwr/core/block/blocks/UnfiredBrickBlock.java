@@ -30,8 +30,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-public class UnfiredBrickBlock extends BlockWithEntity
-{
+public class UnfiredBrickBlock extends BlockWithEntity {
     public static final float BRICK_HEIGHT = (4F / 16F );
     public static final float BRICK_WIDTH = (6F / 16F );
     public static final float BRICK_HALF_WIDTH = (BRICK_WIDTH / 2F );
@@ -49,15 +48,18 @@ public class UnfiredBrickBlock extends BlockWithEntity
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
-    {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add( FACING, DRYING_LEVEL );
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
-    {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return state.get(FACING).getAxis() == Direction.Axis.Z ? SHAPE_Z_AXIS : SHAPE_X_AXIS;
+    }
+
+    @Override
+    protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return VoxelShapes.empty();
     }
 
     @Override
@@ -67,24 +69,21 @@ public class UnfiredBrickBlock extends BlockWithEntity
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity)
-    {
-        if (entity instanceof LivingEntity)
-        {
+    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+        if (entity instanceof LivingEntity) {
             world.playSound(null, pos, SoundEvents.ENTITY_SLIME_ATTACK, SoundCategory.BLOCKS, ( 0.5F + 1.0F ) / 2.0F, 0.1F * 0.8F );
             world.addBlockBreakParticles(pos, state);
             dropBlockAsItem(world, pos);
             world.removeBlock(pos, false);
         }
+
         super.onEntityCollision(state, world, pos, entity);
     }
 
 
     @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved)
-    {
-        if (state.isOf(newState.getBlock()))
-        {
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.isOf(newState.getBlock())) {
             return;
         }
 
@@ -102,8 +101,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
         super.neighborUpdate(state, world, pos, block, fromPos, notify);
     }
 
-    public void onFinishedCooking(World world, BlockPos pos, BlockState state)
-    {
+    public void onFinishedCooking(World world, BlockPos pos, BlockState state) {
         BlockState dryState = BTWR_Blocks.BRICK.getDefaultState().with(FACING, state.get(FACING));
         world.setBlockState(pos, dryState);
     }
@@ -120,8 +118,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
 
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos)
-    {
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return world.getBlockState(pos.down()).isSolidBlock(world, pos.down());
     }
 
@@ -131,8 +128,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
     }
 
 
-    private void dropBlockAsItem(World world, BlockPos pos)
-    {
+    private void dropBlockAsItem(World world, BlockPos pos) {
         ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), Items.CLAY_BALL.getDefaultStack());
     }
 
@@ -145,20 +141,17 @@ public class UnfiredBrickBlock extends BlockWithEntity
 
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random)
-    {
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         // Drying particles display when its drying(only during daytime)
         long timeOfDay = world.getTimeOfDay() % 24000; // Get the time of day (0 - 23999)
 
-        if (timeOfDay >= 0 && timeOfDay < 12000 && !world.hasRain(pos))
-        {
+        if (timeOfDay >= 0 && timeOfDay < 12000 && !world.hasRain(pos)) {
 
             double d = pos.getX() + 0.25F + world.random.nextFloat() * 0.5F;
             double e = pos.getY() + 0.5F + world.random.nextFloat() * 0.25F;
             double f = pos.getZ() + 0.25F + world.random.nextFloat() * 0.5F;
 
-            if ( world.random.nextInt( 20 ) == 0 )
-            {
+            if ( world.random.nextInt( 20 ) == 0 ) {
                 world.addParticle(ParticleTypes.CLOUD, d, e, f, 0.0, 0.0, 0.0);
             }
 
@@ -166,8 +159,7 @@ public class UnfiredBrickBlock extends BlockWithEntity
     }
 
 
-    public int getDryLevel(WorldAccess blockAccess, BlockPos pos)
-    {
+    public int getDryLevel(WorldAccess blockAccess, BlockPos pos) {
         return getDryLevel(blockAccess.getBlockState(pos));
     }
 
@@ -182,15 +174,13 @@ public class UnfiredBrickBlock extends BlockWithEntity
         world.setBlockState(pos, newState, 3);
     }
 
-    public static BlockState setDryingLevel(BlockState state, int iCookLevel)
-    {
+    public static BlockState setDryingLevel(BlockState state, int iCookLevel) {
         return state.with(DRYING_LEVEL, iCookLevel);
     }
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state)
-    {
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new UnfiredBrickBE(pos, state);
     }
 

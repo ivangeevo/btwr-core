@@ -34,15 +34,18 @@ public class BrickBlock extends Block
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
-    {
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add( FACING );
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
-    {
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return state.get(FACING).getAxis() == Direction.Axis.Z ? BRICK_SHAPE_HORIZONTAL : BRICK_SHAPE_VERTICAL;
+    }
+
+    @Override
+    protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return VoxelShapes.empty();
     }
 
     @Override
@@ -69,8 +72,7 @@ public class BrickBlock extends Block
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos)
-    {
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return world.getBlockState(pos.down()).isSolidBlock(world, pos.down());
     }
 
