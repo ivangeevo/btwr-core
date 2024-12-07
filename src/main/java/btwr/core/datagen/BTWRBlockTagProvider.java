@@ -12,56 +12,27 @@ import java.util.concurrent.CompletableFuture;
 
 public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
-
-    public BTWRBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
-    {
+    public BTWRBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
 
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup arg)
-    {
+    protected void configure(RegistryWrapper.WrapperLookup arg) {
         addToModTags();
         addToVanillaTags();
         addToConventionalTags();
     }
 
-    private void addToVanillaTags()
-    {
+    private void addToVanillaTags() {
 
 
     }
 
-    private void addToModTags()
-    {
+    private void addToModTags() {
     }
 
-    private void addToConventionalTags()
-    {
-        getOrCreateTagBuilder(BTWRConventionalTags.Blocks.VANILLA_CONVERTING_BLOCKS)
-                .forceAddTag(BlockTags.BIRCH_LOGS)
-                .forceAddTag(BlockTags.SPRUCE_LOGS)
-                .forceAddTag(BlockTags.JUNGLE_LOGS)
-                .forceAddTag(BlockTags.ACACIA_LOGS)
-                .forceAddTag(BlockTags.DARK_OAK_LOGS)
-                .forceAddTag(BlockTags.MANGROVE_LOGS)
-                .forceAddTag(BlockTags.CHERRY_LOGS)
-
-                .forceAddTag(BlockTags.COAL_ORES)
-                .forceAddTag(BlockTags.IRON_ORES)
-                .forceAddTag(BlockTags.COPPER_ORES)
-                .forceAddTag(BlockTags.GOLD_ORES)
-                .forceAddTag(BlockTags.LAPIS_ORES)
-                .forceAddTag(BlockTags.REDSTONE_ORES)
-                .forceAddTag(BlockTags.DIAMOND_ORES)
-                .forceAddTag(BlockTags.EMERALD_ORES)
-
-                .forceAddTag(BlockTags.BASE_STONE_OVERWORLD)
-                .forceAddTag(BlockTags.BASE_STONE_NETHER);
-
-        getOrCreateTagBuilder(BTWRConventionalTags.Blocks.FARMLAND_BLOCKS)
-                .add(Blocks.FARMLAND);
+    private void addToConventionalTags() {
 
     }
 }
