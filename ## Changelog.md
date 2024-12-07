@@ -1,15 +1,19 @@
 ### 0.28
-+ Removed LightBlock and Rope Coil block
-+ Removal of the LightBlock also fixed a bug that caused its item to get registered twice and crashed the client on connecting to dedicated servers.
-+ Directional drop logic for blocks has been rewritten (To be tested further)
++ Added Element item
 + Enabled (fixed) the ability to knockback entities without the proper weapon if the player is sprinting
 + Fixed a bug that crashed the game when attacking silverfish
 + Fixed being able to melee knockback entities with crossbow or bow while knockback restrictions are enabled.
 + Fixed a server side bug that caused breaking of directional dropping blocks to crash the client.
-+ Fixed Shear tools from being too slow in breaking hemp plants.
++ Fixed Shear tools from being too slow in breaking Hemp.
 + Fixed placement sounds for some brick blocks
 + Code refactoring/improvements
-+ Updated the mod to Fabric API 0.109.0 & Fabric Loader 0.16.9
++ Removed the following items because  they have no use in the scope of this mod:
+  Filament, Gear, Belt, Strap, Padding, Rope.
++ Removed LightBlock and Rope Coil block for the same reason
++ Removal of the LightBlock also fixed a bug that caused its item to get registered twice and crashed the client on connecting to dedicated servers.
++ Reverted the name change of Stick to Shaft
+
++ Updated the mod to Fabric API 0.110.0 & Fabric Loader 0.16.9
 
 ### 0.27
 

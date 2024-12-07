@@ -12,8 +12,8 @@ public class BTWRDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(BTWRRecipeProvider::new);
         pack.addProvider(BTWRBlockTagProvider::new);
         pack.addProvider(BTWRItemTagProvider::new);
-        pack.addProvider(BTWRLootTableGenerator::new);
-        pack.addProvider(BTWRModelGenerator::new);
+        pack.addProvider(BTWRLootTableProvider::new);
+        pack.addProvider(BTWRModelProvider::new);
 
     }
 
