@@ -1,5 +1,4 @@
 ### 0.28
-+ Added Element item
 + Enabled (fixed) the ability to knockback entities without the proper weapon if the player is sprinting
 + Fixed a bug that crashed the game when attacking silverfish
 + Fixed being able to melee knockback entities with crossbow or bow while knockback restrictions are enabled.
