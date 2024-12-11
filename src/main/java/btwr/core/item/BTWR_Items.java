@@ -22,8 +22,6 @@ public class BTWR_Items {
 
     public static final Item DIAMOND_PLATE = registerItem("diamond_plate", new Item(new Item.Settings()));
 
-    public static final Item STONE_BRICK = registerItem( "stone_brick", new Item (new Item.Settings()));
-
     public static final Item BRICK_UNFIRED = registerItem( "brick_unfired",
             new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED, new Item.Settings()));
 
