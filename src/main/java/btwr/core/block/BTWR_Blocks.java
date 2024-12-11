@@ -18,7 +18,7 @@ public class BTWR_Blocks {
     // Block and Block Item declarations
     public static final Block CROP_HEMP = registerWithoutItem("crop_hemp", new HempCropBlock(AbstractBlock.Settings.create().noCollision().ticksRandomly().nonOpaque().strength(0.5f).sounds(BlockSoundGroup.GRASS)));
     public static final Block BRICK_UNFIRED = registerWithoutItem("brick_unfired", new UnfiredBrickBlock(AbstractBlock.Settings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
-    public static final Block BRICK = registerWithoutItem("brick", new BrickBlock(AbstractBlock.Settings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
+    public static final Block BRICK = registerWithoutItem("brick", new BrickBlock(Items.BRICK, AbstractBlock.Settings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.STONE)));
 
 
     private static Block register(String name, Block block) {

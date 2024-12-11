@@ -23,8 +23,7 @@ import java.util.Objects;
  *
  * <p>If a method is not prefixed with a tool name ("onUseAxe"), then it's simply mixing in for the Item.class
  * **/
-public class ItemAndToolMixinManager
-{
+public class ItemAndToolMixinManager {
     private static final ItemAndToolMixinManager instance = new ItemAndToolMixinManager();
 
     private ItemAndToolMixinManager() {}
@@ -34,12 +33,9 @@ public class ItemAndToolMixinManager
         return instance;
     }
 
-    public ItemStack damageOnCrafting(ItemStack stack)
-    {
-        if (stack.getItem() instanceof ShearsItem || isValidAxeItem(stack))
-        {
-            if (stack.getDamage() < stack.getMaxDamage() - 1)
-            {
+    public ItemStack damageOnCrafting(ItemStack stack) {
+        if (stack.getItem() instanceof ShearsItem || isValidAxeItem(stack)) {
+            if (stack.getDamage() < stack.getMaxDamage() - 1) {
                 ItemStack moreDamaged = stack.copy();
                 moreDamaged.setDamage(stack.getDamage() + 1);
                 return moreDamaged;
@@ -49,19 +45,14 @@ public class ItemAndToolMixinManager
         return ItemStack.EMPTY;
     }
 
-    public void onPostMineAxe(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner)
-    {
-        if (isValidAxeItem(stack))
-        {
+    public void onPostMineAxe(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+        if (isValidAxeItem(stack)) {
             boolean shouldDrainDurability = state.isReplaceable();
 
             // Check if the tool is used for the "wrong" activities
 
-            if (shouldDrainDurability)
-            {
-                if (state.getHardness(world, pos) != 0.0f)
-                {
-
+            if (shouldDrainDurability) {
+                if (state.getHardness(world, pos) != 0.0f) {
                     // Drain durability 2x faster
                     stack.damage(2, miner, EquipmentSlot.MAINHAND);
                 }
@@ -70,18 +61,14 @@ public class ItemAndToolMixinManager
         }
     }
 
-    public ItemStack onFinishUsingAxe(ItemStack stack, World world, LivingEntity user, Item axeItem)
-    {
-        if (isValidAxeItem(stack))
-        {
-            if (user instanceof ServerPlayerEntity serverPlayerEntity)
-            {
+    public ItemStack onFinishUsingAxe(ItemStack stack, World world, LivingEntity user, Item axeItem) {
+        if (isValidAxeItem(stack)) {
+            if (user instanceof ServerPlayerEntity serverPlayerEntity) {
                 Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
                 serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(axeItem));
             }
 
-            if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode)
-            {
+            if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode) {
                 stack.decrement(1);
             }
 
@@ -105,12 +92,10 @@ public class ItemAndToolMixinManager
     );
 
     private boolean isValidAxeItem(ItemStack stack) {
-
         return stack.getItem() instanceof AxeItem || isBWTAxe(stack);
     }
 
-    private boolean isBWTAxe(ItemStack stack)
-    {
+    private boolean isBWTAxe(ItemStack stack) {
         // special case added originally for BWT's BattleAxe because it's a mining tool and it should be in this tag
         return (stack.getItem() instanceof MiningToolItem && stack.isIn(BTWRConventionalTags.Items.AXES_MAKE_PLANKS));
     }

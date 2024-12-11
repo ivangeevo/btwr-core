@@ -31,8 +31,7 @@ public abstract class CreeperEntityRendererMixin extends MobEntityRenderer<Creep
 
     @Inject(method = "getTexture(Lnet/minecraft/entity/mob/CreeperEntity;)Lnet/minecraft/util/Identifier;",
             at = @At("HEAD"), cancellable = true)
-    private void injectedGetTexture(CreeperEntity creeperEntity, CallbackInfoReturnable<Identifier> cir)
-    {
+    private void injectedGetTexture(CreeperEntity creeperEntity, CallbackInfoReturnable<Identifier> cir) {
         cir.setReturnValue(creeperEntity.isNeutered() ? NEUTERED_TEXTURE : TEXTURE);
     }
 

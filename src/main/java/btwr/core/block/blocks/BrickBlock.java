@@ -1,6 +1,7 @@
 package btwr.core.block.blocks;
 
 import net.minecraft.block.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.Items;
 import net.minecraft.state.StateManager;
@@ -28,9 +29,11 @@ public class BrickBlock extends Block
 
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
-    public BrickBlock(Settings settings)
-    {
+    private static Item blockItem;
+
+    public BrickBlock(Item blockItem, Settings settings) {
         super(settings);
+        BrickBlock.blockItem = blockItem;
     }
 
     @Override
@@ -58,7 +61,7 @@ public class BrickBlock extends Block
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify)
     {
         if (!world.getBlockState(pos.down()).isSolidBlock(world, pos.down())) {
-            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), Items.BRICK.getDefaultStack());
+            ItemScatterer.spawn(world, pos.getX(), pos.getY(), pos.getZ(), blockItem.getDefaultStack());
             world.removeBlock(pos, false);
         }
 

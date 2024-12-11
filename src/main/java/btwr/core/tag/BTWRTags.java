@@ -7,11 +7,9 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
-public class BTWRTags
-{
+public class BTWRTags {
 
-    public static class Blocks
-    {
+    public static class Blocks {
 
 
         private static TagKey<Block> createTag(String name) {
@@ -19,8 +17,7 @@ public class BTWRTags
         }
     }
 
-    public static class Items
-    {
+    public static class Items {
 
         /** These tags don't generate using datagen.
          *  Instead, the items should be added manually and
@@ -61,7 +58,6 @@ public class BTWRTags
         public static final TagKey<Item> PIG_TEMPT_ITEMS = createTag("pig_tempt_items");
         public static final TagKey<Item> MEATS_FOR_SANDWICH = createTag("meats_for_sandwich");
 
-        public static final TagKey<Item> SHEARS = createTag("shears");
 
 
 
