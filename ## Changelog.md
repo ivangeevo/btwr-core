@@ -7,7 +7,7 @@
 + Fixed placement sounds for some brick blocks
 + Code refactoring/improvements
 + Removed the following items because  they have no use in the scope of this mod:
-  Filament, Gear, Belt, Strap, Padding, Rope.
+  Filament, Gear, Belt, Strap, Padding, Rope, Stone Brick -> (moved to Tough Environment).
 + Removed LightBlock and Rope Coil block for the same reason
 + Removal of the LightBlock also fixed a bug that caused its item to get registered twice and crashed the client on connecting to dedicated servers.
 + Reverted the name change of Stick to Shaft
