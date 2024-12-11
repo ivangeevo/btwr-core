@@ -4,18 +4,12 @@
   "package": "btwr.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "block.FarmlandBlockMixin",
-    "block.GrassBlockMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",
     "entity.ZombieEntityMixin",
     "item.ItemMixin",
-    "item.ShearsItemMixin",
-    "recipe.CraftingResultSlotMixin",
-    "recipe.ShapelessRecipeJsonBuilderMixin",
-    "recipe.ShapelessRecipeMixin",
-    "recipe.ShapelessRecipeSerializerMixin"
+    "item.ShearsItemMixin"
   ],
   "client": [
     "entity.CreeperEntityRendererMixin"
