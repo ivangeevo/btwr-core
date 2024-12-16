@@ -39,6 +39,9 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
 
     public static final LootCondition.Builder WITH_AXE = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ItemTags.AXES));
     public static final LootCondition.Builder WITH_AXE_HARVEST_FULL_BLOCK = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(BTWRConventionalTags.Items.AXES_HARVEST_FULL_BLOCK));
+    public static final LootCondition.Builder IS_HEMP_MAX_AGE = BlockStatePropertyLootCondition.builder(BTWR_Blocks.CROP_HEMP).properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.AGE, HempCropBlock.MAX_AGE));
+    public static final LootCondition.Builder IS_HEMP_TOP_PART = BlockStatePropertyLootCondition.builder(BTWR_Blocks.CROP_HEMP).properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.IS_TOP, true));
+
 
 
     public static final LootCondition.Builder WITH_CONVENTIONAL_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ConventionalItemTags.SHEAR_TOOLS));
@@ -85,7 +88,7 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
         // Create a loot pool for shears condition with hemp leaves drop
         LootPool.Builder leavesPool = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1.0f))
-                .with(ItemEntry.builder(hempLeaves))
+                .with(ItemEntry.builder(hempLeaves).conditionally(IS_HEMP_MAX_AGE))
                 .conditionally(WITH_CONVENTIONAL_SHEARS);
 
         // Create a loot pool for shears condition with hemp seeds drop (50% chance)
@@ -93,14 +96,11 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
                 .rolls(ConstantLootNumberProvider.create(1.0f))
                 .with(ItemEntry.builder(hempSeeds)
                         .conditionally(RandomChanceLootCondition.builder(0.5f))
-                        .conditionally(BlockStatePropertyLootCondition.builder(block)
-                                .properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.TOP, true))))
+                        .conditionally(IS_HEMP_TOP_PART))
                 .conditionally(WITH_CONVENTIONAL_SHEARS);
 
         // Combine both pools into the loot table
-        return LootTable.builder()
-                .pool(leavesPool)
-                .pool(seedsPool);
+        return LootTable.builder().pool(leavesPool).pool(seedsPool);
     }
 
     public LootTable.Builder leavesDrops(Block leaves, Block drop, float... chance) {
