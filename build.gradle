@@ -67,8 +67,6 @@ dependencies {
 
     modImplementation("org.ivangeevo:btwr-shared-lib:${project.btwr_lib_version}")
 
-    modImplementation files("libs/better_with_time-1.7.jar")
-
 }
 
 processResources {
