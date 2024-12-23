@@ -42,17 +42,8 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(BTWR_Items.LEATHER_TANNED)
                 .add(BTWR_Items.LEATHER_TANNED_CUT);
 
-        getOrCreateTagBuilder(BTWRTags.Items.MEATS_FOR_SANDWICH)
-                .add(Items.COOKED_CHICKEN)
-                .add(Items.COOKED_BEEF)
-                .add(Items.COOKED_PORKCHOP)
-                .add(Items.COOKED_MUTTON)
-                .add(Items.COOKED_RABBIT)
-                .add(Items.COOKED_SALMON)
-                .add(Items.COOKED_COD);
     }
-    
-    
+
     private void addToConventionalTags() {
 
         // Fabric Conventional Tags

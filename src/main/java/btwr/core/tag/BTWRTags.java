@@ -56,8 +56,6 @@ public class BTWRTags {
         public static final TagKey<Item> PRIMITIVE_AXES = createTag("primitive_axes");
         public static final TagKey<Item> PIG_BREEDING_ITEMS = createTag("pig_breeding_items");
         public static final TagKey<Item> PIG_TEMPT_ITEMS = createTag("pig_tempt_items");
-        public static final TagKey<Item> MEATS_FOR_SANDWICH = createTag("meats_for_sandwich");
-
 
 
 

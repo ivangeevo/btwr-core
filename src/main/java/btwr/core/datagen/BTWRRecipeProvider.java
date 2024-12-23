@@ -80,7 +80,7 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         createSmoking(Ingredient.ofItems(BTWR_Items.MUSHROOM_OMELETTE_RAW), RecipeCategory.FOOD, BTWR_Items.MUSHROOM_OMELETTE_COOKED, 0.30f, 100).criterion("has_raw_omelette", conditionsFromItem(BTWR_Items.MUSHROOM_OMELETTE_RAW)).offerTo(exporter, Identifier.ofVanilla("mushroom_omelette_cooked_from_smoking"));
 
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.SANDWICH,2).input(Items.BREAD).input(BTWRTags.Items.MEATS_FOR_SANDWICH).criterion("has_bread", RecipeProvider.conditionsFromItem(Items.BREAD)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.SANDWICH,2).input(Items.BREAD).input(BTWRConventionalTags.Items.COOKED_MEATS_FOR_SANDWICH).criterion("has_bread", RecipeProvider.conditionsFromItem(Items.BREAD)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.HAM_AND_EGGS,2).input(Items.COOKED_PORKCHOP).input(BTWRConventionalTags.Items.COOKED_EGG_FOODS).criterion("has_cooked_egg", RecipeProvider.conditionsFromTag(BTWRConventionalTags.Items.COOKED_EGG_FOODS)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.STEAK_AND_POTATOES,2).input(Items.COOKED_BEEF).input(BTWRConventionalTags.Items.COOKED_POTATO_FOODS).criterion("has_cooked_potato", RecipeProvider.conditionsFromTag(BTWRConventionalTags.Items.COOKED_POTATO_FOODS)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.CHOWDER).input(ConventionalItemTags.COOKED_FISH_FOODS).input(Items.MILK_BUCKET).input(Items.BOWL).criterion("has_cooked_potato", RecipeProvider.conditionsFromTag(BTWRConventionalTags.Items.COOKED_POTATO_FOODS)).offerTo(exporter);
@@ -95,7 +95,7 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         //ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.WOLF_DINNER,3).input(BwtItems.cookedWolfChopItem).input(BTWRConventionalTags.Items.COOKED_POTATO_FOODS).input(Items.CARROT).criterion("has_carrot", RecipeProvider.conditionsFromItem(Items.CARROT)).offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.CHICKEN_SOUP,1).input(Items.COOKED_CHICKEN).input(BTWR_Items.COOKED_CARROT).input(BTWR_Items.BOILED_POTATO).input(Items.BOWL).criterion("has_boiled_potato", RecipeProvider.conditionsFromItem(BTWR_Items.BOILED_POTATO)).offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.HEARTY_STEW,1).input(BTWRConventionalTags.Items.COOKED_MEATS).input(BTWR_Items.COOKED_CARROT).input(BTWR_Items.BOILED_POTATO).input(Items.BROWN_MUSHROOM).input(Items.BOWL).criterion("has_carrot", conditionsFromItem(BTWR_Items.COOKED_CARROT)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.HEARTY_STEW,1).input(ConventionalItemTags.COOKED_MEAT_FOODS).input(BTWR_Items.COOKED_CARROT).input(BTWR_Items.BOILED_POTATO).input(Items.BROWN_MUSHROOM).input(Items.BOWL).criterion("has_carrot", conditionsFromItem(BTWR_Items.COOKED_CARROT)).offerTo(exporter);
 
         // Other recipes
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.DIAMOND_INGOT).input(Items.IRON_INGOT).input(Items.DIAMOND).input(BTWR_Items.CREEPER_OYSTERS).criterion("has_diamond", RecipeProvider.conditionsFromItem(Items.DIAMOND)).offerTo(exporter);
