@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "c:foods/cooked_meats"
+      "tag": "c:foods/cooked_meat"
     },
     {
       "item": "btwr:cooked_carrot"
