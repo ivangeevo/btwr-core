@@ -67,6 +67,7 @@ dependencies {
 
     modImplementation("org.ivangeevo:btwr-shared-lib:${project.btwr_lib_version}")
 
+
 }
 
 processResources {
