@@ -1,3 +1,9 @@
+### 0.28.1
++ Made the mod (actually) depend on BTWR- Shared Library mod
++ Fixed a bug that caused the game to crash when a block was updating the Brick-Placed block.
++ Moved the COOKED_MEATS_FOR_SANDWICH item tag to BTWRConventionalTags in BTWR Shared Library
++ Changed Hearty Stew to use the COOKED MEAT FOODS Conventional Item tag
+
 ### 0.28
 + Enabled (fixed) the ability to knockback entities without the proper weapon if the player is sprinting
 + Fixed a bug that crashed the game when attacking silverfish
