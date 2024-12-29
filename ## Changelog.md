@@ -1,3 +1,8 @@
+### 0.28.2
++ Moved shear recipes to use the conventional item tag SHEAR_TOOLS 
++ Added Diamond Shears to the Conventional Item Tags SHEAR TOOLS
++ Added Shears cutting sound for crafting Cut Leather recipes
+
 ### 0.28.1
 + Made the mod (actually) depend on BTWR- Shared Library mod
 + Fixed a bug that caused the game to crash when a block was updating the Brick-Placed block.
