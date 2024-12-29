@@ -2,7 +2,7 @@ package btwr.core.block.blocks;
 
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.entity.UnfiredBrickBE;
-import btwr.core.entity.BTWR_EntityTypes;
+import btwr.core.entity.BTWR_Entities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -12,7 +12,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.Items;
-import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -136,7 +135,7 @@ public class UnfiredBrickBlock extends BlockWithEntity {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
     {
-        return UnfiredBrickBlock.validateTicker(type, BTWR_EntityTypes.Blocks.BRICK_UNFIRED, UnfiredBrickBE::tick);
+        return UnfiredBrickBlock.validateTicker(type, BTWR_Entities.Blocks.BRICK_UNFIRED, UnfiredBrickBE::tick);
     }
 
 
