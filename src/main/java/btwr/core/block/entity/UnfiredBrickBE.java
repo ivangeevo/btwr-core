@@ -2,7 +2,7 @@ package btwr.core.block.entity;
 
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.blocks.UnfiredBrickBlock;
-import btwr.core.entity.BTWR_Entities;
+import btwr.core.entity.BTWR_EntityTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -25,7 +25,7 @@ public class UnfiredBrickBE extends BlockEntity
 
     public UnfiredBrickBE(BlockPos pos, BlockState state)
     {
-        super(BTWR_Entities.Blocks.BRICK_UNFIRED, pos, state);
+        super(BTWR_EntityTypes.Blocks.BRICK_UNFIRED, pos, state);
     }
 
     public int getDryingLevel()
