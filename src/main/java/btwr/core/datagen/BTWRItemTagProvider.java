@@ -42,6 +42,12 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(BTWR_Items.LEATHER_TANNED)
                 .add(BTWR_Items.LEATHER_TANNED_CUT);
 
+        getOrCreateTagBuilder(BTWRTags.Items.CUT_LEATHERS)
+                .add(BTWR_Items.LEATHER_CUT)
+                .add(BTWR_Items.LEATHER_SCOURED_CUT)
+                .add(BTWR_Items.LEATHER_TANNED_CUT);
+
+
     }
 
     private void addToConventionalTags() {
@@ -50,10 +56,12 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(ConventionalItemTags.STRINGS)
                 .add(BTWR_Items.HEMP_FIBERS);
 
+        getOrCreateTagBuilder(ConventionalItemTags.SHEAR_TOOLS)
+                .add(BTWR_Items.DIAMOND_SHEARS);
+
         // BTWR Added Conventional Tags
         getOrCreateTagBuilder(BTWRConventionalTags.Items.STRING_TOOL_MATERIALS)
                 .add(BTWR_Items.HEMP_FIBERS);
-
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.COOKED_POTATO_FOODS)
                 .add(BTWR_Items.BOILED_POTATO);
@@ -62,15 +70,15 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(BTWR_Items.CLUB_WOOD)
                 .add(BTWR_Items.CLUB_BONE);
 
-        getOrCreateTagBuilder(BTWRConventionalTags.Items.SHEARS)
-                .add(BTWR_Items.DIAMOND_SHEARS);
-
         getOrCreateTagBuilder(BTWRConventionalTags.Items.CHICKEN_TEMPT_ITEMS)
                 .add(BTWR_Items.HEMP_SEEDS);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SLIME_SOUND)
                 .addTag(BTWRTags.Items.CLAY_ITEMS)
                 .add(BTWR_Items.DIAMOND_INGOT);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SHEARS_CUT_SOUND)
+                .addTag(BTWRTags.Items.CUT_LEATHERS);
 
         }
 
