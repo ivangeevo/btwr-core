@@ -1,9 +1,11 @@
 ### 0.28.2
++ Made mobs being unable to spawn on all types of wood blocks. This can be disabled in the config.
 + Added Diamond Shears to the Conventional Item Tags SHEAR TOOLS
-+ Added Shears cutting sound for crafting Cut Leather recipes
-+ Moved shear recipes to use the conventional item tag SHEAR_TOOLS 
++ Added Shears cutting sound for crafting Cut Leather recipes.
++ Moved shear recipes to use the conventional item tag SHEAR_TOOLS.
 + Fixed the names of tanned and scoured cut leather items being swapped.
-+ Updated the project to require BTWR: Shared Library 0.37-SNAPSHOT
++ Improved the naming of switchable options in the config file and the configuration menu through Mod Menu.
++ Updated the project to require BTWR: Shared Library 0.38-SNAPSHOT.
 
 ### 0.28.1
 + Made the mod (actually) depend on BTWR- Shared Library mod
