@@ -3,15 +3,19 @@ package btwr.core.config;
 public class BTWRSettings
 {
 
-    public boolean knockbackRestriction = true;
-    public boolean dontSpawnBabyZombies = true;
+    public boolean knockbackRestrictions = true;
+    public boolean babyZombiesSpawn = false;
+    public boolean mobsSpawnOnWood = false;
 
-    public boolean isDontSpawnBabyZombiesEnabled() {
-        return dontSpawnBabyZombies;
+
+    public boolean shouldDoKnockbackRestrictions() {
+        return knockbackRestrictions;
     }
-
-    public boolean isKnockbackRestrictionEnabled() {
-        return knockbackRestriction;
+    public boolean shouldSpawnBabyZombies() {
+        return babyZombiesSpawn;
+    }
+    public boolean shouldMobsSpawnOnWood() {
+        return mobsSpawnOnWood;
     }
 
 
