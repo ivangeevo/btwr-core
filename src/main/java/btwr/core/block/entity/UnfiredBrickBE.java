@@ -3,6 +3,9 @@ package btwr.core.block.entity;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.blocks.UnfiredBrickBlock;
 import btwr.core.entity.BTWR_EntityTypes;
+import btwr.core.tag.BTWRTags;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -13,6 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+import java.util.Objects;
+
 public class UnfiredBrickBE extends BlockEntity
 {
    protected int dryingLevel = 0;
@@ -21,7 +26,6 @@ public class UnfiredBrickBE extends BlockEntity
     private static final int RAIN_COOK_DECAY = 10;
 
     private boolean isDrying = false;
-
 
     public UnfiredBrickBE(BlockPos pos, BlockState state)
     {
@@ -33,18 +37,14 @@ public class UnfiredBrickBE extends BlockEntity
         return dryingLevel;
     }
 
-
-
     @Override
-    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup)
-    {
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
         this.dryingLevel = nbt.getShort("DryingTime");
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup)
-    {
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
         nbt.putShort("DryingTime", (short) this.dryingLevel);
     }
@@ -54,14 +54,12 @@ public class UnfiredBrickBE extends BlockEntity
         return BlockEntityUpdateS2CPacket.create(this);
     }
 
-
-    public static void tick(World world, BlockPos pos, BlockState state, UnfiredBrickBE be)
-    {
+    public static void tick(World world, BlockPos pos, BlockState state, UnfiredBrickBE be) {
         if ( !world.isClient ) be.updateDrying();
     }
 
-    public void updateDrying()
-    {
+    public void updateDrying() {
+
         boolean bNewDrying;
 
         assert world != null;
@@ -71,14 +69,12 @@ public class UnfiredBrickBE extends BlockEntity
         Block blockAbove = stateAbove.getBlock();
 
         /**
-        if ( blockAbove != null && stateAbove.isTransparent(world, pos) )
-        {
+        if ( blockAbove != null && stateAbove.isIn(BTWRTags.Blocks.GROUND_COVERS)) {
             bNewDrying = false;
         }
          **/
 
-        if (bNewDrying != isDrying)
-        {
+        if (bNewDrying != isDrying) {
             isDrying = bNewDrying;
 
             world.markDirty( pos );
@@ -86,25 +82,20 @@ public class UnfiredBrickBE extends BlockEntity
 
         UnfiredBrickBlock brickBlock = (UnfiredBrickBlock) BTWR_Blocks.BRICK_UNFIRED;
 
-        if (isDrying)
-        {
+        if (isDrying) {
+
             dryingLevel++;
 
-            if (dryingLevel >= TIME_TO_COOK)
-            {
+            if (dryingLevel >= TIME_TO_COOK) {
                 brickBlock.onFinishedCooking(world, pos, world.getBlockState(pos));
 
                 return;
             }
-        }
-        else
-        {
-            if ( isRainingOnBrick(world, pos) )
-            {
+        } else {
+            if ( isRainingOnBrick(world, pos) ) {
                 dryingLevel -= RAIN_COOK_DECAY;
 
-                if (dryingLevel < 0 )
-                {
+                if (dryingLevel < 0 ) {
                     dryingLevel = 0;
                 }
             }
@@ -113,8 +104,7 @@ public class UnfiredBrickBE extends BlockEntity
         int iDisplayedDryLevel = brickBlock.getDryLevel(world, pos);
         int iCurrentDryLevel = computeDryLevel();;
 
-        if ( iDisplayedDryLevel != iCurrentDryLevel )
-        {
+        if ( iDisplayedDryLevel != iCurrentDryLevel ) {
             UnfiredBrickBlock.setDryingLevel(world, pos, iCurrentDryLevel);
         }
     }
@@ -124,10 +114,8 @@ public class UnfiredBrickBE extends BlockEntity
         return world.isRaining() && world.hasRain(pos);
     }
 
-    private int computeDryLevel()
-    {
-        if (dryingLevel > 0 )
-        {
+    private int computeDryLevel() {
+        if (dryingLevel > 0 ) {
             int iCookLevel = (int)(((float) dryingLevel / (float) TIME_TO_COOK) * 7F ) + 1;
 
             return MathHelper.clamp( iCookLevel, 0, 7 );
@@ -135,6 +123,5 @@ public class UnfiredBrickBE extends BlockEntity
 
         return 0;
     }
-
 
 }

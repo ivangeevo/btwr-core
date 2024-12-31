@@ -20,7 +20,7 @@ public class BTWR_EntityTypes
         {
             BRICK_UNFIRED = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(BTWRMod.MOD_ID,
                     "brick_unfired"), BlockEntityType.Builder.create(UnfiredBrickBE::new,
-                    BTWR_Blocks.BRICK_UNFIRED).build(null));
+                    BTWR_Blocks.BRICK_UNFIRED).build());
         }
 
 

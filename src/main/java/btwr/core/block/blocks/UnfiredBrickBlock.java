@@ -3,7 +3,9 @@ package btwr.core.block.blocks;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.entity.UnfiredBrickBE;
 import btwr.core.entity.BTWR_EntityTypes;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -29,7 +31,11 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
+
+// TODO: Fix (very likely) a serialization problem with this block (or its block entity) where the game crashes
+//  when the block is placed in the world along with the ModernFix mod installed. (happens only outside of dev environments)
 public class UnfiredBrickBlock extends BlockWithEntity {
+
     public static final float BRICK_HEIGHT = (4F / 16F );
     public static final float BRICK_WIDTH = (6F / 16F );
     public static final float BRICK_HALF_WIDTH = (BRICK_WIDTH / 2F );
@@ -40,6 +46,13 @@ public class UnfiredBrickBlock extends BlockWithEntity {
 
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty DRYING_LEVEL = IntProperty.of("drying_level", 0, 7);
+
+    public static final MapCodec<UnfiredBrickBlock> CODEC = Block.createCodec(UnfiredBrickBlock::new);
+
+    @Override
+    protected MapCodec<? extends UnfiredBrickBlock> getCodec() {
+        return CODEC;
+    }
 
     public UnfiredBrickBlock(Settings settings)
     {
@@ -94,7 +107,8 @@ public class UnfiredBrickBlock extends BlockWithEntity {
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean notify)
     {
         if (!world.getBlockState(pos.down()).isSolidBlock(world, pos.down())) {
-            dropBlockAsItem(world, pos);
+            //dropBlockAsItem(world, pos);
+            Block.dropStacks(state, world, pos);
             world.removeBlock(pos, false);
         }
         super.neighborUpdate(state, world, pos, block, fromPos, notify);
@@ -103,11 +117,6 @@ public class UnfiredBrickBlock extends BlockWithEntity {
     public void onFinishedCooking(World world, BlockPos pos, BlockState state) {
         BlockState dryState = BTWR_Blocks.BRICK.getDefaultState().with(FACING, state.get(FACING));
         world.setBlockState(pos, dryState);
-    }
-
-    @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return null;
     }
 
     @Override public BlockRenderType getRenderType(BlockState state)
