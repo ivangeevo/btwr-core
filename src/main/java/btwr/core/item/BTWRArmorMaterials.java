@@ -21,8 +21,6 @@ import java.util.function.Supplier;
 
 public class BTWRArmorMaterials {
 
-
-
     public static final RegistryEntry<ArmorMaterial> LEATHER_TANNED = BTWRArmorMaterials.register("leather_tanned", Util.make(new EnumMap(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 2);
         map.put(ArmorItem.Type.LEGGINGS, 3);
