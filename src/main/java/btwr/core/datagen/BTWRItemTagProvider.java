@@ -1,6 +1,6 @@
 package btwr.core.datagen;
 
-import btwr.btwrsl.tag.BTWRConventionalTags;
+import btwr.btwr_sl.tag.BTWRConventionalTags;
 import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -48,6 +48,8 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(BTWR_Items.LEATHER_TANNED_CUT);
 
 
+
+
     }
 
     private void addToConventionalTags() {
@@ -80,6 +82,13 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SHEARS_CUT_SOUND)
                 .addTag(BTWRTags.Items.CUT_LEATHERS);
 
-        }
+
+        // Misc item crafting sound tags
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_WOODEN_SOUND)
+                .forceAddTag(ItemTags.PLANKS)
+                .add(Items.STICK);
+
+
+    }
 
 }

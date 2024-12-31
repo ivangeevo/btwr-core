@@ -10,8 +10,9 @@
   "item.btwr.leather_tanned": "Tanned Leather",
 
   "item.btwr.leather_cut": "Cut Leather",
-  "item.btwr.leather_tanned_cut": "Cut Scoured Leather",
-  "item.btwr.leather_scoured_cut": "Cut Tanned Leather",
+  "item.btwr.leather_scoured_cut": "Cut Scoured Leather",
+  "item.btwr.leather_tanned_cut": "Cut Tanned Leather",
+
 
   "item.btwr.stone_brick": "Stone Brick",
   "item.btwr.brick_unfired": "Wet Brick",
