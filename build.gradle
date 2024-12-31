@@ -48,6 +48,9 @@ repositories {
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.terraformersmc.com/releases/" }
     maven { url "https://ivangeevo.github.io/btwr-shared-lib/" }
+
+    maven { url "https://api.modrinth.com/maven" }
+
 }
 
 dependencies {
@@ -66,6 +69,8 @@ dependencies {
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
     modImplementation("org.ivangeevo:btwr-shared-lib:${project.btwr_lib_version}")
+
+    //modImplementation("maven.modrinth:modernfix:5.20.0+mc1.21.1")
 
 
 }
