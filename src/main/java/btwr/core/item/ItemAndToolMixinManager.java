@@ -1,6 +1,6 @@
 package btwr.core.item;
 
-import btwr.btwrsl.tag.BTWRConventionalTags;
+import btwr.btwr_sl.tag.BTWRConventionalTags;
 import btwr.core.block.BTWR_Blocks;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;

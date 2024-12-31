@@ -1,6 +1,6 @@
 package btwr.core.block;
 
-import btwr.btwrsl.lib.util.PlaceableAsBlock;
+import btwr.btwr_sl.lib.util.PlaceableAsBlock;
 import btwr.core.BTWRMod;
 import btwr.core.block.blocks.*;
 import net.minecraft.block.*;

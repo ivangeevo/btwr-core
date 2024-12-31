@@ -19,21 +19,6 @@ public class BTWRTags {
 
     public static class Items {
 
-        /** These tags don't generate using datagen.
-         *  Instead, the items should be added manually and
-         *  provide for other side mods.
-
-        /** For example the MEDIUM_VALUE_FUELS Tag provides itself
-         * to all other BTWR sidemods to add their items.
-         * This can't be done with datagen as not all items are present in this project. **/
-        // ---------- TAGS THAT DON'T GENERATE ---------- //
-
-
-
-
-
-
-        // ---------- NORMAL TAGS ---------- //
 
         public static final TagKey<Item> CLAY_ITEMS = createTag("clay_items");
         public static final TagKey<Item> DROP_SPREAD_ITEMS = createTag("drop_spread_items");
@@ -58,6 +43,8 @@ public class BTWRTags {
         public static final TagKey<Item> PRIMITIVE_AXES = createTag("primitive_axes");
         public static final TagKey<Item> PIG_BREEDING_ITEMS = createTag("pig_breeding_items");
         public static final TagKey<Item> PIG_TEMPT_ITEMS = createTag("pig_tempt_items");
+
+
 
 
 

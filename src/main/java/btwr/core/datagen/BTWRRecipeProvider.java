@@ -1,7 +1,6 @@
 package btwr.core.datagen;
 
-import btwr.btwrsl.tag.BTWRConventionalTags;
-import btwr.core.BTWRMod;
+import btwr.btwr_sl.tag.BTWRConventionalTags;
 import btwr.core.item.BTWR_Items;
 import btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
