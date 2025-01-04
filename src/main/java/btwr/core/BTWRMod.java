@@ -7,6 +7,16 @@ import btwr.core.item.BTWR_Items;
 import btwr.core.registry.ModFuelItems;
 import com.google.gson.Gson;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.MatchToolLootCondition;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +24,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
 
 public class BTWRMod implements ModInitializer {
 
@@ -46,7 +57,7 @@ public class BTWRMod implements ModInitializer {
         BTWR_EntityTypes.Blocks.registerBlockEntities();
 
 
-        //modifyLeavesLootTables();
+        //replaceLeavesLootTables();
 
     }
 
@@ -84,27 +95,43 @@ public class BTWRMod implements ModInitializer {
         }
     }
 
+    private void modifyLootTables() {
+        Map<Block, Item> blockToolMap = Map.ofEntries(
+                Map.entry(Blocks.VINE, BTWR_Items.DIAMOND_SHEARS),
+                Map.entry(Blocks.OAK_LEAVES, BTWR_Items.DIAMOND_SHEARS),
+                Map.entry(Blocks.BIRCH_LEAVES, BTWR_Items.DIAMOND_SHEARS),
+                Map.entry(Blocks.SPRUCE_LEAVES, BTWR_Items.DIAMOND_SHEARS),
+                Map.entry(Blocks.JUNGLE_LEAVES, BTWR_Items.DIAMOND_SHEARS),
+                Map.entry(Blocks.ACACIA_LEAVES, BTWR_Items.DIAMOND_SHEARS),
+                Map.entry(Blocks.DARK_OAK_LEAVES, BTWR_Items.DIAMOND_SHEARS),
+                Map.entry(Blocks.MANGROVE_LEAVES, BTWR_Items.DIAMOND_SHEARS),
+                Map.entry(Blocks.CHERRY_LEAVES, BTWR_Items.DIAMOND_SHEARS)
+        );
 
-    // TODO: Change loot tables modification that add conventional shears tag, to instead be handled with Events if possible
-    /**
-    private void modifyLeavesLootTables()
-    {
-        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-            // Check if the loot table is for leaves
-            if (id.equals(Blocks.OAK_LEAVES. ||
-                    id.equals(Blocks.SPRUCE_LEAVES.getLootTableId()) ||
-                    id.equals(Blocks.BIRCH_LEAVES.getLootTableId()) ||
-                    id.equals(Blocks.JUNGLE_LEAVES.getLootTableId()) ||
-                    id.equals(Blocks.ACACIA_LEAVES.getLootTableId()) ||
-                    id.equals(Blocks.DARK_OAK_LEAVES.getLootTableId())) {
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+            if (!source.isBuiltin()) return; // Only modify built-in loot tables
 
-                // Modify drops only if the tool is the custom shears
-                tableBuilder.pool(builder -> builder.rolls(1).conditionally((lootContext) -> {
-                    return lootContext.get(LootContextParameters.TOOL).getItem() instanceof CustomShearsItem;
-                }).with(ItemStack.of(Blocks.OAK_LEAVES)));
-            }
+            blockToolMap.forEach((block, tool) -> {
+                Identifier blockLootTableId = block.getLootTableKey().getValue(); // The loot table ID of the block
+
+                // Compare the Identifier of the RegistryKey to the block's loot table ID
+                if (key.getValue().equals(blockLootTableId)) {
+                    LootPool.Builder poolBuilder = LootPool.builder()
+                            .bonusRolls(ConstantLootNumberProvider.create(0f))
+                            .rolls(ConstantLootNumberProvider.create(1))
+                            .with(ItemEntry.builder(block))
+                            .conditionally(MatchToolLootCondition.builder(
+                                    ItemPredicate.Builder.create().items(tool))
+                            ); // Add the block itself to the loot pool
+
+                    tableBuilder.pool(poolBuilder);
+                }
+            });
         });
     }
-     **/
+
+
+
+
 
 }
