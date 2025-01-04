@@ -85,9 +85,11 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         addConfig("knockbackRestriction", "Knockback Restriction", tb);
         addConfig("spawnBabyZombies", "Spawn Baby Zombies", tb);
         addConfig("spawnMobsOnWood", "Mobs Spawn On Wood", tb);
+        addConfig("increasedMonsterSpawnsPerChunk", "Increased Mobs Per Chunk", tb);
         addConfigTooltip("knockbackRestriction", "Disables knockback if not using a suitable weapon", tb);
         addConfigTooltip("spawnBabyZombies", "Can baby zombies spawn naturally?", tb);
         addConfigTooltip("spawnMobsOnWood", "Can mobs spawn on wooden blocks?", tb);
+        addConfigTooltip("increasedMonsterSpawnsPerChunk", "Slightly increase the amount of mobs that can spawn per chunk", tb);
 
     }
 

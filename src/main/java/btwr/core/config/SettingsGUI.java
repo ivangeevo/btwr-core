@@ -31,15 +31,21 @@ public class SettingsGUI
                 .build());
 
         general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.babyZombiesSpawn"), settingsCommon.babyZombiesSpawn)
+                .startBooleanToggle(Text.translatable("config.btwr.spawnBabyZombies"), settingsCommon.spawnBabyZombies)
                 .setDefaultValue(true)
-                .setSaveConsumer(newValue -> settingsCommon.babyZombiesSpawn = newValue)
+                .setSaveConsumer(newValue -> settingsCommon.spawnBabyZombies = newValue)
                 .build());
 
         general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.mobsSpawnOnWood"), settingsCommon.mobsSpawnOnWood)
+                .startBooleanToggle(Text.translatable("config.btwr.spawnMobsOnWood"), settingsCommon.spawnMobsOnWood)
                 .setDefaultValue(true)
-                .setSaveConsumer(newValue -> settingsCommon.mobsSpawnOnWood = newValue)
+                .setSaveConsumer(newValue -> settingsCommon.spawnMobsOnWood = newValue)
+                .build());
+
+        general.addEntry(entryBuilder
+                .startBooleanToggle(Text.translatable("config.btwr.increasedMonsterSpawnsPerChunk"), settingsCommon.increasedMonsterSpawnsPerChunk)
+                .setDefaultValue(true)
+                .setSaveConsumer(newValue -> settingsCommon.increasedMonsterSpawnsPerChunk = newValue)
                 .build());
 
         return builder.build();

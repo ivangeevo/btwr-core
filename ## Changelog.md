@@ -1,5 +1,7 @@
 ### 0.28.2
-+ Made mobs being unable to spawn on all types of wood blocks. This can be disabled in the config.
++ Added the ability to make mobs unable to spawn on all types of wood blocks. This can be disabled in the config.
++ Added config option to make spawn capacity of monsters per chunk slightly higher. This can be disabled in the config.
+
 + Added Diamond Shears to the Conventional Item Tags SHEAR TOOLS
 + Added Shears cutting sound for crafting Cut Leather recipes.
 + Moved shear recipes to use the conventional item tag SHEAR_TOOLS.

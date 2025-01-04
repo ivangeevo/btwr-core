@@ -8,6 +8,7 @@
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",
+    "entity.SpawnGroupMixin",
     "entity.ZombieEntityMixin",
     "item.ItemMixin",
     "item.ShearsItemMixin"

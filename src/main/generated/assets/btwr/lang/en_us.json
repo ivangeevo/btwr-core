@@ -1,9 +1,11 @@
 {
   "config.btwr.category.general": "General Options",
   "config.btwr.category.mixins": "Mixin Options",
+  "config.btwr.increasedMonsterSpawnsPerChunk": "Increased Mobs Per Chunk",
   "config.btwr.knockbackRestriction": "Knockback Restriction",
   "config.btwr.spawnBabyZombies": "Spawn Baby Zombies",
   "config.btwr.spawnMobsOnWood": "Mobs Spawn On Wood",
+  "config.btwr.tooltip.increasedMonsterSpawnsPerChunk": "Slightly increase the amount of mobs that can spawn per chunk",
   "config.btwr.tooltip.knockbackRestriction": "Disables knockback if not using a suitable weapon",
   "config.btwr.tooltip.spawnBabyZombies": "Can baby zombies spawn naturally?",
   "config.btwr.tooltip.spawnMobsOnWood": "Can mobs spawn on wooden blocks?",
