@@ -7,7 +7,7 @@
 + Moved shear recipes to use the conventional item tag SHEAR_TOOLS.
 + Fixed the names of tanned and scoured cut leather items being swapped.
 + Improved the naming of switchable options in the config file and the configuration menu through Mod Menu.
-+ Updated the project to require BTWR: Shared Library 0.38-SNAPSHOT.
++ Updated the project to Fabric API 0.114.0 && to require BTWR: Shared Library 0.40.
 
 ### 0.28.1
 + Made the mod (actually) depend on BTWR- Shared Library mod
