@@ -12,6 +12,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -57,6 +58,7 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
     private void generateVanillaTables()
     {
         this.initLeavesDrops();
+        addDrop(Blocks.VINE, BTWRLootTableProvider::dropsWithShears);
     }
 
     private void generateModdedTables()
@@ -147,9 +149,12 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
         return drops(drop, WITH_SILK_TOUCH_OR_SHEARS, child);
     }
 
-    public LootTable.Builder dropsWithShears(Block drop, LootPoolEntry.Builder<?> child) {
-        return drops(drop, WITH_CONVENTIONAL_SHEARS, child);
+
+    public static LootTable.Builder dropsWithShears(ItemConvertible drop) {
+        return LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f)).conditionally(WITH_CONVENTIONAL_SHEARS).with(ItemEntry.builder(drop)));
     }
+
+
 
     @Override
     public String getName() {
