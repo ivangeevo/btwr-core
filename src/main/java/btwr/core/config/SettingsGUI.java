@@ -31,21 +31,21 @@ public class SettingsGUI
                 .build());
 
         general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.spawnBabyZombies"), settingsCommon.spawnBabyZombies)
+                .startBooleanToggle(Text.translatable("config.btwr.increasedMonsterSpawnsPerChunk"), settingsCommon.increasedMonsterSpawnsPerChunk)
                 .setDefaultValue(true)
+                .setSaveConsumer(newValue -> settingsCommon.increasedMonsterSpawnsPerChunk = newValue)
+                .build());
+
+        general.addEntry(entryBuilder
+                .startBooleanToggle(Text.translatable("config.btwr.spawnBabyZombies"), settingsCommon.spawnBabyZombies)
+                .setDefaultValue(false)
                 .setSaveConsumer(newValue -> settingsCommon.spawnBabyZombies = newValue)
                 .build());
 
         general.addEntry(entryBuilder
                 .startBooleanToggle(Text.translatable("config.btwr.spawnMobsOnWood"), settingsCommon.spawnMobsOnWood)
-                .setDefaultValue(true)
+                .setDefaultValue(false)
                 .setSaveConsumer(newValue -> settingsCommon.spawnMobsOnWood = newValue)
-                .build());
-
-        general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.increasedMonsterSpawnsPerChunk"), settingsCommon.increasedMonsterSpawnsPerChunk)
-                .setDefaultValue(true)
-                .setSaveConsumer(newValue -> settingsCommon.increasedMonsterSpawnsPerChunk = newValue)
                 .build());
 
         return builder.build();
