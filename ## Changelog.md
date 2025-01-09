@@ -1,3 +1,8 @@
+## 0.29.0(next version)
++ Made vine blocks harvestable with Diamond shears.
++ Changed the efficiency conditions for shears tools and added a specific SHEARS_EFFICIENT block tag.
++ Fixed Diamond Shears not making a crafting sound when crafted.
+
 ### 0.28.2
 + Added the ability to make mobs unable to spawn on all types of wood blocks. This can be disabled in the config.
 + Added config option to make spawn capacity of monsters per chunk slightly higher. This can be disabled in the config.

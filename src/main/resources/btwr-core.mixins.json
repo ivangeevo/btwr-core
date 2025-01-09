@@ -4,6 +4,9 @@
   "package": "btwr.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "PlayerEntityMixin",
+    "ServerWorldAccessor",
+    "ServerWorldMixin",
     "block.AbstractBlock$AbstractBlockStateMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
