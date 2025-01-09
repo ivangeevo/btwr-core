@@ -2,6 +2,7 @@ package btwr.core.item;
 
 import btwr.btwr_sl.tag.BTWRConventionalTags;
 import btwr.core.block.BTWR_Blocks;
+import btwr.core.tag.BTWRTags;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -83,12 +84,7 @@ public class ItemAndToolMixinManager {
 
     public static List<ToolComponent.Rule> MODIFIED_SHEARS_COMPONENT_LIST = List.of(
             ToolComponent.Rule.ofAlwaysDropping(BTWRConventionalTags.Blocks.WEB_BLOCKS, 15.0f),
-            ToolComponent.Rule.of(BlockTags.LEAVES, 15.0f),
-            ToolComponent.Rule.of(BlockTags.WOOL, 5.0f),
-            ToolComponent.Rule.of(List.of(Blocks.VINE, Blocks.GLOW_LICHEN), 2.0f),
-
-            // added crop hemp; all above are the original ones
-            ToolComponent.Rule.of(List.of(BTWR_Blocks.CROP_HEMP),20.0f)
+            ToolComponent.Rule.of(BTWRTags.Blocks.SHEARS_EFFICIENT, 20f)
     );
 
     private boolean isValidAxeItem(ItemStack stack) {

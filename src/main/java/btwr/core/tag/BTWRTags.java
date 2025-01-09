@@ -14,6 +14,8 @@ public class BTWRTags {
         // transparent or semi transparent blocks that can let light through
         public static final TagKey<Block> GROUND_COVERS = createTag("ground_covers");
 
+        public static final TagKey<Block> SHEARS_EFFICIENT = createTag("shears_efficient");
+
 
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(BTWRMod.MOD_ID, name));

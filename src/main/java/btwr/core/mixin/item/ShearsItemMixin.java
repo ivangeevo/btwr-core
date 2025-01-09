@@ -18,7 +18,7 @@ public abstract class ShearsItemMixin extends Item
         super(settings);
     }
 
-    @Inject(method = "createToolComponent", at = @At("RETURN"), cancellable = true)
+    @Inject(method = "createToolComponent", at = @At("HEAD"), cancellable = true)
     private static void onCreateToolComponent(CallbackInfoReturnable<ToolComponent> cir)
     {
         List<ToolComponent.Rule> newList = ItemAndToolMixinManager.MODIFIED_SHEARS_COMPONENT_LIST;
