@@ -1,5 +1,6 @@
 package btwr.core.mixin.block;
 
+import btwr.btwr_sl.tag.BTWRConventionalTags;
 import btwr.core.BTWRMod;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
@@ -63,7 +64,10 @@ public class AbstractBlock$AbstractBlockStateMixin {
         return state.isIn(BlockTags.LOGS)
                 || state.isIn(BlockTags.OVERWORLD_NATURAL_LOGS)
                 || state.isIn(BlockTags.PLANKS)
-                || state.isIn(BlockTags.SLABS);
+                || state.isIn(BlockTags.WOODEN_SLABS)
+                || state.isIn(BTWRConventionalTags.Blocks.WOODEN_MISC_BLOCKS)
+
+                ;
     }
 
 }
