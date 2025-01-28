@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "btwr:cooked_carrot"
+            "items": "minecraft:carrot"
           }
         ]
       },

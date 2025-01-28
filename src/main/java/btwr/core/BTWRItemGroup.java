@@ -45,8 +45,6 @@ public class BTWRItemGroup {
                             entries.add(BTWR_Items.LEATHER_TANNED_BOOTS);
 
                             // Food
-                            entries.add(BTWR_Items.BOILED_POTATO);
-                            entries.add(BTWR_Items.COOKED_CARROT);
                             entries.add(BTWR_Items.SANDWICH);
                             entries.add(BTWR_Items.HAM_AND_EGGS);
                             entries.add(BTWR_Items.CHOWDER);

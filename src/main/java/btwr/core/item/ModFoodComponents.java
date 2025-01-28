@@ -15,13 +15,6 @@ public class ModFoodComponents
                     .saturationModifier(0.35f)
                     .build();
 
-    public static final FoodComponent BOILED_POTATO =
-            new FoodComponent.Builder()
-                    .nutrition(1)
-                    .saturationModifier(0.25f)
-                    .build();
-
-
     // Raw foods
     public static final FoodComponent EGGS_SCRAMBLED_RAW =
             new FoodComponent.Builder()
@@ -46,12 +39,6 @@ public class ModFoodComponents
 
 
     // Cooked foods
-    public static final FoodComponent COOKED_CARROT =
-            new FoodComponent.Builder()
-                    .nutrition(2)
-                    .saturationModifier(0.25f)
-                    .build();
-
     public static final FoodComponent EGG_SCRAMBLED_COOKED =
             new FoodComponent.Builder()
                     .nutrition(4)

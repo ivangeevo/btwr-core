@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_boiled_potato": {
+    "has_baked_potato": {
       "conditions": {
         "items": [
           {
-            "items": "btwr:boiled_potato"
+            "items": "minecraft:baked_potato"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_boiled_potato"
+      "has_baked_potato"
     ]
   ],
   "rewards": {

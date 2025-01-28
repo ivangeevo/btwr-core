@@ -31,8 +31,6 @@ public class BTWRLangProvider extends FabricLanguageProvider {
     }
 
     private void addItemTranslations(TranslationBuilder tb) {
-        tb.add(BTWR_Items.BOILED_POTATO, "Boiled Potato");
-        tb.add(BTWR_Items.COOKED_CARROT, "Cooked Carrot");
         tb.add(BTWR_Items.COOKED_KEBAB, "Cooked Kebab");
         tb.add(BTWR_Items.EGG_SCRAMBLED_COOKED, "Scrambled Eggs");
         tb.add(BTWR_Items.EGG_SCRAMBLED_RAW, "Raw Scrambled Eggs");
