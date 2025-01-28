@@ -6,7 +6,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
 import net.minecraft.resource.featuretoggle.ToggleableFeature;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,10 +20,10 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
     @Unique
     private static final ItemAndToolMixinManager itemMixinManager = ItemAndToolMixinManager.getInstance();
 
+
     // Adds remainder logic so the item doesn't get consumed on crafting.
     @Override
-    public ItemStack getRecipeRemainder(ItemStack stack)
-    {
+    public ItemStack getRecipeRemainder(ItemStack stack) {
        return itemMixinManager.damageOnCrafting(stack);
     }
 

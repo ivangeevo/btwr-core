@@ -1,24 +1,20 @@
 package btwr.core.item;
 
 import btwr.btwr_sl.tag.BTWRConventionalTags;
-import btwr.core.block.BTWR_Blocks;
 import btwr.core.tag.BTWRTags;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.Objects;
 
 /** A manager class for mixin'd in logic for both Item and Tools (Shears, Axe, etc...).
  *
@@ -41,6 +37,10 @@ public class ItemAndToolMixinManager {
                 moreDamaged.setDamage(stack.getDamage() + 1);
                 return moreDamaged;
             }
+        }
+
+        if (stack.getItem().getRecipeRemainder() != null) {
+            return stack.getItem().getRecipeRemainder().getDefaultStack();
         }
 
         return ItemStack.EMPTY;
