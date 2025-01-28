@@ -47,6 +47,7 @@ public class ClubItem extends ToolItem
     }
 
 
+    // TODO: Move these sounds to BTWR-SL's CraftingSoundManager
     @Override
     public void onCraftByPlayer(ItemStack stack, World world, PlayerEntity player) {
 

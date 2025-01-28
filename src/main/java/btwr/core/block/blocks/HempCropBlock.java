@@ -45,8 +45,7 @@ public class HempCropBlock extends CropBlock {
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (state.get(IS_TOP)) return;
 
-        int lightLevel = world.getLightLevel(pos);
-        if (lightLevel < 15 && !isValidAlternateLightSourceAbove(world, pos)) return;
+        if (world.getLightLevel(pos) < 15 && !isValidAlternateLightSourceAbove(world, pos)) return;
 
         Block blockBelow = world.getBlockState(pos.down()).getBlock();
         if (blockBelow == null || !blockBelow.isBlockHydratedForPlantGrowthOn(world, pos.down())) return;
