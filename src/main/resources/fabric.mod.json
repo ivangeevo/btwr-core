@@ -3,14 +3,14 @@
   "id": "btwr",
   "version": "${version}",
   "name": "BTWR: Core",
-  "description": "",
+  "description": "The core mod for the Better Than Wolves:Remastered! modpack.",
   "authors": [
     "ivangeevo"
   ],
   "contact": {
     "repo": "https://github.com/ivangeevo/btwr-core"
   },
-  "license": "MIT",
+  "license": "CC-BY 4.0",
   "icon": "assets/btwr/btwr-circle.png",
   "environment": "*",
   "entrypoints": {
@@ -34,13 +34,12 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "btwr_sl": ">=${btwr_lib_version}"
+    "btwr_sl": ">=${btwr_sl_version}"
   },
 
   "custom": {
     "loom:injected_interfaces": {
       "net/minecraft/class_1548": ["btwr/core/entity/interfaces/CreeperEntityAdded"]
-
     }
   },
 
