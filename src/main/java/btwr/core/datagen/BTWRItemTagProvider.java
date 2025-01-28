@@ -65,9 +65,6 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(BTWRConventionalTags.Items.STRING_TOOL_MATERIALS)
                 .add(BTWR_Items.HEMP_FIBERS);
 
-        getOrCreateTagBuilder(BTWRConventionalTags.Items.COOKED_POTATO_FOODS)
-                .add(BTWR_Items.BOILED_POTATO);
-
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS)
                 .add(BTWR_Items.CLUB_WOOD)
                 .add(BTWR_Items.CLUB_BONE);
@@ -75,11 +72,23 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(BTWRConventionalTags.Items.CHICKEN_TEMPT_ITEMS)
                 .add(BTWR_Items.HEMP_SEEDS);
 
-        // Tools Tags
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DIAMOND_TOOLS)
                 .add(BTWR_Items.DIAMOND_SHEARS);
 
-        // Misc item crafting sound tags
+
+        // Crafting sound tags
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_WOODEN_TOOL_SOUND)
+                .forceAddTag(BTWRConventionalTags.Items.WOODEN_TOOLS);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_STONE_TOOL_SOUND)
+                .forceAddTag(BTWRConventionalTags.Items.STONE_TOOLS);
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_METALLIC_TOOL_SOUND)
+                .forceAddTag(BTWRConventionalTags.Items.IRON_TOOLS)
+                .forceAddTag(BTWRConventionalTags.Items.GOLDEN_TOOLS)
+                .forceAddTag(BTWRConventionalTags.Items.DIAMOND_TOOLS)
+                .forceAddTag(BTWRConventionalTags.Items.NETHERITE_TOOLS);
+
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_WOODEN_SOUND)
                 .forceAddTag(ItemTags.PLANKS)
                 .add(Items.STICK);
