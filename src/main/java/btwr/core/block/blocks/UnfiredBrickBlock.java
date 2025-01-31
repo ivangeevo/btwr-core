@@ -3,9 +3,7 @@ package btwr.core.block.blocks;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.entity.UnfiredBrickBE;
 import btwr.core.entity.BTWR_EntityTypes;
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -119,8 +117,7 @@ public class UnfiredBrickBlock extends BlockWithEntity {
         world.setBlockState(pos, dryState);
     }
 
-    @Override public BlockRenderType getRenderType(BlockState state)
-    {
+    @Override public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
 

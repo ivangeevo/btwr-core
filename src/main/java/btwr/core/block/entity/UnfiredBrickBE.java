@@ -3,9 +3,6 @@ package btwr.core.block.entity;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.block.blocks.UnfiredBrickBlock;
 import btwr.core.entity.BTWR_EntityTypes;
-import btwr.core.tag.BTWRTags;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -16,10 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Objects;
-
-public class UnfiredBrickBE extends BlockEntity
-{
+public class UnfiredBrickBE extends BlockEntity {
    protected int dryingLevel = 0;
 
     private static final int TIME_TO_COOK = (10 * 60 * 20);
@@ -27,8 +21,7 @@ public class UnfiredBrickBE extends BlockEntity
 
     private boolean isDrying = false;
 
-    public UnfiredBrickBE(BlockPos pos, BlockState state)
-    {
+    public UnfiredBrickBE(BlockPos pos, BlockState state) {
         super(BTWR_EntityTypes.Blocks.BRICK_UNFIRED, pos, state);
     }
 

@@ -91,7 +91,7 @@ processResources {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version,
-                btwr_sl_version: project.btwr_sl_version
+                "btwr_sl_version": project.btwr_sl_version
             }
 
     inputs.property "config", files("src/main/resources/btwr-core.mixins.json")
