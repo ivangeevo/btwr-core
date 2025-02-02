@@ -83,6 +83,7 @@ public class BTWR_Items {
     public static final Item WOLF_DINNER = registerItem( "wolf_dinner", new Item (new Item.Settings().food(ModFoodComponents.WOLF_DINNER)));
 
     public static final Item CHICKEN_SOUP = registerItem( "chicken_soup", new Item (new Item.Settings().food(ModFoodComponents.CHICKEN_SOUP)));
+    //TODO: Fix Hearty Stew not dropping empty bowl when inventory is full
     public static final Item HEARTY_STEW = registerItem( "hearty_stew", new Item (new Item.Settings().food(ModFoodComponents.HEARTY_STEW)));
 
     // Unique food items
