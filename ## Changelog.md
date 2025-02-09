@@ -1,4 +1,4 @@
-## 0.29
+### 0.29
 + Added a new common block tag "WOODEN_MISC_BLOCKS" for miscellaneous blocks that aren't tagged as wooden,
 but should be treated as such. This was created especially for the "Don't spawn mobs on wood" config option,
 but can be used by other purposes eventually.
