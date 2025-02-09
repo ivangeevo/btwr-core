@@ -1,4 +1,4 @@
-## 0.29.0
+## 0.29
 + Added a new common block tag "WOODEN_MISC_BLOCKS" for miscellaneous blocks that aren't tagged as wooden,
 but should be treated as such. This was created especially for the "Don't spawn mobs on wood" config option,
 but can be used by other purposes eventually.
@@ -12,6 +12,7 @@ properly return the item used (like buckets, axes in recipes, etc.)
 + Fixed the mod's license to show properly (changed from MIT to CC-BY 4.0)
 + Removed the Cooked Carrot and Boiled Potato items (moved them to an unreleased mod)
 + Removed the default 16 item count for the newly added food items (back to default 64)
++ Updated the mod to BTWR-SL 0.44
 
 ### 0.28.2
 + Added the ability to make mobs unable to spawn on all types of wood blocks. This can be disabled in the config.
