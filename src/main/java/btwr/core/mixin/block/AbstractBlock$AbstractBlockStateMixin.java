@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractBlock.AbstractBlockState.class)
-public class AbstractBlock$AbstractBlockStateMixin {
+public abstract class AbstractBlock$AbstractBlockStateMixin {
 
     // Predicate that checks if mobs can spawn on this block (excluding wooden blocks)
     @Unique

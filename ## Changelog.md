@@ -1,7 +1,17 @@
-## 0.29.0(next version)
+## 0.29.0
++ Added a new common block tag "WOODEN_MISC_BLOCKS" for miscellaneous blocks that aren't tagged as wooden,
+but should be treated as such. This was created especially for the "Don't spawn mobs on wood" config option,
+but can be used by other purposes eventually.
+
 + Made vine blocks harvestable with Diamond shears.
 + Changed the efficiency conditions for shears tools and added a specific SHEARS_EFFICIENT block tag.
-+ Fixed Diamond Shears not making a crafting sound when crafted.
++ Fixed Shears & Diamond Shears not making a crafting sound when crafted.
++ Fixed a bug where certain items that should have a returning stack on crafting them with recipes to
+properly return the item used (like buckets, axes in recipes, etc.)
++ Fixed mod description to display properly in the mod list.
++ Fixed the mod's license to show properly (changed from MIT to CC-BY 4.0)
++ Removed the Cooked Carrot and Boiled Potato items (moved them to an unreleased mod)
++ Removed the default 16 item count for the newly added food items (back to default 64)
 
 ### 0.28.2
 + Added the ability to make mobs unable to spawn on all types of wood blocks. This can be disabled in the config.
