@@ -14,6 +14,7 @@ properly return the item used (like buckets, axes in recipes, etc.)
 + Removed the default 16 item count for the newly added food items (back to default 64)
 + Updated the mod to BTWR-SL 0.44
 
+
 ### 0.28.2
 + Added the ability to make mobs unable to spawn on all types of wood blocks. This can be disabled in the config.
 + Added config option to make spawn capacity of monsters per chunk slightly higher. This can be disabled in the config.
