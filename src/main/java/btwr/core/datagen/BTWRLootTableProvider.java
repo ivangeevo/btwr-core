@@ -43,8 +43,6 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
     public static final LootCondition.Builder IS_HEMP_MAX_AGE = BlockStatePropertyLootCondition.builder(BTWR_Blocks.CROP_HEMP).properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.AGE, HempCropBlock.MAX_AGE));
     public static final LootCondition.Builder IS_HEMP_TOP_PART = BlockStatePropertyLootCondition.builder(BTWR_Blocks.CROP_HEMP).properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.IS_TOP, true));
 
-
-
     public static final LootCondition.Builder WITH_CONVENTIONAL_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ConventionalItemTags.SHEAR_TOOLS));
     public final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_CONVENTIONAL_SHEARS.or(this.createSilkTouchCondition());
     private static final float[] JUNGLE_SAPLING_DROP_CHANCE = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
@@ -80,9 +78,6 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     private void initMiscDrops() {
-        this.addDrop(BTWR_Blocks.BRICK, drops(Items.BRICK));
-
-        this.addDrop(BTWR_Blocks.BRICK_UNFIRED, drops(Items.CLAY_BALL));
         this.addDrop(BTWR_Blocks.CROP_HEMP, block -> this.hempCropDrops(block, BTWR_Items.HEMP_LEAVES, BTWR_Items.HEMP_SEEDS));
     }
 

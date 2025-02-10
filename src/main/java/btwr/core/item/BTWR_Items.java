@@ -22,9 +22,6 @@ public class BTWR_Items {
 
     public static final Item DIAMOND_PLATE = registerItem("diamond_plate", new Item(new Item.Settings()));
 
-    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired",
-            new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED, new Item.Settings()));
-
     public static final Item HEMP_SEEDS = registerItem( "hemp_seeds",
             new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new Item.Settings()));
 

@@ -70,7 +70,6 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         tb.add(BTWR_Items.LEATHER_SCOURED_CUT, "Cut Scoured Leather");
         tb.add(BTWR_Items.LEATHER_TANNED, "Tanned Leather");
         tb.add(BTWR_Items.LEATHER_TANNED_CUT, "Cut Tanned Leather");
-        tb.add(BTWR_Items.BRICK_UNFIRED, "Wet Brick");
 
         //tb.add(BTWR_Items.ANCIENT_PROPHECHY, "");
 

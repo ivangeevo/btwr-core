@@ -1,3 +1,6 @@
+### 0.30
++ Moved the "Brick Drying" functionality to another unreleased mod. This includes the Wet Brick & Brick blocks & Items, which means they will be removed from your worlds.
+
 ### 0.29
 + Added a new common block tag "WOODEN_MISC_BLOCKS" for miscellaneous blocks that aren't tagged as wooden,
 but should be treated as such. This was created especially for the "Don't spawn mobs on wood" config option,
@@ -74,7 +77,7 @@ properly return the item used (like buckets, axes in recipes, etc.)
 + Slightly reworked directional drop logic so items should drop better than before.
 + Updated the mod to Fabric Loader 0.16.5 & Fabric API 0.104.0
 
-# 0.25.3
+### 0.25.3
 
 + Fixed Diamond Shears breaking leaves slower than iron ones & fixed some leaves loot tables to drop properly.
 + Fixed a bug where you could do knockback with a bow or crossbow from melee hits to entities.
@@ -155,7 +158,7 @@ Most of that will happen in the BTWR Modpack itself.
 + Restored vanilla mining speeds & durability of all tools.
 + Updated lang file to modify name of Stick to Shaft.
 
-## v0.22
+### v0.22
 
 + Added Wooden & Bone Club weapons.
 + Added Creeper Oysters Item.
