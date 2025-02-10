@@ -1,7 +1,8 @@
 ### 0.30
 + Moved the "Brick Drying" functionality to another unreleased mod. This includes the Wet Brick & Brick blocks & Items, which means they will be removed from your worlds.
++ Moved the SHEARS_EFFICIENT block tag to BTWR-SL mod
 
-### 0.29
+## 0.29
 + Added a new common block tag "WOODEN_MISC_BLOCKS" for miscellaneous blocks that aren't tagged as wooden,
 but should be treated as such. This was created especially for the "Don't spawn mobs on wood" config option,
 but can be used by other purposes eventually.
