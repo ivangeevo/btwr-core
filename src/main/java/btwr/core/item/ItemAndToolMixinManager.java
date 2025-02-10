@@ -82,11 +82,6 @@ public class ItemAndToolMixinManager {
         return stack;
     }
 
-    public static List<ToolComponent.Rule> MODIFIED_SHEARS_COMPONENT_LIST = List.of(
-            ToolComponent.Rule.ofAlwaysDropping(BTWRConventionalTags.Blocks.WEB_BLOCKS, 15.0f),
-            ToolComponent.Rule.of(BTWRConventionalTags.Blocks.SHEARS_EFFICIENT, 20f)
-    );
-
     private boolean isValidAxeItem(ItemStack stack) {
         return stack.getItem() instanceof AxeItem || isBWTAxe(stack);
     }
