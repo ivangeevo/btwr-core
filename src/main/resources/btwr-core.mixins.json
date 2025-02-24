@@ -10,11 +10,9 @@
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",
     "entity.ZombieEntityMixin",
-    "item.ItemMixin",
-    "item.ShearsItemMixin"
+    "item.ItemMixin"
   ],
   "client": [
-    "TitleScreenMixin",
     "entity.CreeperEntityRendererMixin"
   ],
   "injectors": {

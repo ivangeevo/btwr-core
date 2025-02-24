@@ -31,11 +31,7 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     private void addToModTags() {
-        getOrCreateTagBuilder(BTWRTags.Blocks.SHEARS_EFFICIENT)
-                .forceAddTag(BlockTags.LEAVES)
-                .add(Blocks.VINE)
-                .add(Blocks.GLOW_LICHEN)
-                .add(BTWR_Blocks.CROP_HEMP);
+
     }
 
     private void addToConventionalTags() {

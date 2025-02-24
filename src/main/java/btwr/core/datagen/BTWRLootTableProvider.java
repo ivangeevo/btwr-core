@@ -1,9 +1,6 @@
 package btwr.core.datagen;
 
 import btwr.btwr_sl.tag.BTWRConventionalTags;
-import btwr.core.block.BTWR_Blocks;
-import btwr.core.block.blocks.HempCropBlock;
-import btwr.core.item.BTWR_Items;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
@@ -11,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -22,7 +18,6 @@ import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -40,10 +35,8 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
 
     public static final LootCondition.Builder WITH_AXE = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ItemTags.AXES));
     public static final LootCondition.Builder WITH_AXE_HARVEST_FULL_BLOCK = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(BTWRConventionalTags.Items.AXES_HARVEST_FULL_BLOCK));
-    public static final LootCondition.Builder IS_HEMP_MAX_AGE = BlockStatePropertyLootCondition.builder(BTWR_Blocks.CROP_HEMP).properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.AGE, HempCropBlock.MAX_AGE));
-    public static final LootCondition.Builder IS_HEMP_TOP_PART = BlockStatePropertyLootCondition.builder(BTWR_Blocks.CROP_HEMP).properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.IS_TOP, true));
-
-
+    //public static final LootCondition.Builder IS_HEMP_MAX_AGE = BlockStatePropertyLootCondition.builder(BTWR_Blocks.CROP_HEMP).properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.AGE, HempCropBlock.MAX_AGE));
+    //public static final LootCondition.Builder IS_HEMP_TOP_PART = BlockStatePropertyLootCondition.builder(BTWR_Blocks.CROP_HEMP).properties(StatePredicate.Builder.create().exactMatch(HempCropBlock.IS_TOP, true));
 
     public static final LootCondition.Builder WITH_CONVENTIONAL_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ConventionalItemTags.SHEAR_TOOLS));
     public final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_CONVENTIONAL_SHEARS.or(this.createSilkTouchCondition());
@@ -80,12 +73,10 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     private void initMiscDrops() {
-        this.addDrop(BTWR_Blocks.BRICK, drops(Items.BRICK));
-
-        this.addDrop(BTWR_Blocks.BRICK_UNFIRED, drops(Items.CLAY_BALL));
-        this.addDrop(BTWR_Blocks.CROP_HEMP, block -> this.hempCropDrops(block, BTWR_Items.HEMP_LEAVES, BTWR_Items.HEMP_SEEDS));
+        //this.addDrop(BTWR_Blocks.CROP_HEMP, block -> this.hempCropDrops(block, BTWR_Items.HEMP_LEAVES, BTWR_Items.HEMP_SEEDS));
     }
 
+    /**
     public LootTable.Builder hempCropDrops(Block block, Item hempLeaves, Item hempSeeds) {
         // Create a loot pool for shears condition with hemp leaves drop
         LootPool.Builder leavesPool = LootPool.builder()
@@ -104,6 +95,7 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
         // Combine both pools into the loot table
         return LootTable.builder().pool(leavesPool).pool(seedsPool);
     }
+     **/
 
     public LootTable.Builder leavesDrops(Block leaves, Block drop, float... chance) {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);

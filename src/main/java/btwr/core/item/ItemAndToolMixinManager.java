@@ -1,10 +1,8 @@
 package btwr.core.item;
 
 import btwr.btwr_sl.tag.BTWRConventionalTags;
-import btwr.core.tag.BTWRTags;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
-import net.minecraft.component.type.ToolComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,13 +12,12 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.List;
-
 /** A manager class for mixin'd in logic for both Item and Tools (Shears, Axe, etc...).
  *
  * <p>If a method is not prefixed with a tool name ("onUseAxe"), then it's simply mixing in for the Item.class
  * **/
 public class ItemAndToolMixinManager {
+
     private static final ItemAndToolMixinManager instance = new ItemAndToolMixinManager();
 
     private ItemAndToolMixinManager() {}
@@ -81,11 +78,6 @@ public class ItemAndToolMixinManager {
 
         return stack;
     }
-
-    public static List<ToolComponent.Rule> MODIFIED_SHEARS_COMPONENT_LIST = List.of(
-            ToolComponent.Rule.ofAlwaysDropping(BTWRConventionalTags.Blocks.WEB_BLOCKS, 15.0f),
-            ToolComponent.Rule.of(BTWRTags.Blocks.SHEARS_EFFICIENT, 20f)
-    );
 
     private boolean isValidAxeItem(ItemStack stack) {
         return stack.getItem() instanceof AxeItem || isBWTAxe(stack);

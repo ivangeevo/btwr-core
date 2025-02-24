@@ -1,10 +1,8 @@
 package btwr.core.item;
 
 import btwr.core.BTWRMod;
-import btwr.core.block.BTWR_Blocks;
 import btwr.core.item.items.ClubItem;
 import btwr.core.material.BTWR_ToolMaterials;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -22,15 +20,12 @@ public class BTWR_Items {
 
     public static final Item DIAMOND_PLATE = registerItem("diamond_plate", new Item(new Item.Settings()));
 
-    public static final Item BRICK_UNFIRED = registerItem( "brick_unfired",
-            new AliasedBlockItem(BTWR_Blocks.BRICK_UNFIRED, new Item.Settings()));
+    // To be removed
+    //public static final Item HEMP_SEEDS = registerItem( "hemp_seeds", new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new Item.Settings()));
 
-    public static final Item HEMP_SEEDS = registerItem( "hemp_seeds",
-            new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new Item.Settings()));
-
-    public static final Item HEMP_LEAVES = registerItem( "hemp_leaves", new Item(new Item.Settings()));
-    public static final Item HEMP_FIBERS = registerItem( "hemp_fibers", new Item(new Item.Settings()));
-    public static final Item HEMP_FABRIC = registerItem( "hemp_fabric", new Item(new Item.Settings()));
+    //public static final Item HEMP_LEAVES = registerItem( "hemp_leaves", new Item(new Item.Settings()));
+    //public static final Item HEMP_FIBERS = registerItem( "hemp_fibers", new Item(new Item.Settings()));
+    //public static final Item HEMP_FABRIC = registerItem( "hemp_fabric", new Item(new Item.Settings()));
 
     public static final Item LEATHER_CUT = registerItem( "leather_cut", new Item (new Item.Settings()));
     public static final Item LEATHER_SCOURED = registerItem( "leather_scoured", new Item (new Item.Settings()));

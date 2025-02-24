@@ -17,6 +17,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
+/**
 //TODO: Maybe it's better to have the hemp crop work similarly to the BWT(better with time) one where the boolean
 //  property is "is_connected" and checks when the block above is of this, instead of "if its a top block" which is a
 //  (presumably) wrong way of looking at it.
@@ -123,3 +124,4 @@ public class HempCropBlock extends CropBlock {
         return world.getBlockState(pos).equals(lightBlockState.with(Properties.LIT, true));
     }
 }
+ **/

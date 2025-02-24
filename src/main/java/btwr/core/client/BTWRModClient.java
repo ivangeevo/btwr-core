@@ -17,9 +17,8 @@ public class BTWRModClient implements ClientModInitializer {
     public static final Logger LOGGER = BTWRMod.LOGGER;
     @Override
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.CROP_HEMP, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.BRICK_UNFIRED, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.BRICK, RenderLayer.getCutout());
+        // To be removed
+        //BlockRenderLayerMap.INSTANCE.putBlock(BTWR_Blocks.CROP_HEMP, RenderLayer.getCutout());
 
         //this.initializeHiddenModsDisplayed();
 

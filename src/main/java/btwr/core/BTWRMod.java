@@ -48,7 +48,6 @@ public class BTWRMod implements ModInitializer {
 
         BTWRItemGroup.registerItemGroups();
         BTWR_Blocks.registerModBlocks();
-        BTWR_Blocks.registerItemsPlaceableAsBlocks();
         BTWR_Items.registerModItems();
 
         //ModRecipesRegistry.registerModRecipes();

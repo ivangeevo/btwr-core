@@ -22,11 +22,10 @@ public class BTWRItemGroup {
                             // Uncategorized
                             entries.add(BTWR_Items.DIAMOND_INGOT);
                             entries.add(BTWR_Items.DIAMOND_PLATE);
-                            entries.add(BTWR_Items.BRICK_UNFIRED);
-                            entries.add(BTWR_Items.HEMP_SEEDS);
-                            entries.add(BTWR_Items.HEMP_LEAVES);
-                            entries.add(BTWR_Items.HEMP_FIBERS);
-                            entries.add(BTWR_Items.HEMP_FABRIC);
+                            //entries.add(BTWR_Items.HEMP_SEEDS);
+                            //entries.add(BTWR_Items.HEMP_LEAVES);
+                            //entries.add(BTWR_Items.HEMP_FIBERS);
+                            //entries.add(BTWR_Items.HEMP_FABRIC);
                             entries.add(BTWR_Items.LEATHER_SCOURED);
                             entries.add(BTWR_Items.LEATHER_TANNED);
                             entries.add(BTWR_Items.LEATHER_CUT);
