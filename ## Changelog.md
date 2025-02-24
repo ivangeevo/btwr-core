@@ -1,9 +1,10 @@
-## 0.30
+## v0.30
 ### WARNING! Game breaking update, back up your worlds if you don't want to lose some items/blocks.
 + Removed the Hemp plant block and all of its associated items as it's no longer needed in the scope of this mod. They will be removed from your worlds.
-+ Moved the "Brick Drying" functionality to another unreleased mod. This includes the Wet Brick & Brick blocks & Items, which means they will also be removed from your worlds.
++ Moved the "Brick Drying" functionality to another unreleased mod. This includes the Wet Brick & Brick blocks & items, which means they will also be removed from your worlds.
 + Moved the SHEARS_EFFICIENT block tag to BTWR-SL mod
 + Fixed some mixin related bugs on mod launch with other mods requiring older versions of BTWR Shared Library
++ Updated the mod to Fabric API 0.115.0, Fabric Loader 0.16.10 & BTWR Shared Library 0.47
 
 ## 0.29
 + Added a new common block tag "WOODEN_MISC_BLOCKS" for miscellaneous blocks that aren't tagged as wooden,
