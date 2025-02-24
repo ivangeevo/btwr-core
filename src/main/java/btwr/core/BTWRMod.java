@@ -55,7 +55,6 @@ public class BTWRMod implements ModInitializer {
 
         BTWR_EntityTypes.Blocks.registerBlockEntities();
 
-
         //replaceLeavesLootTables();
 
     }
