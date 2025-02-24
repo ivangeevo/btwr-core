@@ -13,7 +13,6 @@
     "item.ItemMixin"
   ],
   "client": [
-    "TitleScreenMixin",
     "entity.CreeperEntityRendererMixin"
   ],
   "injectors": {

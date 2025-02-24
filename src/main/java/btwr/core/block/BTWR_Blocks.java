@@ -1,20 +1,20 @@
 package btwr.core.block;
 
 import btwr.core.BTWRMod;
-import btwr.core.block.blocks.*;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class BTWR_Blocks {
 
 
     // Block and Block Item declarations
-    public static final Block CROP_HEMP = registerWithoutItem("crop_hemp", new HempCropBlock(AbstractBlock.Settings.create().noCollision().ticksRandomly().nonOpaque().strength(0.5f).sounds(BlockSoundGroup.GRASS)));
+
+    // To be removed
+    //public static final Block CROP_HEMP = registerWithoutItem("crop_hemp", new HempCropBlock(AbstractBlock.Settings.create().noCollision().ticksRandomly().nonOpaque().strength(0.5f).sounds(BlockSoundGroup.GRASS)));
 
 
     private static Block register(String name, Block block) {

@@ -1,6 +1,9 @@
-### 0.30
-+ Moved the "Brick Drying" functionality to another unreleased mod. This includes the Wet Brick & Brick blocks & Items, which means they will be removed from your worlds.
+## 0.30
+### WARNING! Game breaking update, back up your worlds if you don't want to lose some items/blocks.
++ Removed the Hemp plant block and all of its associated items as it's no longer needed in the scope of this mod. They will be removed from your worlds.
++ Moved the "Brick Drying" functionality to another unreleased mod. This includes the Wet Brick & Brick blocks & Items, which means they will also be removed from your worlds.
 + Moved the SHEARS_EFFICIENT block tag to BTWR-SL mod
++ Fixed some mixin related bugs on mod launch with other mods requiring older versions of BTWR Shared Library
 
 ## 0.29
 + Added a new common block tag "WOODEN_MISC_BLOCKS" for miscellaneous blocks that aren't tagged as wooden,
@@ -18,7 +21,7 @@ properly return the item used (like buckets, axes in recipes, etc.)
 + Removed the default 16 item count for the newly added food items (back to default 64)
 + Updated the mod to BTWR-SL 0.44
 
-### 0.28.2
+## 0.28.2
 + Added the ability to make mobs unable to spawn on all types of wood blocks. This can be disabled in the config.
 + Added config option to make spawn capacity of monsters per chunk slightly higher. This can be disabled in the config.
 
@@ -35,7 +38,7 @@ properly return the item used (like buckets, axes in recipes, etc.)
 + Moved the COOKED_MEATS_FOR_SANDWICH item tag to BTWRConventionalTags in BTWR Shared Library
 + Changed Hearty Stew to use the COOKED MEAT FOODS Conventional Item tag
 
-### 0.28
+## 0.28
 + Enabled (fixed) the ability to knockback entities without the proper weapon if the player is sprinting
 + Fixed a bug that crashed the game when attacking silverfish
 + Fixed being able to melee knockback entities with crossbow or bow while knockback restrictions are enabled.
@@ -51,7 +54,7 @@ properly return the item used (like buckets, axes in recipes, etc.)
 
 + Updated the mod to Fabric API 0.110.0 & Fabric Loader 0.16.9
 
-### 0.27
+## 0.27
 
 + Added new food items:
 1. Ham and Eggs
@@ -65,7 +68,7 @@ properly return the item used (like buckets, axes in recipes, etc.)
 
 + Changed the newly added food items max stack limit to 16
 
-### 0.26.1
+## 0.26.1
 
 + Fixed a bug where breaking leaves with Diamond Shears didn't drop the block & another one where it was breaking them very slow.
 + Conventional tags changes;
@@ -73,27 +76,27 @@ properly return the item used (like buckets, axes in recipes, etc.)
   moved hemp fibers to the "strings" conventional item tag from fabric.
 + Updated the mod to Fabric Loader 0.16.7 & Fabric API 0.107.0
 
-### 0.26
+## 0.26
 
 + Slightly reworked directional drop logic so items should drop better than before.
 + Updated the mod to Fabric Loader 0.16.5 & Fabric API 0.104.0
 
-### 0.25.3
+## 0.25.3
 
 + Fixed Diamond Shears breaking leaves slower than iron ones & fixed some leaves loot tables to drop properly.
 + Fixed a bug where you could do knockback with a bow or crossbow from melee hits to entities.
 
-### 0.25.2
+## 0.25.2
 
 + Fixed a bug with custom shapeless recipes that have additional drops to drop properly.
 + Fixed placement code for bricks items as blocks to work much better(and as intended).
 + Fixed missing recipes and generally improved the code that generates them.
 
-### 0.25.1
+## 0.25.1
 
 + Updated 0.25.1 to latest minecraft versions
 
-### 0.25
+## 0.25
 
 + Added sandwich food item.
 + Removed recipe for cooking brick on campfires.
@@ -102,7 +105,7 @@ properly return the item used (like buckets, axes in recipes, etc.)
 + Optimized directional dropping code for mods that support it (like Sturdy Trees & Tough Environment)
 + Fixed code to work properly on the server side.
 
-### 0.24
+## 0.24
 
 + Added Unfired Brick item & block & the ability to sun dry them into regular bricks.
 + Added Diamond Armor Plate item and changed recipes for making diamond armor.
@@ -115,12 +118,12 @@ properly return the item used (like buckets, axes in recipes, etc.)
 + Fixed Strap recipe only giving one strap instead of 4
 + Changes to BTWR conventional tags.
 
-### 0.23.2
+## 0.23.2
 
 + Fixed a bug with axes getting consumed on crafting with them.
 + Updated the mod to Fabric Loader 0.15.11
 
-### v0.23.1
+## v0.23.1
 
 + Added Tanned Leather Armor.
 + Added Recipes for acquiring Scoured & Tanned Leather.
@@ -159,7 +162,7 @@ Most of that will happen in the BTWR Modpack itself.
 + Restored vanilla mining speeds & durability of all tools.
 + Updated lang file to modify name of Stick to Shaft.
 
-### v0.22
+## v0.22
 
 + Added Wooden & Bone Club weapons.
 + Added Creeper Oysters Item.
