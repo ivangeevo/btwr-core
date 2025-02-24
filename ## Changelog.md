@@ -1,3 +1,6 @@
+## v0.31
++ Fixed a bug with older data files from version 0.29 that were causing issues.
+
 ## v0.30
 ### WARNING! Game breaking update, back up your worlds if you don't want to lose some items/blocks.
 + Removed the Hemp plant block and all of its associated items as it's no longer needed in the scope of this mod. They will be removed from your worlds.
