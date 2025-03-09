@@ -1,4 +1,7 @@
 ## v0.31
++ Fixed a bug where Hearty Stew & Chicken Soup would not give back an empty bowl item when finished using it if the player inventory is full.
+
+## v0.30.1
 + Fixed a bug with older data files from version 0.29 that were causing issues.
 
 ## v0.30

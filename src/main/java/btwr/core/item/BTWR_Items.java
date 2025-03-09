@@ -2,6 +2,7 @@ package btwr.core.item;
 
 import btwr.core.BTWRMod;
 import btwr.core.item.items.ClubItem;
+import btwr.core.item.items.StackableStewItem;
 import btwr.core.material.BTWR_ToolMaterials;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.*;
@@ -79,7 +80,7 @@ public class BTWR_Items {
 
     public static final Item CHICKEN_SOUP = registerItem( "chicken_soup", new Item (new Item.Settings().food(ModFoodComponents.CHICKEN_SOUP)));
     //TODO: Fix Hearty Stew not dropping empty bowl when inventory is full
-    public static final Item HEARTY_STEW = registerItem( "hearty_stew", new Item (new Item.Settings().food(ModFoodComponents.HEARTY_STEW)));
+    public static final Item HEARTY_STEW = registerItem( "hearty_stew", new StackableStewItem(new Item.Settings().food(ModFoodComponents.HEARTY_STEW)));
 
     // Unique food items
     public static final Item BEAST_LIVER_RAW = registerItem( "beast_liver_raw", new Item (new Item.Settings().food(ModFoodComponents.BEAST_LIVER_RAW)));

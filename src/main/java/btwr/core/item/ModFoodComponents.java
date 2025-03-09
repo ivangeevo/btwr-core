@@ -6,14 +6,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Items;
 
 /** Contains all the default food components used in BTWR food items. **/
-public class ModFoodComponents
-{
-    // Cauldron-based food components
-    public static final FoodComponent CHOWDER =
-            new FoodComponent.Builder()
-                    .nutrition(5)
-                    .saturationModifier(0.35f)
-                    .build();
+public class ModFoodComponents {
 
     // Raw foods
     public static final FoodComponent EGGS_SCRAMBLED_RAW =
@@ -37,66 +30,19 @@ public class ModFoodComponents
                     .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600,2), 0.3f)
                     .build();
 
-
     // Cooked foods
-    public static final FoodComponent EGG_SCRAMBLED_COOKED =
-            new FoodComponent.Builder()
-                    .nutrition(4)
-                    .saturationModifier(0.35f)
-                    .build();
-
-    public static final FoodComponent MUSHROOM_OMELETTE_COOKED =
-            new FoodComponent.Builder()
-                    .nutrition(4)
-                    .saturationModifier(0.35f)
-                    .build();
-
-    public static final FoodComponent SANDWICH =
-            new FoodComponent.Builder()
-                    .nutrition(5)
-                    .saturationModifier(0.45f)
-                    .build();
-
-    public static final FoodComponent HAM_AND_EGGS =
-            new FoodComponent.Builder()
-                    .nutrition(6)
-                    .saturationModifier(0.40f)
-                    .build();
-
-    public static final FoodComponent STEAK_AND_POTATOES =
-            new FoodComponent.Builder()
-                    .nutrition(6)
-                    .saturationModifier(0.40f)
-                    .build();
-
-    public static final FoodComponent KEBAB_COOKED =
-            new FoodComponent.Builder()
-                    .nutrition(8)
-                    .saturationModifier(0.45f)
-                    .build();
-
-    public static final FoodComponent STEAK_DINNER =
-            new FoodComponent.Builder()
-                    .nutrition(8)
-                    .saturationModifier(0.42f)
-                    .build();
-
-    public static final FoodComponent PORK_DINNER =
-            new FoodComponent.Builder()
-                    .nutrition(8)
-                    .saturationModifier(0.42f)
-                    .build();
-
-    public static final FoodComponent WOLF_DINNER =
-            new FoodComponent.Builder()
-                    .nutrition(8)
-                    .saturationModifier(0.40f)
-                    .build();
-
-    public static final FoodComponent CHICKEN_SOUP = createStew(8, 0.40f).build();
-    public static final FoodComponent HEARTY_STEW = createStew(10, 0.46f).build();
-
-
+    public static final FoodComponent CHOWDER = createCooked(5, 0.35f).build();
+    public static final FoodComponent EGG_SCRAMBLED_COOKED = createCooked(4, 0.35f).build();
+    public static final FoodComponent MUSHROOM_OMELETTE_COOKED = createCooked(4, 0.35f).build();
+    public static final FoodComponent SANDWICH = createCooked(5, 0.45f).build();
+    public static final FoodComponent HAM_AND_EGGS = createCooked(6, 0.40f).build();
+    public static final FoodComponent STEAK_AND_POTATOES = createCooked(6, 0.40f).build();
+    public static final FoodComponent KEBAB_COOKED = createCooked(8, 0.45f).build();
+    public static final FoodComponent STEAK_DINNER = createCooked(8, 0.42f).build();
+    public static final FoodComponent PORK_DINNER = createCooked(8, 0.42f).build();
+    public static final FoodComponent WOLF_DINNER = createCooked(8, 0.40f).build();
+    public static final FoodComponent CHICKEN_SOUP = createCooked(8, 0.40f).build();
+    public static final FoodComponent HEARTY_STEW = createCooked(10, 0.46f).build();
 
     // Weird foods
     public static final FoodComponent CREEPER_OYSTERS =
@@ -113,14 +59,12 @@ public class ModFoodComponents
                     .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600,1),0.3f)
                     .build();
 
-    public static final FoodComponent BEAST_LIVER_COOKED =
-            new FoodComponent.Builder()
-                    .nutrition(6)
-                    .saturationModifier(0.15f)
-                    .build();
+    public static final FoodComponent BEAST_LIVER_COOKED = createCooked(6, 0.15f).build();
 
+    private static FoodComponent.Builder createCooked(int hunger, float saturation) {
+        return (new FoodComponent.Builder()).nutrition(hunger).saturationModifier(saturation);
+    }
 
-    // TODO: create a multiple options handling version of this method
     private static FoodComponent.Builder createStew(int hunger, float saturation) {
         return (new FoodComponent.Builder()).nutrition(hunger).saturationModifier(saturation).usingConvertsTo(Items.BOWL);
     }
