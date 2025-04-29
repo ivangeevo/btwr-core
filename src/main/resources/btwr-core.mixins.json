@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "block.AbstractBlock$AbstractBlockStateMixin",
+    "block.BlockMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",

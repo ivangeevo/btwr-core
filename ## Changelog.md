@@ -1,5 +1,8 @@
-## v0.31
+## v0.31(next)
 + Fixed a bug where Hearty Stew & Chicken Soup would not give back an empty bowl item when finished using it if the player inventory is full.
++ Added a new configurable option that changes how hoes work. Normal usage with right click is removed and players must use the old school way of breaking grass with left click.
++ Updated the mod to Fabric API 0.115.6, Fabric Loader 0.16.13 & BTWR Shared Library 0.51
+
 
 ## v0.30.1
 + Fixed a bug with older data files from version 0.29 that were causing issues.

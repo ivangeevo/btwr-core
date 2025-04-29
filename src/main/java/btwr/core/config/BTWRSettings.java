@@ -2,13 +2,14 @@ package btwr.core.config;
 
 public class BTWRSettings {
 
+    // general
     public boolean knockbackRestrictions = true;
+    public boolean btwHoeFunctionality = true;
+
+    // entity
     public boolean spawnBabyZombies = false;
     public boolean spawnMobsOnWood = false;
-
     public boolean increasedMonsterSpawnsPerChunk = true;
-
-
 
     public boolean shouldDoKnockbackRestrictions() {
         return knockbackRestrictions;
@@ -20,5 +21,6 @@ public class BTWRSettings {
         return spawnMobsOnWood;
     }
     public boolean shouldIncreaseMaxMobCapacity() { return increasedMonsterSpawnsPerChunk; }
+    public boolean shouldChangeHoesBTWStyle() { return btwHoeFunctionality; }
 
 }
