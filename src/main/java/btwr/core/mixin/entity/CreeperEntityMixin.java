@@ -54,16 +54,16 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
 
     @Unique private boolean determinedToExplode = false;
 
+    protected CreeperEntityMixin(EntityType<? extends HostileEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
     @ModifyArg(method = "initGoals", at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/entity/ai/goal/GoalSelector;add(ILnet/minecraft/entity/ai/goal/Goal;)V",
             ordinal = 1), index = 1)
     private Goal injected(Goal goal) {
         return new CreeperSwellBehavior((CreeperEntity)(Object)this);
-    }
-
-    protected CreeperEntityMixin(EntityType<? extends HostileEntity> entityType, World world) {
-        super(entityType, world);
     }
 
     // Copying, modifying and cancelling the original tick logic with our custom conditions added.
@@ -175,7 +175,6 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
             }
         }
         super.tick();
-
     }
 }
 
