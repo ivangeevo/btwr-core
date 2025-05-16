@@ -266,9 +266,9 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
             )
     )
     private Explosion redirectExplosion(World world, Entity entity, double x, double y, double z, float power, World.ExplosionSourceType type) {
-        //if (!BTWRMod.getInstance().settings.shouldChangeCreeperExplosionPos()) {
-            //return world.createExplosion(entity, x, y, z, power, type);
-        //}
+        if (!BTWRMod.getInstance().settings.shouldChangeCreeperExplosionPos()) {
+            return world.createExplosion(entity, x, y, z, power, type);
+        }
 
         if (entity instanceof CreeperEntity creeper) {
             y = creeper.getEyeY();

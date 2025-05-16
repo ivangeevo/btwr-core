@@ -1,3 +1,7 @@
+## v0.32
++ Changed creeper explosion to be calculated from their eyes instead feet (also made it toggleable feature via mod menu)
++ Added tooltips for all config options when looking at them in Mod Menu
+
 ## v0.31
 + Fixed a bug where Hearty Stew & Chicken Soup would not give back an empty bowl item when finished using it if the player inventory is full.
 

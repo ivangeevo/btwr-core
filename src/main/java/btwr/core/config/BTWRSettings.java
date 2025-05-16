@@ -7,6 +7,7 @@ public class BTWRSettings {
     public boolean spawnMobsOnWood = false;
 
     public boolean increasedMonsterSpawnsPerChunk = true;
+    public boolean changedCreeperExplosionPos = true;
 
     public boolean shouldDoKnockbackRestrictions() {
         return knockbackRestrictions;
@@ -18,5 +19,6 @@ public class BTWRSettings {
         return spawnMobsOnWood;
     }
     public boolean shouldIncreaseMaxMobCapacity() { return increasedMonsterSpawnsPerChunk; }
+    public boolean shouldChangeCreeperExplosionPos() { return changedCreeperExplosionPos; }
 
 }
