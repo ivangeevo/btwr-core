@@ -1,4 +1,4 @@
-## v0.32
+## v0.32(dev)
 + Changed creeper explosion to be calculated from their eyes instead feet (also made it toggleable feature via mod menu)
 + Added tooltips for all config options when looking at them in Mod Menu
 
