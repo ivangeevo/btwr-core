@@ -1,17 +1,17 @@
 package btwr.core.mixin.entity;
 
+import btwr.core.BTWRMod;
 import btwr.core.entity.ai.goal.CreeperSwellBehavior;
 import btwr.core.entity.interfaces.CreeperEntityAdded;
 import btwr.core.item.BTWR_Items;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.OcelotEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,7 +20,6 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.ItemTags;
@@ -30,10 +29,9 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
+import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -41,6 +39,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -257,6 +256,26 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
                 this.dropItem(BTWR_Items.CREEPER_OYSTERS, 1);
             }
         }
+    }
+
+    // Makes creeper explosion get calculated from the eyes instead of its feet
+    @Redirect(method = "explode",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/world/World$ExplosionSourceType;)Lnet/minecraft/world/explosion/Explosion;"
+            )
+    )
+    private Explosion redirectExplosion(World world, Entity entity, double x, double y, double z, float power, World.ExplosionSourceType type) {
+        //if (!BTWRMod.getInstance().settings.shouldChangeCreeperExplosionPos()) {
+            //return world.createExplosion(entity, x, y, z, power, type);
+        //}
+
+        if (entity instanceof CreeperEntity creeper) {
+            y = creeper.getEyeY();
+        }
+
+        // Return modified explosion
+        return world.createExplosion(entity, x, y, z, power, type);
     }
 
 

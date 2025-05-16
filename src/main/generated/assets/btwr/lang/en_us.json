@@ -1,10 +1,12 @@
 {
   "config.btwr.category.general": "General Options",
   "config.btwr.category.mixins": "Mixin Options",
+  "config.btwr.changedCreeperExplosionPos": "Changed Creeper Explosion Origin",
   "config.btwr.increasedMonsterSpawnsPerChunk": "Increased Mobs Per Chunk",
   "config.btwr.knockbackRestriction": "Knockback Restriction",
   "config.btwr.spawnBabyZombies": "Spawn Baby Zombies",
   "config.btwr.spawnMobsOnWood": "Mobs Spawn On Wood",
+  "config.btwr.tooltip.changedCreeperExplosionPos": "Changes the location of creeper's explosion origin to be calculated from their eyes instead of their feet",
   "config.btwr.tooltip.increasedMonsterSpawnsPerChunk": "Slightly increase the amount of mobs that can spawn per chunk",
   "config.btwr.tooltip.knockbackRestriction": "Disables knockback if not using a suitable weapon",
   "config.btwr.tooltip.spawnBabyZombies": "Can baby zombies spawn naturally?",

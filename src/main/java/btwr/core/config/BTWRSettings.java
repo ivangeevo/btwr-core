@@ -8,8 +8,6 @@ public class BTWRSettings {
 
     public boolean increasedMonsterSpawnsPerChunk = true;
 
-
-
     public boolean shouldDoKnockbackRestrictions() {
         return knockbackRestrictions;
     }
