@@ -4,6 +4,7 @@ import btwr.core.BTWRMod;
 import btwr.core.item.items.ClubItem;
 import btwr.core.item.items.StackableStewItem;
 import btwr.core.material.BTWR_ToolMaterials;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -20,13 +21,6 @@ public class BTWR_Items {
     public static final Item DIAMOND_INGOT = registerItem( "diamond_ingot", new Item (new Item.Settings()));
 
     public static final Item DIAMOND_PLATE = registerItem("diamond_plate", new Item(new Item.Settings()));
-
-    // To be removed
-    //public static final Item HEMP_SEEDS = registerItem( "hemp_seeds", new AliasedBlockItem(BTWR_Blocks.CROP_HEMP, new Item.Settings()));
-
-    //public static final Item HEMP_LEAVES = registerItem( "hemp_leaves", new Item(new Item.Settings()));
-    //public static final Item HEMP_FIBERS = registerItem( "hemp_fibers", new Item(new Item.Settings()));
-    //public static final Item HEMP_FABRIC = registerItem( "hemp_fabric", new Item(new Item.Settings()));
 
     public static final Item LEATHER_CUT = registerItem( "leather_cut", new Item (new Item.Settings()));
     public static final Item LEATHER_SCOURED = registerItem( "leather_scoured", new Item (new Item.Settings()));
@@ -79,7 +73,7 @@ public class BTWR_Items {
     public static final Item WOLF_DINNER = registerItem( "wolf_dinner", new Item (new Item.Settings().food(ModFoodComponents.WOLF_DINNER)));
 
     public static final Item CHICKEN_SOUP = registerItem( "chicken_soup", new Item (new Item.Settings().food(ModFoodComponents.CHICKEN_SOUP)));
-    //TODO: Fix Hearty Stew not dropping empty bowl when inventory is full
+
     public static final Item HEARTY_STEW = registerItem( "hearty_stew", new StackableStewItem(new Item.Settings().food(ModFoodComponents.HEARTY_STEW)));
 
     // Unique food items
@@ -91,9 +85,15 @@ public class BTWR_Items {
         return Registry.register(Registries.ITEM, Identifier.of(BTWRMod.MOD_ID, name), item);
     }
 
-    public static void registerModItems() {
+    public static void registerAndAddToGroups() {
         BTWRMod.LOGGER.info("Registering Mod Items for " + BTWRMod.MOD_ID);
         //ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(BTWR_Items::addItemsToIngredientItemGroup);
+    }
+
+
+    // Register fuel items here
+    public static void registerFuels() {
+        FuelRegistry.INSTANCE.add(BTWR_Items.CLUB_WOOD, 100);
     }
 
     // ---------------------- //

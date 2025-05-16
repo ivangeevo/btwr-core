@@ -9,7 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class BTWRItemGroup {
-    public static void registerItemGroups() {
+    public static void register() {
         Registry.register(Registries.ITEM_GROUP,
                 Identifier.of(BTWRMod.MOD_ID, "group_btwr"),
                 FabricItemGroup.builder()
@@ -22,10 +22,6 @@ public class BTWRItemGroup {
                             // Uncategorized
                             entries.add(BTWR_Items.DIAMOND_INGOT);
                             entries.add(BTWR_Items.DIAMOND_PLATE);
-                            //entries.add(BTWR_Items.HEMP_SEEDS);
-                            //entries.add(BTWR_Items.HEMP_LEAVES);
-                            //entries.add(BTWR_Items.HEMP_FIBERS);
-                            //entries.add(BTWR_Items.HEMP_FABRIC);
                             entries.add(BTWR_Items.LEATHER_SCOURED);
                             entries.add(BTWR_Items.LEATHER_TANNED);
                             entries.add(BTWR_Items.LEATHER_CUT);

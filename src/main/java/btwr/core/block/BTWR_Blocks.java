@@ -31,7 +31,7 @@ public class BTWR_Blocks {
                 new BlockItem(block, new Item.Settings()));
     }
 
-    public static void registerModBlocks() {
+    public static void register() {
         BTWRMod.LOGGER.debug("Registering ModBlocks for " + BTWRMod.MOD_ID);
     }
 
