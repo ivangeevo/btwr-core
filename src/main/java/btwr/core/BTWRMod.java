@@ -3,6 +3,7 @@ package btwr.core;
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.config.BTWRSettings;
 import btwr.core.entity.BTWR_EntityTypes;
+import btwr.core.event.ModLootTableEvents;
 import btwr.core.item.BTWR_Items;
 import btwr.core.registry.ModFuelItems;
 import com.google.gson.Gson;
@@ -56,6 +57,8 @@ public class BTWRMod implements ModInitializer {
         BTWR_EntityTypes.Blocks.registerBlockEntities();
 
         //replaceLeavesLootTables();
+
+        ModLootTableEvents.initialize();
 
     }
 
