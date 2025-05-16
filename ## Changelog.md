@@ -1,4 +1,6 @@
 ## v0.32(dev)
++ Fixed incompatibility with mods that add custom creepers to not get affected by the creeper shearing and ruin their intended experience. 
+I might consider adding specific compatibility with other mods in the future, so that modded creepers can also be neutered/sheared.
 + Changed creeper explosion to be calculated from their eyes instead feet (also made it toggleable feature via mod menu)
 + Added tooltips for all config options when looking at them in Mod Menu
 

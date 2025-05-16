@@ -1,6 +1,7 @@
 package btwr.core.mixin.entity;
 
 import btwr.core.BTWRMod;
+import btwr.core.entity.CreeperModificationManager;
 import btwr.core.entity.ai.goal.CreeperSwellBehavior;
 import btwr.core.entity.interfaces.CreeperEntityAdded;
 import btwr.core.item.BTWR_Items;
@@ -15,20 +16,11 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.OcelotEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.ShearsItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.explosion.Explosion;
@@ -39,29 +31,16 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CreeperEntity.class)
-public abstract class CreeperEntityMixin extends HostileEntity implements CreeperEntityAdded
-{
-    @Shadow
-    @Final
-    private static TrackedData<Boolean> CHARGED;
-    @Shadow
-    private int fuseTime;
-    @Shadow
-    private int explosionRadius;
+public abstract class CreeperEntityMixin extends HostileEntity implements CreeperEntityAdded {
 
-    @Shadow
-    public abstract boolean isIgnited();
+    @Shadow private int fuseTime;
 
-    @Shadow public abstract void ignite();
-
-    @Shadow public abstract boolean shouldRenderOverlay();
-
-    @Shadow protected abstract void spawnEffectsCloud();
+    @Shadow public abstract boolean isIgnited();
 
     @Shadow private int lastFuseTime;
 
@@ -73,130 +52,25 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
 
     @Shadow protected abstract void explode();
 
-    private boolean determinedToExplode = false;
+    @Unique private boolean determinedToExplode = false;
 
-    @Inject(method = "initGoals", at = @At("HEAD"), cancellable = true)
-    private void injectedInitGoals(CallbackInfo ci)
-    {
-        this.goalSelector.add(1, new SwimGoal(this));
-
-        // Modified the exploding & swell behavior with a custom goal class
-        this.goalSelector.add(2, new CreeperSwellBehavior((CreeperEntity)(Object)this));
-        this.goalSelector.add(3, new FleeEntityGoal<>(this, OcelotEntity.class, 6.0f, 1.0, 1.2));
-        this.goalSelector.add(3, new FleeEntityGoal<>(this, CatEntity.class, 6.0f, 1.0, 1.2));
-        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0, false));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
-        this.goalSelector.add(6, new LookAroundGoal(this));
-        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new RevengeGoal(this));
-        ci.cancel();
+    @ModifyArg(method = "initGoals", at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/entity/ai/goal/GoalSelector;add(ILnet/minecraft/entity/ai/goal/Goal;)V",
+            ordinal = 1), index = 1)
+    private Goal injected(Goal goal) {
+        return new CreeperSwellBehavior((CreeperEntity)(Object)this);
     }
-    protected CreeperEntityMixin(EntityType<? extends HostileEntity> entityType, World world)
-    {
+
+    protected CreeperEntityMixin(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
 
     // Copying, modifying and cancelling the original tick logic with our custom conditions added.
-        @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-        private void injectedTick(CallbackInfo ci)
-        {
-            if (this.isAlive())
-            {
-                int i;
-                this.lastFuseTime = this.currentFuseTime;
-                if (this.isIgnited())
-                {
-                    this.setFuseSpeed(1);
-                }
-                    if ((i = this.getFuseSpeed()) > 0 && this.currentFuseTime == 0 && !this.isNeutered())
-                    {
-                        this.playSound(SoundEvents.ENTITY_CREEPER_PRIMED, 1.0f, 0.5f);
-                        this.emitGameEvent(GameEvent.PRIME_FUSE);
-                    }
-
-                    this.currentFuseTime += i;
-
-                    if (this.currentFuseTime < 0)
-                    {
-                        this.currentFuseTime = 0;
-                    }
-
-                // Check if the creeper is not neutered
-                if (!this.isNeutered())
-                {
-                    if (this.currentFuseTime >= this.fuseTime)
-                    {
-                        this.currentFuseTime = this.fuseTime;
-                        this.explode();
-                    }
-                }
-                else
-                {
-                    // Reset fuse time when neutered
-                    this.currentFuseTime = 0;
-                }
-            }
-            super.tick();
-            ci.cancel();
-        }
-
-    @Inject(method = "interactMob", at = @At("HEAD"), cancellable = true)
-    private void injectedInteractMob(PlayerEntity player2, Hand hand, CallbackInfoReturnable<ActionResult> cir)
-    {
-
-        ItemStack itemStack = player2.getStackInHand(hand);
-        ItemStack creeperOysters = new ItemStack(BTWR_Items.CREEPER_OYSTERS);
-
-        if (itemStack.getItem() instanceof ShearsItem && !this.isNeutered())
-        {
-            player2.getWorld().playSound(null, player2.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-            player2.getWorld().playSound(null ,player2.getBlockPos(),SoundEvents.ENTITY_SLIME_ATTACK,SoundCategory.HOSTILE, 1.0F, (player2.getWorld().random.nextFloat() - player2.getWorld().random.nextFloat()) * 0.1F + 0.7F);
-
-            if(!this.getWorld().isClient)
-            {
-                this.neuter();
-
-                ParticleEffect particleEffect = ParticleTypes.ITEM_SNOWBALL;
-                for (int i = 0; i < 50; i++) {
-                    double particleX = this.getX() + getWorld().random.nextDouble() - 0.5D;
-                    double particleY = this.getY() - 0.45D + getWorld().random.nextDouble() * 0.5D;  // Adjusted the Y coordinate
-                    double particleZ = this.getZ() + getWorld().random.nextDouble() - 0.5D;
-
-                    double particleVelX = (getWorld().random.nextDouble() - 0.5D) * 0.5D;
-                    double particleVelY = getWorld().random.nextDouble() * 0.25D;
-                    double particleVelZ = (getWorld().random.nextDouble() - 0.5D) * 0.5D;
-
-                    ((ServerWorld) this.getWorld()).spawnParticles(particleEffect, particleX, particleY, particleZ, 1, particleVelX, particleVelY, particleVelZ, 0.0);
-                }
-
-                itemStack.damage(10, player2, getSlotForHand(hand));
-                this.dropStack(creeperOysters);
-
-            }
-        }
-
-        if (itemStack.isIn(ItemTags.CREEPER_IGNITERS))
-        {
-            SoundEvent soundEvent = itemStack.isOf(Items.FIRE_CHARGE) ? SoundEvents.ITEM_FIRECHARGE_USE : SoundEvents.ITEM_FLINTANDSTEEL_USE;
-            this.getWorld().playSound(player2, this.getX(), this.getY(), this.getZ(), soundEvent, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.4f + 0.8f);
-            if (!this.getWorld().isClient)
-            {
-                this.ignite();
-                if (!itemStack.isDamageable())
-                {
-                    itemStack.decrement(1);
-                }
-                else
-                {
-                    itemStack.damage(1, player2, getSlotForHand(hand));
-                }
-            }
-            cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
-        }
-
-        cir.setReturnValue(super.interactMob(player2, hand));
-
+    @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
+    private void injectedTick(CallbackInfo ci) {
+        this.setCustomTickLogic();
+        ci.cancel();
     }
 
     @Inject(method = "initDataTracker", at = @At("TAIL"))
@@ -204,104 +78,104 @@ public abstract class CreeperEntityMixin extends HostileEntity implements Creepe
         builder.add(NEUTERED, false);
     }
 
-    @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     private void injectedWriteCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
-
-        super.writeCustomDataToNbt(nbt);
-        if (this.dataTracker.get(CHARGED).booleanValue()) {
-            nbt.putBoolean("powered", true);
-        }
-
-        if (this.dataTracker.get(NEUTERED).booleanValue()) {
+        if (this.dataTracker.get(NEUTERED)) {
             nbt.putBoolean("neutered", true);
         }
-
-        nbt.putShort("Fuse", (short) this.fuseTime);
-        nbt.putByte("ExplosionRadius", (byte) this.explosionRadius);
-        nbt.putBoolean("ignited", this.isIgnited());
-
-    ci.cancel();
     }
 
-    @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     private void injectedReadCustomDataFromNbt(NbtCompound nbt, CallbackInfo ci) {
-
-        super.readCustomDataFromNbt(nbt);
-        this.dataTracker.set(CHARGED, nbt.getBoolean("powered"));
-        if (nbt.contains("Fuse", NbtElement.NUMBER_TYPE)) {
-            this.fuseTime = nbt.getShort("Fuse");
-        }
-        if (nbt.contains("ExplosionRadius", NbtElement.NUMBER_TYPE)) {
-            this.explosionRadius = nbt.getByte("ExplosionRadius");
-        }
-        if (nbt.getBoolean("ignited")) {
-            this.ignite();
-        }
-
         if (nbt.getBoolean("neutered")) {
-            this.neuter();
-
+            this.setNeutered();
         }
-
-        ci.cancel();
-
     }
 
     // Add a drop on death with a chance, instead of modifying the loot table.
     @Inject(method = "dropEquipment", at = @At("TAIL"))
     private void onDropEquipment(ServerWorld world, DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
-        if (random.nextInt(3) == 0) {
-            if(!this.isNeutered()) {
-                // Drop creeper oysters
-                this.dropItem(BTWR_Items.CREEPER_OYSTERS, 1);
-            }
-        }
+        boolean shouldDrop = random.nextInt(3) == 0 && !isNeutered();
+        if (!shouldDrop) return;
+        this.dropItem(BTWR_Items.CREEPER_OYSTERS, 1);
     }
 
     // Makes creeper explosion get calculated from the eyes instead of its feet
-    @Redirect(method = "explode",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/world/World$ExplosionSourceType;)Lnet/minecraft/world/explosion/Explosion;"
-            )
-    )
-    private Explosion redirectExplosion(World world, Entity entity, double x, double y, double z, float power, World.ExplosionSourceType type) {
-        if (!BTWRMod.getInstance().settings.shouldChangeCreeperExplosionPos()) {
-            return world.createExplosion(entity, x, y, z, power, type);
-        }
-
-        if (entity instanceof CreeperEntity creeper) {
-            y = creeper.getEyeY();
-        }
-
-        // Return modified explosion
-        return world.createExplosion(entity, x, y, z, power, type);
+    @ModifyArg(method = "explode", at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/world/World$ExplosionSourceType;)Lnet/minecraft/world/explosion/Explosion;"), index = 2)
+    private double injected(double y) {
+        boolean shouldModify = BTWRMod.getInstance().settings.shouldChangeCreeperExplosionPos();
+        return shouldModify ? this.getEyeY() : y;
     }
 
-
     // Creeper makes a hiss sound sometimes if neutered - he crying :(
+    @Override
+    public void playAmbientSound() {
+        if (!isNeutered()) return;
+        this.playSound(this.getAmbientSound(), 0.25F, this.getSoundPitch() + 0.25F);
+    }
+
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        if (isNeutered()) {
-            SoundEvent sound = SoundEvents.ENTITY_CREEPER_HURT;
-
-            if (sound != null) {
-                this.playSound(sound, 0.25F, this.getSoundPitch() + 0.25F);
-            }
-        }
-            return super.getAmbientSound();
+        return SoundEvents.ENTITY_CREEPER_HURT;
     }
 
-    @Unique public void neuter() {
-        this.dataTracker.set(NEUTERED, true);
-    }
     @Override public boolean isNeutered() {
         return this.dataTracker.get(NEUTERED);
+        //return Boolean.TRUE.equals(this.getAttached(CreeperModificationManager.NEUTERED));
+    }
+
+    @Override
+    public void setNeutered() {
+        if (!canBeNeutered()) return;
+        this.dataTracker.set(NEUTERED, true);
+        //this.setAttached(CreeperModificationManager.NEUTERED, value);
     }
 
     @Override public boolean getIsDeterminedToExplode() {
         return determinedToExplode;
+    }
+
+    // Only vanilla creeper types can be neutered
+    @Override
+    public boolean canBeNeutered() {
+      return this.getType() == EntityType.CREEPER;
+    }
+
+    @Unique
+    private void setCustomTickLogic() {
+        if (this.isAlive()) {
+            this.lastFuseTime = this.currentFuseTime;
+            if (this.isIgnited()) {
+                this.setFuseSpeed(1);
+            }
+
+            if (this.getFuseSpeed() > 0 && this.currentFuseTime == 0 && !isNeutered()) {
+                this.playSound(SoundEvents.ENTITY_CREEPER_PRIMED, 1.0f, 0.5f);
+                this.emitGameEvent(GameEvent.PRIME_FUSE);
+            }
+
+            this.currentFuseTime += this.getFuseSpeed();
+
+            if (this.currentFuseTime < 0) {
+                this.currentFuseTime = 0;
+            }
+
+            // Check if the creeper is not neutered
+            if (!isNeutered()) {
+                if (this.currentFuseTime >= this.fuseTime) {
+                    this.currentFuseTime = this.fuseTime;
+                    this.explode();
+                }
+            } else {
+                // Reset fuse time when neutered
+                this.currentFuseTime = 0;
+            }
+        }
+        super.tick();
+
     }
 }
 
