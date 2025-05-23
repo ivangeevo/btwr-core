@@ -1,14 +1,9 @@
 package btwr.core.entity;
 
-import btwr.core.BTWRMod;
 import btwr.core.item.BTWR_Items;
-import com.mojang.serialization.Codec;
-import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
-import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.CreeperEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.particle.ParticleEffect;
@@ -17,7 +12,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Identifier;
 
 public class CreeperModificationManager {
 
@@ -75,4 +69,7 @@ public class CreeperModificationManager {
 
     }
 
+    public static void setINSTANCE(CreeperModificationManager INSTANCE) {
+        CreeperModificationManager.INSTANCE = INSTANCE;
+    }
 }

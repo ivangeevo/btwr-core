@@ -85,14 +85,13 @@ public class BTWR_Items {
         return Registry.register(Registries.ITEM, Identifier.of(BTWRMod.MOD_ID, name), item);
     }
 
-    public static void registerAndAddToGroups() {
+    public static void register() {
         BTWRMod.LOGGER.info("Registering Mod Items for " + BTWRMod.MOD_ID);
-        //ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(BTWR_Items::addItemsToIngredientItemGroup);
+        registerFuels();
     }
 
-
     // Register fuel items here
-    public static void registerFuels() {
+    private static void registerFuels() {
         FuelRegistry.INSTANCE.add(BTWR_Items.CLUB_WOOD, 100);
     }
 

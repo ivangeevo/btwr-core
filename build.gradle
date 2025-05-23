@@ -72,8 +72,6 @@ dependencies {
 
     modImplementation("org.ivangeevo:btwr-shared-lib:${project.btwr_sl_version}")
 
-    //modImplementation("maven.modrinth:modernfix:5.20.0+mc1.21.1")
-
     modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
     modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
 

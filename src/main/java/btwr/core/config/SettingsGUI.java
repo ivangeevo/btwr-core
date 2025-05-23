@@ -7,8 +7,8 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
-public class SettingsGUI
-{
+public class SettingsGUI {
+
     static BTWRSettings settingsCommon = BTWRMod.getInstance().settings;
 
     public static Screen createConfigScreen(Screen parent) {
@@ -16,7 +16,7 @@ public class SettingsGUI
                 .setParentScreen(parent)
                 .setTitle(Text.translatable("title.btwr.config"));
 
-        builder.setSavingRunnable(() -> { BTWRMod.getInstance().saveSettings(); });
+        builder.setSavingRunnable(() -> BTWRMod.getInstance().saveSettings());
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
@@ -36,6 +36,7 @@ public class SettingsGUI
                 .startBooleanToggle(Text.translatable("config.btwr.btwHoeFunctionality"), settingsCommon.btwHoeFunctionality)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> settingsCommon.btwHoeFunctionality = newValue)
+                .setTooltip(Text.translatable("config.btwr.tooltip.btwHoeFunctionality"))
                 .build());
 
         /** Entity Category**/

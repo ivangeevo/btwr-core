@@ -5,6 +5,7 @@ import btwr.core.BTWRMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.GrassBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -26,10 +27,10 @@ public abstract class BlockMixin {
     private void onAfterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity,
                               ItemStack tool, CallbackInfo ci)
     {
-        if (!BTWRMod.getInstance().settings.shouldChangeHoesBTWStyle() || world.isClient()) return;
-        if (!tool.isIn(ItemTags.HOES)) return;
+        if (!BTWRMod.getInstance().settings.shouldChangeHoesBTWStyle()) return;
+        if (world.isClient() || !tool.isIn(ItemTags.HOES)) return;
 
-        if (state.isIn(BTWRConventionalTags.Blocks.FARMLAND_VIABLE_GRASS)) {
+        if (state.isIn(BTWRConventionalTags.Blocks.FARMLAND_VIABLE_GRASS) || state.getBlock() instanceof GrassBlock) {
             setState(world, pos, Blocks.DIRT.getDefaultState());
         }
 

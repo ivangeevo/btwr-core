@@ -1,10 +1,10 @@
 package btwr.core.mixin;
 
+import btwr.core.BTWRMod;
 import btwr.core.util.TillingDropUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.HoeItem;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.network.ServerPlayerInteractionManager;
 import net.minecraft.server.world.ServerWorld;
@@ -24,9 +24,9 @@ public abstract class ServerPlayerInteractionManagerMixin {
 
     @Inject(method = "tryBreakBlock", at = @At("HEAD"), cancellable = true)
     private void onTryBreakBlock(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        ItemStack stack = player.getStackInHand(Hand.MAIN_HAND);
+        if (!BTWRMod.getInstance().settings.shouldChangeHoesBTWStyle()) return;
 
-        if (stack.getItem() instanceof HoeItem) {
+        if (player.getStackInHand(Hand.MAIN_HAND).getItem() instanceof HoeItem) {
             BlockState currentState = world.getBlockState(pos);
 
             // List of blocks we don't want to convert
