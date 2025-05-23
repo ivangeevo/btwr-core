@@ -36,7 +36,7 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
         boolean useCustomLogic = BTWRMod.getInstance().settings.shouldMobsSpawnOnWood();
 
         if (useCustomLogic) {
-            // Use the original OGallowsSpawningPredicate
+            // Use the original spawning predicate
             cir.setReturnValue(OGallowsSpawningPredicate.test(state, world, pos, type));
         } else {
             // Use the custom spawning predicate

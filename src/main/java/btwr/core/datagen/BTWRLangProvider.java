@@ -78,18 +78,18 @@ public class BTWRLangProvider extends FabricLanguageProvider {
     private void addConfigTranslations(TranslationBuilder tb) {
         addConfigMenuTitle("BTWR: Core Configuration Menu", tb);
         addConfigCategory("general", "General Options", tb);
-        addConfigCategory("mixins", "Mixin Options", tb);
-
+        addConfigCategory("entity", "Entity Options", tb);
         addConfig("knockbackRestriction", "Knockback Restriction", tb);
         addConfig("spawnBabyZombies", "Spawn Baby Zombies", tb);
         addConfig("spawnMobsOnWood", "Mobs Spawn On Wood", tb);
         addConfig("increasedMonsterSpawnsPerChunk", "Increased Mobs Per Chunk", tb);
+        addConfig("btwHoeFunctionality", "BTW Styled Hoes Functionality", tb);
         addConfig("changedCreeperExplosionPos", "Changed Creeper Explosion Origin", tb);
-
         addConfigTooltip("knockbackRestriction", "Disables knockback if not using a suitable weapon", tb);
         addConfigTooltip("spawnBabyZombies", "Can baby zombies spawn naturally?", tb);
         addConfigTooltip("spawnMobsOnWood", "Can mobs spawn on wooden blocks?", tb);
         addConfigTooltip("increasedMonsterSpawnsPerChunk", "Slightly increase the amount of mobs that can spawn per chunk", tb);
+        addConfigTooltip("btwHoeFunctionality", "Hoes now function only with left-click breaking grass/tillable blocks to create farmland (like in BTW)", tb);
         addConfigTooltip("changedCreeperExplosionPos", "Changes the location of creeper's explosion origin to be calculated from their eyes instead of their feet", tb);
     }
 

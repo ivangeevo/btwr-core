@@ -1,11 +1,11 @@
-## v0.32(dev)
-+ Fixed incompatibility with mods that add custom creepers to not get affected by the creeper shearing and ruin their intended experience. 
-I might consider adding specific compatibility with other mods in the future, so that modded creepers can also be neutered/sheared.
-+ Changed creeper explosion to be calculated from their eyes instead feet (also made it toggleable feature via mod menu)
+## v0.31(next)
++ Added a new configurable option that changes how hoes work. Normal usage with right click is removed and players must use the old school way of breaking grass with left click.
 + Added tooltips for all config options when looking at them in Mod Menu
-
-## v0.31
++ Changed creeper explosion to be calculated from their eyes instead feet (also made it toggleable feature via mod menu)
 + Fixed a bug where Hearty Stew & Chicken Soup would not give back an empty bowl item when finished using it if the player inventory is full.
++ Fixed incompatibility with mods that add custom creepers to not get affected by the creeper shearing and ruin their intended experience.
+  I might consider adding specific compatibility with other mods in the future, so that modded creepers can also be neutered/sheared.
++ Updated the mod to Fabric API 0.116.0, Fabric Loader 0.16.14 & BTWR Shared Library 0.53
 
 ## v0.30.1
 + Fixed a bug with older data files from version 0.29 that were causing issues.
