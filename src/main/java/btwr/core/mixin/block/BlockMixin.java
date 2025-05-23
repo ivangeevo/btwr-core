@@ -7,20 +7,15 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsageContext;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.event.GameEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.function.Consumer;
 
 import static net.minecraft.block.Block.pushEntitiesUpBeforeBlockChange;
 
@@ -43,26 +38,11 @@ public abstract class BlockMixin {
         }
     }
 
-    private static Consumer<ItemUsageContext> tillToDirt(ItemConvertible droppedItem) {
-        return context -> {
-            context.getWorld().setBlockState(context.getBlockPos(), Blocks.DIRT.getDefaultState(), Block.NOTIFY_ALL_AND_REDRAW);
-            context.getWorld().emitGameEvent(GameEvent.BLOCK_CHANGE, context.getBlockPos(), GameEvent.Emitter.of(context.getPlayer(), Blocks.DIRT.getDefaultState()));
-            Block.dropStack(context.getWorld(), context.getBlockPos(), context.getSide(), new ItemStack(droppedItem));
-        };
-    }
-
-    private static Consumer<ItemUsageContext> tillToFarmland(BlockState result, ItemConvertible droppedItem) {
-        return context -> {
-            context.getWorld().setBlockState(context.getBlockPos(), result, Block.NOTIFY_ALL_AND_REDRAW);
-            context.getWorld().emitGameEvent(GameEvent.BLOCK_CHANGE, context.getBlockPos(), GameEvent.Emitter.of(context.getPlayer(), result));
-            Block.dropStack(context.getWorld(), context.getBlockPos(), context.getSide(), new ItemStack(droppedItem));
-        };
-    }
 
     @Unique
     private void setState(World world, BlockPos pos, BlockState newState) {
         BlockState oldState = world.getBlockState(pos);
         BlockState updatedState = pushEntitiesUpBeforeBlockChange(oldState, newState, world, pos);
-        world.setBlockState(pos, updatedState,0,0);
+        world.setBlockState(pos, updatedState);
     }
 }
