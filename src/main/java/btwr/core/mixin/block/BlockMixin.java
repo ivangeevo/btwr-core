@@ -20,6 +20,6 @@ public abstract class BlockMixin {
     private void onAfterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity,
                               ItemStack tool, CallbackInfo ci)
     {
-        BlockTillingManager.MixinMod.getInstance().onAfterBreak(world, pos, state, tool);
+        BlockTillingManager.MixinMod.getInstance().onAfterBreak(world, pos, state, tool, player);
     }
 }

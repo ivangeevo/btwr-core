@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.GrassBlock;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -14,7 +15,6 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static net.minecraft.block.Block.pushEntitiesUpBeforeBlockChange;
@@ -64,9 +64,9 @@ public class BlockTillingManager {
             }
         }
 
-        public void onAfterBreak(World world, BlockPos pos, BlockState state, ItemStack tool) {
+        public void onAfterBreak(World world, BlockPos pos, BlockState state, ItemStack tool, PlayerEntity player) {
             if (!BTWRMod.getInstance().settings.shouldChangeHoesBTWStyle()) return;
-            if (world.isClient() || !tool.isIn(ItemTags.HOES)) return;
+            if (world.isClient() || !tool.isIn(ItemTags.HOES) || player.isCreative()) return;
 
             if (state.isIn(BTWRConventionalTags.Blocks.FARMLAND_VIABLE_GRASS) || state.getBlock() instanceof GrassBlock) {
                 setState(world, pos, Blocks.DIRT.getDefaultState());
