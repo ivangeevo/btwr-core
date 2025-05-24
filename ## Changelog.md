@@ -1,3 +1,8 @@
+## v0.31.1
++ Reverted the hoe modification code from last update and moved it to an unreleased mod. 
+It was causing some issues with other mods that need to be cleaned up before release and
+also it's a mode hardcore modification, so I'd like to keep it only in the BTWR modpack.
+
 ## v0.31
 + Added a new configurable option that changes how hoes work. Normal usage with right click is removed and players must use the old school way of breaking grass with left click.
 + Added tooltips for all config options when looking at them in Mod Menu
