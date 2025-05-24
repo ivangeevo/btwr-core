@@ -4,13 +4,10 @@
   "package": "btwr.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "HoeItemMixin",
     "ItemEntryAccessor",
     "LootPoolBuilderAccessor",
     "LootPoolEntryAccessor",
-    "ServerPlayerInteractionManagerMixin",
     "block.AbstractBlock$AbstractBlockStateMixin",
-    "block.BlockMixin",
     "entity.CreeperEntityMixin",
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",

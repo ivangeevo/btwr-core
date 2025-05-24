@@ -4,7 +4,6 @@ public class BTWRSettings {
 
     // general
     public boolean knockbackRestrictions = true;
-    public boolean btwHoeFunctionality = true;
 
     // entity
     public boolean spawnBabyZombies = false;
@@ -24,6 +23,5 @@ public class BTWRSettings {
     }
     public boolean shouldIncreaseMaxMobCapacity() { return increasedMonsterSpawnsPerChunk; }
     public boolean shouldChangeCreeperExplosionPos() { return changedCreeperExplosionPos; }
-    public boolean shouldChangeHoesBTWStyle() { return btwHoeFunctionality; }
 
 }
