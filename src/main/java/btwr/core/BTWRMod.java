@@ -3,7 +3,6 @@ package btwr.core;
 import btwr.core.config.BTWRSettings;
 import btwr.core.entity.BTWR_EntityTypes;
 import btwr.core.entity.CreeperModificationManager;
-import btwr.core.event.ModTillingLootTableEvents;
 import btwr.core.item.BTWR_Items;
 import com.google.gson.Gson;
 import net.fabricmc.api.ModInitializer;
@@ -40,7 +39,6 @@ public class BTWRMod implements ModInitializer {
 
         BTWR_EntityTypes.Blocks.registerBlockEntities();
 
-        ModTillingLootTableEvents.initialize();
 
         CreeperModificationManager.registerUseEvent();
     }
