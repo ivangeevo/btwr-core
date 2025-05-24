@@ -23,6 +23,8 @@ public class SettingsGUI {
         ConfigCategory general = builder.getOrCreateCategory(Text.translatable("config.btwr.category.general"));
         ConfigCategory entity = builder.getOrCreateCategory(Text.translatable("config.btwr.category.entity"));
 
+
+        // Temporary adding everything to the general category as there isn't many different options right now
         /** General Category**/
 
         general.addEntry(entryBuilder
@@ -35,21 +37,21 @@ public class SettingsGUI {
 
         /** Entity Category**/
 
-        entity.addEntry(entryBuilder
+        general.addEntry(entryBuilder
                 .startBooleanToggle(Text.translatable("config.btwr.increasedMonsterSpawnsPerChunk"), settingsCommon.increasedMonsterSpawnsPerChunk)
                 .setDefaultValue(true)
                 .setSaveConsumer(newValue -> settingsCommon.increasedMonsterSpawnsPerChunk = newValue)
                 .setTooltip(Text.translatable("config.btwr.tooltip.increasedMonsterSpawnsPerChunk"))
                 .build());
 
-        entity.addEntry(entryBuilder
+        general.addEntry(entryBuilder
                 .startBooleanToggle(Text.translatable("config.btwr.spawnBabyZombies"), settingsCommon.spawnBabyZombies)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> settingsCommon.spawnBabyZombies = newValue)
                 .setTooltip(Text.translatable("config.btwr.tooltip.spawnBabyZombies"))
                 .build());
 
-        entity.addEntry(entryBuilder
+        general.addEntry(entryBuilder
                 .startBooleanToggle(Text.translatable("config.btwr.spawnMobsOnWood"), settingsCommon.spawnMobsOnWood)
                 .setDefaultValue(false)
                 .setSaveConsumer(newValue -> settingsCommon.spawnMobsOnWood = newValue)
