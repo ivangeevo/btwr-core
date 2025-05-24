@@ -32,12 +32,6 @@ public class SettingsGUI {
                 .setTooltip(Text.translatable("config.btwr.tooltip.knockbackRestriction"))
                 .build());
 
-        general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.btwHoeFunctionality"), settingsCommon.btwHoeFunctionality)
-                .setDefaultValue(false)
-                .setSaveConsumer(newValue -> settingsCommon.btwHoeFunctionality = newValue)
-                .setTooltip(Text.translatable("config.btwr.tooltip.btwHoeFunctionality"))
-                .build());
 
         /** Entity Category**/
 

@@ -1,4 +1,7 @@
-## v0.31(next)
+## v0.31.1(next)
++ Removed the hoe modification code and moved it to another unreleased mod because it's still not working as intended and there were bugs with breaking grass and dirt blocks normally.
+
+## v0.31
 + Added a new configurable option that changes how hoes work. Normal usage with right click is removed and players must use the old school way of breaking grass with left click.
 + Added tooltips for all config options when looking at them in Mod Menu
 + Changed creeper explosion to be calculated from their eyes instead feet (also made it toggleable feature via mod menu)
