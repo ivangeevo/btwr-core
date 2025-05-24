@@ -57,8 +57,9 @@ public class BlockTillingManager {
             BlockPos pos = context.getBlockPos();
             BlockState state = context.getWorld().getBlockState(pos);
 
+            boolean isGrassBlock = state.isOf(Blocks.GRASS_BLOCK) || state.getBlock() instanceof GrassBlock;
 
-            if (state.isOf(Blocks.GRASS_BLOCK) || state.isIn(BTWRConventionalTags.Blocks.FARMLAND_VIABLE_DIRT)) {
+            if (isGrassBlock || state.isIn(BTWRConventionalTags.Blocks.FARMLAND_VIABLE_DIRT)) {
                 cir.setReturnValue(ActionResult.FAIL);
             }
         }
