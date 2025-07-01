@@ -4,6 +4,7 @@ import btwr.btwr_sl.tag.BTWRConventionalTags;
 import btwr.core.BTWRMod;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.EntityType;
@@ -24,6 +25,11 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
     @Unique
     private static final AbstractBlock.TypedContextPredicate<EntityType<?>> newSpawningPredicate = (state, world, pos, type) ->
             !isWoodenBlock(state) && isSolidOnTop(state, world, pos) && state.getLuminance() < 14;
+
+    @Unique
+    private static final AbstractBlock.TypedContextPredicate<EntityType<?>> netherBlocksSpawningPredicate = (state, world, pos, type) ->
+            isNetherBlock(state) && isSolidOnTop(state, world, pos) && state.getLuminance() < 14;
+
     @Unique
     private static final AbstractBlock.TypedContextPredicate<EntityType<?>> OGallowsSpawningPredicate = (state, world, pos, type) ->
             state.isSideSolidFullSquare(world, pos, Direction.UP) && state.getLuminance() < 14;
@@ -33,9 +39,13 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
         BlockState state = (BlockState) (Object) this;
 
         // Check the setting to determine which predicate to use
-        boolean useCustomLogic = BTWRMod.getInstance().settings.shouldMobsSpawnOnWood();
+        boolean canSpawnOnWood = BTWRMod.getInstance().settings.shouldMobsSpawnOnWood();
 
-        if (useCustomLogic) {
+        if (type == EntityType.ZOMBIFIED_PIGLIN || type == EntityType.BLAZE || type == EntityType.WITHER_SKELETON) {
+            cir.setReturnValue(netherBlocksSpawningPredicate.test(state, world, pos, type));
+        }
+
+        if (canSpawnOnWood) {
             // Use the original spawning predicate
             cir.setReturnValue(OGallowsSpawningPredicate.test(state, world, pos, type));
         } else {
@@ -66,6 +76,16 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
                 || state.isIn(BlockTags.PLANKS)
                 || state.isIn(BlockTags.WOODEN_SLABS)
                 || state.isIn(BTWRConventionalTags.Blocks.WOODEN_MISC_BLOCKS)
+
+                ;
+    }
+
+    @Unique
+    private static boolean isNetherBlock(BlockState state) {
+        return state.isOf(Blocks.NETHER_BRICKS)
+                || state.isOf(Blocks.NETHERRACK)
+                || state.isOf(Blocks.CRIMSON_NYLIUM)
+                || state.isOf(Blocks.WARPED_NYLIUM)
 
                 ;
     }
