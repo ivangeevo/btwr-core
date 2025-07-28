@@ -1,3 +1,5 @@
+## v0.32(dev)
+
 ## v0.31.1
 + Reverted the hoe modification code from last update and moved it to an unreleased mod. 
 It was causing some issues with other mods that need to be cleaned up before release and
