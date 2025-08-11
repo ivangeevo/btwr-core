@@ -99,7 +99,6 @@ public class BlightBlock extends Block {
             }
         } else {
             // Levels 2 & 3
-
             // Check for spread
 
             for (int tempCount = 0; tempCount < 4; tempCount++) {
@@ -131,12 +130,13 @@ public class BlightBlock extends Block {
 
         if (spreadTargetState.isAir()) return;
 
-        int blightLevel = state.get(LEVEL);
+        int blightLevel = this.getLevel(state);
 
-        if (state.isOf(this)) {
+        if (spreadTargetState.isOf(this)) {
             // Evolve lower level blight
 
-            int targetBlightLevel = getBlightLevel(spreadTargetState);
+            // This is a general int check on whether this will spread a roots or normal blight block.
+            int targetBlightLevel = getBlightTypeToSpread(spreadTargetState);
 
             if (targetBlightLevel < blightLevel && targetBlightLevel >= 0) {
                 if (isSurfaceBlight(spreadTargetState)) {
@@ -309,7 +309,7 @@ public class BlightBlock extends Block {
         return false;
     }
 
-    public int getBlightLevel(BlockState state) {
+    public int getBlightTypeToSpread(BlockState state) {
         // Roots only spawn at Blight level 3
         if (state.isOf(BTWR_Blocks.BLIGHT_ROOTS)) {
             return 3;
