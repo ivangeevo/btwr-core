@@ -1,5 +1,6 @@
 package btwr.core;
 
+import btwr.core.block.BTWR_Blocks;
 import btwr.core.config.BTWRSettings;
 import btwr.core.entity.BTWR_EntityTypes;
 import btwr.core.entity.CreeperModificationManager;
@@ -35,6 +36,7 @@ public class BTWRMod implements ModInitializer {
         instance = this;
 
         BTWRItemGroup.register();
+        BTWR_Blocks.register();
         BTWR_Items.register();
 
         BTWR_EntityTypes.Blocks.registerBlockEntities();
