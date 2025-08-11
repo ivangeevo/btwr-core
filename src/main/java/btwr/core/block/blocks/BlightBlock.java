@@ -127,7 +127,7 @@ public class BlightBlock extends Block {
     }
 
     private void checkForSpreadToLocation(World world, BlockState state, BlockPos targetPos) {
-
+        BlockState spreadTargetState = world.getBlockState(targetPos);
 
         if (spreadTargetState.isAir()) return;
 
@@ -136,7 +136,6 @@ public class BlightBlock extends Block {
         if (state.isOf(this)) {
             // Evolve lower level blight
 
-            BlockState spreadTargetState = world.getBlockState(targetPos);
             int targetBlightLevel = getBlightLevel(spreadTargetState);
 
             if (targetBlightLevel < blightLevel && targetBlightLevel >= 0) {
