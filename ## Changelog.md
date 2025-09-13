@@ -1,5 +1,6 @@
-## v0.32(dev)
+## v0.31.2
 + Removed the remainder logic that damages shears and axes when crafting and moved it to the BTWR: Shared library mod.
++ Updated the mod to Fabric API 0.116.6, Fabric Loader 0.17.2 & BTWR: Shared Library 0.58
 
 ## v0.31.1
 + Reverted the hoe modification code from last update and moved it to an unreleased mod. 
