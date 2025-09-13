@@ -1,4 +1,5 @@
 ## v0.32(dev)
++ Removed the remainder logic that damages shears and axes when crafting and moved it to the BTWR: Shared library mod.
 
 ## v0.31.1
 + Reverted the hoe modification code from last update and moved it to an unreleased mod. 

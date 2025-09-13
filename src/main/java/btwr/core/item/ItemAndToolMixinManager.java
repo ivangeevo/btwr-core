@@ -22,25 +22,8 @@ public class ItemAndToolMixinManager {
 
     private ItemAndToolMixinManager() {}
 
-    public static ItemAndToolMixinManager getInstance()
-    {
+    public static ItemAndToolMixinManager getInstance() {
         return instance;
-    }
-
-    public ItemStack damageOnCrafting(ItemStack stack) {
-        if (stack.getItem() instanceof ShearsItem || isValidAxeItem(stack)) {
-            if (stack.getDamage() < stack.getMaxDamage() - 1) {
-                ItemStack moreDamaged = stack.copy();
-                moreDamaged.setDamage(stack.getDamage() + 1);
-                return moreDamaged;
-            }
-        }
-
-        if (stack.getItem().getRecipeRemainder() != null) {
-            return stack.getItem().getRecipeRemainder().getDefaultStack();
-        }
-
-        return ItemStack.EMPTY;
     }
 
     public void onPostMineAxe(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
@@ -48,7 +31,6 @@ public class ItemAndToolMixinManager {
             boolean shouldDrainDurability = state.isReplaceable();
 
             // Check if the tool is used for the "wrong" activities
-
             if (shouldDrainDurability) {
                 if (state.getHardness(world, pos) != 0.0f) {
                     // Drain durability 2x faster

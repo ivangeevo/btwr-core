@@ -96,10 +96,6 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .forceAddTag(BTWRConventionalTags.Items.DIAMOND_TOOLS)
                 .forceAddTag(BTWRConventionalTags.Items.NETHERITE_TOOLS);
 
-        getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_WOODEN_SOUND)
-                .forceAddTag(ItemTags.PLANKS)
-                .add(Items.STICK);
-
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SLIME_SOUND)
                 .addTag(BTWRTags.Items.CLAY_ITEMS)
                 .add(BTWR_Items.DIAMOND_INGOT);

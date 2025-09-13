@@ -20,13 +20,6 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
     @Unique
     private static final ItemAndToolMixinManager itemMixinManager = ItemAndToolMixinManager.getInstance();
 
-
-    // Adds remainder logic so the item doesn't get consumed on crafting.
-    @Override
-    public ItemStack getRecipeRemainder(ItemStack stack) {
-       return itemMixinManager.damageOnCrafting(stack);
-    }
-
     @Inject(method = "finishUsing", at = @At("RETURN"))
     private void onFinishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir)
     {
