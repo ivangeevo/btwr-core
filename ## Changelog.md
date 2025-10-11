@@ -1,5 +1,6 @@
 ## v0.32(dev)
-+ Split the mod client environment from the main package
++ (not yet) Updated mod recipes to use the new ExtendedShapelessRecipe from BTWR: SL v0.60
++ Removed old unused assets from the mod files
 + Updated the mod to BTWR Shared Library 0.60
 
 ## v0.31.2
