@@ -23,7 +23,7 @@ public class SettingsGUI {
         ConfigCategory general = builder.getOrCreateCategory(Text.translatable("config.btwr.category.general"));
         ConfigCategory entity = builder.getOrCreateCategory(Text.translatable("config.btwr.category.entity"));
 
-        // Temporary adding everything to the general category as there isn't many different options right now
+        // Temporary adding everything to the general category as there are not enough different options right now
         /** General Category**/
 
         general.addEntry(entryBuilder

@@ -1,5 +1,6 @@
 ## v0.32(dev)
 + Updated mod recipes to use the new ExtendedShapelessRecipe from BTWR: SL v0.60
++ Split mod client side from the main package. Although there weren't any problems before, this is a good practice and the mod should work better in multiplayer
 + Removed old unused assets from the mod files and cleaned up source code a lot
 + (not yet) Updated the mod to BTWR Shared Library 0.60
 
@@ -8,7 +9,7 @@
 + Updated the mod to Fabric API 0.116.6, Fabric Loader 0.17.2 & BTWR: Shared Library 0.58
 
 ## v0.31.1
-+ Reverted the hoe modification code from last update and moved it to an unreleased mod. 
++ Reverted the hoe modification code from the last update and moved it to an unreleased mod. 
 It was causing some issues with other mods that need to be cleaned up before release and
 also it's a mode hardcore modification, so I'd like to keep it only in the BTWR modpack.
 
