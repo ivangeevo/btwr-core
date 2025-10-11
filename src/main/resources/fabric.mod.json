@@ -14,13 +14,19 @@
   "icon": "assets/btwr/btwr-circle.png",
   "environment": "*",
   "entrypoints": {
-    "client": ["btwr.core.client.BTWRModClient"],
+    "client": [
+      "btwr.core.BTWRModClient"
+    ],
     "main": ["btwr.core.BTWRMod"],
     "fabric-datagen": ["btwr.core.BTWRDataGenerator"],
     "modmenu": ["btwr.core.config.BTWRModMenu"]
   },
   "mixins": [
-    "btwr-core.mixins.json"
+    "btwr-core.mixins.json",
+    {
+      "config": "btwr-core.client.mixins.json",
+      "environment": "client"
+    }
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

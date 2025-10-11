@@ -1,4 +1,4 @@
-package btwr.core.mixin;
+package btwr.core.mixin.client;
 
 import com.terraformersmc.modmenu.config.ModMenuConfig;
 import net.fabricmc.loader.api.FabricLoader;

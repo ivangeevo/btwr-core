@@ -1,4 +1,4 @@
-package btwr.core.mixin.entity;
+package btwr.core.mixin.client;
 
 import btwr.core.BTWRMod;
 import net.minecraft.client.render.entity.CreeperEntityRenderer;

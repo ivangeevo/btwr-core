@@ -1,6 +1,5 @@
-package btwr.core.client;
+package btwr.core;
 
-import btwr.core.BTWRMod;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
