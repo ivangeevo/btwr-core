@@ -1,4 +1,4 @@
-package btwr.core.mixin;
+package btwr.core.mixin.client;
 
 import com.terraformersmc.modmenu.config.ModMenuConfig;
 import net.fabricmc.loader.api.FabricLoader;
@@ -6,13 +6,9 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.resource.language.I18n;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Mixin(net.minecraft.client.gui.screen.TitleScreen.class)
 public abstract class TitleScreenMixin {
@@ -25,7 +21,7 @@ public abstract class TitleScreenMixin {
                 .filter(mod -> !mod.getMetadata().getId().startsWith("fabric")) // Exclude Fabric API
                 .count();
 
-        // Replace the default "mods loaded" text with your filtered count
+        // Replace the default "mods loaded" text
         String customModText = modCount + " Mods Loaded";
         context.drawText(
                 MinecraftClient.getInstance().textRenderer,

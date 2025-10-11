@@ -68,8 +68,4 @@ public class CreeperModificationManager {
         }));
 
     }
-
-    public static void setINSTANCE(CreeperModificationManager INSTANCE) {
-        CreeperModificationManager.INSTANCE = INSTANCE;
-    }
 }

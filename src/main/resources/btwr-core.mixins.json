@@ -12,11 +12,9 @@
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",
+    "entity.WitherSkullEntityMixin",
     "entity.ZombieEntityMixin",
     "item.ItemMixin"
-  ],
-  "client": [
-    "entity.CreeperEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

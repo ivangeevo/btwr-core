@@ -1,3 +1,7 @@
+## v0.32(dev)
++ Split the mod client environment from the main package
++ Updated the mod to BTWR Shared Library 0.60
+
 ## v0.31.2
 + Removed the remainder logic that damages shears and axes when crafting and moved it to the BTWR: Shared library mod.
 + Updated the mod to Fabric API 0.116.6, Fabric Loader 0.17.2 & BTWR: Shared Library 0.58

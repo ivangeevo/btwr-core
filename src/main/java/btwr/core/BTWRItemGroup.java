@@ -15,8 +15,7 @@ public class BTWRItemGroup {
                 FabricItemGroup.builder()
                         .displayName(Text.translatable("itemgroup.group_btwr"))
                         .icon(() -> new ItemStack(BTWR_Items.GROUP_BTWR))
-                        .entries((displayContext, entries) ->
-                        {
+                        .entries((displayContext, entries) -> {
                             /** ITEMS **/
 
                             // Uncategorized

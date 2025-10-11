@@ -29,13 +29,11 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
     @Inject(method = "postMine", at = @At("RETURN"), cancellable = true)
     private void onPostMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner, CallbackInfoReturnable<Boolean> cir)
     {
-        // save the original return (super call)
         boolean original = cir.getReturnValue();
 
         // set all without the super call
         itemMixinManager.onPostMineAxe(stack, world, state, pos, miner);
 
-        // and here we return it
         cir.setReturnValue(original);
     }
 
