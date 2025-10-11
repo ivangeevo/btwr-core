@@ -29,25 +29,22 @@ import java.util.List;
 
 public class ClubItem extends ToolItem
 {
-    public ClubItem(ToolMaterial toolMaterial, Settings settings)
-    {
-        super(toolMaterial, settings.component(DataComponentTypes.TOOL, createToolComponent()));
 
+    public ClubItem(ToolMaterial toolMaterial, Settings settings) {
+        super(toolMaterial, settings.component(DataComponentTypes.TOOL, createToolComponent()));
     }
 
     private static ToolComponent createToolComponent() {
         return new ToolComponent(List.of(ToolComponent.Rule.ofAlwaysDropping(List.of(Blocks.COBWEB), 15.0f), ToolComponent.Rule.of(BlockTags.SWORD_EFFICIENT, 1.5f)), 1.0f, 2);
     }
 
-
     @Override
-    public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner)
-    {
+    public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner) {
         return !miner.isCreative();
     }
 
 
-    // TODO: Move these sounds to BTWR-SL's CraftingSoundManager
+    // TODO: Move these sounds to BTWR-SL's CraftingSoundManager?
     @Override
     public void onCraftByPlayer(ItemStack stack, World world, PlayerEntity player) {
 
@@ -66,9 +63,7 @@ public class ClubItem extends ToolItem
         }
 
         super.onCraftByPlayer(stack, world, player);
-
     }
-
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {

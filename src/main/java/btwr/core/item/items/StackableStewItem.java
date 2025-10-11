@@ -31,7 +31,4 @@ public class StackableStewItem extends Item {
         return super.finishUsing(stack, world, user);
     }
 
-
-
-
 }

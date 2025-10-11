@@ -70,6 +70,4 @@ public class ItemAndToolMixinManager {
         return (stack.getItem() instanceof MiningToolItem && stack.isIn(BTWRConventionalTags.Items.AXES_MAKE_PLANKS));
     }
 
-
-
 }

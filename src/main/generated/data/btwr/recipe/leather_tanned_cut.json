@@ -1,5 +1,6 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "btwr_sl:crafting_shapeless_extended",
+  "additional_drops": [],
   "category": "misc",
   "ingredients": [
     {
@@ -12,5 +13,6 @@
   "result": {
     "count": 2,
     "id": "btwr:leather_tanned_cut"
-  }
+  },
+  "tool_damage": 1
 }

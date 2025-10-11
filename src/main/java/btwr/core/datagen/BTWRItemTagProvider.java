@@ -46,42 +46,21 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(BTWR_Items.LEATHER_CUT)
                 .add(BTWR_Items.LEATHER_SCOURED_CUT)
                 .add(BTWR_Items.LEATHER_TANNED_CUT);
-
-
-
-
     }
 
     private void addToConventionalTags() {
 
         // Fabric Conventional Tags
-        /**
-        getOrCreateTagBuilder(ConventionalItemTags.STRINGS)
-                .add(BTWR_Items.HEMP_FIBERS);
-         **/
-
         getOrCreateTagBuilder(ConventionalItemTags.SHEAR_TOOLS)
                 .add(BTWR_Items.DIAMOND_SHEARS);
 
         // BTWR Added Conventional Tags
-        /**
-
-         getOrCreateTagBuilder(BTWRConventionalTags.Items.STRING_TOOL_MATERIALS)
-                .add(BTWR_Items.HEMP_FIBERS);
-         **/
-
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS)
                 .add(BTWR_Items.CLUB_WOOD)
                 .add(BTWR_Items.CLUB_BONE);
 
-        /**
-         getOrCreateTagBuilder(BTWRConventionalTags.Items.CHICKEN_TEMPT_ITEMS)
-                .add(BTWR_Items.HEMP_SEEDS);
-         **/
-
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DIAMOND_TOOLS)
                 .add(BTWR_Items.DIAMOND_SHEARS);
-
 
         // Crafting sound tags
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_WOODEN_TOOL_SOUND)
@@ -102,8 +81,6 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SHEARS_CUT_SOUND)
                 .addTag(BTWRTags.Items.CUT_LEATHERS);
-
-
     }
 
 }

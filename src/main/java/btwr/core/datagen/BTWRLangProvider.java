@@ -13,7 +13,6 @@ import java.util.concurrent.CompletableFuture;
 
 public class BTWRLangProvider extends FabricLanguageProvider {
 
-
     public BTWRLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, registryLookup);
     }
@@ -61,10 +60,6 @@ public class BTWRLangProvider extends FabricLanguageProvider {
 
         tb.add(BTWR_Items.DIAMOND_INGOT, "Diamond Ingot");
         tb.add(BTWR_Items.DIAMOND_PLATE,"Diamond Armor Plate");
-        //tb.add(BTWR_Items.HEMP_FIBERS, "Hemp Fibers");
-        //tb.add(BTWR_Items.HEMP_LEAVES, "Hemp Leaves");
-        //tb.add(BTWR_Items.HEMP_FABRIC, "Hemp Fabric");
-        //tb.add(BTWR_Items.HEMP_SEEDS, "Hemp Seeds");
         tb.add(BTWR_Items.LEATHER_CUT, "Cut Leather");
         tb.add(BTWR_Items.LEATHER_SCOURED, "Scoured Leather");
         tb.add(BTWR_Items.LEATHER_SCOURED_CUT, "Cut Scoured Leather");
@@ -72,7 +67,6 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         tb.add(BTWR_Items.LEATHER_TANNED_CUT, "Cut Tanned Leather");
 
         //tb.add(BTWR_Items.ANCIENT_PROPHECHY, "");
-
     }
 
     private void addConfigTranslations(TranslationBuilder tb) {

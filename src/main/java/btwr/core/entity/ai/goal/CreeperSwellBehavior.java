@@ -12,7 +12,6 @@ public class CreeperSwellBehavior extends CreeperIgniteGoal {
     @Nullable
     private LivingEntity target;
 
-
     public CreeperSwellBehavior(CreeperEntity creeper) {
         super(creeper);
         myCreeper = creeper;

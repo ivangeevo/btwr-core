@@ -3,6 +3,8 @@ package btwr.core.config;
 public class BTWRSettings {
 
     // general
+
+    // this is still considered entity lol
     public boolean knockbackRestrictions = true;
 
     // entity
@@ -10,7 +12,6 @@ public class BTWRSettings {
     public boolean spawnMobsOnWood = false;
     public boolean increasedMonsterSpawnsPerChunk = true;
     public boolean changedCreeperExplosionPos = true;
-
 
     public boolean shouldDoKnockbackRestrictions() {
         return knockbackRestrictions;

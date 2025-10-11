@@ -7,7 +7,6 @@ import net.minecraft.data.client.ItemModelGenerator;
 
 public class BTWRModelProvider extends FabricModelProvider {
 
-
     public BTWRModelProvider(FabricDataOutput output) {
         super(output);
     }

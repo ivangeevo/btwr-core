@@ -13,7 +13,6 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     public BTWRBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
-
     }
 
     @Override
@@ -24,8 +23,6 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     private void addToVanillaTags() {
-
-
     }
 
     private void addToModTags() {

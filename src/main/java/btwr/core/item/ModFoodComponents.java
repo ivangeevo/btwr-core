@@ -44,7 +44,7 @@ public class ModFoodComponents {
     public static final FoodComponent CHICKEN_SOUP = createCooked(8, 0.40f).build();
     public static final FoodComponent HEARTY_STEW = createCooked(10, 0.46f).build();
 
-    // Weird foods
+    // Unique foods
     public static final FoodComponent CREEPER_OYSTERS =
             new FoodComponent.Builder()
                     .nutrition(1)
@@ -69,8 +69,7 @@ public class ModFoodComponents {
         return (new FoodComponent.Builder()).nutrition(hunger).saturationModifier(saturation).usingConvertsTo(Items.BOWL);
     }
 
-    private static StatusEffectInstance addHungerStatusEffect(int dur, int amp)
-    {
+    private static StatusEffectInstance addHungerStatusEffect(int dur, int amp) {
         return new StatusEffectInstance(StatusEffects.HUNGER, dur, amp, false, false, false);
     }
 

@@ -8,7 +8,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.List;
 
 @Mixin(LootPoolEntry.class)
-public interface LootPoolEntryAccessor {
+public interface LootPoolEntryAccessor
+{
 
     // Accessor method to get the conditions
     @Accessor("conditions")

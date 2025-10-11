@@ -23,7 +23,6 @@ public class SettingsGUI {
         ConfigCategory general = builder.getOrCreateCategory(Text.translatable("config.btwr.category.general"));
         ConfigCategory entity = builder.getOrCreateCategory(Text.translatable("config.btwr.category.entity"));
 
-
         // Temporary adding everything to the general category as there isn't many different options right now
         /** General Category**/
 
@@ -33,7 +32,6 @@ public class SettingsGUI {
                 .setSaveConsumer(newValue -> settingsCommon.knockbackRestrictions = newValue)
                 .setTooltip(Text.translatable("config.btwr.tooltip.knockbackRestriction"))
                 .build());
-
 
         /** Entity Category**/
 
@@ -67,7 +65,5 @@ public class SettingsGUI {
 
         return builder.build();
     }
-
-
 
 }

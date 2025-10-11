@@ -33,9 +33,6 @@ public class BTWRArmorMaterials {
             List.of(new ArmorMaterial.Layer(Identifier.of(BTWRMod.MOD_ID, "leather_tanned"), "", true),
                     new ArmorMaterial.Layer(Identifier.of(BTWRMod.MOD_ID, "leather_tanned"), "", false)));
 
-
-
-
     public static RegistryEntry<ArmorMaterial> getDefault(Registry<ArmorMaterial> registry) {
         return LEATHER_TANNED;
     }

@@ -11,28 +11,24 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-
 // This class registers all BTWR items.
 public class BTWR_Items {
 
     // The GROUP_BTWR is first, as it acts as an Item that is called in the BTWRItemGroup class.
     public static final Item GROUP_BTWR = registerItem( "group_btwr", new Item(new Item.Settings()));
 
+    // Diamond variation items
     public static final Item DIAMOND_INGOT = registerItem( "diamond_ingot", new Item (new Item.Settings()));
-
     public static final Item DIAMOND_PLATE = registerItem("diamond_plate", new Item(new Item.Settings()));
 
+    // Leathers
     public static final Item LEATHER_CUT = registerItem( "leather_cut", new Item (new Item.Settings()));
     public static final Item LEATHER_SCOURED = registerItem( "leather_scoured", new Item (new Item.Settings()));
     public static final Item LEATHER_SCOURED_CUT = registerItem( "leather_scoured_cut", new Item (new Item.Settings()));
     public static final Item LEATHER_TANNED = registerItem( "leather_tanned", new Item (new Item.Settings()));
     public static final Item LEATHER_TANNED_CUT = registerItem( "leather_tanned_cut", new Item (new Item.Settings()));
 
-
-    // --------- //
-
-    // ---------- Tool Items ---------- //
-
+    // Tools
     public static final Item CLUB_WOOD = registerItem("club_wood",
             new ClubItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(ClubItem.createAttributeModifiers(ToolMaterials.WOOD,1, -1.1f))));
 
@@ -43,16 +39,12 @@ public class BTWR_Items {
             new ShearsItem (new Item.Settings().maxDamage(500).component(DataComponentTypes.TOOL, ShearsItem.createToolComponent())));
     
     // Armor
-
     public static final Item LEATHER_TANNED_HELMET = registerItem("leather_tanned_helmet", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED,  ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
     public static final Item LEATHER_TANNED_CHESTPLATE = registerItem("leather_tanned_chestplate", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
     public static final Item LEATHER_TANNED_LEGGINGS = registerItem("leather_tanned_leggings", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
     public static final Item LEATHER_TANNED_BOOTS = registerItem("leather_tanned_boots", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
 
-
-
     // Food items
-
     // Raw
     public static final Item EGG_SCRAMBLED_RAW = registerItem("egg_scrambled_raw", new Item( new Item.Settings().food(ModFoodComponents.EGGS_SCRAMBLED_RAW)));
     public static final Item MUSHROOM_OMELETTE_RAW = registerItem("mushroom_omelette_raw", new Item( new Item.Settings().food(ModFoodComponents.MUSHROOM_OMELETTE_RAW)));
@@ -95,5 +87,4 @@ public class BTWR_Items {
         FuelRegistry.INSTANCE.add(BTWR_Items.CLUB_WOOD, 100);
     }
 
-    // ---------------------- //
 }

@@ -23,7 +23,6 @@ public class BTWRTags {
 
     public static class Items {
 
-
         public static final TagKey<Item> CLAY_ITEMS = createTag("clay_items");
         public static final TagKey<Item> DROP_SPREAD_ITEMS = createTag("drop_spread_items");
 
@@ -48,14 +47,9 @@ public class BTWRTags {
         public static final TagKey<Item> PIG_BREEDING_ITEMS = createTag("pig_breeding_items");
         public static final TagKey<Item> PIG_TEMPT_ITEMS = createTag("pig_tempt_items");
 
-
-
-
-
         private static TagKey<Item> createTag (String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(BTWRMod.MOD_ID, name));
         }
     }
-
 
 }

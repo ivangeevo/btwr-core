@@ -17,7 +17,8 @@ import net.minecraft.util.Identifier;
 
 public class BTWR_Blocks {
 
-    public static final Block BLIGHT = registerBlock("blight", new BlightBlock(AbstractBlock.Settings.create()
+    // Registering blight without an item for now because it still doesn't work properly
+    public static final Block BLIGHT = registerWithoutItem("blight", new BlightBlock(AbstractBlock.Settings.create()
             .strength(0.6F)
             .ticksRandomly()
             .sounds(BlockSoundGroup.GRAVEL))
@@ -47,8 +48,10 @@ public class BTWR_Blocks {
     }
 
     private static void addToItemGroups() {
+        /**
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
             content.addAfter(Blocks.GRASS_BLOCK, BLIGHT);
         });
+         **/
     }
 }

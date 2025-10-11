@@ -21,7 +21,6 @@ public class BlightBlock extends Block {
 
     public static final IntProperty LEVEL = IntProperty.of("level", 0, 3);
 
-
     public BlightBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(LEVEL, 0));

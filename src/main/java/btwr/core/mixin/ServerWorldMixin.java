@@ -10,7 +10,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerWorld.class)
-public abstract class ServerWorldMixin {
+public abstract class ServerWorldMixin
+{
 
     // did some test; trying to make mobs get ticked even when far away
     //@Inject(method = "tickEntity", at = @At("HEAD"))

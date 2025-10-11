@@ -12,7 +12,6 @@
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",
-    "entity.WitherSkullEntityMixin",
     "entity.ZombieEntityMixin",
     "item.ItemMixin"
   ],

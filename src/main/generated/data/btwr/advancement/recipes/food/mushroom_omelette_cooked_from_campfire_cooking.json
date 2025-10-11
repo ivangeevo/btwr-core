@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mushroom_omelette_cooked_from_campfire_cooking"
+        "recipe": "btwr:mushroom_omelette_cooked_from_campfire_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mushroom_omelette_cooked_from_campfire_cooking"
+      "btwr:mushroom_omelette_cooked_from_campfire_cooking"
     ]
   }
 }
