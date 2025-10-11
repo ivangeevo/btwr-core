@@ -1,3 +1,5 @@
+## v0.32(dev)
+
 ## v0.31.3
 + Updated mod recipes to use the new ExtendedShapelessRecipe from BTWR: SL v0.60
 + Split mod client side from the main package. Although there weren't any problems before, this is a good practice and the mod should work better in multiplayer
