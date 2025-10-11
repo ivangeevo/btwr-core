@@ -4,7 +4,7 @@ public class BTWRSettings {
 
     // general
 
-    // this is still considered entity lol
+    // this is still considered entity category lol
     public boolean knockbackRestrictions = true;
 
     // entity

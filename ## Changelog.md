@@ -1,8 +1,8 @@
-## v0.32(dev)
+## v0.31.3(dev)
 + Updated mod recipes to use the new ExtendedShapelessRecipe from BTWR: SL v0.60
 + Split mod client side from the main package. Although there weren't any problems before, this is a good practice and the mod should work better in multiplayer
 + Removed old unused assets from the mod files and cleaned up source code a lot
-+ (not yet) Updated the mod to BTWR Shared Library 0.60
++ Updated the mod to BTWR Shared Library 0.60
 
 ## v0.31.2
 + Removed the remainder logic that damages shears and axes when crafting and moved it to the BTWR: Shared library mod.
