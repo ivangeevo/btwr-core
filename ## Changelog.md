@@ -1,4 +1,6 @@
 ## v0.32(dev)
++ Split the mod client environment from the main package
++ Updated the mod to Fabric API 0.116.6, Fabric Loader 0.17.2 & BTWR Shared Library 0.60
 
 ## v0.31.1
 + Reverted the hoe modification code from last update and moved it to an unreleased mod. 

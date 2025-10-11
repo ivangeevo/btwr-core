@@ -2,7 +2,6 @@ package btwr.core;
 
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.config.BTWRSettings;
-import btwr.core.entity.BTWR_EntityTypes;
 import btwr.core.entity.CreeperModificationManager;
 import btwr.core.item.BTWR_Items;
 import com.google.gson.Gson;
@@ -38,9 +37,6 @@ public class BTWRMod implements ModInitializer {
         BTWRItemGroup.register();
         BTWR_Blocks.register();
         BTWR_Items.register();
-
-        BTWR_EntityTypes.Blocks.registerBlockEntities();
-
 
         CreeperModificationManager.registerUseEvent();
     }

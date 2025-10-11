@@ -16,9 +16,6 @@
     "entity.ZombieEntityMixin",
     "item.ItemMixin"
   ],
-  "client": [
-    "entity.CreeperEntityRendererMixin"
-  ],
   "injectors": {
     "defaultRequire": 1
   }

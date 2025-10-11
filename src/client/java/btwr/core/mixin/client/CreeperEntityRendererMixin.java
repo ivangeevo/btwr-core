@@ -1,4 +1,4 @@
-package btwr.core.mixin.entity;
+package btwr.core.mixin.client;
 
 import btwr.core.BTWRMod;
 import net.minecraft.client.render.entity.CreeperEntityRenderer;
@@ -19,15 +19,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class CreeperEntityRendererMixin extends MobEntityRenderer<CreeperEntity, CreeperEntityModel<CreeperEntity>>
 {
     @Shadow @Final private static Identifier TEXTURE;
-    @Unique private static final Identifier NEUTERED_TEXTURE =
-            Identifier.of(BTWRMod.MOD_ID, "textures/entity/neutered_creeper.png");
+    @Unique private static final Identifier NEUTERED_TEXTURE = Identifier.of(BTWRMod.MOD_ID, "textures/entity/neutered_creeper.png");
 
     public CreeperEntityRendererMixin(EntityRendererFactory.Context context,
                                       CreeperEntityModel<CreeperEntity> entityModel, float f)
     {
         super(context, entityModel, f);
     }
-
 
     @Inject(method = "getTexture(Lnet/minecraft/entity/mob/CreeperEntity;)Lnet/minecraft/util/Identifier;",
             at = @At("HEAD"), cancellable = true)

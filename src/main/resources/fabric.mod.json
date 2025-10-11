@@ -15,7 +15,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "btwr.core.client.BTWRModClient"
+      "btwr.core.BTWRModClient"
     ],
     "main": [
       "btwr.core.BTWRMod"
