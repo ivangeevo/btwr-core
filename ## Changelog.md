@@ -1,10 +1,12 @@
-## v0.32(dev)
+## v0.31.4
++ Updated ExtendedShapelessRecipe from BTWR: Shared Library, which fixes some bugs with recipes using it
++ Updated the mod to Fabric API 0.116.7 & BTWR: Shared Library 0.61
 
 ## v0.31.3
 + Updated mod recipes to use the new ExtendedShapelessRecipe from BTWR: SL v0.60
 + Split mod client side from the main package. Although there weren't any problems before, this is a good practice and the mod should work better in multiplayer
 + Removed old unused assets from the mod files and cleaned up source code a lot
-+ Updated the mod to BTWR Shared Library 0.60
++ Updated the mod to BTWR: Shared Library 0.60
 
 ## v0.31.2
 + Removed the remainder logic that damages shears and axes when crafting and moved it to the BTWR: Shared library mod.
@@ -21,7 +23,7 @@ also it's a mode hardcore modification, so I'd like to keep it only in the BTWR 
 + Changed creeper explosion to be calculated from their eyes instead feet (also made it toggleable feature via mod menu)
 + Fixed a bug where Hearty Stew & Chicken Soup would not give back an empty bowl item when finished using it if the player inventory is full.
 + Fixed incompatibility with mods that add custom creepers to not get affected by the creeper shearing and ruin their intended experience.
-+ Updated the mod to Fabric API 0.116.0, Fabric Loader 0.16.14 & BTWR Shared Library 0.53
++ Updated the mod to Fabric API 0.116.0, Fabric Loader 0.16.14 & BTWR: Shared Library 0.53
 
 ## v0.30.1
 + Fixed a bug with older data files from version 0.29 that were causing issues.
@@ -32,7 +34,7 @@ also it's a mode hardcore modification, so I'd like to keep it only in the BTWR 
 + Moved the "Brick Drying" functionality to another unreleased mod. This includes the Wet Brick & Brick blocks & items, which means they will also be removed from your worlds.
 + Moved the SHEARS_EFFICIENT block tag to BTWR-SL mod
 + Fixed some mixin related bugs on mod launch with other mods requiring older versions of BTWR Shared Library
-+ Updated the mod to Fabric API 0.115.0, Fabric Loader 0.16.10 & BTWR Shared Library 0.47
++ Updated the mod to Fabric API 0.115.0, Fabric Loader 0.16.10 & BTWR: Shared Library 0.47
 
 ## 0.29
 + Added a new common block tag "WOODEN_MISC_BLOCKS" for miscellaneous blocks that aren't tagged as wooden,
