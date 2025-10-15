@@ -1,4 +1,5 @@
 ## v???(dev)
++ Fixed a bug with tanned leather armor not being enchantable
 
 ## v0.31.4
 + Updated ExtendedShapelessRecipe from BTWR: Shared Library, which fixes some bugs with recipes using it

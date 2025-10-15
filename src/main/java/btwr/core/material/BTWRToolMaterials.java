@@ -10,7 +10,7 @@ import net.minecraft.registry.tag.TagKey;
 
 import java.util.function.Supplier;
 
-public enum BTWR_ToolMaterials implements ToolMaterial {
+public enum BTWRToolMaterials implements ToolMaterial {
 
     BONE(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 25, 1f, 1f, 1,() -> Ingredient.ofItems(Items.BONE));
 
@@ -21,7 +21,7 @@ public enum BTWR_ToolMaterials implements ToolMaterial {
     private final int enchantability;
     private final Supplier<Ingredient> repairIngredient;
 
-    BTWR_ToolMaterials(TagKey<Block> inverseTag, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
+    BTWRToolMaterials(TagKey<Block> inverseTag, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
         this.inverseTag = inverseTag;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;

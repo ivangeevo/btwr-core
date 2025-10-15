@@ -2,7 +2,7 @@ package btwr.core;
 
 import btwr.core.block.BTWR_Blocks;
 import btwr.core.config.BTWRSettings;
-import btwr.core.entity.CreeperModificationManager;
+import btwr.core.event.BTWREntityEvents;
 import btwr.core.item.BTWR_Items;
 import com.google.gson.Gson;
 import net.fabricmc.api.ModInitializer;
@@ -38,7 +38,7 @@ public class BTWRMod implements ModInitializer {
         BTWR_Blocks.register();
         BTWR_Items.register();
 
-        CreeperModificationManager.registerUseEvent();
+        BTWREntityEvents.register();
     }
 
     public void loadSettings() {

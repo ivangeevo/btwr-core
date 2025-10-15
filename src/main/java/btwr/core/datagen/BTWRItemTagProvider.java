@@ -21,8 +21,24 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
+        addToVanilla();
         addToModTags();
         addToConventionalTags();
+    }
+
+    private void addToVanilla() {
+        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
+                .add(BTWR_Items.LEATHER_TANNED_HELMET);
+
+        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
+                .add(BTWR_Items.LEATHER_TANNED_CHESTPLATE);
+
+        getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
+                .add(BTWR_Items.LEATHER_TANNED_LEGGINGS);
+
+        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
+                .add(BTWR_Items.LEATHER_TANNED_BOOTS);
+
     }
 
     private void addToModTags() {

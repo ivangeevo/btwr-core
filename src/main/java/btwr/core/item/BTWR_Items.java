@@ -3,7 +3,8 @@ package btwr.core.item;
 import btwr.core.BTWRMod;
 import btwr.core.item.items.ClubItem;
 import btwr.core.item.items.StackableStewItem;
-import btwr.core.material.BTWR_ToolMaterials;
+import btwr.core.material.BTWRArmorMaterials;
+import btwr.core.material.BTWRToolMaterials;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.*;
@@ -33,7 +34,7 @@ public class BTWR_Items {
             new ClubItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(ClubItem.createAttributeModifiers(ToolMaterials.WOOD,1, -1.1f))));
 
     public static final Item CLUB_BONE = registerItem("club_bone",
-            new ClubItem(BTWR_ToolMaterials.BONE, new Item.Settings().attributeModifiers(ClubItem.createAttributeModifiers(BTWR_ToolMaterials.BONE,2, -1.3f))));
+            new ClubItem(BTWRToolMaterials.BONE, new Item.Settings().attributeModifiers(ClubItem.createAttributeModifiers(BTWRToolMaterials.BONE,2, -1.3f))));
 
     public static final Item DIAMOND_SHEARS = registerItem( "diamond_shears",
             new ShearsItem (new Item.Settings().maxDamage(500).component(DataComponentTypes.TOOL, ShearsItem.createToolComponent())));
