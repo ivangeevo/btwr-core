@@ -1,5 +1,7 @@
 ## v???(dev)
-+ Fixed a bug with tanned leather armor not being enchantable
++ Changed Hearty Stew's class internally, so existing Hearty Stew items might disappear from your worlds
++ Fixed Chowder not giving back a bowl after being used
++ Fixed tanned leather armor not being enchantable
 
 ## v0.31.4
 + Updated ExtendedShapelessRecipe from BTWR: Shared Library, which fixes some bugs with recipes using it
@@ -18,7 +20,7 @@
 ## v0.31.1
 + Reverted the hoe modification code from the last update and moved it to an unreleased mod. 
 It was causing some issues with other mods that need to be cleaned up before release and
-also it's a mode hardcore modification, so I'd like to keep it only in the BTWR modpack.
+also it's more of a hardcore modification, so I'd like to keep it only in the BTWR modpack.
 
 ## v0.31
 + Added a new configurable option that changes how hoes work. Normal usage with right click is removed and players must use the old school way of breaking grass with left click.

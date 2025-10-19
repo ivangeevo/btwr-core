@@ -27,11 +27,11 @@ public class ModFoodComponents {
             new FoodComponent.Builder()
                     .nutrition(6)
                     .saturationModifier(0.25f)
-                    .statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600,2), 0.3f)
+                    .statusEffect(addHungerStatusEffect(600, 2), 0.3f)
                     .build();
 
     // Cooked foods
-    public static final FoodComponent CHOWDER = createCooked(5, 0.35f).build();
+    public static final FoodComponent CHOWDER = createStew(5, 0.35f).build();
     public static final FoodComponent EGG_SCRAMBLED_COOKED = createCooked(4, 0.35f).build();
     public static final FoodComponent MUSHROOM_OMELETTE_COOKED = createCooked(4, 0.35f).build();
     public static final FoodComponent SANDWICH = createCooked(5, 0.45f).build();
@@ -42,7 +42,7 @@ public class ModFoodComponents {
     public static final FoodComponent PORK_DINNER = createCooked(8, 0.42f).build();
     public static final FoodComponent WOLF_DINNER = createCooked(8, 0.40f).build();
     public static final FoodComponent CHICKEN_SOUP = createCooked(8, 0.40f).build();
-    public static final FoodComponent HEARTY_STEW = createCooked(10, 0.46f).build();
+    public static final FoodComponent HEARTY_STEW = createStew(10, 0.46f).build();
 
     // Unique foods
     public static final FoodComponent CREEPER_OYSTERS =

@@ -17,13 +17,12 @@ import java.io.IOException;
 public class BTWRMod implements ModInitializer {
 
     public static final String MOD_ID = "btwr";
-
     public static final Logger LOGGER = LoggerFactory.getLogger("btwr");
 
     public BTWRSettings settings;
+    private static final String CONFIG_FILE_PATH = "./config/btwr/btwrCommon.json";
 
     private static BTWRMod instance;
-
     public static BTWRMod getInstance() {
         return instance;
     }
@@ -42,7 +41,7 @@ public class BTWRMod implements ModInitializer {
     }
 
     public void loadSettings() {
-        File file = new File("./config/btwr/btwrCommon.json");
+        File file = new File(CONFIG_FILE_PATH);
         Gson gson = new Gson();
         if (file.exists()) {
             try {
@@ -50,7 +49,7 @@ public class BTWRMod implements ModInitializer {
                 settings = gson.fromJson(fileReader, BTWRSettings.class);
                 fileReader.close();
             } catch (IOException e) {
-                LOGGER.warn("Could not load btwr settings: " + e.getLocalizedMessage());
+                LOGGER.warn("Could not load BTWR: Core settings: " + e.getLocalizedMessage());
             }
         } else {
             settings = new BTWRSettings();
@@ -59,7 +58,7 @@ public class BTWRMod implements ModInitializer {
 
     public void saveSettings() {
         Gson gson = new Gson();
-        File file = new File("./config/btwr/btwrCommon.json");
+        File file = new File(CONFIG_FILE_PATH);
         if (!file.getParentFile().exists()) {
             file.getParentFile().mkdir();
         }
@@ -71,7 +70,7 @@ public class BTWRMod implements ModInitializer {
         }
 
         catch (IOException e) {
-            LOGGER.warn("Could not save btwr settings: " + e.getLocalizedMessage());
+            LOGGER.warn("Could not save BTWR: Core settings: " + e.getLocalizedMessage());
         }
     }
 
