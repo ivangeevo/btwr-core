@@ -5,12 +5,16 @@
     "L": {
       "item": "btwr:leather_tanned"
     },
+    "W": {
+      "tag": "minecraft:wool"
+    },
     "X": {
       "item": "btwr:diamond_ingot"
     }
   },
   "pattern": [
-    "LXL"
+    "LXL",
+    " W "
   ],
   "result": {
     "count": 1,
