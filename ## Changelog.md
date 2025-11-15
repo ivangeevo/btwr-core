@@ -1,9 +1,9 @@
 ## v0.32(dev)
 + Changed Hearty Stew's class internally, so existing Hearty Stew items might disappear from your worlds
 + Added recipe for crafting Diamond Plate
-+ Added recipes for crafting diamond armor with diamond ingots and diamond plate
++ Added recipes for crafting diamond armor with Diamond Ingots and Diamond Plate
 + Fixed Chowder not giving back a bowl after being used
-+ Fixed tanned leather armor not being enchantable
++ Fixed Tanned Leather armor not being enchantable
 + Updated the mod to Fabric Loader 0.17.3 & BTWR: Shared Library 0.62
 
 ## v0.31.4
