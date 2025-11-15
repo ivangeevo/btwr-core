@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "btwr:leather_tanned"
+    },
+    "X": {
+      "item": "btwr:diamond_ingot"
+    }
+  },
+  "pattern": [
+    "LXL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "btwr:diamond_plate"
+  }
+}

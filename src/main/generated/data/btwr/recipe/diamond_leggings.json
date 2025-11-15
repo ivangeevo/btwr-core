@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "btwr:diamond_plate"
+    },
+    "X": {
+      "item": "btwr:diamond_ingot"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "P P",
+    "P P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:diamond_leggings"
+  }
+}
