@@ -2,6 +2,7 @@
 + Changed Hearty Stew's class internally, so existing Hearty Stew items might disappear from your worlds
 + Fixed Chowder not giving back a bowl after being used
 + Fixed tanned leather armor not being enchantable
++ Updated the mod to Fabric Loader 0.17.3 & BTWR: Shared Library 0.62
 
 ## v0.31.4
 + Updated ExtendedShapelessRecipe from BTWR: Shared Library, which fixes some bugs with recipes using it
