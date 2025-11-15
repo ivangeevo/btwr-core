@@ -1,4 +1,6 @@
-## v0.32(dev)
+## v???(dev)
+
+## v0.32
 + Changed Hearty Stew's class internally, so existing Hearty Stew items might disappear from your worlds
 + Added recipe for crafting Diamond Plate
 + Added recipes for crafting diamond armor with Diamond Ingots and Diamond Plate
