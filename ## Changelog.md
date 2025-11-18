@@ -1,4 +1,5 @@
 ## v???(dev)
++ Changed the mod required version for BTWR:SL to be range-based internally, so that versions higher than the specified should work too. This allows newer versions of BTWR: SL than the specified one to work with the mod instead of having to always update it.
 
 ## v0.32
 + Changed Hearty Stew's class internally, so existing Hearty Stew items might disappear from your worlds
