@@ -50,8 +50,8 @@ dependencies {
 
     // BTWR: SL
     def sharedLibVersionRange = "[${project.btwr_sl_version},)"
-    modImplementation files("libs/btwr-shared-lib-${project.btwr_sl_version}.jar")
     //modImplementation("maven.modrinth:btwr-shared-library:${sharedLibVersionRange}")
+    modImplementation files("libs/btwr-shared-library-${project.btwr_sl_version}.jar")
 
     // EMI
     modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
@@ -114,9 +114,6 @@ publishing {
     }
 
     loom {
-        accessWidenerPath = file("src/main/resources/btwr.accesswidener")
+        accessWidenerPath = file("src/main/resources/btwr-core.accesswidener")
     }
-
 }
-
-
