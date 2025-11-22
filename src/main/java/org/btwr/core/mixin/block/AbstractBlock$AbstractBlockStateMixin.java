@@ -42,7 +42,6 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
         else {
             // Use the custom spawning predicate
             cir.setReturnValue(newSpawningPredicate.test(state, world, pos, type));
-
         }
     }
 
