@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.CreeperIgniteGoal;
 import net.minecraft.entity.mob.CreeperEntity;
 import org.btwr.core.data.BTWRDataAttachments;
+import org.btwr.core.data.CreeperData;
 import org.jetbrains.annotations.Nullable;
 
 public class CreeperSwellBehavior extends CreeperIgniteGoal {
@@ -18,10 +19,9 @@ public class CreeperSwellBehavior extends CreeperIgniteGoal {
 
     @Override
     public boolean canStart() {
-        var creeperData = myCreeper.getAttached(BTWRDataAttachments.CREEPER_DATA);
-        if (!myCreeper.isIgnited() && (creeperData != null && creeperData.getNeutered())) {
+        if (!myCreeper.isIgnited() && (this.getCreeperData() != null && this.getCreeperData().isNeutered())) {
             return false;
-        } else if (creeperData != null && creeperData.getIsDeterminedToExplode()) {
+        } else if (this.getCreeperData() != null && this.getCreeperData().getIsDeterminedToExplode()) {
             return true;
         }
         return super.canStart();
@@ -40,7 +40,8 @@ public class CreeperSwellBehavior extends CreeperIgniteGoal {
 
     @Override
     public void tick() {
-        if (this.target == null || this.myCreeper.isNeutered()) {
+
+        if (this.target == null || (this.getCreeperData() != null && this.getCreeperData().isNeutered())) {
             this.myCreeper.setFuseSpeed(-1);
             return;
         }
@@ -53,5 +54,9 @@ public class CreeperSwellBehavior extends CreeperIgniteGoal {
             return;
         }
         this.myCreeper.setFuseSpeed(1);
+    }
+
+    private CreeperData getCreeperData() {
+        return myCreeper.getAttached(BTWRDataAttachments.CREEPER_DATA);
     }
 }
