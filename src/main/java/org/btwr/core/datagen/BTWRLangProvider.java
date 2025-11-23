@@ -19,7 +19,7 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         addItemGroup("group_btwr", "Better Than Wolves: Remastered!", tb);
         this.addBlockTranslations(tb);
         this.addItemTranslations(tb);
-        this.addConfigTranslations(tb);
+        //this.addConfigTranslations(tb);
     }
 
     private void addBlockTranslations(TranslationBuilder tb) {
@@ -67,7 +67,7 @@ public class BTWRLangProvider extends FabricLanguageProvider {
     }
 
     private void addConfigTranslations(TranslationBuilder tb) {
-        addConfigMenuTitle("BTWR: Core Configuration Menu", tb);
+        addConfigMenuTitle("BTWR: Core Client Configuration Menu", tb);
         addConfigCategory("general", "General Options", tb);
         addConfigCategory("entity", "Entity Options", tb);
         addConfig("knockbackRestriction", "Knockback Restriction", tb);

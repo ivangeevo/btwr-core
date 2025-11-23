@@ -1,18 +1,4 @@
 {
-  "config.btwr.btwHoeFunctionality": "BTW Styled Hoes Functionality",
-  "config.btwr.category.entity": "Entity Options",
-  "config.btwr.category.general": "General Options",
-  "config.btwr.changedCreeperExplosionPos": "Changed Creeper Explosion Origin",
-  "config.btwr.increasedMonsterSpawnsPerChunk": "Increased Mobs Per Chunk",
-  "config.btwr.knockbackRestriction": "Knockback Restriction",
-  "config.btwr.spawnBabyZombies": "Spawn Baby Zombies",
-  "config.btwr.spawnMobsOnWood": "Mobs Spawn On Wood",
-  "config.btwr.tooltip.btwHoeFunctionality": "Hoes now function only with left-click breaking grass/tillable blocks to create farmland (like in BTW)",
-  "config.btwr.tooltip.changedCreeperExplosionPos": "Changes the location of creeper's explosion origin to be calculated from their eyes instead of their feet",
-  "config.btwr.tooltip.increasedMonsterSpawnsPerChunk": "Slightly increase the amount of mobs that can spawn per chunk",
-  "config.btwr.tooltip.knockbackRestriction": "Disables knockback if not using a suitable weapon",
-  "config.btwr.tooltip.spawnBabyZombies": "Can baby zombies spawn naturally?",
-  "config.btwr.tooltip.spawnMobsOnWood": "Can mobs spawn on wooden blocks?",
   "item.btwr.beast_liver_cooked": "Cooked Liver",
   "item.btwr.beast_liver_raw": "Liver Of The Beast",
   "item.btwr.chicken_soup": "Chicken Soup",
@@ -45,6 +31,5 @@
   "item.btwr.steak_and_potatoes": "Steak and Potatoes",
   "item.btwr.steak_dinner": "Steak Dinner",
   "item.btwr.wolf_dinner": "Wolf Dinner",
-  "itemgroup.group_btwr": "Better Than Wolves: Remastered!",
-  "title.btwr.config": "BTWR: Core Configuration Menu"
+  "itemgroup.group_btwr": "Better Than Wolves: Remastered!"
 }

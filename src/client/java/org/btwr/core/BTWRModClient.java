@@ -3,13 +3,19 @@ package org.btwr.core;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import org.btwr.core.config.BTWRModClientConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public class BTWRModClient implements ClientModInitializer {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger(BTWRMod.MOD_ID);
+
     @Override
     public void onInitializeClient() {
+        BTWRModClientConfig.register();
         //this.hideArbitraryFabricAPIMods();
     }
 

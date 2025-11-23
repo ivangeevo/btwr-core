@@ -29,6 +29,7 @@ repositories {
     maven { url "https://maven.shedaniel.me/" }
     maven { url "https://maven.terraformersmc.com/releases/" }
     maven { url "https://api.modrinth.com/maven" }
+    maven { url "https://maven.ladysnake.org/releases" }
 }
 
 dependencies {
@@ -45,13 +46,15 @@ dependencies {
         exclude(group: "net.fabricmc.fabric-api")
     }
 
+    // Supermartijn642's Config Lib
+    modApi "maven.modrinth:supermartijn642s-config-lib:${project.supermartijn642s_config_lib_version}"
+
     // Mod Menu
     modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}")
 
     // BTWR: SL
-    def sharedLibVersionRange = "[${project.btwr_sl_version},)"
-    //modImplementation("maven.modrinth:btwr-shared-library:${sharedLibVersionRange}")
-    modImplementation files("libs/btwr-shared-library-${project.btwr_sl_version}.jar")
+    modImplementation("maven.modrinth:btwr-shared-library:${project.btwr_sl_version}")
+    //modImplementation files("libs/btwr-shared-library-${project.btwr_sl_version}.jar")
 
     // EMI
     modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"

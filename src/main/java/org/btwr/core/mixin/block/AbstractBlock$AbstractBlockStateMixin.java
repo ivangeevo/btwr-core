@@ -1,6 +1,5 @@
 package org.btwr.core.mixin.block;
 
-import org.btwr.core.BTWRMod;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SlabBlock;
@@ -10,6 +9,7 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
+import org.btwr.core.config.BTWRModSettings;
 import org.btwr.shared_library.tag.BTWRConventionalTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -33,7 +33,7 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
         BlockState state = (BlockState) (Object) this;
 
         // Check the setting to determine which predicate to use
-        boolean useCustomLogic = BTWRMod.getInstance().settings.shouldMobsSpawnOnWood();
+        boolean useCustomLogic = BTWRModSettings.spawnMobsOnWood.get();
 
         if (useCustomLogic) {
             // Use the original spawning predicate

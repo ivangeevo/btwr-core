@@ -1,5 +1,10 @@
 ## v???(dev)
-+ Changed the mod required version for BTWR:SL to be range-based internally, so that versions higher than the specified should work too. This allows newer versions of BTWR: SL than the specified one to work with the mod instead of having to always update it.
++ Added a new mod tag "NEUTERABLE_CREEPERS" which specifies which creeper entity types can be sheared. Developers can add their custom creepers to this tag to make them shearable.
++ Added a new class "NeuteredCreeperTextures" which allows developers to add sheared texture variants for their custom creeper.
++ Changed configuration options for server settings to be handled with Supermartijn642's Config Lib instead of Cloth Config API which is used only for client side config options.
++ Changed all current configuration options to require world reload and be manually editable because of the above change. The configuration files are found in the "config/btwr" folder of your world.
++ Changed the creeper shearing modification to use Fabric Data Attachments instead of only using mixins.
++ Updated the mod to BTWR: Shared Library 0.63
 
 ## v0.32
 + Changed Hearty Stew's class internally, so existing Hearty Stew items might disappear from your worlds
