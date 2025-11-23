@@ -2,6 +2,7 @@ package org.btwr.core.config;
 
 import com.supermartijn642.configlib.api.ConfigBuilders;
 import com.supermartijn642.configlib.api.IConfigBuilder;
+import net.minecraft.text.Text;
 
 import java.util.function.Supplier;
 
@@ -18,19 +19,19 @@ public class BTWRModSettings {
 
         // Boolean checks
         knockbackRestrictions = builder
-                .comment("Disables knockback if not using a suitable weapon")
+                .comment(String.valueOf(Text.translatable("config.btwr.knockbackRestrictions")))
                 .define("knockbackRestrictions", true);
         spawnBabyZombies = builder
-                .comment("Can baby zombies spawn naturally?")
+                .comment(String.valueOf(Text.translatable("config.btwr.spawnBabyZombies")))
                 .define("spawnBabyZombies", false);
         spawnMobsOnWood = builder
-                .comment("Can mobs spawn on wooden blocks?")
+                .comment(String.valueOf(Text.translatable("config.btwr.spawnMobsOnWood")))
                 .define("spawnMobsOnWood", false);
         increasedMonsterSpawnsPerChunk = builder
-                .comment("Slightly increase the number of mobs that can spawn per chunk")
+                .comment(String.valueOf(Text.translatable("config.btwr.increasedMonsterSpawnsPerChunk")))
                 .define("increasedMonsterSpawnsPerChunk", true);
         changedCreeperExplosionPos = builder
-                .comment("Changed Creeper Explosion Origin")
+                .comment(String.valueOf(Text.translatable("config.btwr.changedCreeperExplosionPos")))
                 .define("changedCreeperExplosionPos", true);
 
         // build the config
