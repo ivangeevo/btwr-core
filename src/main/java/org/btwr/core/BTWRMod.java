@@ -1,5 +1,6 @@
 package org.btwr.core;
 
+import org.btwr.core.api.NeuteredCreeperTextures;
 import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.config.BTWRSettings;
 import org.btwr.core.data.BTWRDataAttachments;
@@ -18,7 +19,7 @@ import java.io.IOException;
 public class BTWRMod implements ModInitializer {
     public static final String MOD_ID = "btwr";
 
-    public static final Logger LOGGER = LoggerFactory.getLogger("btwr");
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public BTWRSettings settings;
 
