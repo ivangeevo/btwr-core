@@ -1,8 +1,8 @@
 ## v???(dev)
 + Added a new mod tag "NEUTERABLE_CREEPERS" which specifies which creeper entity types can be sheared. Developers can add their custom creepers to this tag to make them shearable.
 + Added a new class "NeuteredCreeperTextures" which allows developers to add sheared texture variants for their custom creeper.
-+ Changed configuration options for server settings to be handled with Supermartijn642's Config Lib instead of Cloth Config API which is used only for client side config options.
-+ Changed all current configuration options to require world reload and be manually editable because of the above change. The configuration files are found in the "config/btwr" folder of your world.
++ Changed/Generally improved Mod Menu configuration option screens to better show how configuration options work
++ Changed all configuration options setting to be handled with Supermartijn642's Config Lib internally instead of Cloth Config API, which is used only for client side config options. Cloth Config is still used for creating all screens for access through Mod Menu.
 + Changed the creeper shearing modification to use Fabric Data Attachments instead of only using mixins.
 + Updated the mod to BTWR: Shared Library 0.63
 

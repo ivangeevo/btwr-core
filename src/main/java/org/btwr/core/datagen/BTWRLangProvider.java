@@ -16,17 +16,17 @@ public class BTWRLangProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder tb) {
-        addItemGroup("group_btwr", "Better Than Wolves: Remastered!", tb);
-        this.addBlockTranslations(tb);
-        this.addItemTranslations(tb);
-        this.addConfigTranslations(tb);
+        this.addItemGroup("group_btwr", "Better Than Wolves: Remastered!", tb);
+        this.generateBlockTranslations(tb);
+        this.generateItemTranslations(tb);
+        this.generateConfigTranslations(tb);
     }
 
-    private void addBlockTranslations(TranslationBuilder tb) {
+    private void generateBlockTranslations(TranslationBuilder tb) {
         //tb.add();
     }
 
-    private void addItemTranslations(TranslationBuilder tb) {
+    private void generateItemTranslations(TranslationBuilder tb) {
         tb.add(BTWR_Items.COOKED_KEBAB, "Cooked Kebab");
         tb.add(BTWR_Items.EGG_SCRAMBLED_COOKED, "Scrambled Eggs");
         tb.add(BTWR_Items.EGG_SCRAMBLED_RAW, "Raw Scrambled Eggs");
@@ -66,31 +66,29 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         //tb.add(BTWR_Items.ANCIENT_PROPHECHY, "");
     }
 
-    private void addConfigTranslations(TranslationBuilder tb) {
-        addConfigMenuTitle("BTWR: Core Client Configuration Menu", tb);
-        addConfigCategory("general", "General Options", tb);
+    private void generateConfigTranslations(TranslationBuilder tb) {
+        this.addConfigMenuTitle("BTWR: Core Client Configuration Menu", tb);
+        this.addConfigMenuDefaults(tb);
+        this.addConfigCategory("general", "General", tb);
+        this.addConfig("knockbackRestrictions", "Knockback Restrictions", tb);
+        this.addConfig("spawnBabyZombies", "Spawn Baby Zombies", tb);
+        this.addConfig("spawnMobsOnWood", "Spawn Mobs on Wood", tb);
+        this.addConfig("increasedMonsterSpawnsPerChunk", "Increase Mobs Spawns per Chunk", tb);
+        this.addConfig("changedCreeperExplosionPos", "Changed Creeper Explosion", tb);
+        this.addConfigTooltip("knockbackRestrictions", "Disables knockback if not using a suitable weapon", tb);
+        this.addConfigTooltip("spawnBabyZombies", "Can baby zombies spawn naturally?", tb);
+        this.addConfigTooltip("spawnMobsOnWood", "Can mobs spawn on wooden blocks?", tb);
+        this.addConfigTooltip("increasedMonsterSpawnsPerChunk", "Slightly increase the amount of mobs that can spawn per chunk", tb);
+        this.addConfigTooltip("changedCreeperExplosionPos", "Changes the location of creeper's explosion origin to\n be calculated from their eyes instead of their feet", tb);
+    }
 
-        addConfig("knockbackRestrictions", "Disables knockback if not using a suitable weapon", tb);
-        addConfig("spawnBabyZombies", "Can baby zombies spawn naturally?", tb);
-        addConfig("spawnMobsOnWood", "Can mobs spawn on wooden blocks?", tb);
-        addConfig("increasedMonsterSpawnsPerChunk", "Slightly increase the amount of mobs that can spawn per chunk", tb);
-        addConfig("changedCreeperExplosionPos", "Changes the location of creeper's explosion origin to be calculated from their eyes instead of their feet", tb);
-
-        // Server settings do not have names, so we add the "tooltip"-extended explanations as the normal
-        // config explanation in the toml file with addConfig() for now. Later on we can split them.
-        
-        //addConfig("knockbackRestriction", "Knockback Restriction", tb);
-        //addConfig("spawnBabyZombies", "Spawn Baby Zombies", tb);
-        //addConfig("spawnMobsOnWood", "Mobs Spawn On Wood", tb);
-        //addConfig("increasedMonsterSpawnsPerChunk", "Increased Mobs Per Chunk", tb);
-        //addConfig("btwHoeFunctionality", "BTW Styled Hoes Functionality", tb);
-        //addConfig("changedCreeperExplosionPos", "Changed Creeper Explosion Origin", tb);
-        //addConfigTooltip("knockbackRestriction", "Disables knockback if not using a suitable weapon", tb);
-        //addConfigTooltip("spawnBabyZombies", "Can baby zombies spawn naturally?", tb);
-        //addConfigTooltip("spawnMobsOnWood", "Can mobs spawn on wooden blocks?", tb);
-        //addConfigTooltip("increasedMonsterSpawnsPerChunk", "Slightly increase the amount of mobs that can spawn per chunk", tb);
-        //addConfigTooltip("btwHoeFunctionality", "Hoes now function only with left-click breaking grass/tillable blocks to create farmland (like in BTW)", tb);
-        //addConfigTooltip("changedCreeperExplosionPos", "Changes the location of creeper's explosion origin to be calculated from their eyes instead of their feet", tb);
+    private void addConfigMenuDefaults(TranslationBuilder tb) {
+        this.addSimpleText("clientSettingsText", "Client Settings:", tb);
+        this.addSimpleText("emptyClientConfigText", "§eNote:§r There are currently no client config settings.", tb);
+        this.addSimpleText("serverSettingsText", "Server Settings:", tb);
+        this.addSimpleText("serverSettingsNoAccessText", "§eNote:§r Server settings are not accessible on dedicated/lan servers and/or in menus." +
+                "\nThey can only be changed by editing the config file manually and require a world reload.", tb
+        );
     }
 
     private void addItemGroup(String entryPath, String translation, TranslationBuilder tb) {
@@ -103,6 +101,10 @@ public class BTWRLangProvider extends FabricLanguageProvider {
 
     private void addConfigCategory(String categoryPath, String translation, TranslationBuilder tb) {
         tb.add("config." + BTWRMod.MOD_ID + ".category." + categoryPath, translation);
+    }
+
+    private void addSimpleText(String configPath, String translation, TranslationBuilder tb) {
+        tb.add("config." + BTWRMod.MOD_ID + ".text." + configPath, translation);
     }
 
     private void addConfig(String configPath, String translation, TranslationBuilder tb) {

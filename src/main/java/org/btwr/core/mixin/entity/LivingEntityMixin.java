@@ -3,7 +3,7 @@ package org.btwr.core.mixin.entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
-import org.btwr.core.config.BTWRModSettings;
+import org.btwr.core.config.BTWRModConfig;
 import org.btwr.core.event.BTWREntityEvents;
 import org.btwr.shared_library.tag.BTWRConventionalTags;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,7 +22,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "takeKnockback", at = @At("HEAD"), cancellable = true)
     private void modifyKnockback(double strength, double x, double z, CallbackInfo ci) {
 
-        if (!BTWRModSettings.knockbackRestrictions.get()) {
+        if (!BTWRModConfig.Settings.knockbackRestrictions.get()) {
             return;
         }
 

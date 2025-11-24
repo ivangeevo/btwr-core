@@ -1,6 +1,6 @@
 package org.btwr.core.mixin.entity;
 
-import org.btwr.core.config.BTWRModSettings;
+import org.btwr.core.config.BTWRModConfig;
 import org.btwr.core.data.BTWRDataAttachments;
 import org.btwr.core.data.CreeperData;
 import org.btwr.core.entity.ai.goal.CreeperSwellBehavior;
@@ -69,7 +69,7 @@ public abstract class CreeperEntityMixin extends HostileEntity {
             value = "INVOKE",
             target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFLnet/minecraft/world/World$ExplosionSourceType;)Lnet/minecraft/world/explosion/Explosion;"), index = 2)
     private double injected(double y) {
-        boolean shouldModify = BTWRModSettings.changedCreeperExplosionPos.get();
+        boolean shouldModify = BTWRModConfig.Settings.changedCreeperExplosionPos.get();
         return shouldModify ? this.getEyeY() : y;
     }
 
