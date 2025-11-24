@@ -1,3 +1,12 @@
+## v0.33
++ Added a new mod tag "NEUTERABLE_CREEPERS" which specifies which creeper entity types can be sheared. Developers can add their custom creepers to this tag to make them shearable.
++ Added a new class "NeuteredCreeperTextures" which allows developers to add sheared texture variants for their custom creeper.
++ Changed/Generally improved Mod Menu configuration option screens to better show how configuration options work
++ Changed all configuration options setting to be handled with Supermartijn642's Config Lib internally instead of Cloth Config API, which is used only for client side config options. Cloth Config is still used for creating all screens for access through Mod Menu.
++ Changed the creeper shearing modification to use Fabric Data Attachments instead of only using mixins.
++ Refactored pretty much the whole code; mainly for readability and cleaning up, but also so it's more in order with other mods from the BTWR project
++ Updated the mod to BTWR: Shared Library 0.63
+
 ## v0.32
 + Changed Hearty Stew's class internally, so existing Hearty Stew items might disappear from your worlds
 + Added recipe for crafting Diamond Plate

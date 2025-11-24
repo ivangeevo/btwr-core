@@ -14,12 +14,10 @@
   "icon": "assets/btwr/btwr-circle.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "btwr.core.BTWRModClient"
-    ],
-    "main": ["btwr.core.BTWRMod"],
-    "fabric-datagen": ["btwr.core.BTWRDataGenerator"],
-    "modmenu": ["btwr.core.config.BTWRModMenu"]
+    "client": ["org.btwr.core.BTWRModClient"],
+    "main": ["org.btwr.core.BTWRMod"],
+    "fabric-datagen": ["org.btwr.core.BTWRDataGenerator"],
+    "modmenu": ["org.btwr.core.config.BTWRModMenu"]
   },
   "mixins": [
     "btwr-core.mixins.json",
@@ -34,11 +32,5 @@
     "minecraft": "${minecraft_version}",
     "btwr_sl": ">=${btwr_sl_version}"
   },
-  "custom": {
-    "loom:injected_interfaces": {
-      "net/minecraft/class_1548": ["btwr/core/entity/interfaces/CreeperEntityAdded"]
-    }
-  },
-
-  "accessWidener" : "btwr.accesswidener"
+  "accessWidener" : "btwr-core.accesswidener"
 }
