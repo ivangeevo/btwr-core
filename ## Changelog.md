@@ -1,4 +1,4 @@
-## v???(dev)
+## v0.33
 + Added a new mod tag "NEUTERABLE_CREEPERS" which specifies which creeper entity types can be sheared. Developers can add their custom creepers to this tag to make them shearable.
 + Added a new class "NeuteredCreeperTextures" which allows developers to add sheared texture variants for their custom creeper.
 + Changed/Generally improved Mod Menu configuration option screens to better show how configuration options work
