@@ -58,47 +58,6 @@ public class BTWRModClientConfig {
         general.addEntry(entryBuilder.startTextDescription(Text.translatable("config.btwr.text.serverSettingsText")).build());
         general.addEntry(entryBuilder
                 .startTextDescription(Text.translatable("config.btwr.text.serverSettingsNoAccessText"))
-                .setDisplayRequirement(displayWhenRemoteOrLAN())
-                .build()
-        );
-        general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.knockbackRestrictions"), BTWRModConfig.Settings.knockbackRestrictions.get())
-                .setDefaultValue(true)
-                .setSaveConsumer(newValue -> BTWRModConfig.Settings.knockbackRestrictions.get())
-                .setTooltip(Text.translatable("config.btwr.tooltip.knockbackRestrictions"))
-                .setDisplayRequirement(displayWhenTrueSingleplayer())
-                .build()
-        );
-        general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.spawnBabyZombies"), BTWRModConfig.Settings.spawnBabyZombies.get())
-                .setDefaultValue(false)
-                .setSaveConsumer(newValue -> BTWRModConfig.Settings.spawnBabyZombies.get())
-                .setTooltip(Text.translatable("config.btwr.tooltip.spawnBabyZombies"))
-                .setDisplayRequirement(displayWhenTrueSingleplayer())
-                .build()
-        );
-        general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.spawnMobsOnWood"), BTWRModConfig.Settings.spawnMobsOnWood.get())
-                .setDefaultValue(false)
-                .setSaveConsumer(newValue -> BTWRModConfig.Settings.spawnMobsOnWood.get())
-                .setTooltip(Text.translatable("config.btwr.tooltip.spawnMobsOnWood"))
-                .setDisplayRequirement(displayWhenTrueSingleplayer())
-                .build()
-        );
-        general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.increasedMonsterSpawnsPerChunk"), BTWRModConfig.Settings.increasedMonsterSpawnsPerChunk.get())
-                .setDefaultValue(true)
-                .setSaveConsumer(newValue -> BTWRModConfig.Settings.increasedMonsterSpawnsPerChunk.get())
-                .setTooltip(Text.translatable("config.btwr.tooltip.increasedMonsterSpawnsPerChunk"))
-                .setDisplayRequirement(displayWhenTrueSingleplayer())
-                .build()
-        );
-        general.addEntry(entryBuilder
-                .startBooleanToggle(Text.translatable("config.btwr.changedCreeperExplosionPos"), BTWRModConfig.Settings.changedCreeperExplosionPos.get())
-                .setDefaultValue(true)
-                .setSaveConsumer(newValue -> BTWRModConfig.Settings.changedCreeperExplosionPos.get())
-                .setTooltip(Text.translatable("config.btwr.tooltip.changedCreeperExplosionPos"))
-                .setDisplayRequirement(displayWhenTrueSingleplayer())
                 .build()
         );
 

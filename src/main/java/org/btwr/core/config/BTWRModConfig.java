@@ -4,6 +4,7 @@ import com.google.common.reflect.Reflection;
 import com.supermartijn642.configlib.api.ConfigBuilders;
 import com.supermartijn642.configlib.api.IConfigBuilder;
 import net.minecraft.text.Text;
+import org.btwr.core.BTWRMod;
 
 import java.util.function.Supplier;
 
@@ -22,12 +23,12 @@ public class BTWRModConfig {
 
         static {
             // construct a new config builder
-            // Fixed btwr "modid" for all BTWR related projects
-            IConfigBuilder builder = ConfigBuilders.newTomlConfig("btwr", "core", true);
+            IConfigBuilder builder = ConfigBuilders.newTomlConfig(BTWRMod.MOD_ID, "btwr_core", true);
 
             // Boolean checks
             knockbackRestrictions = builder
                     .comment(String.valueOf(Text.translatable("config.btwr.knockbackRestrictions")))
+                    .onlyOnServer()
                     .define("knockbackRestrictions", true);
             spawnBabyZombies = builder
                     .comment(String.valueOf(Text.translatable("config.btwr.spawnBabyZombies")))
