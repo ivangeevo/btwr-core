@@ -67,27 +67,27 @@ public class BTWRLangProvider extends FabricLanguageProvider {
     }
 
     private void generateConfigTranslations(TranslationBuilder tb) {
-        this.addConfigMenuTitle("BTWR: Core Client Configuration Menu", tb);
         this.addConfigMenuDefaults(tb);
+        this.addConfigMenuTitle("BTWR: Core Client Configuration Menu", tb);
         this.addConfigCategory("general", "General", tb);
-        this.addConfig("knockbackRestrictions", "Knockback Restrictions", tb);
-        this.addConfig("spawnBabyZombies", "Spawn Baby Zombies", tb);
-        this.addConfig("spawnMobsOnWood", "Spawn Mobs on Wood", tb);
-        this.addConfig("increasedMonsterSpawnsPerChunk", "Increase Mobs Spawns per Chunk", tb);
-        this.addConfig("changedCreeperExplosionPos", "Changed Creeper Explosion", tb);
-        this.addConfigTooltip("knockbackRestrictions", "Disables knockback if not using a suitable weapon", tb);
-        this.addConfigTooltip("spawnBabyZombies", "Can baby zombies spawn naturally?", tb);
-        this.addConfigTooltip("spawnMobsOnWood", "Can mobs spawn on wooden blocks?", tb);
-        this.addConfigTooltip("increasedMonsterSpawnsPerChunk", "Slightly increase the amount of mobs that can spawn per chunk", tb);
-        this.addConfigTooltip("changedCreeperExplosionPos", "Changes the location of creeper's explosion origin to\n be calculated from their eyes instead of their feet", tb);
+        //this.addConfig("knockbackRestrictions", "Knockback Restrictions", tb);
+        //this.addConfig("spawnBabyZombies", "Spawn Baby Zombies", tb);
+        //this.addConfig("spawnMobsOnWood", "Spawn Mobs on Wood", tb);
+        //this.addConfig("increasedMonsterSpawnsPerChunk", "Increase Mobs Spawns per Chunk", tb);
+        //this.addConfig("changedCreeperExplosionPos", "Changed Creeper Explosion", tb);
+        //this.addConfigTooltip("knockbackRestrictions", "Disables knockback if not using a suitable weapon", tb);
+        //this.addConfigTooltip("spawnBabyZombies", "Can baby zombies spawn naturally?", tb);
+        //this.addConfigTooltip("spawnMobsOnWood", "Can mobs spawn on wooden blocks?", tb);
+        //this.addConfigTooltip("increasedMonsterSpawnsPerChunk", "Slightly increase the amount of mobs that can spawn per chunk", tb);
+        //this.addConfigTooltip("changedCreeperExplosionPos", "Changes the location of creeper's explosion origin to\n be calculated from their eyes instead of their feet", tb);
     }
 
     private void addConfigMenuDefaults(TranslationBuilder tb) {
         this.addSimpleText("clientSettingsText", "Client Settings:", tb);
         this.addSimpleText("emptyClientConfigText", "§eNote:§r There are currently no client config settings.", tb);
         this.addSimpleText("serverSettingsText", "Server Settings:", tb);
-        this.addSimpleText("serverSettingsNoAccessText", "§eNote:§r Server settings are not accessible on dedicated/lan servers and/or in menus." +
-                "\nThey can only be changed by editing the config file manually and require a world reload.", tb
+        this.addSimpleText("serverSettingsNoAccessText", "§eNote:§r Server settings are not accessible in menus." +
+                "\nThey can only be changed by editing the config file manually and require a world reload to take effect.", tb
         );
     }
 

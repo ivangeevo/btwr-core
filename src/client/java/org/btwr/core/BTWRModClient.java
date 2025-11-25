@@ -15,7 +15,6 @@ public class BTWRModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        BTWRModClientConfig.register();
         //this.hideArbitraryFabricAPIMods();
     }
 
