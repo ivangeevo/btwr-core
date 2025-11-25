@@ -27,20 +27,19 @@ public class BTWRModConfig {
 
             // Boolean checks
             knockbackRestrictions = builder
-                    .comment(String.valueOf(Text.translatable("config.btwr.knockbackRestrictions")))
-                    .onlyOnServer()
+                    .comment("Disables knockback if not using a suitable weapon")
                     .define("knockbackRestrictions", true);
             spawnBabyZombies = builder
-                    .comment(String.valueOf(Text.translatable("config.btwr.spawnBabyZombies")))
+                    .comment("Can baby zombies spawn naturally?")
                     .define("spawnBabyZombies", false);
             spawnMobsOnWood = builder
-                    .comment(String.valueOf(Text.translatable("config.btwr.spawnMobsOnWood")))
+                    .comment("Can mobs spawn on wooden blocks?")
                     .define("spawnMobsOnWood", false);
             increasedMonsterSpawnsPerChunk = builder
-                    .comment(String.valueOf(Text.translatable("config.btwr.increasedMonsterSpawnsPerChunk")))
+                    .comment("Slightly increase the amount of mobs that can spawn per chunk")
                     .define("increasedMonsterSpawnsPerChunk", true);
             changedCreeperExplosionPos = builder
-                    .comment(String.valueOf(Text.translatable("config.btwr.changedCreeperExplosionPos")))
+                    .comment("Changes the location of creeper's explosion origin to\\n be calculated from their eyes instead of their feet")
                     .define("changedCreeperExplosionPos", true);
 
             /**
