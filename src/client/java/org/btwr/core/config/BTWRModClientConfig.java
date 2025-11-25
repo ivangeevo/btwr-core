@@ -1,44 +1,14 @@
 package org.btwr.core.config;
 
-import com.google.common.reflect.Reflection;
-import com.supermartijn642.configlib.api.ConfigBuilders;
-import com.supermartijn642.configlib.api.IConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.api.Requirement;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
-import org.btwr.core.BTWRMod;
-
-import java.util.function.Supplier;
 
 public class BTWRModClientConfig {
-
-    public static void register() {
-        Reflection.initialize(Settings.class);
-    }
-
-    public static class Settings {
-        public static Supplier<Boolean> exampleClientSetting;
-
-        static {
-            // construct a new config builder
-            String modId = BTWRMod.MOD_ID;
-            IConfigBuilder builder = ConfigBuilders.newTomlConfig(modId, modId + FabricLoader.getInstance().getEnvironmentType(), true);
-
-            /**
-            exampleClientSetting = builder
-                    .comment(String.valueOf(Text.translatable("config.btwr.exampleClientSetting")))
-                    .define("exampleClientSetting", true);
-             **/
-
-            // build the config
-            builder.build();
-        }
-    }
 
     // Handles config screen creation with Cloth Config API
     public static Screen createConfigScreen(Screen parent) {

@@ -15,11 +15,11 @@ public class BTWRModConfig {
     }
 
     public static class Settings {
-        public static Supplier<Boolean> knockbackRestrictions;
-        public static Supplier<Boolean> spawnBabyZombies;
-        public static Supplier<Boolean> spawnMobsOnWood;
-        public static Supplier<Boolean> increasedMonsterSpawnsPerChunk;
-        public static Supplier<Boolean> changedCreeperExplosionPos;
+        public static final Supplier<Boolean> knockbackRestrictions;
+        public static final Supplier<Boolean> spawnBabyZombies;
+        public static final Supplier<Boolean> spawnMobsOnWood;
+        public static final Supplier<Boolean> increasedMonsterSpawnsPerChunk;
+        public static final Supplier<Boolean> changedCreeperExplosionPos;
 
         static {
             // construct a new config builder
@@ -42,6 +42,15 @@ public class BTWRModConfig {
             changedCreeperExplosionPos = builder
                     .comment(String.valueOf(Text.translatable("config.btwr.changedCreeperExplosionPos")))
                     .define("changedCreeperExplosionPos", true);
+
+            /**
+             // values can be put into categories
+             builder.push("client").categoryComment("this is a comment for the 'client' category");
+             // a value in the 'client' category
+             exampleClientCategoryValue = builder.comment("this value is in the 'client' category").define("clientValue", true);
+             // end the 'client' category
+             builder.pop();
+            **/
 
             // build the config
             builder.build();
