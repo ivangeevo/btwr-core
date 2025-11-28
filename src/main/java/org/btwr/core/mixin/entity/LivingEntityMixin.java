@@ -22,7 +22,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "takeKnockback", at = @At("HEAD"), cancellable = true)
     private void modifyKnockback(double strength, double x, double z, CallbackInfo ci) {
 
-        if (!BTWRModConfig.Settings.knockbackRestrictions.get()) {
+        if (!BTWRModConfig.knockbackRestrictions.get()) {
             return;
         }
 

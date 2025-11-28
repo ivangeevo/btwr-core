@@ -1,4 +1,7 @@
-## v???(dev)
+## v0.33.2
++ Changed all configuration options in the mod to use the custom config library added by BTWR: Shared Library. This fixes the bug from last version that crashed the game without any warnings of the missing library that created the configurations
++ Removed Supermartijn642's config lib as the one creating configuration setting as it requires itself as a dependency to work properly
++ Updated the mod to BTWR: Shared Library 0.6.5
 
 ## v0.33.1
 + Fixed the server configuration options which I tried adding to Mod Menu since the previous update to only be accessible through modifying the config .toml file manually because they weren't working properly. While this might be theoretically possible I'm not sure of the technical details, so changing config options through mod menu for local worlds is not available yet

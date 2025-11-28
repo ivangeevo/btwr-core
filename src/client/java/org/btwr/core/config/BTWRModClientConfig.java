@@ -22,7 +22,10 @@ public class BTWRModClientConfig {
 
         // Client Settings
         general.addEntry(entryBuilder.startTextDescription(Text.translatable("config.btwr.text.clientSettingsText")).build());
-        general.addEntry(entryBuilder.startTextDescription(Text.translatable("config.btwr.text.emptyClientConfigText")).build());
+        general.addEntry(entryBuilder
+                .startTextDescription(Text.translatable("config.btwr.text.emptyClientConfigText"))
+                .build()
+        );
 
         // Server Settings
         general.addEntry(entryBuilder.startTextDescription(Text.translatable("config.btwr.text.serverSettingsText")).build());
@@ -38,24 +41,36 @@ public class BTWRModClientConfig {
        Detection helpers
        ----------------------------------------------------------- */
 
-    private static boolean isNotTrueSingleplayer() {
-        return !isTrueSingleplayer();
+    private static Requirement displayWhenTrueSingleplayer() {
+        return () -> isTrueSingleplayer();
     }
 
-    private static Requirement displayWhenTrueSingleplayer() {
-        return BTWRModClientConfig::isTrueSingleplayer;
+    private static Requirement displayWhenNotInWorld() {
+        return () -> isWorldNotLoaded();
+    }
+
+    private static Requirement displayWhenInWorld() {
+        return () -> isWorldLoaded();
     }
 
     private static Requirement hideWhenNotTrueSingleplayer() {
-        return () -> !isTrueSingleplayer();
+        return () -> isNotTrueSingleplayer();
     }
 
     private static Requirement displayWhenRemoteOrLAN() {
-        return BTWRModClientConfig::isNotTrueSingleplayer;
+        return () -> isNotTrueSingleplayer();
+    }
+
+    private static boolean isWorldNotLoaded() {
+        return !isWorldLoaded();
     }
 
     private static boolean isWorldLoaded() {
         return MinecraftClient.getInstance().world != null;
+    }
+
+    private static boolean isNotTrueSingleplayer() {
+        return !isTrueSingleplayer();
     }
 
     private static boolean isTrueSingleplayer() {

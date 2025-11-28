@@ -13,7 +13,7 @@ public abstract class ZombieEntityMixin {
     // Makes baby zombies not able to spawn.
     @Inject(method = "shouldBeBaby", at = @At("HEAD"), cancellable = true)
     private static void setShouldBeBaby(Random random, CallbackInfoReturnable<Boolean> cir) {
-        if (!BTWRModConfig.Settings.spawnBabyZombies.get()) {
+        if (!BTWRModConfig.spawnBabyZombies.get()) {
             cir.setReturnValue(false);
         }
     }
