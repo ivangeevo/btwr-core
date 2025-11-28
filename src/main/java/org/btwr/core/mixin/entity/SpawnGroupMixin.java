@@ -14,7 +14,7 @@ public abstract class SpawnGroupMixin {
 
     @ModifyReturnValue(method = "getCapacity", at = @At("RETURN"))
     private int modifyCapacity(int maxInstancesPerChunk) {
-        if (BTWRModConfig.Settings.increasedMonsterSpawnsPerChunk.get()) {
+        if (BTWRModConfig.increasedMonsterSpawnsPerChunk.get()) {
             if (this.name.equals(SpawnGroup.MONSTER.getName())) {
                 return 90;
             }

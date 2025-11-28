@@ -33,7 +33,7 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
         BlockState state = (BlockState) (Object) this;
 
         // Check the setting to determine which predicate to use
-        boolean useCustomLogic = BTWRModConfig.Settings.spawnMobsOnWood.get();
+        boolean useCustomLogic = BTWRModConfig.spawnMobsOnWood.get();
 
         if (useCustomLogic) {
             // Use the original spawning predicate
