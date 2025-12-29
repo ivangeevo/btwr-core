@@ -1,4 +1,4 @@
-## v0.33.3(dev)
+## v0.33.3
 + Fixed a bug that would cause the mod to crash when launching the game
 
 ## v0.33.2
