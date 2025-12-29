@@ -4,13 +4,15 @@ import com.terraformersmc.modmenu.config.ModMenuConfig;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.resource.language.I18n;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
-@Mixin(net.minecraft.client.gui.screen.TitleScreen.class)
+/** WARNING: Causes problems when launching the game with only BTWR: SL, even when nothing is added. **/
+@Mixin(TitleScreen.class)
 public abstract class TitleScreenMixin {
 
     // testing with custom text count
