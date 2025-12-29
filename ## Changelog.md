@@ -1,4 +1,5 @@
-## v???(dev)
+## v0.33.3(dev)
++ Fixed a bug that would cause the mod to crash when launching the game
 
 ## v0.33.2
 + Changed all configuration options in the mod to use the custom config library added by BTWR: Shared Library. This fixes the bug from last version that crashed the game without any warnings of the missing library that created the configurations
