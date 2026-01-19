@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import org.btwr.core.BTWRMod;
 import org.btwr.core.event.BTWREntityEvents;
-import org.btwr.shared_library.data.EntityAttachmentBase;
+import org.btwr.shared_library.api.data.EntityAttachmentBase;
 import org.btwr.shared_library.util.utils.IdUtils;
 
 public class BTWRDataAttachments {

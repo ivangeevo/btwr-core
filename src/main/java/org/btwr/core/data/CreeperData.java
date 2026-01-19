@@ -6,7 +6,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
-import org.btwr.shared_library.data.UpdateRequiringData;
+import org.btwr.shared_library.api.data.UpdateRequiringData;
 
 public class CreeperData extends UpdateRequiringData<CreeperEntity> {
     public static Codec<CreeperData> CODEC = RecordCodecBuilder.create(instance ->
