@@ -1,3 +1,6 @@
+## v0.33.4
++ Updated the mod to BTWR: Shared Library 0.7
+
 ## v0.33.3
 + Fixed a bug that would cause the mod to crash when launching the game
 

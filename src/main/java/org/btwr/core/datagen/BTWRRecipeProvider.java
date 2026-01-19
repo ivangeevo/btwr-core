@@ -14,7 +14,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 import org.btwr.shared_library.recipe.ExtendedShapelessRecipe;
-import org.btwr.shared_library.tag.BTWRConventionalTags;
+import org.btwr.shared_library.api.tag.BTWRConventionalTags;
 
 import java.util.concurrent.CompletableFuture;
 

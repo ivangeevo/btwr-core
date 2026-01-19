@@ -19,7 +19,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import org.btwr.core.tag.BTWRTags;
-import org.btwr.shared_library.event.SimpleEvent;
+import org.btwr.shared_library.api.event.SimpleEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;

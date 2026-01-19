@@ -8,7 +8,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import org.btwr.shared_library.tag.BTWRConventionalTags;
+import org.btwr.shared_library.api.tag.BTWRConventionalTags;
 
 import java.util.concurrent.CompletableFuture;
 
