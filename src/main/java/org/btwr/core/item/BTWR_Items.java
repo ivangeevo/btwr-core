@@ -39,9 +39,9 @@ public class BTWR_Items {
     
     // Armor
     public static final Item LEATHER_TANNED_HELMET = registerItem("leather_tanned_helmet", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED,  ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
-    public static final Item LEATHER_TANNED_CHESTPLATE = registerItem("leather_tanned_chestplate", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
-    public static final Item LEATHER_TANNED_LEGGINGS = registerItem("leather_tanned_leggings", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
-    public static final Item LEATHER_TANNED_BOOTS = registerItem("leather_tanned_boots", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(7))));
+    public static final Item LEATHER_TANNED_CHESTPLATE = registerItem("leather_tanned_chestplate", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(7))));
+    public static final Item LEATHER_TANNED_LEGGINGS = registerItem("leather_tanned_leggings", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(7))));
+    public static final Item LEATHER_TANNED_BOOTS = registerItem("leather_tanned_boots", new ArmorItem(BTWRArmorMaterials.LEATHER_TANNED, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(7))));
 
     // Food items
     // Raw
