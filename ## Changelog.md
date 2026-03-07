@@ -1,4 +1,4 @@
-## v0.33.5(dev)
+## v0.33.5
 + Fixed tanned leather armor pieces having wrong durability values
 + General code cleanup and moved some classes to BTWR: Shared Library
 + Updated the mod to BTWR: Shared Library 0.8
