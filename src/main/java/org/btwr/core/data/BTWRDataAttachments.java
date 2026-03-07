@@ -6,8 +6,8 @@ import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import org.btwr.core.BTWRMod;
-import org.btwr.core.event.BTWREntityEvents;
 import org.btwr.shared_library.api.data.EntityAttachmentBase;
+import org.btwr.shared_library.api.event.BTWREvents;
 import org.btwr.shared_library.util.utils.IdUtils;
 
 public class BTWRDataAttachments {
@@ -24,7 +24,7 @@ public class BTWRDataAttachments {
         // Technically this method can stay empty, but some developers like to notify
         // the console, that certain parts of the mod have been successfully initialized
 
-        BTWREntityEvents.LIVING_TICK.add(living -> {
+        BTWREvents.LIVING_TICK.add(living -> {
             tickAndSync(CREEPER_DATA, living);
         });
     }

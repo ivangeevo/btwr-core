@@ -4,6 +4,7 @@ import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.config.BTWRModConfig;
 import org.btwr.core.data.BTWRDataAttachments;
 import org.btwr.core.event.BTWREntityEvents;
+import org.btwr.core.event.SurfaceReinforcement;
 import org.btwr.core.item.BTWR_Items;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -24,5 +25,8 @@ public class BTWRMod implements ModInitializer {
         BTWR_Items.register();
         BTWRDataAttachments.register();
         BTWREntityEvents.register();
+
+        // Not useful unless global mob cap is increased
+        //SurfaceReinforcement.init();
     }
 }
