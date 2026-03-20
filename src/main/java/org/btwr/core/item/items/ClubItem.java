@@ -25,14 +25,19 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ClubItem extends ToolItem
-{
+public class ClubItem extends ToolItem {
+
     public ClubItem(ToolMaterial toolMaterial, Settings settings) {
         super(toolMaterial, settings.component(DataComponentTypes.TOOL, createToolComponent()));
     }
 
     private static ToolComponent createToolComponent() {
-        return new ToolComponent(List.of(ToolComponent.Rule.ofAlwaysDropping(List.of(Blocks.COBWEB), 15.0f), ToolComponent.Rule.of(BlockTags.SWORD_EFFICIENT, 1.5f)), 1.0f, 2);
+        return new ToolComponent(
+                List.of(
+                        ToolComponent.Rule.ofAlwaysDropping(List.of(Blocks.COBWEB), 15.0f),
+                        ToolComponent.Rule.of(BlockTags.SWORD_EFFICIENT, 1.5f)
+                ), 1.0f, 2
+        );
     }
 
     @Override
@@ -86,4 +91,5 @@ public class ClubItem extends ToolItem
         // Remove the swing attack by returning ActionResult.PASS
         return new TypedActionResult<>(ActionResult.PASS, user.getStackInHand(hand));
     }
+
 }

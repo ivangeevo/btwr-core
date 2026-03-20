@@ -28,4 +28,5 @@ public class BTWRModClient implements ClientModInitializer {
         System.out.println("Filtered Mods Count: " + filteredMods.size());
         filteredMods.forEach(mod -> System.out.println("Loaded Mod: " + mod.getMetadata().getName()));
     }
+
 }

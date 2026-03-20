@@ -59,4 +59,5 @@ public abstract class MatchToolLootConditionMixin implements LootCondition {
             }
         });
     }
+
 }

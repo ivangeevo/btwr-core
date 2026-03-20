@@ -60,4 +60,5 @@ public abstract class TitleScreenMixin {
         }
         return string;
     }
+
 }

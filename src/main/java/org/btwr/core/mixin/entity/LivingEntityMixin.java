@@ -15,7 +15,6 @@ public abstract class LivingEntityMixin {
 
     @Inject(method = "takeKnockback", at = @At("HEAD"), cancellable = true)
     private void modifyKnockback(double strength, double x, double z, CallbackInfo ci) {
-
         if (!BTWRModConfig.knockbackRestrictions.get()) {
             return;
         }
@@ -30,4 +29,5 @@ public abstract class LivingEntityMixin {
             }
         }
     }
+
 }

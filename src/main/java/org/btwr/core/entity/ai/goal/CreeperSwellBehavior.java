@@ -8,6 +8,7 @@ import org.btwr.core.data.CreeperData;
 import org.jetbrains.annotations.Nullable;
 
 public class CreeperSwellBehavior extends CreeperIgniteGoal {
+
     private final CreeperEntity myCreeper;
 
     @Nullable private LivingEntity target;
@@ -24,6 +25,7 @@ public class CreeperSwellBehavior extends CreeperIgniteGoal {
         } else if (this.getCreeperData() != null && this.getCreeperData().getIsDeterminedToExplode()) {
             return true;
         }
+
         return super.canStart();
     }
 
@@ -40,7 +42,6 @@ public class CreeperSwellBehavior extends CreeperIgniteGoal {
 
     @Override
     public void tick() {
-
         if (this.target == null || (this.getCreeperData() != null && this.getCreeperData().isNeutered())) {
             this.myCreeper.setFuseSpeed(-1);
             return;
@@ -59,4 +60,5 @@ public class CreeperSwellBehavior extends CreeperIgniteGoal {
     private CreeperData getCreeperData() {
         return myCreeper.getAttached(BTWRDataAttachments.CREEPER_DATA);
     }
+
 }

@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 
 // This class registers all BTWR items.
 public class BTWR_Items {
+
     // The GROUP_BTWR is first, as it acts as an Item that is called in the BTWRItemGroup class.
     public static final Item GROUP_BTWR = registerItem( "group_btwr", new Item(new Item.Settings()));
 
@@ -85,4 +86,5 @@ public class BTWR_Items {
     private static void registerFuels() {
         FuelRegistry.INSTANCE.add(BTWR_Items.CLUB_WOOD, 100);
     }
+
 }

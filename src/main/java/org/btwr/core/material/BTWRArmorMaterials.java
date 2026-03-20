@@ -32,4 +32,5 @@ public class BTWRArmorMaterials {
     public static RegistryEntry<ArmorMaterial> register(String name, Supplier<ArmorMaterial> material) {
         return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(BTWRMod.MOD_ID, name), material.get());
     }
+
 }

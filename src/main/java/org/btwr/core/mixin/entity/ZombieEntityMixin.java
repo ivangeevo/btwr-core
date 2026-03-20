@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ZombieEntity.class)
 public abstract class ZombieEntityMixin {
+
     // Makes baby zombies not able to spawn.
     @Inject(method = "shouldBeBaby", at = @At("HEAD"), cancellable = true)
     private static void setShouldBeBaby(Random random, CallbackInfoReturnable<Boolean> cir) {
@@ -17,4 +18,5 @@ public abstract class ZombieEntityMixin {
             cir.setReturnValue(false);
         }
     }
+
 }

@@ -8,8 +8,8 @@ import org.btwr.core.tag.BTWRTags;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BTWREntityTypeTagProvider extends FabricTagProvider.EntityTypeTagProvider
-{
+public class BTWREntityTypeTagProvider extends FabricTagProvider.EntityTypeTagProvider {
+
     public BTWREntityTypeTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture)
     {
         super(output, completableFuture);

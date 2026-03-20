@@ -33,6 +33,6 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     private void addToConventionalTags() {
-
     }
+
 }

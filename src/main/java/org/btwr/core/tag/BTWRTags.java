@@ -61,4 +61,5 @@ public class BTWRTags {
             return TagKey.of(RegistryKeys.ENTITY_TYPE, IdUtils.ofBTWR(name));
         }
     }
+
 }

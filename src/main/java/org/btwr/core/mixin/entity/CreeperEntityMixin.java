@@ -26,6 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CreeperEntity.class)
 public abstract class CreeperEntityMixin extends HostileEntity {
+
     @Shadow private int fuseTime;
     @Shadow public abstract boolean isIgnited();
     @Shadow private int lastFuseTime;
@@ -117,6 +118,7 @@ public abstract class CreeperEntityMixin extends HostileEntity {
                 this.currentFuseTime = 0;
             }
         }
+
         super.tick();
     }
 
@@ -125,4 +127,5 @@ public abstract class CreeperEntityMixin extends HostileEntity {
         var data = this.getAttached(BTWRDataAttachments.CREEPER_DATA);
         return data != null && data.isNeutered();
     }
+
 }

@@ -15,8 +15,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Item.class)
-public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, FabricItem
-{
+public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, FabricItem {
+
     @Unique private static final ItemAndToolMixinManager itemMixinManager = ItemAndToolMixinManager.getInstance();
 
     @Inject(method = "finishUsing", at = @At("RETURN"))
@@ -35,4 +35,5 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
 
         cir.setReturnValue(original);
     }
+
 }

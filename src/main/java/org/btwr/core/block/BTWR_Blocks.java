@@ -13,6 +13,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class BTWR_Blocks {
+
     // Registering blight without an item for now because it still doesn't work properly
     public static final Block BLIGHT = registerWithoutItem("blight", new BlightBlock(AbstractBlock.Settings.create()
             .strength(0.6F)
@@ -50,4 +51,5 @@ public class BTWR_Blocks {
         });
          **/
     }
+
 }

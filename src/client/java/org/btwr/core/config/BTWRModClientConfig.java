@@ -84,4 +84,5 @@ public class BTWRModClientConfig {
         // Only SP has isRemote == false
         return !client.getServer().isRemote();
     }
+
 }

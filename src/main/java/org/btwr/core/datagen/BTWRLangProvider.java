@@ -10,7 +10,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class BTWRLangProvider extends FabricLanguageProvider {
 
-    public BTWRLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public BTWRLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup)
+    {
         super(dataOutput, registryLookup);
     }
 
@@ -114,4 +115,5 @@ public class BTWRLangProvider extends FabricLanguageProvider {
     private void addConfigTooltip(String configPath, String translation, TranslationBuilder tb) {
         tb.add("config." + BTWRMod.MOD_ID + ".tooltip." + configPath, translation);
     }
+
 }

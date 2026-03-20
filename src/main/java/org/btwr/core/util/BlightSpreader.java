@@ -10,6 +10,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class BlightSpreader {
+
     private static final BlightSpreader INSTANCE = new BlightSpreader();
 
     private BlightSpreader() {}
@@ -57,4 +58,5 @@ public class BlightSpreader {
             }
         }
     }
+
 }

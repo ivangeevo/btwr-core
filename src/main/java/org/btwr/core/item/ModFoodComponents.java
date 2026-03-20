@@ -7,6 +7,7 @@ import net.minecraft.item.Items;
 
 /** Contains all the default food components used in BTWR food items. **/
 public class ModFoodComponents {
+
     // Raw foods
     public static final FoodComponent EGGS_SCRAMBLED_RAW =
             new FoodComponent.Builder()
@@ -71,4 +72,5 @@ public class ModFoodComponents {
     private static StatusEffectInstance addHungerStatusEffect(int dur, int amp) {
         return new StatusEffectInstance(StatusEffects.HUNGER, dur, amp, false, false, false);
     }
+
 }

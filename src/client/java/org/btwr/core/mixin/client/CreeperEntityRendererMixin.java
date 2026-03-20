@@ -50,4 +50,5 @@ public abstract class CreeperEntityRendererMixin extends MobEntityRenderer<Creep
         // Fallback to the default neutered texture
         cir.setReturnValue(NEUTERED_TEXTURE);
     }
+
 }

@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
 
 public class BlightBlock extends Block {
+
     public static final IntProperty LEVEL = IntProperty.of("level", 0, 3);
 
     public BlightBlock(Settings settings) {
@@ -326,4 +327,5 @@ public class BlightBlock extends Block {
 
         return state.get(LEVEL);
     }
+
 }
