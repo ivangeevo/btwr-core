@@ -1,5 +1,5 @@
 ## v???(dev)
-+ Changed how shears are applied as correct tool to drop leaves blocks internally to allow for other modifications to happen smoother instead of just modifying leaves blocks loot tables
++ Changed how shears are applied as a correct tool to drop leaves blocks internally to allow for other modifications to happen smoother instead of just modifying leaves blocks loot tables
 + Updated the mod to Fabric API 0.116.9, Fabric Loader 0.18.4 & BTWR: Shared Library 0.8.2
 
 ## v0.33.5
