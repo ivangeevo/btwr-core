@@ -1,6 +1,8 @@
 ## v???(dev)
++ Added head drops for certain vanilla mobs and players when killed. Normally this only scales with Looting, but it has compatibility for Better With Time's Battle Axe and also for BWT: Hardcore Tweaks's chopping block killing mechanic
++ Changed the recipe for diamond plates to yield four plates instead of one to have an incentive to use them instead of normal diamonds
 + Changed how shears are applied as a correct tool to drop leaves blocks internally to allow for other modifications to happen smoother instead of just modifying leaves blocks loot tables
-+ Updated the mod to Fabric API 0.116.9, Fabric Loader 0.18.4 & BTWR: Shared Library 0.8.3
++ Updated the mod to Fabric API 0.116.11, Fabric Loader 0.19.2 & BTWR: Shared Library 0.8.4
 
 ## v0.33.5
 + Fixed tanned leather armor pieces having wrong durability values
