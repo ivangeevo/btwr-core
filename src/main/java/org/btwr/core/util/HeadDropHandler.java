@@ -18,7 +18,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import org.btwr.bwt_hct.data.ModDataAttachments;
 import org.btwr.bwt_hct.data.RecentlyOnChoppingBlockCountdownData;
 import org.btwr.bwt_hct.world.ModDamageTypes;
-import org.btwr.shared_library.util.HeadDropRegistry;
+import org.btwr.shared_library.api.registry.HeadDropRegistry;
 
 public class HeadDropHandler {
 
