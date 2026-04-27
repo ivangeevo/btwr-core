@@ -151,7 +151,7 @@ public class BlightBlock extends Block {
                     world.setBlockState(targetPos, this.withLevel(targetBlightLevel), Block.NOTIFY_ALL);
                 }
                 else {
-                    world.setBlockState(targetPos, this.blightRootsWithLevel(1), Block.NOTIFY_ALL);
+                    world.setBlockState(targetPos, this.blightRootsWithLevel(getRootsLevelForBlightLevel(blightLevel)), Block.NOTIFY_ALL);
                 }
             }
         }
@@ -199,11 +199,11 @@ public class BlightBlock extends Block {
             BlockPos targetPos = pos.offset(randomFacing);
 
             if (isMatchingFluid(world, targetPos, Blocks.LAVA)) {
-                world.setBlockState(pos, state.with(LEVEL, 2));
+                world.setBlockState(pos, this.withLevel(2), Block.NOTIFY_ALL);
             }
             // TODO: Possible wrong check in the 2nd part where we check blight roots and this.getLevel(state)
         }
-        else if (this.getLevel(state) == 2 || (state.isOf(BTWR_Blocks.BLIGHT_ROOTS) && this.getLevel(state) == 1)) {
+        else if (this.getLevel(state) == 2 || (state.isOf(BTWR_Blocks.BLIGHT_ROOTS) && this.getLevel(state) == 0)) {
             // Check for evolution
             int randomX = pos.getX() + random.nextInt(7) - 3;
             int randomY = pos.getY() + random.nextInt(7) - 3;
@@ -234,17 +234,14 @@ public class BlightBlock extends Block {
 
             if (blightLevel == 0) {
                 world.setBlockState(pos, Blocks.DIRT.getDefaultState(), Block.NOTIFY_ALL);
-
                 return true;
             }
             else if (blightLevel == 2) {
-                world.setBlockState(pos, this.getDefaultState().with(LEVEL, 2), Block.NOTIFY_ALL);
-
+                world.setBlockState(pos, this.blightRootsWithLevel(0), Block.NOTIFY_ALL);
                 return true;
             }
             else if (blightLevel == 3) {
-                world.setBlockState(pos, this.getDefaultState().with(LEVEL, 3), Block.NOTIFY_ALL);
-
+                world.setBlockState(pos, this.blightRootsWithLevel(1), Block.NOTIFY_ALL);
                 return true;
             }
         }
@@ -287,7 +284,7 @@ public class BlightBlock extends Block {
         for (int tempCount = 0; tempCount < 4; ++tempCount) {
             int randomX = pos.getX() + random.nextInt(3) - 1;
             int randomY = pos.getY() + random.nextInt(9);
-            int randomZ = pos.getY() + random.nextInt(3) - 1;
+            int randomZ = pos.getZ() + random.nextInt(3) - 1;
 
             BlockPos targetPos = new BlockPos(randomX, randomY, randomZ);
             BlockState targetState = world.getBlockState(targetPos);
@@ -301,7 +298,7 @@ public class BlightBlock extends Block {
     public boolean isSurfaceBlight(BlockState state) {
         int blightLevel = state.get(LEVEL);
         if (!state.contains(LEVEL)) return false;
-        return blightLevel >= 0 && blightLevel <= 3 && (state.isOf(BTWR_Blocks.BLIGHT_ROOTS) && state.get(LEVEL) != 1);
+        return blightLevel >= 0 && blightLevel <= 3 && !state.isOf(BTWR_Blocks.BLIGHT_ROOTS);
     }
 
     private int getRootsLevelForBlightLevel(int level) {
