@@ -1,6 +1,7 @@
 package org.btwr.core.material;
 
 import org.btwr.core.BTWRMod;
+import org.btwr.core.item.BTWR_Items;
 import org.btwr.core.tag.BTWRTags;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -27,6 +28,13 @@ public class BTWRArmorMaterials {
                 map.put(ArmorItem.Type.BODY, 7);
             }), 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, () -> Ingredient.fromTag(BTWRTags.Items.TANNED_LEATHERS),
                     List.of(new ArmorMaterial.Layer(Identifier.of(BTWRMod.MOD_ID, "leather_tanned"))), 0, 0)
+    );
+
+    public static final RegistryEntry<ArmorMaterial> ENDER_SPECTACLES = register("ender_spectacles",
+            () -> new ArmorMaterial(Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                map.put(ArmorItem.Type.HELMET, 0);
+            }), 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, () -> Ingredient.ofItems(BTWR_Items.OCULAR_OF_ENDER),
+                    List.of(new ArmorMaterial.Layer(Identifier.of(BTWRMod.MOD_ID, "ender_spectacles"))), 0, 0)
     );
 
     public static RegistryEntry<ArmorMaterial> register(String name, Supplier<ArmorMaterial> material) {

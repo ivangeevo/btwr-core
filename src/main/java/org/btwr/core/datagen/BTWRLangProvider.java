@@ -64,7 +64,8 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         tb.add(BTWR_Items.LEATHER_TANNED, "Tanned Leather");
         tb.add(BTWR_Items.LEATHER_TANNED_CUT, "Cut Tanned Leather");
 
-        //tb.add(BTWR_Items.ANCIENT_PROPHECHY, "");
+        tb.add(BTWR_Items.OCULAR_OF_ENDER, "Ocular of Ender");
+        tb.add(BTWR_Items.ENDER_SPECTACLES, "Ender Spectacles");
     }
 
     private void generateConfigTranslations(TranslationBuilder tb) {

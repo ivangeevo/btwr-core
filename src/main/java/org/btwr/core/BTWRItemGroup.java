@@ -57,7 +57,8 @@ public class BTWRItemGroup {
                             entries.add(BTWR_Items.BEAST_LIVER_RAW);
                             entries.add(BTWR_Items.BEAST_LIVER_COOKED);
                             entries.add(BTWR_Items.CREEPER_OYSTERS);
-
+                            entries.add(BTWR_Items.OCULAR_OF_ENDER);
+                            entries.add(BTWR_Items.ENDER_SPECTACLES);
                         }).build());
     }
 

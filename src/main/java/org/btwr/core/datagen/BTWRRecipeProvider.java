@@ -60,6 +60,9 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_LEGGINGS).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("XXX").pattern("X X").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_BOOTS).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("X X").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.OCULAR_OF_ENDER).input('E', Items.ENDER_EYE).input('N', Items.GOLD_NUGGET).pattern("NNN").pattern("NEN").pattern("NNN").criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.ENDER_SPECTACLES).input('O', BTWR_Items.OCULAR_OF_ENDER).input('L', ConventionalItemTags.LEATHERS).pattern("OLO").criterion(hasItem(BTWR_Items.OCULAR_OF_ENDER), conditionsFromItem(BTWR_Items.OCULAR_OF_ENDER)).offerTo(exporter);
+
         // Shears cutting recipes
         ExtendedShapelessRecipe.JsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_CUT,2).withToolDamage().input(Items.LEATHER).input(ConventionalItemTags.SHEAR_TOOLS).criterion("has_leather", conditionsFromItem(Items.LEATHER)).offerTo(exporter);
         ExtendedShapelessRecipe.JsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_SCOURED_CUT,2).withToolDamage().input(BTWR_Items.LEATHER_SCOURED).input(ConventionalItemTags.SHEAR_TOOLS).criterion("has_leather_scoured", conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);

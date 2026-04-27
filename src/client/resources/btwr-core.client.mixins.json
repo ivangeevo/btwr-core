@@ -4,7 +4,9 @@
   "package": "org.btwr.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "client.CreeperEntityRendererMixin"
+    "client.ClientPlayerEntityMixin",
+    "client.CreeperEntityRendererMixin",
+    "client.InGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1
