@@ -181,7 +181,7 @@ public class BlightBlock extends Block {
 
     private void checkForBlightEvolution(World world, BlockPos pos, BlockState state, Random random) {
         if (!state.contains(LEVEL)) return;
-        int blightLevel = this.getLevel(state);
+
         if (this.getLevel(state) == 0) {
             // Check for evolution
 
@@ -201,7 +201,6 @@ public class BlightBlock extends Block {
             if (isMatchingFluid(world, targetPos, Blocks.LAVA)) {
                 world.setBlockState(pos, this.withLevel(2), Block.NOTIFY_ALL);
             }
-            // TODO: Possible wrong check in the 2nd part where we check blight roots and this.getLevel(state)
         }
         else if (this.getLevel(state) == 2 || (state.isOf(BTWR_Blocks.BLIGHT_ROOTS) && this.getLevel(state) == 0)) {
             // Check for evolution

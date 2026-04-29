@@ -1,10 +1,9 @@
 {
-	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
+	"parent": "block/block",
 	"textures": {
-		"0": "btwr:block/blight/blight_bottom0",
-		"4": "btwr:block/blight/blight_roots1",
-		"particle": "btwr:block/blight/blight_bottom0"
+		"0": "btwr:block/blight_bottom_0",
+		"4": "btwr:block/blight_roots_1",
+		"particle": "btwr:block/blight_bottom_0"
 	},
 	"elements": [
 		{

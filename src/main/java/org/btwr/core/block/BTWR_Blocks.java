@@ -1,5 +1,8 @@
 package org.btwr.core.block;
 
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemGroups;
 import org.btwr.core.BTWRMod;
 import org.btwr.core.block.blocks.BlightBlock;
 import org.btwr.core.block.blocks.BlightRootsBlock;
@@ -14,11 +17,12 @@ import net.minecraft.util.Identifier;
 
 public class BTWR_Blocks {
 
-    // Registering blight without an item for now because it still doesn't work properly
-    public static final Block BLIGHT = registerWithoutItem("blight", new BlightBlock(AbstractBlock.Settings.create()
-            .strength(0.6F)
-            .ticksRandomly()
-            .sounds(BlockSoundGroup.GRAVEL))
+    public static final Block BLIGHT = registerBlock("blight", new BlightBlock(
+            AbstractBlock.Settings.create()
+                    .strength(0.6F)
+                    .ticksRandomly()
+                    .sounds(BlockSoundGroup.GRAVEL)
+            )
     );
 
     public static final Block BLIGHT_ROOTS = registerWithoutItem("blight_roots", new BlightRootsBlock(
@@ -45,11 +49,9 @@ public class BTWR_Blocks {
     }
 
     private static void addToItemGroups() {
-        /**
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
             content.addAfter(Blocks.GRASS_BLOCK, BLIGHT);
         });
-         **/
     }
 
 }

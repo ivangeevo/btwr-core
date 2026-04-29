@@ -1,8 +1,8 @@
 {
   "variants": {
-    "level=0": { "model": "btwr:block/blight/blight0" },
-    "level=1": { "model": "btwr:block/blight/blight1" },
-    "level=2": { "model": "btwr:block/blight/blight2" },
-    "level=3": { "model": "btwr:block/blight/blight3" }
+    "level=0": { "model": "btwr:block/blight_0" },
+    "level=1": { "model": "btwr:block/blight_1" },
+    "level=2": { "model": "btwr:block/blight_2" },
+    "level=3": { "model": "btwr:block/blight_3" }
   }
 }

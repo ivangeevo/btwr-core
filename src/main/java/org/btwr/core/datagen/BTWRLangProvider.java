@@ -1,6 +1,7 @@
 package org.btwr.core.datagen;
 
 import org.btwr.core.BTWRMod;
+import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.item.BTWR_Items;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -22,11 +23,11 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         this.generateItemTranslations(tb);
         this.generateConfigTranslations(tb);
 
-        tb.add("subtitles.btwr.creeper_shorn", "Creeper sheared");
+        tb.add("subtitles.btwr.creeper_sheared", "Creeper sheared");
     }
 
     private void generateBlockTranslations(TranslationBuilder tb) {
-        //tb.add();
+        tb.add(BTWR_Blocks.BLIGHT, "Blight");
     }
 
     private void generateItemTranslations(TranslationBuilder tb) {
