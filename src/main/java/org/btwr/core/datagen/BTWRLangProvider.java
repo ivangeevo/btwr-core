@@ -21,6 +21,8 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         this.generateBlockTranslations(tb);
         this.generateItemTranslations(tb);
         this.generateConfigTranslations(tb);
+
+        tb.add("subtitles.btwr.creeper_shorn", "Creeper shorn");
     }
 
     private void generateBlockTranslations(TranslationBuilder tb) {

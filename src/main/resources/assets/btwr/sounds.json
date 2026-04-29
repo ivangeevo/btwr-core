@@ -1,0 +1,19 @@
+{
+  "creeper_shorn": {
+    "subtitle": "subtitles.btwr.creeper_shorn",
+    "sounds": [
+      {
+        "name": "minecraft:entity.sheep.shear",
+        "type": "event"
+      }
+    ]
+  },
+  "creeper_shorn_layer": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.slime.attack",
+        "type": "event"
+      }
+    ]
+  }
+}
