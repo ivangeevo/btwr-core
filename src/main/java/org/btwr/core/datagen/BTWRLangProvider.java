@@ -22,7 +22,7 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         this.generateItemTranslations(tb);
         this.generateConfigTranslations(tb);
 
-        tb.add("subtitles.btwr.creeper_shorn", "Creeper shorn");
+        tb.add("subtitles.btwr.creeper_shorn", "Creeper sheared");
     }
 
     private void generateBlockTranslations(TranslationBuilder tb) {

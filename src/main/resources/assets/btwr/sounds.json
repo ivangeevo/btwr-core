@@ -1,6 +1,6 @@
 {
-  "creeper_shorn": {
-    "subtitle": "subtitles.btwr.creeper_shorn",
+  "creeper_sheared": {
+    "subtitle": "subtitles.btwr.creeper_sheared",
     "sounds": [
       {
         "name": "minecraft:entity.sheep.shear",
@@ -8,7 +8,7 @@
       }
     ]
   },
-  "creeper_shorn_layer": {
+  "creeper_sheared_layer": {
     "sounds": [
       {
         "name": "minecraft:entity.slime.attack",

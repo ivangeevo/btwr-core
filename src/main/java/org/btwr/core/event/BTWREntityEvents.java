@@ -39,10 +39,10 @@ public class BTWREntityEvents {
 
                 if (handStack.getItem() instanceof ShearsItem && !creeperData.isNeutered()) {
                     float pitch2 = (player.getWorld().random.nextFloat() - player.getWorld().random.nextFloat()) * 0.1F + 0.7F;
-                    player.getWorld().playSound(null, player.getBlockPos(), BTWRSoundEvents.CREEPER_SHORN,
+                    player.getWorld().playSound(null, player.getBlockPos(), BTWRSoundEvents.CREEPER_SHEARED,
                             SoundCategory.NEUTRAL, 1.0F, 1.0F
                     );
-                    player.getWorld().playSound(null, player.getBlockPos(), BTWRSoundEvents.CREEPER_SHORN_LAYER,
+                    player.getWorld().playSound(null, player.getBlockPos(), BTWRSoundEvents.CREEPER_SHEARED_LAYER,
                             SoundCategory.HOSTILE, 1.0F, pitch2
                     );
 
