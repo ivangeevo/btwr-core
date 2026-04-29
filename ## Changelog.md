@@ -1,6 +1,6 @@
-## v0.4(dev)
+## v0.4
 + The mod is officially in Beta now!
-+ [WIP] Added blight!
++ Added blight!
 + Added new items Ocular of Ender and Ender Spectacles! Ender spectacles are now used in place of carved pumpkins to not aggro enderman when looking at them and also show positions where mobs can spawn if it's dark enough
 + Added custom sound events for creeper shearing!
 + Added head drops for certain vanilla mobs and players when killed. Normally this only scales with Looting, but it has compatibility for Better With Time's Battle Axe and also for BWT: Hardcore Tweaks's chopping block killing mechanic
