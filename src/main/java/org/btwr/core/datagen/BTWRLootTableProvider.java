@@ -3,15 +3,24 @@ package org.btwr.core.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.*;
+import net.minecraft.loot.entry.AlternativeEntry;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.SetCustomDataLootFunction;
+import net.minecraft.loot.function.SetNameLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.text.Text;
+import org.btwr.core.block.BTWR_Blocks;
+import org.btwr.core.block.blocks.BlightBlock;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -28,10 +37,39 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         this.generateVanillaTables();
+        this.generateModTables();
     }
 
     private void generateVanillaTables() {
         addDrop(Blocks.VINE, BTWRLootTableProvider::dropsWithShears);
+    }
+
+    private void generateModTables() {
+        addDrop(BTWR_Blocks.BLIGHT, this::blightDrops);
+    }
+
+    private LootTable.Builder blightDrops(Block block) {
+        NbtCompound matureNbt = new NbtCompound();
+        matureNbt.putInt("level", 3);
+
+        return LootTable.builder().pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1.0f))
+                        .with(AlternativeEntry.builder(
+                                // Level 3 — drop with custom data
+                                ItemEntry.builder(BTWR_Blocks.BLIGHT)
+                                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                                .properties(StatePredicate.Builder.create()
+                                                        .exactMatch(BlightBlock.LEVEL, 3)))
+                                        .apply(SetCustomDataLootFunction.builder(matureNbt))
+                                        .apply(SetNameLootFunction.builder(
+                                                Text.translatable("block.btwr.blight.mature")
+                                                        .styled(style -> style.withItalic(false)),
+                                                SetNameLootFunction.Target.CUSTOM_NAME)),
+                                // All other levels — drop plain blight
+                                ItemEntry.builder(BTWR_Blocks.BLIGHT)
+                        ))
+        );
     }
 
     public static LootTable.Builder dropsWithShears(ItemConvertible drop) {

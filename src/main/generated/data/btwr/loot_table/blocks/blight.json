@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "block": "btwr:blight",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "3"
+                  }
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:set_custom_data",
+                  "tag": "{level:3}"
+                },
+                {
+                  "function": "minecraft:set_name",
+                  "name": {
+                    "italic": false,
+                    "translate": "block.btwr.blight.mature"
+                  }
+                }
+              ],
+              "name": "btwr:blight"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "btwr:blight"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

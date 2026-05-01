@@ -1,5 +1,7 @@
 package org.btwr.core.datagen;
 
+import net.minecraft.registry.tag.BlockTags;
+import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -23,6 +25,9 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     private void addToVanillaTags() {
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(BTWR_Blocks.BLIGHT)
+                .add(BTWR_Blocks.BLIGHT_ROOTS);
     }
 
     private void addToModTags() {
