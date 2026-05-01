@@ -3,7 +3,11 @@ package org.btwr.core;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-import org.btwr.core.config.BTWRModClientConfig;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
+import org.btwr.core.block.BTWR_Blocks;
+import org.btwr.shared_library.util.utils.IdUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +20,19 @@ public class BTWRModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         //this.hideArbitraryFabricAPIMods();
+
+        // Custom model for blight based on it's level
+        ModelPredicateProviderRegistry.register(
+                BTWR_Blocks.BLIGHT.asItem(),
+                IdUtils.ofBTWR("blight_level"),
+                (stack, world, entity, seed) -> {
+                    NbtComponent data = stack.get(DataComponentTypes.CUSTOM_DATA);
+                    if (data != null && data.contains("level")) {
+                        return data.copyNbt().getInt("level") / 3f;
+                    }
+                    return 0f;
+                }
+        );
     }
 
     // This removes all arbitrary mods that are loaded by FAPI by default from showing up in the loaded mods text,

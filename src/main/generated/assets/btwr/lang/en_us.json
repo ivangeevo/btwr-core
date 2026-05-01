@@ -1,5 +1,6 @@
 {
   "block.btwr.blight": "Blight",
+  "block.btwr.blight.mature": "Mature Blight",
   "config.btwr.category.general": "General",
   "config.btwr.text.clientSettingsText": "Client Settings:",
   "config.btwr.text.emptyClientConfigText": "§eNote:§r There are currently no client config settings.",

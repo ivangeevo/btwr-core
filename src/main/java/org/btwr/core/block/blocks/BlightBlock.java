@@ -1,5 +1,9 @@
 package org.btwr.core.block.blocks;
 
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.world.WorldAccess;
 import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.tag.BTWRTags;
 import net.minecraft.block.Block;
@@ -16,6 +20,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
+import org.jetbrains.annotations.Nullable;
 
 public class BlightBlock extends Block {
 
@@ -54,6 +59,37 @@ public class BlightBlock extends Block {
 
     public final boolean isMature(BlockState state) {
         return this.getLevel(state) >= this.getMaxLevel();
+    }
+
+    @Override
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        // Fluids above the groth turn it back into dirt
+        if (direction == Direction.UP) {
+            if (this.getLevel(state) == 0 && neighborState.isOf(Blocks.WATER)) {
+                world.setBlockState(pos, Blocks.DIRT.getDefaultState(), Block.NOTIFY_ALL);
+            }
+
+            if (this.getLevel(state) == 1 && neighborState.isOf(Blocks.LAVA)) {
+                world.setBlockState(pos, Blocks.DIRT.getDefaultState(), Block.NOTIFY_ALL);
+            }
+        }
+
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    }
+
+    @Override
+    public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
+        BlockState state = super.getPlacementState(ctx);
+        if (state == null) return null;
+
+        NbtComponent customData = ctx.getStack().get(DataComponentTypes.CUSTOM_DATA);
+        if (customData != null && customData.contains("level")) {
+            int level = customData.copyNbt().getInt("level");
+            level = Math.max(0, Math.min(level, 3));
+            state = state.with(LEVEL, level);
+        }
+
+        return state;
     }
 
     @Override
@@ -184,22 +220,28 @@ public class BlightBlock extends Block {
 
         if (this.getLevel(state) == 0) {
             // Check for evolution
+            for (Direction randomFacing : Direction.values()) {
+                // Only check horizontal positions for evolution
+                if (randomFacing.getAxis().isHorizontal()) {
+                    BlockPos targetPos = pos.offset(randomFacing);
 
-            Direction randomFacing = Direction.values()[random.nextInt(6)];
-            BlockPos targetPos = pos.offset(randomFacing);
-
-            if (isMatchingFluid(world, targetPos, Blocks.WATER)) {
-                world.setBlockState(pos, this.withLevel(1), Block.NOTIFY_ALL);
+                    if (isMatchingFluid(world, targetPos, Blocks.WATER)) {
+                        world.setBlockState(pos, this.withLevel(1), Block.NOTIFY_ALL);
+                    }
+                }
             }
         }
         else if (this.getLevel(state) == 1) {
             // Check for evolution
+            for (Direction randomFacing : Direction.values()) {
+                // Only check horizontal positions for evolution
+                if (randomFacing.getAxis().isHorizontal()) {
+                    BlockPos targetPos = pos.offset(randomFacing);
 
-            Direction randomFacing = Direction.values()[random.nextInt(6)];
-            BlockPos targetPos = pos.offset(randomFacing);
-
-            if (isMatchingFluid(world, targetPos, Blocks.LAVA)) {
-                world.setBlockState(pos, this.withLevel(2), Block.NOTIFY_ALL);
+                    if (isMatchingFluid(world, targetPos, Blocks.LAVA)) {
+                        world.setBlockState(pos, this.withLevel(2), Block.NOTIFY_ALL);
+                    }
+                }
             }
         }
         else if (this.getLevel(state) == 2 || (state.isOf(BTWR_Blocks.BLIGHT_ROOTS) && this.getLevel(state) == 0)) {

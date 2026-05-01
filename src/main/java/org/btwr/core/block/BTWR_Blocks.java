@@ -2,7 +2,13 @@ package org.btwr.core.block;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
 import org.btwr.core.BTWRMod;
 import org.btwr.core.block.blocks.BlightBlock;
 import org.btwr.core.block.blocks.BlightRootsBlock;
@@ -51,6 +57,16 @@ public class BTWR_Blocks {
     private static void addToItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
             content.addAfter(Blocks.GRASS_BLOCK, BLIGHT);
+
+            // Add Mature Blight to an item group
+            ItemStack matureBlight = new ItemStack(BLIGHT);
+            NbtCompound nbt = new NbtCompound();
+            nbt.putInt("level", 3);
+            matureBlight.set(DataComponentTypes.CUSTOM_DATA, NbtComponent.of(nbt));
+            MutableText name = Text.translatable("block.btwr.blight.mature").styled(style -> style.withItalic(false));
+            matureBlight.set(DataComponentTypes.CUSTOM_NAME, name);
+            content.addAfter(BLIGHT, matureBlight);
+
         });
     }
 
