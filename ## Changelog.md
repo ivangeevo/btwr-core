@@ -1,12 +1,13 @@
 ## v0.4
 + The mod is officially in Beta now!
 + Added blight!
++ Added a new api class "BlightSpreadConditions". This can be used by developers who want to add compatibility for their custom blocks and define conditions under which blight can spread to a these blocks
 + Added new items Ocular of Ender and Ender Spectacles! Ender spectacles are now used in place of carved pumpkins to not aggro enderman when looking at them and also show positions where mobs can spawn if it's dark enough
 + Added custom sound events for creeper shearing!
 + Added head drops for certain vanilla mobs and players when killed. Normally this only scales with Looting, but it has compatibility for Better With Time's Battle Axe and also for BWT: Hardcore Tweaks's chopping block killing mechanic
-+ Changed the mod versioning scheme to [semver](https://semver.org/).
 + Changed the recipe for diamond plates to yield four plates instead of one to have an incentive to use them instead of normal diamonds
 + Changed how shears are applied as a correct tool to drop leaves blocks internally to allow for other modifications to happen smoother instead of just modifying leaves blocks loot tables
++ Changed the mod versioning scheme to [semver](https://semver.org/).
 + Updated the mod to Fabric API 0.116.11, Fabric Loader 0.19.2 & BTWR: Shared Library 0.8.4
 
 ## v0.33.5

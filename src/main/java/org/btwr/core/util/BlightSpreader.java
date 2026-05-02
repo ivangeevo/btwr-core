@@ -2,6 +2,7 @@ package org.btwr.core.util;
 
 import net.minecraft.block.entity.BeaconBlockEntity;
 import org.btwr.core.BTWRMod;
+import org.btwr.core.api.BlightSpreadConditions;
 import org.btwr.core.block.BTWR_Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -72,7 +73,7 @@ public class BlightSpreader {
             BlockPos spreadPos = new BlockPos(x, y, z);
             BlockState state = world.getBlockState(spreadPos);
 
-            if (state.isOf(Blocks.GRASS_BLOCK)) {
+            if (BlightSpreadConditions.canBlightSpreadTo(world, spreadPos, state, 0)) {
                 world.setBlockState(spreadPos, BTWR_Blocks.BLIGHT.getDefaultState());
             }
         }
@@ -82,7 +83,7 @@ public class BlightSpreader {
         World world = entity.getWorld();
         BlockState state = world.getBlockState(pos);
 
-        if (state.isOf(Blocks.GRASS_BLOCK)) {
+        if (BlightSpreadConditions.canBlightSpreadTo(world, pos, state, 0)) {
             BlockState aboveState = world.getBlockState(pos.up());
 
             if (aboveState.getOpacity(world, pos.up()) <= 2) {

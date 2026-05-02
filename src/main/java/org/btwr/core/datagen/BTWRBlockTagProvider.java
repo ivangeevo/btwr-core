@@ -31,10 +31,6 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     private void addToModTags() {
-        getOrCreateTagBuilder(BTWRTags.Blocks.BLIGHT_SPREADS_TO)
-                .add(Blocks.DIRT)
-                .add(Blocks.GRASS_BLOCK)
-                .add(Blocks.FARMLAND);
     }
 
     private void addToConventionalTags() {

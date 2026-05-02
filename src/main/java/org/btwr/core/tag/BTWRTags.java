@@ -13,8 +13,6 @@ public class BTWRTags {
         // transparent or semi transparent blocks that can let light through
         public static final TagKey<Block> GROUND_COVERS = createTag("ground_covers");
 
-        public static final TagKey<Block> BLIGHT_SPREADS_TO = createTag("blight_spreads_to");
-
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, IdUtils.ofBTWR(name));
         }

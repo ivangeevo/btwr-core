@@ -1,5 +1,6 @@
 package org.btwr.core;
 
+import org.btwr.core.api.BlightSpreadConditions;
 import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.config.BTWRModConfig;
 import org.btwr.core.data.BTWRDataAttachments;
@@ -27,6 +28,9 @@ public class BTWRMod implements ModInitializer {
         BTWRSoundEvents.register();
         BTWRDataAttachments.register();
         BTWREntityEvents.register();
+
+        // Register default conditions for blight being able to spread
+        BlightSpreadConditions.registerDefaults();
 
         // Not useful unless global mob cap is increased
         //SurfaceReinforcement.init();

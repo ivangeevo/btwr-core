@@ -4,6 +4,7 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.world.WorldAccess;
+import org.btwr.core.api.BlightSpreadConditions;
 import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.tag.BTWRTags;
 import net.minecraft.block.Block;
@@ -196,8 +197,7 @@ public class BlightBlock extends Block {
             BlockState targetState = world.getBlockState(targetPos);
             BlockState aboveState = world.getBlockState(targetPos.up());
 
-            // Reconsider adding the hook getCanBlightSpreadToBlock() in BTWR:SL instead?
-            if (targetState.isIn(BTWRTags.Blocks.BLIGHT_SPREADS_TO) || (targetState.isOf(Blocks.MYCELIUM) && this.getDefaultState().get(LEVEL) >= 2)) {
+            if (BlightSpreadConditions.canBlightSpreadTo(world, targetPos, targetState, blightLevel)) {
                 if (blightLevel < 3) {
                     if (aboveState.getOpacity(world, targetPos.up()) <= 2) {
                         world.setBlockState(targetPos, this.withLevel(0), Block.NOTIFY_ALL);
