@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "btwr:block/spider_eye_block",
+    "side": "btwr:block/spider_eye_block",
+    "top": "btwr:block/spider_eye_block"
+  }
+}

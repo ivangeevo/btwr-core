@@ -77,6 +77,10 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         // Blocks
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.FLINT_BLOCK).input('F', Items.FLINT).pattern("FFF").pattern("FFF").pattern("FFF").criterion(hasItem(Items.FLINT), conditionsFromItem(Items.FLINT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.DIAMOND_INGOT_BLOCK).input('I', BTWR_Items.DIAMOND_INGOT).pattern("III").pattern("III").pattern("III").criterion(hasItem(BTWR_Items.DIAMOND_INGOT), conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.CREEPER_OYSTER_BLOCK).input('O', BTWR_Items.CREEPER_OYSTERS).pattern("OOO").pattern("OOO").pattern("OOO").criterion(hasItem(BTWR_Items.CREEPER_OYSTERS), conditionsFromItem(BTWR_Items.CREEPER_OYSTERS)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.CREEPER_OYSTER_SLAB).input('O', BTWR_Blocks.CREEPER_OYSTER_BLOCK).pattern("OOO").criterion(hasItem(BTWR_Blocks.CREEPER_OYSTER_BLOCK), conditionsFromItem(BTWR_Blocks.CREEPER_OYSTER_BLOCK)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.SPIDER_EYE_BLOCK).input('E', Items.SPIDER_EYE).pattern("EEE").pattern("EEE").pattern("EEE").criterion(hasItem(Items.SPIDER_EYE), conditionsFromItem(Items.SPIDER_EYE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.SPIDER_EYE_SLAB).input('E', BTWR_Blocks.SPIDER_EYE_BLOCK).pattern("EEE").criterion(hasItem(BTWR_Blocks.SPIDER_EYE_BLOCK), conditionsFromItem(BTWR_Blocks.SPIDER_EYE_BLOCK)).offerTo(exporter);
     }
 
     private void registerFoodRecipes(RecipeExporter exporter) {

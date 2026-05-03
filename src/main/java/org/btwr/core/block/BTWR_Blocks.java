@@ -3,6 +3,7 @@ package org.btwr.core.block;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SlabBlock;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.ItemGroups;
@@ -49,6 +50,34 @@ public class BTWR_Blocks {
                     .requiresTool()
     ));
 
+    public static final Block CREEPER_OYSTER_BLOCK = registerBlock("creeper_oyster_block", new Block(
+            AbstractBlock.Settings.create()
+                    .strength(0.6f)
+                    .sounds(BlockSoundGroup.HONEY)
+                    .requiresTool()
+    ));
+
+    public static final Block CREEPER_OYSTER_SLAB = registerBlock("creeper_oyster_slab", new SlabBlock(
+            AbstractBlock.Settings.create()
+                    .strength(0.6f)
+                    .sounds(BlockSoundGroup.HONEY)
+                    .requiresTool()
+    ));
+
+    public static final Block SPIDER_EYE_BLOCK = registerBlock("spider_eye_block", new Block(
+            AbstractBlock.Settings.create()
+                    .strength(0.6f)
+                    .sounds(BlockSoundGroup.HONEY)
+                    .requiresTool()
+    ));
+
+    public static final Block SPIDER_EYE_SLAB = registerBlock("spider_eye_slab", new SlabBlock(
+            AbstractBlock.Settings.create()
+                    .strength(0.6f)
+                    .sounds(BlockSoundGroup.HONEY)
+                    .requiresTool()
+    ));
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(BTWRMod.MOD_ID, name), block);
@@ -76,6 +105,8 @@ public class BTWR_Blocks {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
             content.addAfter(Blocks.DIAMOND_BLOCK, DIAMOND_INGOT_BLOCK);
+            content.add(CREEPER_OYSTER_BLOCK);
+            content.addAfter(CREEPER_OYSTER_BLOCK, CREEPER_OYSTER_SLAB);
         });
     }
 

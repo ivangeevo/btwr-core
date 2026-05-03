@@ -1,8 +1,12 @@
 {
   "block.btwr.blight": "Blight",
   "block.btwr.blight.mature": "Mature Blight",
+  "block.btwr.creeper_oyster_block": "Block of Creeper Oyster",
+  "block.btwr.creeper_oyster_slab": "Creeper Oyster Slab",
   "block.btwr.diamond_ingot_block": "Block of Diamond Ingot",
   "block.btwr.flint_block": "Block of Flint",
+  "block.btwr.spider_eye_block": "Block of Spider Eye",
+  "block.btwr.spider_eye_slab": "Spider Eye Slab",
   "config.btwr.category.general": "General",
   "config.btwr.text.clientSettingsText": "Client Settings:",
   "config.btwr.text.emptyClientConfigText": "§eNote:§r There are currently no client config settings.",
