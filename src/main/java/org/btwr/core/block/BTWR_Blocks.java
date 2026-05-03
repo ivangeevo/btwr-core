@@ -1,5 +1,6 @@
 package org.btwr.core.block;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Blocks;
 import net.minecraft.component.DataComponentTypes;
@@ -35,6 +36,19 @@ public class BTWR_Blocks {
             AbstractBlock.Settings.copy(BTWR_Blocks.BLIGHT))
     );
 
+    public static final Block FLINT_BLOCK = registerBlock("flint_block", new Block(
+                    AbstractBlock.Settings.create()
+                            .strength(2F)
+                            .sounds(BlockSoundGroup.STONE)
+    ));
+
+    public static final Block DIAMOND_INGOT_BLOCK = registerBlock("diamond_ingot_block", new Block(
+            AbstractBlock.Settings.create()
+                    .strength(5F, 10F)
+                    .sounds(BlockSoundGroup.AMETHYST_BLOCK)
+                    .requiresTool()
+    ));
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(BTWRMod.MOD_ID, name), block);
@@ -56,18 +70,27 @@ public class BTWR_Blocks {
 
     private static void addToItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
-            content.addAfter(Blocks.GRASS_BLOCK, BLIGHT);
-
-            // Add Mature Blight to an item group
-            ItemStack matureBlight = new ItemStack(BLIGHT);
-            NbtCompound nbt = new NbtCompound();
-            nbt.putInt("level", 3);
-            matureBlight.set(DataComponentTypes.CUSTOM_DATA, NbtComponent.of(nbt));
-            MutableText name = Text.translatable("block.btwr.blight.mature").styled(style -> style.withItalic(false));
-            matureBlight.set(DataComponentTypes.CUSTOM_NAME, name);
-            content.addAfter(BLIGHT, matureBlight);
-
+            addBlightToItemGroups(content);
+            content.addAfter(Blocks.BEDROCK, FLINT_BLOCK);
         });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
+            content.addAfter(Blocks.DIAMOND_BLOCK, DIAMOND_INGOT_BLOCK);
+        });
+    }
+
+    private static void addBlightToItemGroups(FabricItemGroupEntries content) {
+        // Normal Blight
+        content.addAfter(Blocks.GRASS_BLOCK, BLIGHT);
+
+        // Mature Blight
+        ItemStack matureBlight = new ItemStack(BLIGHT);
+        NbtCompound nbt = new NbtCompound();
+        nbt.putInt("level", 3);
+        matureBlight.set(DataComponentTypes.CUSTOM_DATA, NbtComponent.of(nbt));
+        MutableText name = Text.translatable("block.btwr.blight.mature").styled(style -> style.withItalic(false));
+        matureBlight.set(DataComponentTypes.CUSTOM_NAME, name);
+        content.addAfter(BLIGHT, matureBlight);
     }
 
 }

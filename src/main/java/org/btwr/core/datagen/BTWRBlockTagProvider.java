@@ -28,6 +28,13 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(BTWR_Blocks.BLIGHT)
                 .add(BTWR_Blocks.BLIGHT_ROOTS);
+
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(BTWR_Blocks.FLINT_BLOCK)
+                .add(BTWR_Blocks.DIAMOND_INGOT_BLOCK);
+
+        getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
+                .add(BTWR_Blocks.DIAMOND_INGOT_BLOCK);
     }
 
     private void addToModTags() {

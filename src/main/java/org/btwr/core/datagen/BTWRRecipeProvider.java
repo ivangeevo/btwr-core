@@ -1,6 +1,7 @@
 package org.btwr.core.datagen;
 
 import org.btwr.core.BTWRMod;
+import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.item.BTWR_Items;
 import org.btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -73,6 +74,9 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_SCOURED).input(Items.LEATHER).input(Items.WATER_BUCKET).criterion("has_water_bucket", RecipeProvider.conditionsFromItem(Items.WATER_BUCKET)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_TANNED).input(BTWR_Items.LEATHER_SCOURED).input(ItemTags.LOGS).criterion("has_leather_scoured", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
 
+        // Blocks
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.FLINT_BLOCK).input('F', Items.FLINT).pattern("FFF").pattern("FFF").pattern("FFF").criterion(hasItem(Items.FLINT), conditionsFromItem(Items.FLINT)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.DIAMOND_INGOT_BLOCK).input('I', BTWR_Items.DIAMOND_INGOT).pattern("III").pattern("III").pattern("III").criterion(hasItem(BTWR_Items.DIAMOND_INGOT), conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
     }
 
     private void registerFoodRecipes(RecipeExporter exporter) {

@@ -29,6 +29,8 @@ public class BTWRLangProvider extends FabricLanguageProvider {
     private void generateBlockTranslations(TranslationBuilder tb) {
         tb.add(BTWR_Blocks.BLIGHT, "Blight");
         tb.add("block.btwr.blight.mature", "Mature Blight");
+        tb.add(BTWR_Blocks.FLINT_BLOCK, "Block of Flint");
+        tb.add(BTWR_Blocks.DIAMOND_INGOT_BLOCK, "Block of Diamond Ingot");
     }
 
     private void generateItemTranslations(TranslationBuilder tb) {

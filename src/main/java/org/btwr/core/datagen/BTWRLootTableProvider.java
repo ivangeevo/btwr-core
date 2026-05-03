@@ -6,11 +6,13 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.*;
 import net.minecraft.loot.entry.AlternativeEntry;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.function.SetCustomDataLootFunction;
 import net.minecraft.loot.function.SetNameLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -18,9 +20,11 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.block.blocks.BlightBlock;
+import org.btwr.core.item.BTWR_Items;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -28,6 +32,10 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
 
     public static final LootCondition.Builder WITH_CONVENTIONAL_SHEARS = MatchToolLootCondition.builder(
             ItemPredicate.Builder.create().tag(ConventionalItemTags.SHEAR_TOOLS)
+    );
+
+    public static final LootCondition.Builder WITH_PICKAXE = MatchToolLootCondition.builder(
+            ItemPredicate.Builder.create().tag(ItemTags.PICKAXES)
     );
 
     public BTWRLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
@@ -46,6 +54,8 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
 
     private void generateModTables() {
         addDrop(BTWR_Blocks.BLIGHT, this::blightDrops);
+        addDrop(BTWR_Blocks.FLINT_BLOCK, this::flintBlockDrops);
+        addDrop(BTWR_Blocks.DIAMOND_INGOT_BLOCK);
     }
 
     private LootTable.Builder blightDrops(Block block) {
@@ -68,6 +78,20 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
                                                 SetNameLootFunction.Target.CUSTOM_NAME)),
                                 // All other levels — drop plain blight
                                 ItemEntry.builder(BTWR_Blocks.BLIGHT)
+                        ))
+        );
+    }
+
+    private LootTable.Builder flintBlockDrops(Block block) {
+        return LootTable.builder().pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(AlternativeEntry.builder(
+                                // Drop fully with pickaxe
+                                ItemEntry.builder(BTWR_Blocks.FLINT_BLOCK).conditionally(WITH_PICKAXE),
+                                // Otherwise drop flint
+                                ItemEntry.builder(Items.FLINT)
+                                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(9)))
                         ))
         );
     }

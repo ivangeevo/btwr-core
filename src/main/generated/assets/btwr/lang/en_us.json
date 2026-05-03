@@ -1,6 +1,8 @@
 {
   "block.btwr.blight": "Blight",
   "block.btwr.blight.mature": "Mature Blight",
+  "block.btwr.diamond_ingot_block": "Block of Diamond Ingot",
+  "block.btwr.flint_block": "Block of Flint",
   "config.btwr.category.general": "General",
   "config.btwr.text.clientSettingsText": "Client Settings:",
   "config.btwr.text.emptyClientConfigText": "§eNote:§r There are currently no client config settings.",
