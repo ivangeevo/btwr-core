@@ -1,8 +1,0 @@
-{
-  "parent": "btwr:block/blight_0",
-  "overrides": [
-    { "predicate": { "btwr:blight_level": 0.34 }, "model": "btwr:block/blight_1" },
-    { "predicate": { "btwr:blight_level": 0.67 }, "model": "btwr:block/blight_2" },
-    { "predicate": { "btwr:blight_level": 1.0 }, "model": "btwr:block/blight_3" }
-  ]
-}
