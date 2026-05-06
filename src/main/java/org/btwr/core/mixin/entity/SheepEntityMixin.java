@@ -47,4 +47,5 @@ public abstract class SheepEntityMixin extends AnimalEntity
             cir.setReturnValue( super.interactMob(player, hand) );
         }
     }
+
 }

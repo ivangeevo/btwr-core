@@ -1,9 +1,13 @@
 package org.btwr.core.mixin.entity;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.world.GameRules;
 import org.btwr.core.config.BTWRModConfig;
+import org.btwr.core.util.HeadDropHandler;
 import org.btwr.shared_library.api.tag.BTWRConventionalTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,7 +19,6 @@ public abstract class LivingEntityMixin {
 
     @Inject(method = "takeKnockback", at = @At("HEAD"), cancellable = true)
     private void modifyKnockback(double strength, double x, double z, CallbackInfo ci) {
-
         if (!BTWRModConfig.knockbackRestrictions.get()) {
             return;
         }
@@ -30,4 +33,14 @@ public abstract class LivingEntityMixin {
             }
         }
     }
+
+    @Inject(method = "drop", at = @At("TAIL"))
+    private void checkForHeadDrop(ServerWorld world, DamageSource damageSource, CallbackInfo ci) {
+        LivingEntity self = (LivingEntity)(Object)this;
+
+        if (!self.isBaby() && world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
+            HeadDropHandler.checkForHeadDrop(self, damageSource);
+        }
+    }
+
 }

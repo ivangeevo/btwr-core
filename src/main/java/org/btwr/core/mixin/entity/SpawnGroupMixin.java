@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(SpawnGroup.class)
 public abstract class SpawnGroupMixin {
+
     @Shadow @Final private String name;
 
     @ModifyReturnValue(method = "getCapacity", at = @At("RETURN"))
@@ -22,4 +23,5 @@ public abstract class SpawnGroupMixin {
 
         return maxInstancesPerChunk;
     }
+
 }

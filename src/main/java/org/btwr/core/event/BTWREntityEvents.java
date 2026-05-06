@@ -16,8 +16,8 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
+import org.btwr.core.sound.BTWRSoundEvents;
 import org.btwr.core.tag.BTWRTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,10 +39,10 @@ public class BTWREntityEvents {
 
                 if (handStack.getItem() instanceof ShearsItem && !creeperData.isNeutered()) {
                     float pitch2 = (player.getWorld().random.nextFloat() - player.getWorld().random.nextFloat()) * 0.1F + 0.7F;
-                    player.getWorld().playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR,
+                    player.getWorld().playSound(null, player.getBlockPos(), BTWRSoundEvents.CREEPER_SHEARED,
                             SoundCategory.NEUTRAL, 1.0F, 1.0F
                     );
-                    player.getWorld().playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SLIME_ATTACK,
+                    player.getWorld().playSound(null, player.getBlockPos(), BTWRSoundEvents.CREEPER_SHEARED_LAYER,
                             SoundCategory.HOSTILE, 1.0F, pitch2
                     );
 
@@ -74,4 +74,5 @@ public class BTWREntityEvents {
 
         return ActionResult.PASS;
     }
+
 }

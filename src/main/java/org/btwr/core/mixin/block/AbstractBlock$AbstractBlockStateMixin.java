@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 // TODO: Rework this modification. It can probably be done better
 @Mixin(AbstractBlock.AbstractBlockState.class)
 public abstract class AbstractBlock$AbstractBlockStateMixin {
+
     // Predicate that checks if mobs can spawn on this block (excluding wooden blocks)
     @Unique
     private static final AbstractBlock.TypedContextPredicate<EntityType<?>> newSpawningPredicate = (state, world, pos, type) ->
@@ -68,4 +69,5 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
                 || state.isIn(BlockTags.WOODEN_SLABS)
                 || state.isIn(BTWRConventionalTags.Blocks.WOODEN_MISC_BLOCKS);
     }
+
 }

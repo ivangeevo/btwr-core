@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
     id 'maven-publish'
 }
 
@@ -57,6 +57,14 @@ dependencies {
     modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
     modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
 
+    // Better With Time (For head drop logic compatibility)
+    modCompileOnly "maven.modrinth:better-with-time:${bwt_version}"
+    //modLocalRuntime "maven.modrinth:better-with-time:${bwt_version}"
+
+    // BWT: Hardcore Tweaks (For head drop logic compatibility)
+    modCompileOnly "maven.modrinth:bwt-hc-tweaks:${bwt_hct_version}"
+    //modCompileOnly files("libs/bwt-hc-tweaks-${bwt_hct_version}.jar")
+    //modLocalRuntime files("libs/bwt-hc-tweaks-${bwt_hct_version}.jar")
 }
 
 processResources {
@@ -91,8 +99,10 @@ java {
 }
 
 jar {
+    inputs.property "projectName", project.name
+
     from("LICENSE") {
-        rename { "${it}_${project.archivesBaseName}"}
+        rename { "${it}_${project.name}"}
     }
 }
 

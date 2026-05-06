@@ -12,8 +12,7 @@ import org.btwr.shared_library.api.tag.BTWRConventionalTags;
 
 import java.util.concurrent.CompletableFuture;
 
-public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
-{
+public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     public BTWRItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture)
     {
@@ -98,4 +97,5 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SHEARS_CUT_SOUND)
                 .addTag(BTWRTags.Items.CUT_LEATHERS);
     }
+
 }

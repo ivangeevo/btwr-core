@@ -24,7 +24,7 @@ public abstract class WitherSkullEntityMixin extends ExplosiveProjectileEntity {
     @Inject(method = "onCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;createExplosion(Lnet/minecraft/entity/Entity;DDDFZLnet/minecraft/world/World$ExplosionSourceType;)Lnet/minecraft/world/explosion/Explosion;"))
     private void setBlightOnCollision(HitResult hitResult, CallbackInfo ci) {
         if (!isCharged()) {
-            BlightSpreader.getInstance().spreadBlightInArea((WitherSkullEntity)(Object)this);
+            BlightSpreader.getInstance().spreadBlightInAreaFromSkull((WitherSkullEntity)(Object)this);
         }
     }
 

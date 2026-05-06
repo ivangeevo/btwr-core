@@ -1,4 +1,12 @@
 {
+  "block.btwr.blight": "Blight",
+  "block.btwr.blight.mature": "Mature Blight",
+  "block.btwr.creeper_oyster_block": "Block of Creeper Oyster",
+  "block.btwr.creeper_oyster_slab": "Creeper Oyster Slab",
+  "block.btwr.diamond_ingot_block": "Block of Diamond Ingot",
+  "block.btwr.flint_block": "Block of Flint",
+  "block.btwr.spider_eye_block": "Block of Spider Eye",
+  "block.btwr.spider_eye_slab": "Spider Eye Slab",
   "config.btwr.category.general": "General",
   "config.btwr.text.clientSettingsText": "Client Settings:",
   "config.btwr.text.emptyClientConfigText": "§eNote:§r There are currently no client config settings.",
@@ -17,6 +25,7 @@
   "item.btwr.diamond_shears": "Diamond Shears",
   "item.btwr.egg_scrambled_cooked": "Scrambled Eggs",
   "item.btwr.egg_scrambled_raw": "Raw Scrambled Eggs",
+  "item.btwr.ender_spectacles": "Ender Spectacles",
   "item.btwr.ham_and_eggs": "Ham and Eggs",
   "item.btwr.hearty_stew": "Hearty Stew",
   "item.btwr.leather_cut": "Cut Leather",
@@ -30,6 +39,7 @@
   "item.btwr.leather_tanned_leggings": "Tanned Leather Leggings",
   "item.btwr.mushroom_omelette_cooked": "Mushroom Omelette",
   "item.btwr.mushroom_omelette_raw": "Raw Mushroom Omelette",
+  "item.btwr.ocular_of_ender": "Ocular of Ender",
   "item.btwr.pork_dinner": "Pork Dinner",
   "item.btwr.raw_kebab": "Raw Kebab",
   "item.btwr.sandwich": "Tasty Sandwich",
@@ -37,5 +47,6 @@
   "item.btwr.steak_dinner": "Steak Dinner",
   "item.btwr.wolf_dinner": "Wolf Dinner",
   "itemgroup.group_btwr": "Better Than Wolves: Remastered!",
+  "subtitles.btwr.creeper_sheared": "Creeper sheared",
   "title.btwr.config": "BTWR: Core Client Configuration Menu"
 }

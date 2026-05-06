@@ -6,6 +6,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 
 public class BlightRootsBlock extends Block {
+
     public static final IntProperty LEVEL = IntProperty.of("level", 0, 1);
 
     public BlightRootsBlock(Settings settings) {
@@ -16,4 +17,5 @@ public class BlightRootsBlock extends Block {
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(LEVEL);
     }
+
 }

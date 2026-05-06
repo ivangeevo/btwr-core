@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "btwr:block/spider_eye_slab"
+    },
+    "type=double": {
+      "model": "btwr:block/spider_eye_block"
+    },
+    "type=top": {
+      "model": "btwr:block/spider_eye_slab_top"
+    }
+  }
+}

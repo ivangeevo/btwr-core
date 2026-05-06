@@ -4,13 +4,19 @@
   "package": "org.btwr.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "accessor.BeaconBlockEntityAccessor",
+    "accessor.RegistryEntryListDirectAccessor",
     "block.AbstractBlock$AbstractBlockStateMixin",
+    "entity.BeaconBlockEntityMixin",
     "entity.CreeperEntityMixin",
+    "entity.EndermanEntityMixin",
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",
+    "entity.WitherSkullEntityMixin",
     "entity.ZombieEntityMixin",
-    "item.ItemMixin"
+    "item.ItemMixin",
+    "loot.MatchToolLootConditionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

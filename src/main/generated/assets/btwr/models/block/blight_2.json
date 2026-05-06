@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "btwr:block/blight_bottom_2",
+    "particle": "btwr:block/blight_bottom_2",
+    "side": "btwr:block/blight_side_2",
+    "top": "btwr:block/blight_top_2"
+  }
+}

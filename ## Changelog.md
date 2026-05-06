@@ -1,3 +1,21 @@
+## v0.4
++ The mod is officially in Beta now!
++ Added new blocks:
+  - Block of Flint
+  - Block of Diamond Ingot
+  - Block of Creeper Oyster (and slab)
+  - Block of Spider Eye (and slab)
++ Added blight!
++ Added a new api class `BlightSpreadConditions`. This can be used by developers who want to add compatibility for their custom blocks and define conditions under which blight can spread to a these blocks
++ Added new items Ocular of Ender and Ender Spectacles! Ender spectacles are now used in place of carved pumpkins to not aggro enderman when looking at them and also show positions where mobs can spawn if it's dark enough
++ Added head drops for players and certain vanilla mobs when killed. Normally this only scales with Looting, but it has compatibility for Better With Time's Battle Axe and also for BWT: Hardcore Tweaks's chopping block killing mechanic
++ Added custom sound events for creeper shearing!
++ Changed the diamond block texture to resemble more that of a diamond gem block (This is necessary since the diamond ingot block uses the vanilla one)
++ Changed the recipe for diamond plates to yield four plates instead of one to have an incentive to use them instead of normal diamonds
++ Changed how shears are applied as a correct tool to drop leaves blocks internally to allow for other modifications to happen smoother instead of just modifying leaves blocks loot tables
++ Changed the mod versioning scheme to [semver](https://semver.org/).
++ Updated the mod to Fabric API 0.116.11, Fabric Loader 0.19.2 & BTWR: Shared Library 0.8.4
+
 ## v0.33.5
 + Fixed tanned leather armor pieces having wrong durability values
 + General code cleanup and moved some classes to BTWR: Shared Library

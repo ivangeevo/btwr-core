@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "tag": "c:leathers"
+    },
+    "O": {
+      "item": "btwr:ocular_of_ender"
+    }
+  },
+  "pattern": [
+    "OLO"
+  ],
+  "result": {
+    "count": 1,
+    "id": "btwr:ender_spectacles"
+  }
+}

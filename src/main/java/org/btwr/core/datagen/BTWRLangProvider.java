@@ -1,6 +1,7 @@
 package org.btwr.core.datagen;
 
 import org.btwr.core.BTWRMod;
+import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.item.BTWR_Items;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -10,7 +11,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class BTWRLangProvider extends FabricLanguageProvider {
 
-    public BTWRLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public BTWRLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup)
+    {
         super(dataOutput, registryLookup);
     }
 
@@ -20,10 +22,22 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         this.generateBlockTranslations(tb);
         this.generateItemTranslations(tb);
         this.generateConfigTranslations(tb);
+
+        tb.add("subtitles.btwr.creeper_sheared", "Creeper sheared");
     }
 
     private void generateBlockTranslations(TranslationBuilder tb) {
-        //tb.add();
+        tb.add(BTWR_Blocks.BLIGHT, "Blight");
+        tb.add("block.btwr.blight.mature", "Mature Blight");
+
+        tb.add(BTWR_Blocks.FLINT_BLOCK, "Block of Flint");
+        tb.add(BTWR_Blocks.DIAMOND_INGOT_BLOCK, "Block of Diamond Ingot");
+
+        tb.add(BTWR_Blocks.CREEPER_OYSTER_BLOCK, "Block of Creeper Oyster");
+        tb.add(BTWR_Blocks.CREEPER_OYSTER_SLAB, "Creeper Oyster Slab");
+
+        tb.add(BTWR_Blocks.SPIDER_EYE_BLOCK, "Block of Spider Eye");
+        tb.add(BTWR_Blocks.SPIDER_EYE_SLAB, "Spider Eye Slab");
     }
 
     private void generateItemTranslations(TranslationBuilder tb) {
@@ -63,7 +77,8 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         tb.add(BTWR_Items.LEATHER_TANNED, "Tanned Leather");
         tb.add(BTWR_Items.LEATHER_TANNED_CUT, "Cut Tanned Leather");
 
-        //tb.add(BTWR_Items.ANCIENT_PROPHECHY, "");
+        tb.add(BTWR_Items.OCULAR_OF_ENDER, "Ocular of Ender");
+        tb.add(BTWR_Items.ENDER_SPECTACLES, "Ender Spectacles");
     }
 
     private void generateConfigTranslations(TranslationBuilder tb) {
@@ -114,4 +129,5 @@ public class BTWRLangProvider extends FabricLanguageProvider {
     private void addConfigTooltip(String configPath, String translation, TranslationBuilder tb) {
         tb.add("config." + BTWRMod.MOD_ID + ".tooltip." + configPath, translation);
     }
+
 }

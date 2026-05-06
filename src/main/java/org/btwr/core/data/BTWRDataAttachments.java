@@ -11,6 +11,7 @@ import org.btwr.shared_library.api.event.BTWREvents;
 import org.btwr.shared_library.util.utils.IdUtils;
 
 public class BTWRDataAttachments {
+
     public static final AttachmentType<CreeperData> CREEPER_DATA = AttachmentRegistry.create(
             IdUtils.ofBTWR("creeper_data"),
             builder -> builder

@@ -45,4 +45,5 @@ public final class NeuteredCreeperTextures {
     public static Identifier get(EntityType<?> type) {
         return OVERRIDES.get(type);
     }
+
 }

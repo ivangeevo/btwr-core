@@ -1,5 +1,10 @@
 package org.btwr.core.block.blocks;
 
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.world.WorldAccess;
+import org.btwr.core.api.BlightSpreadConditions;
 import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.tag.BTWRTags;
 import net.minecraft.block.Block;
@@ -16,8 +21,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
+import org.jetbrains.annotations.Nullable;
 
 public class BlightBlock extends Block {
+
     public static final IntProperty LEVEL = IntProperty.of("level", 0, 3);
 
     public BlightBlock(Settings settings) {
@@ -53,6 +60,37 @@ public class BlightBlock extends Block {
 
     public final boolean isMature(BlockState state) {
         return this.getLevel(state) >= this.getMaxLevel();
+    }
+
+    @Override
+    protected BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        // Fluids above the groth turn it back into dirt
+        if (direction == Direction.UP) {
+            if (this.getLevel(state) == 0 && neighborState.isOf(Blocks.WATER)) {
+                world.setBlockState(pos, Blocks.DIRT.getDefaultState(), Block.NOTIFY_ALL);
+            }
+
+            if (this.getLevel(state) == 1 && neighborState.isOf(Blocks.LAVA)) {
+                world.setBlockState(pos, Blocks.DIRT.getDefaultState(), Block.NOTIFY_ALL);
+            }
+        }
+
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    }
+
+    @Override
+    public @Nullable BlockState getPlacementState(ItemPlacementContext ctx) {
+        BlockState state = super.getPlacementState(ctx);
+        if (state == null) return null;
+
+        NbtComponent customData = ctx.getStack().get(DataComponentTypes.CUSTOM_DATA);
+        if (customData != null && customData.contains("level")) {
+            int level = customData.copyNbt().getInt("level");
+            level = Math.max(0, Math.min(level, 3));
+            state = state.with(LEVEL, level);
+        }
+
+        return state;
     }
 
     @Override
@@ -150,7 +188,7 @@ public class BlightBlock extends Block {
                     world.setBlockState(targetPos, this.withLevel(targetBlightLevel), Block.NOTIFY_ALL);
                 }
                 else {
-                    world.setBlockState(targetPos, this.blightRootsWithLevel(1), Block.NOTIFY_ALL);
+                    world.setBlockState(targetPos, this.blightRootsWithLevel(getRootsLevelForBlightLevel(blightLevel)), Block.NOTIFY_ALL);
                 }
             }
         }
@@ -159,8 +197,7 @@ public class BlightBlock extends Block {
             BlockState targetState = world.getBlockState(targetPos);
             BlockState aboveState = world.getBlockState(targetPos.up());
 
-            // Reconsider adding the hook getCanBlightSpreadToBlock() in BTWR:SL instead?
-            if (targetState.isIn(BTWRTags.Blocks.BLIGHT_SPREADS_TO) || (targetState.isOf(Blocks.MYCELIUM) && this.getDefaultState().get(LEVEL) >= 2)) {
+            if (BlightSpreadConditions.canBlightSpreadTo(world, targetPos, targetState, blightLevel)) {
                 if (blightLevel < 3) {
                     if (aboveState.getOpacity(world, targetPos.up()) <= 2) {
                         world.setBlockState(targetPos, this.withLevel(0), Block.NOTIFY_ALL);
@@ -180,29 +217,34 @@ public class BlightBlock extends Block {
 
     private void checkForBlightEvolution(World world, BlockPos pos, BlockState state, Random random) {
         if (!state.contains(LEVEL)) return;
-        int blightLevel = this.getLevel(state);
+
         if (this.getLevel(state) == 0) {
             // Check for evolution
+            for (Direction randomFacing : Direction.values()) {
+                // Only check horizontal positions for evolution
+                if (randomFacing.getAxis().isHorizontal()) {
+                    BlockPos targetPos = pos.offset(randomFacing);
 
-            Direction randomFacing = Direction.values()[random.nextInt(6)];
-            BlockPos targetPos = pos.offset(randomFacing);
-
-            if (isMatchingFluid(world, targetPos, Blocks.WATER)) {
-                world.setBlockState(pos, this.withLevel(1), Block.NOTIFY_ALL);
+                    if (isMatchingFluid(world, targetPos, Blocks.WATER)) {
+                        world.setBlockState(pos, this.withLevel(1), Block.NOTIFY_ALL);
+                    }
+                }
             }
         }
         else if (this.getLevel(state) == 1) {
             // Check for evolution
+            for (Direction randomFacing : Direction.values()) {
+                // Only check horizontal positions for evolution
+                if (randomFacing.getAxis().isHorizontal()) {
+                    BlockPos targetPos = pos.offset(randomFacing);
 
-            Direction randomFacing = Direction.values()[random.nextInt(6)];
-            BlockPos targetPos = pos.offset(randomFacing);
-
-            if (isMatchingFluid(world, targetPos, Blocks.LAVA)) {
-                world.setBlockState(pos, state.with(LEVEL, 2));
+                    if (isMatchingFluid(world, targetPos, Blocks.LAVA)) {
+                        world.setBlockState(pos, this.withLevel(2), Block.NOTIFY_ALL);
+                    }
+                }
             }
-            // TODO: Possible wrong check in the 2nd part where we check blight roots and this.getLevel(state)
         }
-        else if (this.getLevel(state) == 2 || (state.isOf(BTWR_Blocks.BLIGHT_ROOTS) && this.getLevel(state) == 1)) {
+        else if (this.getLevel(state) == 2 || (state.isOf(BTWR_Blocks.BLIGHT_ROOTS) && this.getLevel(state) == 0)) {
             // Check for evolution
             int randomX = pos.getX() + random.nextInt(7) - 3;
             int randomY = pos.getY() + random.nextInt(7) - 3;
@@ -233,17 +275,14 @@ public class BlightBlock extends Block {
 
             if (blightLevel == 0) {
                 world.setBlockState(pos, Blocks.DIRT.getDefaultState(), Block.NOTIFY_ALL);
-
                 return true;
             }
             else if (blightLevel == 2) {
-                world.setBlockState(pos, this.getDefaultState().with(LEVEL, 2), Block.NOTIFY_ALL);
-
+                world.setBlockState(pos, this.blightRootsWithLevel(0), Block.NOTIFY_ALL);
                 return true;
             }
             else if (blightLevel == 3) {
-                world.setBlockState(pos, this.getDefaultState().with(LEVEL, 3), Block.NOTIFY_ALL);
-
+                world.setBlockState(pos, this.blightRootsWithLevel(1), Block.NOTIFY_ALL);
                 return true;
             }
         }
@@ -286,7 +325,7 @@ public class BlightBlock extends Block {
         for (int tempCount = 0; tempCount < 4; ++tempCount) {
             int randomX = pos.getX() + random.nextInt(3) - 1;
             int randomY = pos.getY() + random.nextInt(9);
-            int randomZ = pos.getY() + random.nextInt(3) - 1;
+            int randomZ = pos.getZ() + random.nextInt(3) - 1;
 
             BlockPos targetPos = new BlockPos(randomX, randomY, randomZ);
             BlockState targetState = world.getBlockState(targetPos);
@@ -300,7 +339,7 @@ public class BlightBlock extends Block {
     public boolean isSurfaceBlight(BlockState state) {
         int blightLevel = state.get(LEVEL);
         if (!state.contains(LEVEL)) return false;
-        return blightLevel >= 0 && blightLevel <= 3 && (state.isOf(BTWR_Blocks.BLIGHT_ROOTS) && state.get(LEVEL) != 1);
+        return blightLevel >= 0 && blightLevel <= 3 && !state.isOf(BTWR_Blocks.BLIGHT_ROOTS);
     }
 
     private int getRootsLevelForBlightLevel(int level) {
@@ -326,4 +365,5 @@ public class BlightBlock extends Block {
 
         return state.get(LEVEL);
     }
+
 }

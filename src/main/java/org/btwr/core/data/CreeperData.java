@@ -9,6 +9,7 @@ import net.minecraft.network.codec.PacketCodecs;
 import org.btwr.shared_library.api.data.UpdateRequiringData;
 
 public class CreeperData extends UpdateRequiringData<CreeperEntity> {
+
     public static Codec<CreeperData> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                     Codec.BOOL.fieldOf("is_neutered").forGetter(CreeperData::isNeutered),
@@ -45,4 +46,5 @@ public class CreeperData extends UpdateRequiringData<CreeperEntity> {
     public void setDeterminedToExplode(boolean value) {
         isDeterminedToExplode = value;
     }
+
 }

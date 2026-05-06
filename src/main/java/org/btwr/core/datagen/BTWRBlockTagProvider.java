@@ -1,5 +1,7 @@
 package org.btwr.core.datagen;
 
+import net.minecraft.registry.tag.BlockTags;
+import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -23,16 +25,26 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     private void addToVanillaTags() {
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(BTWR_Blocks.BLIGHT)
+                .add(BTWR_Blocks.BLIGHT_ROOTS)
+                .add(BTWR_Blocks.CREEPER_OYSTER_BLOCK)
+                .add(BTWR_Blocks.CREEPER_OYSTER_SLAB)
+                .add(BTWR_Blocks.SPIDER_EYE_BLOCK)
+                .add(BTWR_Blocks.SPIDER_EYE_SLAB);
+
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(BTWR_Blocks.FLINT_BLOCK)
+                .add(BTWR_Blocks.DIAMOND_INGOT_BLOCK);
+
+        getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
+                .add(BTWR_Blocks.DIAMOND_INGOT_BLOCK);
     }
 
     private void addToModTags() {
-        getOrCreateTagBuilder(BTWRTags.Blocks.BLIGHT_SPREADS_TO)
-                .add(Blocks.DIRT)
-                .add(Blocks.GRASS_BLOCK)
-                .add(Blocks.FARMLAND);
     }
 
     private void addToConventionalTags() {
-
     }
+
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ocular_of_ender": {
+      "conditions": {
+        "items": [
+          {
+            "items": "btwr:ocular_of_ender"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "btwr:ender_spectacles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ocular_of_ender"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "btwr:ender_spectacles"
+    ]
+  }
+}

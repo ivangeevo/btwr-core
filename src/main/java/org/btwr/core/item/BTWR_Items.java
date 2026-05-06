@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 
 // This class registers all BTWR items.
 public class BTWR_Items {
+
     // The GROUP_BTWR is first, as it acts as an Item that is called in the BTWRItemGroup class.
     public static final Item GROUP_BTWR = registerItem( "group_btwr", new Item(new Item.Settings()));
 
@@ -72,6 +73,9 @@ public class BTWR_Items {
     public static final Item BEAST_LIVER_COOKED = registerItem( "beast_liver_cooked", new Item (new Item.Settings().food(ModFoodComponents.BEAST_LIVER_COOKED)));
     public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new Item.Settings().food(ModFoodComponents.CREEPER_OYSTERS)));
 
+    public static final Item OCULAR_OF_ENDER = registerItem("ocular_of_ender", new Item(new Item.Settings()));
+    public static final Item ENDER_SPECTACLES = registerItem("ender_spectacles", new ArmorItem(BTWRArmorMaterials.ENDER_SPECTACLES, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(12)));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BTWRMod.MOD_ID, name), item);
     }
@@ -85,4 +89,5 @@ public class BTWR_Items {
     private static void registerFuels() {
         FuelRegistry.INSTANCE.add(BTWR_Items.CLUB_WOOD, 100);
     }
+
 }

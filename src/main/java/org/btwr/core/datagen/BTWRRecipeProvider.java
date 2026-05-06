@@ -1,6 +1,7 @@
 package org.btwr.core.datagen;
 
 import org.btwr.core.BTWRMod;
+import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.item.BTWR_Items;
 import org.btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -43,8 +44,8 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.LEATHER_LEGGINGS).input('X', BTWR_Items.LEATHER_CUT).pattern("XXX").pattern("X X").pattern("X X").criterion("has_leather_cut", conditionsFromItem(BTWR_Items.LEATHER_CUT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.LEATHER_BOOTS).input('X', BTWR_Items.LEATHER_CUT).pattern("X X").pattern("X X").criterion("has_leather_cut", conditionsFromItem(BTWR_Items.LEATHER_CUT)).offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.DIAMOND_PLATE).input('X', BTWR_Items.DIAMOND_INGOT).input('L', BTWR_Items.LEATHER_TANNED).input('W', ItemTags.WOOL).pattern("LXL").pattern(" W ").criterion("has_diamond_ingot", conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.DIAMOND_PLATE).input('X', BTWR_Items.DIAMOND_INGOT).input('L', BTWR_Items.LEATHER_TANNED_CUT).input('W', ItemTags.WOOL).pattern("LXL").pattern(" W ").criterion("has_diamond_ingot", conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "diamond_plate_from_tanned_leather_cut"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.DIAMOND_PLATE,4).input('X', BTWR_Items.DIAMOND_INGOT).input('L', BTWR_Items.LEATHER_TANNED).input('W', ItemTags.WOOL).pattern("LXL").pattern(" W ").criterion("has_diamond_ingot", conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.DIAMOND_PLATE,4).input('X', BTWR_Items.DIAMOND_INGOT).input('L', BTWR_Items.LEATHER_TANNED_CUT).input('W', ItemTags.WOOL).pattern("LXL").pattern(" W ").criterion("has_diamond_ingot", conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "diamond_plate_from_tanned_leather_cut"));
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.DIAMOND_HELMET).input('X', BTWR_Items.DIAMOND_INGOT).pattern("XXX").pattern("X X").criterion("has_diamond_ingot", conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.DIAMOND_CHESTPLATE).input('X', BTWR_Items.DIAMOND_INGOT).input('P', BTWR_Items.DIAMOND_PLATE).pattern("P P").pattern("XXX").pattern("XXX").criterion("has_diamond_ingot", conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.DIAMOND_LEGGINGS).input('X', BTWR_Items.DIAMOND_INGOT).input('P', BTWR_Items.DIAMOND_PLATE).pattern("XXX").pattern("P P").pattern("P P").criterion("has_diamond_ingot", conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
@@ -60,6 +61,9 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_LEGGINGS).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("XXX").pattern("X X").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, BTWR_Items.LEATHER_TANNED_BOOTS).input('X', BTWRTags.Items.TANNED_LEATHERS).pattern("X X").pattern("X X").criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.OCULAR_OF_ENDER).input('E', Items.ENDER_EYE).input('N', Items.GOLD_NUGGET).pattern("NNN").pattern("NEN").pattern("NNN").criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.ENDER_SPECTACLES).input('O', BTWR_Items.OCULAR_OF_ENDER).input('L', ConventionalItemTags.LEATHERS).pattern("OLO").criterion(hasItem(BTWR_Items.OCULAR_OF_ENDER), conditionsFromItem(BTWR_Items.OCULAR_OF_ENDER)).offerTo(exporter);
+
         // Shears cutting recipes
         ExtendedShapelessRecipe.JsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_CUT,2).withToolDamage().input(Items.LEATHER).input(ConventionalItemTags.SHEAR_TOOLS).criterion("has_leather", conditionsFromItem(Items.LEATHER)).offerTo(exporter);
         ExtendedShapelessRecipe.JsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_SCOURED_CUT,2).withToolDamage().input(BTWR_Items.LEATHER_SCOURED).input(ConventionalItemTags.SHEAR_TOOLS).criterion("has_leather_scoured", conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
@@ -70,6 +74,13 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_SCOURED).input(Items.LEATHER).input(Items.WATER_BUCKET).criterion("has_water_bucket", RecipeProvider.conditionsFromItem(Items.WATER_BUCKET)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_TANNED).input(BTWR_Items.LEATHER_SCOURED).input(ItemTags.LOGS).criterion("has_leather_scoured", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
 
+        // Blocks
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.FLINT_BLOCK).input('F', Items.FLINT).pattern("FFF").pattern("FFF").pattern("FFF").criterion(hasItem(Items.FLINT), conditionsFromItem(Items.FLINT)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.DIAMOND_INGOT_BLOCK).input('I', BTWR_Items.DIAMOND_INGOT).pattern("III").pattern("III").pattern("III").criterion(hasItem(BTWR_Items.DIAMOND_INGOT), conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.CREEPER_OYSTER_BLOCK).input('O', BTWR_Items.CREEPER_OYSTERS).pattern("OOO").pattern("OOO").pattern("OOO").criterion(hasItem(BTWR_Items.CREEPER_OYSTERS), conditionsFromItem(BTWR_Items.CREEPER_OYSTERS)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.CREEPER_OYSTER_SLAB).input('O', BTWR_Blocks.CREEPER_OYSTER_BLOCK).pattern("OOO").criterion(hasItem(BTWR_Blocks.CREEPER_OYSTER_BLOCK), conditionsFromItem(BTWR_Blocks.CREEPER_OYSTER_BLOCK)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.SPIDER_EYE_BLOCK).input('E', Items.SPIDER_EYE).pattern("EEE").pattern("EEE").pattern("EEE").criterion(hasItem(Items.SPIDER_EYE), conditionsFromItem(Items.SPIDER_EYE)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.SPIDER_EYE_SLAB).input('E', BTWR_Blocks.SPIDER_EYE_BLOCK).pattern("EEE").criterion(hasItem(BTWR_Blocks.SPIDER_EYE_BLOCK), conditionsFromItem(BTWR_Blocks.SPIDER_EYE_BLOCK)).offerTo(exporter);
     }
 
     private void registerFoodRecipes(RecipeExporter exporter) {
@@ -99,4 +110,5 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.CHICKEN_SOUP,1).input(Items.COOKED_CHICKEN).input(Items.CARROT).input(Items.BAKED_POTATO).input(Items.BOWL).criterion("has_baked_potato", RecipeProvider.conditionsFromItem(Items.BAKED_POTATO)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BTWR_Items.HEARTY_STEW,1).input(ConventionalItemTags.COOKED_MEAT_FOODS).input(Items.CARROT).input(Items.BAKED_POTATO).input(Items.BROWN_MUSHROOM).input(Items.BOWL).criterion("has_carrot", conditionsFromItem(Items.CARROT)).offerTo(exporter);
     }
+
 }

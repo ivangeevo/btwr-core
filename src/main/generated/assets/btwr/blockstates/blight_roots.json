@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "btwr:block/blight_roots_0"
+    },
+    "level=1": {
+      "model": "btwr:block/blight_roots_1"
+    }
+  }
+}

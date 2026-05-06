@@ -17,6 +17,7 @@ import org.btwr.shared_library.api.tag.BTWRConventionalTags;
  * <p>If a method is not prefixed with a tool name ("onUseAxe"), then it's simply mixing in for the Item.class
  * **/
 public class ItemAndToolMixinManager {
+
     private static final ItemAndToolMixinManager instance = new ItemAndToolMixinManager();
 
     private ItemAndToolMixinManager() {}
@@ -67,4 +68,5 @@ public class ItemAndToolMixinManager {
         // special case added originally for BWT's BattleAxe because it's a mining tool and it should be in this tag
         return (stack.getItem() instanceof MiningToolItem && stack.isIn(BTWRConventionalTags.Items.AXES_MAKE_PLANKS));
     }
+
 }
