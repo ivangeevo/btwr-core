@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.btwr.core.BTWRMod;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +36,16 @@ public class BlightSpreadConditions {
          * @return {@code true} if blight may convert this block
          */
         boolean canSpread(World world, BlockPos pos, BlockState state, int blightLevel);
+
+        /** This block can always be blighted, regardless of level **/
+        static BlightSpreadCondition always() {
+            return (world, pos, state, blightLevel) -> true;
+        }
+
+        /** This block can only be blighted when blight has reached {@code minLevel} or higher. **/
+        static BlightSpreadCondition atLevel(int minLevel) {
+            return (world, pos, state, blightLevel) -> blightLevel >= minLevel;
+        }
     }
 
     /**
@@ -44,15 +55,25 @@ public class BlightSpreadConditions {
 
     /**
      * Registers a {@link BlightSpreadCondition} for the given block.
-     *
-     * <p>If a condition is already registered for this block it will be replaced.
-     * Call this during mod initialisation, before any blight spread can occur.
-     *
-     * @param block     the block to register a condition for
+     **
+     * @param block the block to register a condition for
      * @param condition the condition that controls whether blight may spread to this block
      */
     public static void register(Block block, BlightSpreadCondition condition) {
-        CONDITIONS.put(block, condition);
+        if (!CONDITIONS.containsKey(block)) {
+            CONDITIONS.put(block, condition);
+        } else {
+            BTWRMod.LOGGER.error("{} already has registered spread conditions for blight", block);
+        }
+    }
+
+    /** Unregisters a {@link BlightSpreadCondition} for the given block if it exists. **/
+    public static void unregister(Block block) {
+        if (CONDITIONS.containsKey(block)) {
+            CONDITIONS.remove(block);
+        } else {
+            BTWRMod.LOGGER.error("{} doesn't have a registered blight spread condition to remove.", block);
+        }
     }
 
     /**
@@ -66,12 +87,12 @@ public class BlightSpreadConditions {
      * </ul>
      */
     public static void registerDefaults() {
-        register(Blocks.GRASS_BLOCK, (world, pos, state, blightLevel) -> true);
-        register(Blocks.DIRT, (world, pos, state, blightLevel) -> true);
-        register(Blocks.PODZOL, (world, pos, state, blightLevel) -> true);
-        register(Blocks.FARMLAND, (world, pos, state, blightLevel) -> blightLevel >= 1);
-        register(Blocks.MYCELIUM, (world, pos, state, blightLevel) -> blightLevel >= 2);
-        register(Blocks.MOSS_BLOCK, (world, pos, state, blightLevel) -> blightLevel >= 2);
+        register(Blocks.GRASS_BLOCK, BlightSpreadCondition.always());
+        register(Blocks.DIRT, BlightSpreadCondition.always());
+        register(Blocks.PODZOL, BlightSpreadCondition.always());
+        register(Blocks.FARMLAND, BlightSpreadCondition.atLevel(1));
+        register(Blocks.MYCELIUM, BlightSpreadCondition.atLevel(2));
+        register(Blocks.MOSS_BLOCK, BlightSpreadCondition.atLevel(2));
     }
 
     /**
