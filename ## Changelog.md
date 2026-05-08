@@ -1,3 +1,6 @@
+## v???(dev)
++ Added missing spider eye blocks to the creative inventory tab
+
 ## v0.4
 + The mod is officially in Beta now!
 + Added new blocks:
