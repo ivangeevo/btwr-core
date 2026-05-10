@@ -59,8 +59,7 @@ public abstract class CreeperEntityMixin extends HostileEntity {
     // Add a drop on death with a chance, instead of modifying the loot table.
     @Inject(method = "dropEquipment", at = @At("TAIL"))
     private void onDropEquipment(ServerWorld world, DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
-        boolean shouldDrop = random.nextInt(3) == 0 && !isNeutered();
-        if (!shouldDrop) {
+        if (!isNeutered() && random.nextInt(3) == 0) {
             this.dropItem(BTWR_Items.CREEPER_OYSTERS, 1);
         }
     }

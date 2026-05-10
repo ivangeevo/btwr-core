@@ -1,5 +1,6 @@
 ## v???(dev)
-+ Added missing spider eye blocks to the creative inventory tab
++ Fixed missing spider eye blocks and slab from the creative inventory tab
++ Fixed creepers dropping creeper oysters even when neutered after killed
 
 ## v0.4
 + The mod is officially in Beta now!
