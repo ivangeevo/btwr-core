@@ -107,6 +107,8 @@ public class BTWR_Blocks {
             content.addAfter(Blocks.DIAMOND_BLOCK, DIAMOND_INGOT_BLOCK);
             content.add(CREEPER_OYSTER_BLOCK);
             content.addAfter(CREEPER_OYSTER_BLOCK, CREEPER_OYSTER_SLAB);
+            content.add(SPIDER_EYE_BLOCK);
+            content.addAfter(SPIDER_EYE_BLOCK, SPIDER_EYE_SLAB);
         });
     }
 
