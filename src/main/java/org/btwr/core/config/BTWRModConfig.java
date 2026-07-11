@@ -46,13 +46,22 @@ public class BTWRModConfig {
                     .comment("Changes the location of creeper's explosion origin to\n be calculated from their eyes instead of their feet")
                     .build();
 
+    public static final ConfigSetting<Boolean> increasedLightningStrikeChance =
+            ConfigBuilder.booleanSetting("increasedLightningStrikeChance")
+                    .defaultValue(true)
+                    .comment("Changes lightning strike chance to be two times as common")
+                    .build();
+
     static {
         CONFIG = new ConfigGroup(String.format("%s/%s_common.toml", MOD_ID, MOD_ID));
+
         CONFIG.add(knockbackRestrictions);
         CONFIG.add(spawnBabyZombies);
         CONFIG.add(spawnMobsOnWood);
         CONFIG.add(increasedMonsterSpawnsPerChunk);
         CONFIG.add(changedCreeperExplosionPos);
+        CONFIG.add(increasedLightningStrikeChance);
+
         TomlConfigManager.registerGroup(CONFIG); // auto init/load/save
     }
 
