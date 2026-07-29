@@ -33,9 +33,6 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         tb.add(BTWR_Blocks.FLINT_BLOCK, "Block of Flint");
         tb.add(BTWR_Blocks.DIAMOND_INGOT_BLOCK, "Block of Diamond Ingot");
 
-        tb.add(BTWR_Blocks.CREEPER_OYSTER_BLOCK, "Block of Creeper Oyster");
-        tb.add(BTWR_Blocks.CREEPER_OYSTER_SLAB, "Creeper Oyster Slab");
-
         tb.add(BTWR_Blocks.SPIDER_EYE_BLOCK, "Block of Spider Eye");
         tb.add(BTWR_Blocks.SPIDER_EYE_SLAB, "Spider Eye Slab");
     }
@@ -58,7 +55,6 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         tb.add(BTWR_Items.CHOWDER, "Chowder");
         tb.add(BTWR_Items.BEAST_LIVER_COOKED, "Cooked Liver");
         tb.add(BTWR_Items.BEAST_LIVER_RAW, "Liver Of The Beast");
-        tb.add(BTWR_Items.CREEPER_OYSTERS, "Creeper Oysters");
 
         tb.add(BTWR_Items.DIAMOND_SHEARS, "Diamond Shears");
         tb.add(BTWR_Items.CLUB_WOOD, "Wooden Club");

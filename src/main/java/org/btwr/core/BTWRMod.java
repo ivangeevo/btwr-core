@@ -3,11 +3,8 @@ package org.btwr.core;
 import org.btwr.core.api.BlightSpreadConditions;
 import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.config.BTWRModConfig;
-import org.btwr.core.data.BTWRDataAttachments;
-import org.btwr.core.event.BTWREntityEvents;
 import org.btwr.core.item.BTWR_Items;
 import net.fabricmc.api.ModInitializer;
-import org.btwr.core.sound.BTWRSoundEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,9 +22,6 @@ public class BTWRMod implements ModInitializer {
         BTWRItemGroup.register();
         BTWR_Blocks.register();
         BTWR_Items.register();
-        BTWRSoundEvents.register();
-        BTWRDataAttachments.register();
-        BTWREntityEvents.register();
 
         // Register default conditions for blight being able to spread
         BlightSpreadConditions.registerDefaults();

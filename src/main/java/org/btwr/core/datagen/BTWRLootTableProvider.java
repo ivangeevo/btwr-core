@@ -56,8 +56,6 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BTWR_Blocks.BLIGHT, this::blightDrops);
         addDrop(BTWR_Blocks.FLINT_BLOCK, this::flintBlockDrops);
         addDrop(BTWR_Blocks.DIAMOND_INGOT_BLOCK);
-        addDrop(BTWR_Blocks.CREEPER_OYSTER_BLOCK);
-        addDrop(BTWR_Blocks.CREEPER_OYSTER_SLAB, this::slabDrops);
         addDrop(BTWR_Blocks.SPIDER_EYE_BLOCK);
         addDrop(BTWR_Blocks.SPIDER_EYE_SLAB, this::slabDrops);
     }

@@ -71,7 +71,6 @@ public class BTWR_Items {
     // Unique food items
     public static final Item BEAST_LIVER_RAW = registerItem( "beast_liver_raw", new Item (new Item.Settings().food(ModFoodComponents.BEAST_LIVER_RAW)));
     public static final Item BEAST_LIVER_COOKED = registerItem( "beast_liver_cooked", new Item (new Item.Settings().food(ModFoodComponents.BEAST_LIVER_COOKED)));
-    public static final Item CREEPER_OYSTERS = registerItem("creeper_oysters", new Item(new Item.Settings().food(ModFoodComponents.CREEPER_OYSTERS)));
 
     public static final Item OCULAR_OF_ENDER = registerItem("ocular_of_ender", new Item(new Item.Settings()));
     public static final Item ENDER_SPECTACLES = registerItem("ender_spectacles", new ArmorItem(BTWRArmorMaterials.ENDER_SPECTACLES, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(12)));

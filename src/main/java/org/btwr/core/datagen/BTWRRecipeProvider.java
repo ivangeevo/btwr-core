@@ -69,16 +69,15 @@ public class BTWRRecipeProvider extends FabricRecipeProvider
         ExtendedShapelessRecipe.JsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_SCOURED_CUT,2).withToolDamage().input(BTWR_Items.LEATHER_SCOURED).input(ConventionalItemTags.SHEAR_TOOLS).criterion("has_leather_scoured", conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
         ExtendedShapelessRecipe.JsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_TANNED_CUT,2).withToolDamage().input(BTWR_Items.LEATHER_TANNED).input(ConventionalItemTags.SHEAR_TOOLS).criterion("has_leather_tanned", conditionsFromItem(BTWR_Items.LEATHER_TANNED)).offerTo(exporter);
 
+
         // Other recipes
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.DIAMOND_INGOT).input(Items.IRON_INGOT).input(Items.DIAMOND).input(BTWR_Items.CREEPER_OYSTERS).criterion("has_diamond", RecipeProvider.conditionsFromItem(Items.DIAMOND)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.DIAMOND_INGOT).input(Items.IRON_INGOT).input(Items.DIAMOND).input(Items.ROTTEN_FLESH).input(Items.RED_MUSHROOM).criterion("has_diamond", RecipeProvider.conditionsFromItem(Items.DIAMOND)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_SCOURED).input(Items.LEATHER).input(Items.WATER_BUCKET).criterion("has_water_bucket", RecipeProvider.conditionsFromItem(Items.WATER_BUCKET)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Items.LEATHER_TANNED).input(BTWR_Items.LEATHER_SCOURED).input(ItemTags.LOGS).criterion("has_leather_scoured", RecipeProvider.conditionsFromItem(BTWR_Items.LEATHER_SCOURED)).offerTo(exporter);
 
         // Blocks
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.FLINT_BLOCK).input('F', Items.FLINT).pattern("FFF").pattern("FFF").pattern("FFF").criterion(hasItem(Items.FLINT), conditionsFromItem(Items.FLINT)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.DIAMOND_INGOT_BLOCK).input('I', BTWR_Items.DIAMOND_INGOT).pattern("III").pattern("III").pattern("III").criterion(hasItem(BTWR_Items.DIAMOND_INGOT), conditionsFromItem(BTWR_Items.DIAMOND_INGOT)).offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.CREEPER_OYSTER_BLOCK).input('O', BTWR_Items.CREEPER_OYSTERS).pattern("OOO").pattern("OOO").pattern("OOO").criterion(hasItem(BTWR_Items.CREEPER_OYSTERS), conditionsFromItem(BTWR_Items.CREEPER_OYSTERS)).offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.CREEPER_OYSTER_SLAB).input('O', BTWR_Blocks.CREEPER_OYSTER_BLOCK).pattern("OOO").criterion(hasItem(BTWR_Blocks.CREEPER_OYSTER_BLOCK), conditionsFromItem(BTWR_Blocks.CREEPER_OYSTER_BLOCK)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.SPIDER_EYE_BLOCK).input('E', Items.SPIDER_EYE).pattern("EEE").pattern("EEE").pattern("EEE").criterion(hasItem(Items.SPIDER_EYE), conditionsFromItem(Items.SPIDER_EYE)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BTWR_Blocks.SPIDER_EYE_SLAB).input('E', BTWR_Blocks.SPIDER_EYE_BLOCK).pattern("EEE").criterion(hasItem(BTWR_Blocks.SPIDER_EYE_BLOCK), conditionsFromItem(BTWR_Blocks.SPIDER_EYE_BLOCK)).offerTo(exporter);
     }

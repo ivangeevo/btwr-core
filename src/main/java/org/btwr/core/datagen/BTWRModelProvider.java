@@ -30,8 +30,6 @@ public class BTWRModelProvider extends FabricModelProvider {
         this.registerBlightRoots(generator);
         generator.registerSimpleCubeAll(BTWR_Blocks.FLINT_BLOCK);
         generator.registerSimpleCubeAll(BTWR_Blocks.DIAMOND_INGOT_BLOCK);
-        generator.registerSimpleCubeAll(BTWR_Blocks.CREEPER_OYSTER_BLOCK);
-        this.registerSimpleSlab(generator, BTWR_Blocks.CREEPER_OYSTER_BLOCK, BTWR_Blocks.CREEPER_OYSTER_SLAB);
         generator.registerSimpleCubeAll(BTWR_Blocks.SPIDER_EYE_BLOCK);
         this.registerSimpleSlab(generator, BTWR_Blocks.SPIDER_EYE_BLOCK, BTWR_Blocks.SPIDER_EYE_SLAB);
     }
@@ -70,7 +68,6 @@ public class BTWRModelProvider extends FabricModelProvider {
         generator.register(BTWR_Items.HEARTY_STEW, Models.GENERATED);
         generator.register(BTWR_Items.BEAST_LIVER_RAW, Models.GENERATED);
         generator.register(BTWR_Items.BEAST_LIVER_COOKED, Models.GENERATED);
-        generator.register(BTWR_Items.CREEPER_OYSTERS, Models.GENERATED);
         generator.register(BTWR_Items.OCULAR_OF_ENDER, Models.GENERATED);
         generator.register(BTWR_Items.ENDER_SPECTACLES, Models.GENERATED);
     }
