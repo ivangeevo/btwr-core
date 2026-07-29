@@ -16,7 +16,8 @@
     "entity.WitherSkullEntityMixin",
     "entity.ZombieEntityMixin",
     "item.ItemMixin",
-    "loot.MatchToolLootConditionMixin"
+    "loot.MatchToolLootConditionMixin",
+    "world.ServerWorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1
