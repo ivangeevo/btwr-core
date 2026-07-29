@@ -1,4 +1,6 @@
 ## v???(dev)
++ Changed lightning strikes to be two times as common when it's thundering. This can be turned off with the new configuration option `increasedLightningStrikeChance`
++ Removed creeper shearing and creeper oysters. Those are now in a new separate mod called "Creeper Shearing"
 
 ## v0.4.1
 + Fixed missing spider eye blocks and slab from the creative inventory tab
