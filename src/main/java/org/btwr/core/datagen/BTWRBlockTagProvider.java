@@ -28,8 +28,6 @@ public class BTWRBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(BTWR_Blocks.BLIGHT)
                 .add(BTWR_Blocks.BLIGHT_ROOTS)
-                .add(BTWR_Blocks.CREEPER_OYSTER_BLOCK)
-                .add(BTWR_Blocks.CREEPER_OYSTER_SLAB)
                 .add(BTWR_Blocks.SPIDER_EYE_BLOCK)
                 .add(BTWR_Blocks.SPIDER_EYE_SLAB);
 

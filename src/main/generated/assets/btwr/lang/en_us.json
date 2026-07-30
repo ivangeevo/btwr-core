@@ -1,8 +1,6 @@
 {
   "block.btwr.blight": "Blight",
   "block.btwr.blight.mature": "Mature Blight",
-  "block.btwr.creeper_oyster_block": "Block of Creeper Oyster",
-  "block.btwr.creeper_oyster_slab": "Creeper Oyster Slab",
   "block.btwr.diamond_ingot_block": "Block of Diamond Ingot",
   "block.btwr.flint_block": "Block of Flint",
   "block.btwr.spider_eye_block": "Block of Spider Eye",
@@ -19,7 +17,6 @@
   "item.btwr.club_bone": "Bone Club",
   "item.btwr.club_wood": "Wooden Club",
   "item.btwr.cooked_kebab": "Cooked Kebab",
-  "item.btwr.creeper_oysters": "Creeper Oysters",
   "item.btwr.diamond_ingot": "Diamond Ingot",
   "item.btwr.diamond_plate": "Diamond Armor Plate",
   "item.btwr.diamond_shears": "Diamond Shears",
