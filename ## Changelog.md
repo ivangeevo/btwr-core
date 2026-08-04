@@ -1,4 +1,4 @@
-## v???(dev)
+## v0.5(dev)
 + Changed lightning strikes to be two times as common when it's thundering. This can be turned off with the new configuration option `increasedLightningStrikeChance`
 + Removed creeper shearing and creeper oysters. Those are now in a new separate mod called "Creeper Shearing"
 + Updated the mod to Fabric API 0.116.15, Fabric Loader 0.19.3 & BTWR: Shared Library 0.8.5
