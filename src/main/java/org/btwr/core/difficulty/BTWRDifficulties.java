@@ -301,11 +301,11 @@ public class BTWRDifficulties {
     public static final DifficultyValue<Integer> VILLAGE_SECONDARY_CROP_CHANCE = registerParamWithModCondition(
             "village_secondary_crop_chance", Codec.INT, 3, "hardcore_abandonment"
     );
-    public static final DifficultyValue<Boolean> SHOULD_CRUDE_CLAY_BRICKS_BE_TRAMPLED = registerParam(
-            "should_crude_clay_bricks_be_trampled", Codec.BOOL, true
+    public static final DifficultyValue<Boolean> SHOULD_CRUDE_CLAY_BRICKS_BE_TRAMPLED = registerParamWithModCondition(
+            "should_crude_clay_bricks_be_trampled", Codec.BOOL, true, "self_sustainable"
     );
-    public static final DifficultyValue<Boolean> SHOULD_CAMPFIRES_BE_TRAMPLED = registerParam(
-            "should_campfires_be_trampled", Codec.BOOL, false
+    public static final DifficultyValue<Boolean> SHOULD_CAMPFIRES_BE_TRAMPLED = registerParamWithModCondition(
+            "should_campfires_be_trampled", Codec.BOOL, false, "self_sustainable"
     );
 
     //------ Hardcore Spawn Parameters ------//

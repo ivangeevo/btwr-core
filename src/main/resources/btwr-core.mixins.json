@@ -13,6 +13,7 @@
     "entity.EndermanEntityInvoker",
     "entity.EndermanEntityMixin",
     "entity.EntityMixin",
+    "entity.LightningEntityMixin",
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",
