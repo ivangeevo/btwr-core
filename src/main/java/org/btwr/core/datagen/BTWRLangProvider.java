@@ -24,6 +24,19 @@ public class BTWRLangProvider extends FabricLanguageProvider {
         this.generateConfigTranslations(tb);
 
         tb.add("subtitles.btwr.creeper_sheared", "Creeper sheared");
+
+        tb.add("difficulty.btwr", "Difficulty");
+        tb.add("difficulty.btwr.standard", "Standard");
+        tb.add("difficulty.btwr.relaxed", "Relaxed");
+        tb.add("difficulty.btwr.hostile", "Hostile");
+        tb.add("difficulty.btwr.classic", "Classic");
+        tb.add("difficulty.btwr.hostile_locked", "Hostile Locked");
+
+        tb.add("difficulty.btwr.standard.tooltip", "The standard experience.\n Recommended for those looking\n for a moderate challenge.");
+        tb.add("difficulty.btwr.relaxed.tooltip", "A more relaxed experience.\n Recommended for those looking\n for lower pressure survival.");
+        tb.add("difficulty.btwr.hostile.tooltip", "A much more difficult experience.\n Recommended for those looking\n for the greatest challenge.");
+        tb.add("difficulty.btwr.classic.tooltip", "The old-school BTW experience.\n Returns BTW to its tech roots.\n Provides little survival challenge.");
+        tb.add("difficulty.btwr.hostile_locked.tooltip", "A much more difficult experience.\n Recommended for those looking\n for the greatest challenge.");
     }
 
     private void generateBlockTranslations(TranslationBuilder tb) {

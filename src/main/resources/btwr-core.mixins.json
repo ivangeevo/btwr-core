@@ -6,10 +6,13 @@
   "mixins": [
     "accessor.BeaconBlockEntityAccessor",
     "accessor.RegistryEntryListDirectAccessor",
+    "ai.goal.TeleportTowardsPlayerGoalMixin",
     "block.AbstractBlock$AbstractBlockStateMixin",
     "entity.BeaconBlockEntityMixin",
     "entity.CreeperEntityMixin",
+    "entity.EndermanEntityInvoker",
     "entity.EndermanEntityMixin",
+    "entity.EntityMixin",
     "entity.LivingEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",

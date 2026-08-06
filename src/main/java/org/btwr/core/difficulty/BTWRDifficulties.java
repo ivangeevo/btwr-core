@@ -1,10 +1,10 @@
 package org.btwr.core.difficulty;
 
 import com.mojang.serialization.Codec;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import org.btwr.core.BTWRMod;
+import org.btwr.core.api.DifficultyRegistry;
 import org.btwr.core.difficulty.impl.BTWRDifficulty;
 import org.btwr.core.difficulty.impl.DifficultyValue;
 
@@ -19,10 +19,114 @@ public class BTWRDifficulties {
     public static BTWRDifficulty HOSTILE;
     public static BTWRDifficulty HOSTILE_LOCKED;
 
+    public static void register() {
+        BTWRMod.LOGGER.info("Registering mod difficulties for: {}", BTWRMod.MOD_ID);
+
+        STANDARD = DifficultyRegistry.builder(withId("standard")).build();
+
+        RELAXED = DifficultyRegistry.builder(withId("relaxed"))
+                .setParam(SHOULD_GRASS_LOOSEN_WHEN_DIGGING, false)
+
+                .setParam(SHOULD_NETHERCOAL_TORCHES_START_FIRES, false)
+                .setParam(NO_TOOL_BLOCK_HARDNESS_MULTIPLIER, 0.75F)
+
+                .setParam(CAN_ZOMBIE_VILLAGERS_BREAK_BLOCKS, false)
+                .setParam(SHOULD_BURNING_ANIMALS_DROP_COOKED_MEAT, true)
+                .setParam(ANIMAL_KICK_STRENGTH_MULTIPLIER, 0.5F)
+                .setParam(SHOULD_INCORRECT_MILKING_STRATLE_COWS, false)
+                .setParam(SHOULD_ANIMALS_STARVE_TO_DEATH, false)
+                .setParam(SHOULD_PLACING_BREAKING_BLOCK_STRATLE_ANIMALS, false)
+
+                .setParam(ARE_JUNGLE_SPIDERS_NEUTRAL, true)
+                .setParam(JUNGLE_SPIDER_FOOD_POISONING_DURATION_MULTIPLIER, 0.3333F)
+                .setParam(SHOULD_SQUIDS_ATTACK_DRY_PLAYERS, false)
+                .setParam(SHOULD_GHAST_FIREBALL_ANGER_PIGMAN, false)
+
+                .setParam(HUNGER_INTENSIVE_ACTION_COST_MULTIPLIER, 0.5f)
+                .setParam(DEATH_COUNT_FOR_ITEM_DESPAWN, -1)
+                .setParam(HEALTH_REGEN_DELAY_MULTIPLIER, 0.6F)
+                .setParam(STATUS_EFFECT_OFFSET, 0)
+                .setParam(STATUS_EFFECT_GAP, 2)
+                .setParam(CAN_PLACE_BLOCKS_IN_AIR, true)
+
+                .setParam(SHOULD_WEEDS_KILL_PLANTS, false)
+                .setParam(SHOULD_LIGHTNING_START_FIRES, false)
+                .setParam(SHOULD_HARDCORE_SPAWN_RADIUS_INCREASE_WITH_PROGRESS, false)
+                .build();
+
+        HOSTILE = DifficultyRegistry.builder(withId("hostile"))
+                .setParam(CAN_ZOMBIES_BREAK_BLOCKS, true)
+                .setParam(ZOMBIE_FOLLOW_DISTANCE_MULTIPLIER, 2.5F)
+                .setParam(CAN_CREEPERS_BREACH_WALLS, true)
+                .setParam(CREEPER_FOLLOW_DISTANCE_MULTIPLIER, 2.5f)
+                .setParam(CAN_ENDERMAN_MOVE_PLAYERS, true)
+                .setParam(SHOULD_SKELETONS_SEEK_SPIDER_MOUNTS, true)
+                .setParam(SHOULD_WITHER_SKELETONS_SPAWN_UNDERGROUND, true)
+
+                .setParam(SHOULD_NETHER_HAVE_GLOOM, true)
+                .setParam(ABANDONED_STRUCTURES_RANGE_MULTIPLIER, 0.6666F)
+                .setParam(SHOULD_STRUCTURES_BE_ABANDONED, true)
+                .setParam(SHOULD_CAMPFIRES_BE_TRAMPLED, true)
+                .setParam(VERTICAL_TARGET_DISTANCE, 15.0D)
+                .setParam(SHOULD_BURNING_ENTITIES_SET_FIRES, true)
+                .setParam(SKELETON_TARGET_DISTANCE_MULTIPLIER, 3.5F)
+                .setParam(ARE_SKELETONS_PYROMANIACS, true)
+                .build();
+
+        CLASSIC = DifficultyRegistry.builder(withId("classic"))
+                .inherit(RELAXED)
+
+                .setParam(CAN_CRAFT_TORCHES_FROM_COAL, true)
+                .setParam(CAN_MAKE_EASY_STONE_TOOLS, true)
+                .setParam(SHOULD_REDNECK_FISHING_BURN_FISH, false)
+
+                .setParam(HUNGER_INTENSIVE_ACTION_COST_MULTIPLIER, 0.2F)
+                .setParam(NO_TOOL_BLOCK_HARDNESS_MULTIPLIER, 0.5F)
+                .setParam(SHOULD_ORES_DROP_PILES_WHEN_CHISELED, false)
+                .setParam(SHOULD_OVENS_DROP_THEMSELVES, true)
+                .setParam(DOES_STONE_PICK_BREAK_STONE, true)
+                .setParam(DOES_STONE_SHOVEL_DROP_PILES, false)
+
+                .setParam(STONE_TOOL_SPEED_MULTIPLIER, 2F)
+                .setParam(PROGRESSIVE_CRAFTING_ADDITIONAL_PROGRESS_PER_TICK, 1)
+
+                .setParam(SHOULD_LARGE_ANIMALS_KICK, false)
+
+                .setParam(HEALTH_REGEN_DELAY_MULTIPLIER, 0.4F)
+                .setParam(STATUS_EFFECT_OFFSET, 2)
+                .setParam(STATUS_EFFECT_GAP, 10)
+
+                .setParam(SHOULD_WEEDS_GROW, false)
+                .setParam(SHOULD_FARMLAND_REQUIRE_RE_RETILLING, false)
+                .setParam(SHOULD_TALL_GRASS_DROP_WHEAT_SEEDS, true)
+                .setParam(SHOULD_HEMP_REQUIRE_SHEARS, false)
+
+                .setParam(SHOULD_PLAYERS_HARDCORE_SPAWN, false)
+                .setParam(SHOULD_CRUDE_CLAY_BRICKS_BE_TRAMPLED, false)
+
+                .setParam(CAN_DIFFICULTY_BE_CHANGED, false)
+                .build();
+
+        HOSTILE_LOCKED = DifficultyRegistry.builder(withId("hostile_locked"))
+                .inherit(HOSTILE)
+                .setParam(IS_RESTRICTED, true)
+                .build();
+
+        DifficultyRegistry.register(STANDARD);
+        DifficultyRegistry.register(RELAXED);
+        DifficultyRegistry.register(HOSTILE);
+        DifficultyRegistry.register(CLASSIC);
+        DifficultyRegistry.register(HOSTILE_LOCKED);
+    }
+
     private static final Map<Identifier, DifficultyValue<?>> PARAMETERS_LIST = new LinkedHashMap<>();
 
+    public static Map<Identifier, DifficultyValue<?>> parametersList() {
+        return PARAMETERS_LIST;
+    }
+
     //------ Crafting Parameters ------//
-    
+
     public static final DifficultyValue<Boolean> CAN_CRAFT_TORCHES_FROM_COAL = registerParam(
             "can_craft_torches_from_coal", Codec.BOOL, false
     );
@@ -229,7 +333,7 @@ public class BTWRDifficulties {
         DifficultyValue<T> value = registerParam(name, codec, defaultValue);
 
         if (!FabricLoader.getInstance().isModLoaded(modName)) {
-            BTWRMod.LOGGER.error("[{}] Can't register this difficulty parameter because it's required mod {} is not present.", BTWRMod.MOD_ID, name);
+            BTWRMod.LOGGER.error("[{}] Can't register this difficulty parameter because it's required mod {} is not present.", BTWRMod.MOD_NAME, name);
             return null;
         }
 
@@ -248,100 +352,6 @@ public class BTWRDifficulties {
         PARAMETERS_LIST.put(value.id(), value);
 
         return value;
-    }
-    
-    public static void register() {
-        BTWRMod.LOGGER.info("Registering mod difficulties for: {}", BTWRMod.MOD_ID);
-
-        STANDARD = DifficultyRegistry.builder(withId("standard")).build();
-
-        RELAXED = DifficultyRegistry.builder(withId("relaxed"))
-                .setParam(SHOULD_GRASS_LOOSEN_WHEN_DIGGING, false)
-
-                .setParam(SHOULD_NETHERCOAL_TORCHES_START_FIRES, false)
-                .setParam(NO_TOOL_BLOCK_HARDNESS_MULTIPLIER, 0.75F)
-
-                .setParam(CAN_ZOMBIE_VILLAGERS_BREAK_BLOCKS, false)
-                .setParam(SHOULD_BURNING_ANIMALS_DROP_COOKED_MEAT, true)
-                .setParam(ANIMAL_KICK_STRENGTH_MULTIPLIER, 0.5F)
-                .setParam(SHOULD_INCORRECT_MILKING_STRATLE_COWS, false)
-                .setParam(SHOULD_ANIMALS_STARVE_TO_DEATH, false)
-                .setParam(SHOULD_PLACING_BREAKING_BLOCK_STRATLE_ANIMALS, false)
-
-                .setParam(ARE_JUNGLE_SPIDERS_NEUTRAL, true)
-                .setParam(JUNGLE_SPIDER_FOOD_POISONING_DURATION_MULTIPLIER, 0.3333F)
-                .setParam(SHOULD_SQUIDS_ATTACK_DRY_PLAYERS, false)
-                .setParam(SHOULD_GHAST_FIREBALL_ANGER_PIGMAN, false)
-
-                .setParam(HUNGER_INTENSIVE_ACTION_COST_MULTIPLIER, 0.5f)
-                .setParam(DEATH_COUNT_FOR_ITEM_DESPAWN, -1)
-                .setParam(HEALTH_REGEN_DELAY_MULTIPLIER, 0.6F)
-                .setParam(STATUS_EFFECT_OFFSET, 0)
-                .setParam(STATUS_EFFECT_GAP, 2)
-                .setParam(CAN_PLACE_BLOCKS_IN_AIR, true)
-
-                .setParam(SHOULD_WEEDS_KILL_PLANTS, false)
-                .setParam(SHOULD_LIGHTNING_START_FIRES, false)
-                .setParam(SHOULD_HARDCORE_SPAWN_RADIUS_INCREASE_WITH_PROGRESS, false)
-                .build();
-
-        HOSTILE = DifficultyRegistry.builder(withId("hostile"))
-                .setParam(CAN_ZOMBIES_BREAK_BLOCKS, true)
-                .setParam(ZOMBIE_FOLLOW_DISTANCE_MULTIPLIER, 2.5F)
-                .setParam(CAN_CREEPERS_BREACH_WALLS, true)
-                .setParam(CREEPER_FOLLOW_DISTANCE_MULTIPLIER, 2.5f)
-                .setParam(CAN_ENDERMAN_MOVE_PLAYERS, true)
-                .setParam(SHOULD_SKELETONS_SEEK_SPIDER_MOUNTS, true)
-                .setParam(SHOULD_WITHER_SKELETONS_SPAWN_UNDERGROUND, true)
-
-                .setParam(SHOULD_NETHER_HAVE_GLOOM, true)
-                .setParam(ABANDONED_STRUCTURES_RANGE_MULTIPLIER, 0.6666F)
-                .setParam(SHOULD_STRUCTURES_BE_ABANDONED, true)
-                .setParam(SHOULD_CAMPFIRES_BE_TRAMPLED, true)
-                .setParam(VERTICAL_TARGET_DISTANCE, 15.0D)
-                .setParam(SHOULD_BURNING_ENTITIES_SET_FIRES, true)
-                .setParam(SKELETON_TARGET_DISTANCE_MULTIPLIER, 3.5F)
-                .setParam(ARE_SKELETONS_PYROMANIACS, true)
-                .build();
-
-        CLASSIC = DifficultyRegistry.builder(withId("classic"))
-                .inherit(RELAXED)
-
-                .setParam(CAN_CRAFT_TORCHES_FROM_COAL, true)
-                .setParam(CAN_MAKE_EASY_STONE_TOOLS, true)
-                .setParam(SHOULD_REDNECK_FISHING_BURN_FISH, false)
-
-                .setParam(HUNGER_INTENSIVE_ACTION_COST_MULTIPLIER, 0.2F)
-                .setParam(NO_TOOL_BLOCK_HARDNESS_MULTIPLIER, 0.5F)
-                .setParam(SHOULD_ORES_DROP_PILES_WHEN_CHISELED, false)
-                .setParam(SHOULD_OVENS_DROP_THEMSELVES, true)
-                .setParam(DOES_STONE_PICK_BREAK_STONE, true)
-                .setParam(DOES_STONE_SHOVEL_DROP_PILES, false)
-
-                .setParam(STONE_TOOL_SPEED_MULTIPLIER, 2F)
-                .setParam(PROGRESSIVE_CRAFTING_ADDITIONAL_PROGRESS_PER_TICK, 1)
-
-                .setParam(SHOULD_LARGE_ANIMALS_KICK, false)
-
-                .setParam(HEALTH_REGEN_DELAY_MULTIPLIER, 0.4F)
-                .setParam(STATUS_EFFECT_OFFSET, 2)
-                .setParam(STATUS_EFFECT_GAP, 10)
-
-                .setParam(SHOULD_WEEDS_GROW, false)
-                .setParam(SHOULD_FARMLAND_REQUIRE_RE_RETILLING, false)
-                .setParam(SHOULD_TALL_GRASS_DROP_WHEAT_SEEDS, true)
-                .setParam(SHOULD_HEMP_REQUIRE_SHEARS, false)
-
-                .setParam(SHOULD_PLAYERS_HARDCORE_SPAWN, false)
-                .setParam(SHOULD_CRUDE_CLAY_BRICKS_BE_TRAMPLED, false)
-
-                .setParam(CAN_DIFFICULTY_BE_CHANGED, false)
-                .build();
-
-        HOSTILE_LOCKED = DifficultyRegistry.builder(withId("hostile_locked"))
-                .inherit(HOSTILE)
-                .setParam(IS_RESTRICTED, true)
-                .build();
     }
 
     private static Identifier withId(String name) {

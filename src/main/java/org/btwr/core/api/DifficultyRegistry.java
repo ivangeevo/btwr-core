@@ -1,4 +1,4 @@
-package org.btwr.core.difficulty;
+package org.btwr.core.api;
 
 import net.minecraft.util.Identifier;
 import org.btwr.core.difficulty.impl.BTWRDifficulty;
@@ -14,6 +14,10 @@ public class DifficultyRegistry {
         return DIFFICULTIES.get(id);
     }
 
+    public static Collection<BTWRDifficulty> getAll() {
+        return Collections.unmodifiableCollection(DIFFICULTIES.values());
+    }
+
     public static Optional<BTWRDifficulty> find(Identifier id) {
         return Optional.ofNullable(DIFFICULTIES.get(id));
     }
@@ -22,7 +26,7 @@ public class DifficultyRegistry {
         return new DifficultyBuilder(id);
     }
 
-    private static void register(BTWRDifficulty difficulty) {
+    public static void register(BTWRDifficulty difficulty) {
         if (DIFFICULTIES.putIfAbsent(difficulty.id(), difficulty) != null) {
             throw new IllegalStateException("Duplicate difficulty: " + difficulty.id());
         }

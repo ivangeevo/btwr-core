@@ -1,5 +1,6 @@
 package org.btwr.core.difficulty.impl;
 
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.Map;
@@ -22,6 +23,15 @@ public final class BTWRDifficulty {
 
     @SuppressWarnings("unchecked")
     public <T> T get(DifficultyValue<T> parameter) {
-        return (T) values.get(parameter);
+        Object value = values.get(parameter);
+        return value != null ? (T) value : parameter.defaultValue();
+    }
+
+    public Text getDisplayName() {
+        return Text.translatable("difficulty.btwr." + id.getPath());
+    }
+
+    public Text getTooltip() {
+        return Text.translatable("difficulty.btwr." + id.getPath() + ".tooltip");
     }
 }
