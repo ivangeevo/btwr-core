@@ -10,12 +10,12 @@ import net.minecraft.client.gui.widget.*;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.network.packet.c2s.play.UpdateDifficultyLockC2SPacket;
 import net.minecraft.text.Text;
+import org.btwr.api.api.difficulty.DifficultyRegistry;
+import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
 import org.btwr.core.BTWRMod;
-import org.btwr.core.api.DifficultyRegistry;
-import org.btwr.core.difficulty.impl.BTWRDifficulty;
+import org.btwr.core.gui.BTWRDifficultyScreenHelper;
 import org.btwr.core.networking.ClientBTWRDifficultyCache;
-import org.btwr.core.networking.UpdateBTWRDifficultyC2SPacket;
-import org.jetbrains.annotations.Nullable;
+import org.btwr.core.networking.packet.UpdateBTWRDifficultyC2SPacket;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -29,11 +29,7 @@ public abstract class OptionsScreenMixin extends Screen {
 
     @Shadow @Final private GameOptions settings;
 
-    @Unique
-    private @Nullable CyclingButtonWidget<BTWRDifficulty> btwrDifficultyButton;
-
-    @Unique
-    private @Nullable LockButtonWidget btwrLockDifficultyButton;
+    @Unique private final BTWRDifficultyScreenHelper screenHelper = new BTWRDifficultyScreenHelper();
 
     protected OptionsScreenMixin(Text title) {
         super(title);
@@ -53,34 +49,37 @@ public abstract class OptionsScreenMixin extends Screen {
             return null;
         }
 
+        CyclingButtonWidget<BTWRDifficulty> difficultyButton;
+        LockButtonWidget lockButton;
+
         if (client.world != null && client.isIntegratedServerRunning()) {
-            this.btwrDifficultyButton = createDifficultyButtonWidget(0, 0, "options.difficulty", this.client);
+            difficultyButton = createDifficultyButtonWidget(0, 0, "options.difficulty", this.client);
             if (!client.world.getLevelProperties().isHardcore()) {
-                this.btwrLockDifficultyButton = new LockButtonWidget(
+                lockButton = new LockButtonWidget(
                         0, 0,
                         button -> {
                             assert this.client.world != null;
                             client
                                     .setScreen(
                                             new ConfirmScreen(
-                                                    this::lockDifficulty,
+                                                    this::btwr$lockDifficulty,
                                                     Text.translatable("difficulty.lock.title"),
                                                     Text.translatable("difficulty.lock.question", ClientBTWRDifficultyCache.get().getTooltip())
                                             )
                                     );
                         });
-                this.btwrDifficultyButton.setWidth(this.btwrDifficultyButton.getWidth() - this.btwrLockDifficultyButton.getWidth());
-                this.btwrLockDifficultyButton.setLocked(client.world.getLevelProperties().isDifficultyLocked());
-                this.btwrLockDifficultyButton.active = !this.btwrLockDifficultyButton.isLocked();
-                this.btwrDifficultyButton.active = !this.btwrLockDifficultyButton.isLocked();
+                difficultyButton.setWidth(difficultyButton.getWidth() - lockButton.getWidth());
+                lockButton.setLocked(client.world.getLevelProperties().isDifficultyLocked());
+                lockButton.active = !lockButton.isLocked();
+                difficultyButton.active = !lockButton.isLocked();
                 AxisGridWidget axisGridWidget = new AxisGridWidget(150, 0, AxisGridWidget.DisplayAxis.HORIZONTAL);
-                axisGridWidget.add(this.btwrDifficultyButton);
-                axisGridWidget.add(this.btwrLockDifficultyButton);
+                axisGridWidget.add(difficultyButton);
+                axisGridWidget.add(lockButton);
                 return axisGridWidget;
             } else {
-                assert this.btwrDifficultyButton != null;
-                this.btwrDifficultyButton.active = false;
-                return this.btwrDifficultyButton;
+                assert difficultyButton != null;
+                difficultyButton.active = false;
+                return difficultyButton;
             }
         } else {
             return ButtonWidget.builder(Text.translatable("options.online"), button -> client.setScreen(new OnlineOptionsScreen(this, this.settings)))
@@ -98,22 +97,25 @@ public abstract class OptionsScreenMixin extends Screen {
                         x, y, 150, 20,
                         Text.translatable(translationKey),
                         (button, difficulty) -> ClientPlayNetworking.send(
-                                new UpdateBTWRDifficultyC2SPacket(difficulty.id())
+                                new UpdateBTWRDifficultyC2SPacket(difficulty.info())
                         )
                 );
     }
 
     @Unique
-    private void lockDifficulty(boolean difficultyLocked) {
+    private void btwr$lockDifficulty(boolean difficultyLocked) {
         assert this.client != null;
         assert this.client.getNetworkHandler() != null;
 
+        CyclingButtonWidget<BTWRDifficulty> difficultyButton = screenHelper.getDifficultyButton();
+        LockButtonWidget lockButton = screenHelper.getLockButton();
+
         this.client.setScreen(this);
-        if (difficultyLocked && this.client.world != null && this.btwrLockDifficultyButton != null && this.btwrDifficultyButton != null) {
+        if (difficultyLocked && this.client.world != null && lockButton != null && difficultyButton != null) {
             this.client.getNetworkHandler().sendPacket(new UpdateDifficultyLockC2SPacket(true));
-            this.btwrLockDifficultyButton.setLocked(true);
-            this.btwrLockDifficultyButton.active = false;
-            this.btwrDifficultyButton.active = false;
+            lockButton.setLocked(true);
+            lockButton.active = false;
+            difficultyButton.active = false;
         }
     }
 

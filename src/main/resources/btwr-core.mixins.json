@@ -8,6 +8,7 @@
     "accessor.RegistryEntryListDirectAccessor",
     "ai.goal.TeleportTowardsPlayerGoalMixin",
     "block.AbstractBlock$AbstractBlockStateMixin",
+    "entity.AbstractSkeletonEntityMixin",
     "entity.BeaconBlockEntityMixin",
     "entity.CreeperEntityMixin",
     "entity.EndermanEntityInvoker",
@@ -15,13 +16,15 @@
     "entity.EntityMixin",
     "entity.LightningEntityMixin",
     "entity.LivingEntityMixin",
+    "entity.MobEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",
     "entity.WitherSkullEntityMixin",
     "entity.ZombieEntityMixin",
     "item.ItemMixin",
     "loot.MatchToolLootConditionMixin",
-    "world.ServerWorldMixin"
+    "world.ServerWorldMixin",
+    "world.WorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1
