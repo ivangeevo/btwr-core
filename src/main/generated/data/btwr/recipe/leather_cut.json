@@ -1,5 +1,5 @@
 {
-  "type": "btwr_sl:crafting_shapeless_extended",
+  "type": "btwr_api:crafting_shapeless_extended",
   "additional_drops": [],
   "category": "misc",
   "ingredients": [
