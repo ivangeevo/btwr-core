@@ -2,8 +2,7 @@ package org.btwr.core.block;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
+import net.minecraft.block.*;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.ItemGroups;
@@ -14,16 +13,15 @@ import net.minecraft.text.Text;
 import org.btwr.core.BTWRMod;
 import org.btwr.core.block.blocks.BlightBlock;
 import org.btwr.core.block.blocks.BlightRootsBlock;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import org.btwr.core.block.blocks.PlacedStickBlock;
 
-public class BTWR_Blocks {
+public class ModBlocks {
 
     public static final Block BLIGHT = registerBlock("blight", new BlightBlock(
             AbstractBlock.Settings.create()
@@ -34,7 +32,7 @@ public class BTWR_Blocks {
     );
 
     public static final Block BLIGHT_ROOTS = registerWithoutItem("blight_roots", new BlightRootsBlock(
-            AbstractBlock.Settings.copy(BTWR_Blocks.BLIGHT))
+            AbstractBlock.Settings.copy(ModBlocks.BLIGHT))
     );
 
     public static final Block FLINT_BLOCK = registerBlock("flint_block", new Block(
@@ -64,6 +62,13 @@ public class BTWR_Blocks {
                     .requiresTool()
     ));
 
+    public static final Block PLACED_STICK = registerBlock("placed_stick", new PlacedStickBlock(
+            AbstractBlock.Settings.create()
+                    .noCollision()
+                    .strength(0.0F, 0.0F)
+                    .sounds(BlockSoundGroup.WOOD)
+    ));
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(BTWRMod.MOD_ID, name), block);
@@ -78,8 +83,8 @@ public class BTWR_Blocks {
                 new BlockItem(block, new Item.Settings()));
     }
 
-    public static void register() {
-        BTWRMod.LOGGER.debug("Registering ModBlocks for " + BTWRMod.MOD_ID);
+    public static void initialize() {
+        BTWRMod.LOGGER.info("Registering mod blocks for {}", BTWRMod.MOD_ID);
         addToItemGroups();
     }
 

@@ -9,8 +9,8 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
-import org.btwr.core.config.BTWRModConfig;
-import org.btwr.shared_library.api.tag.BTWRConventionalTags;
+import org.btwr.api.api.tag.BTWRConventionalTags;
+import org.btwr.core.config.ModConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -34,7 +34,7 @@ public abstract class AbstractBlock$AbstractBlockStateMixin {
         BlockState state = (BlockState) (Object) this;
 
         // Check the setting to determine which predicate to use
-        boolean useCustomLogic = BTWRModConfig.spawnMobsOnWood.get();
+        boolean useCustomLogic = ModConfig.spawnMobsOnWood.get();
 
         if (useCustomLogic) {
             // Use the original spawning predicate

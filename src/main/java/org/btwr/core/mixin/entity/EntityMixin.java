@@ -5,10 +5,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
-import org.btwr.core.data.saved.BTWRDifficultyData;
-import org.btwr.core.difficulty.BTWRDifficulties;
-import org.btwr.core.difficulty.impl.BTWRDifficulty;
-import org.btwr.shared_library.api.block.util.FireBlockUtils;
+import org.btwr.api.api.util.utils.FireBlockUtils;
+import org.btwr.core.difficulty.ModDifficulties;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -29,9 +27,8 @@ public abstract class EntityMixin {
             shift = At.Shift.AFTER
     ))
     private void afterOnFireDamage(CallbackInfo ci) {
-        if (this.isOnFire() && this.world instanceof ServerWorld serverWorld) {
-            BTWRDifficulty difficulty = BTWRDifficultyData.get(serverWorld.getServer()).getDifficulty();
-            if (difficulty.get(BTWRDifficulties.SHOULD_BURNING_ENTITIES_SET_FIRES)) {
+        if (this.isOnFire() && this.world instanceof ServerWorld) {
+            if (world.btwr$difficulty().get(ModDifficulties.SHOULD_BURNING_ENTITIES_SET_FIRES)) {
                 this.tryToSetFireToBlocksInContact();
             }
         }

@@ -1,8 +1,8 @@
 package org.btwr.core.datagen;
 
 import org.btwr.core.BTWRMod;
-import org.btwr.core.block.BTWR_Blocks;
-import org.btwr.core.item.BTWR_Items;
+import org.btwr.core.block.ModBlocks;
+import org.btwr.core.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -40,54 +40,41 @@ public class BTWRLangProvider extends FabricLanguageProvider {
     }
 
     private void generateBlockTranslations(TranslationBuilder tb) {
-        tb.add(BTWR_Blocks.BLIGHT, "Blight");
+        tb.add(ModBlocks.BLIGHT, "Blight");
         tb.add("block.btwr.blight.mature", "Mature Blight");
 
-        tb.add(BTWR_Blocks.FLINT_BLOCK, "Block of Flint");
-        tb.add(BTWR_Blocks.DIAMOND_INGOT_BLOCK, "Block of Diamond Ingot");
+        tb.add(ModBlocks.FLINT_BLOCK, "Block of Flint");
+        tb.add(ModBlocks.DIAMOND_INGOT_BLOCK, "Block of Diamond Ingot");
 
-        tb.add(BTWR_Blocks.SPIDER_EYE_BLOCK, "Block of Spider Eye");
-        tb.add(BTWR_Blocks.SPIDER_EYE_SLAB, "Spider Eye Slab");
+        tb.add(ModBlocks.SPIDER_EYE_BLOCK, "Block of Spider Eye");
+        tb.add(ModBlocks.SPIDER_EYE_SLAB, "Spider Eye Slab");
+
+        tb.add(ModBlocks.PLACED_STICK, "Placed Stick");
     }
 
     private void generateItemTranslations(TranslationBuilder tb) {
-        tb.add(BTWR_Items.COOKED_KEBAB, "Cooked Kebab");
-        tb.add(BTWR_Items.EGG_SCRAMBLED_COOKED, "Scrambled Eggs");
-        tb.add(BTWR_Items.EGG_SCRAMBLED_RAW, "Raw Scrambled Eggs");
-        tb.add(BTWR_Items.HAM_AND_EGGS, "Ham and Eggs");
-        tb.add(BTWR_Items.HEARTY_STEW, "Hearty Stew");
-        tb.add(BTWR_Items.MUSHROOM_OMELETTE_COOKED, "Mushroom Omelette");
-        tb.add(BTWR_Items.MUSHROOM_OMELETTE_RAW, "Raw Mushroom Omelette");
-        tb.add(BTWR_Items.PORK_DINNER, "Pork Dinner");
-        tb.add(BTWR_Items.RAW_KEBAB, "Raw Kebab");
-        tb.add(BTWR_Items.SANDWICH, "Tasty Sandwich");
-        tb.add(BTWR_Items.STEAK_AND_POTATOES, "Steak and Potatoes");
-        tb.add(BTWR_Items.STEAK_DINNER, "Steak Dinner");
-        tb.add(BTWR_Items.WOLF_DINNER, "Wolf Dinner");
-        tb.add(BTWR_Items.CHICKEN_SOUP, "Chicken Soup");
-        tb.add(BTWR_Items.CHOWDER, "Chowder");
-        tb.add(BTWR_Items.BEAST_LIVER_COOKED, "Cooked Liver");
-        tb.add(BTWR_Items.BEAST_LIVER_RAW, "Liver Of The Beast");
+        tb.add(ModItems.BEAST_LIVER_COOKED, "Cooked Liver");
+        tb.add(ModItems.BEAST_LIVER_RAW, "Liver Of The Beast");
 
-        tb.add(BTWR_Items.DIAMOND_SHEARS, "Diamond Shears");
-        tb.add(BTWR_Items.CLUB_WOOD, "Wooden Club");
-        tb.add(BTWR_Items.CLUB_BONE, "Bone Club");
+        tb.add(ModItems.DIAMOND_SHEARS, "Diamond Shears");
+        tb.add(ModItems.CLUB_WOOD, "Wooden Club");
+        tb.add(ModItems.CLUB_BONE, "Bone Club");
 
-        tb.add(BTWR_Items.LEATHER_TANNED_BOOTS, "Tanned Leather Boots");
-        tb.add(BTWR_Items.LEATHER_TANNED_CHESTPLATE, "Tanned Leather Chestplate");
-        tb.add(BTWR_Items.LEATHER_TANNED_HELMET, "Tanned Leather Helmet");
-        tb.add(BTWR_Items.LEATHER_TANNED_LEGGINGS, "Tanned Leather Leggings");
+        tb.add(ModItems.LEATHER_TANNED_BOOTS, "Tanned Leather Boots");
+        tb.add(ModItems.LEATHER_TANNED_CHESTPLATE, "Tanned Leather Chestplate");
+        tb.add(ModItems.LEATHER_TANNED_HELMET, "Tanned Leather Helmet");
+        tb.add(ModItems.LEATHER_TANNED_LEGGINGS, "Tanned Leather Leggings");
 
-        tb.add(BTWR_Items.DIAMOND_INGOT, "Diamond Ingot");
-        tb.add(BTWR_Items.DIAMOND_PLATE,"Diamond Armor Plate");
-        tb.add(BTWR_Items.LEATHER_CUT, "Cut Leather");
-        tb.add(BTWR_Items.LEATHER_SCOURED, "Scoured Leather");
-        tb.add(BTWR_Items.LEATHER_SCOURED_CUT, "Cut Scoured Leather");
-        tb.add(BTWR_Items.LEATHER_TANNED, "Tanned Leather");
-        tb.add(BTWR_Items.LEATHER_TANNED_CUT, "Cut Tanned Leather");
+        tb.add(ModItems.DIAMOND_INGOT, "Diamond Ingot");
+        tb.add(ModItems.DIAMOND_PLATE,"Diamond Armor Plate");
+        tb.add(ModItems.LEATHER_CUT, "Cut Leather");
+        tb.add(ModItems.LEATHER_SCOURED, "Scoured Leather");
+        tb.add(ModItems.LEATHER_SCOURED_CUT, "Cut Scoured Leather");
+        tb.add(ModItems.LEATHER_TANNED, "Tanned Leather");
+        tb.add(ModItems.LEATHER_TANNED_CUT, "Cut Tanned Leather");
 
-        tb.add(BTWR_Items.OCULAR_OF_ENDER, "Ocular of Ender");
-        tb.add(BTWR_Items.ENDER_SPECTACLES, "Ender Spectacles");
+        tb.add(ModItems.OCULAR_OF_ENDER, "Ocular of Ender");
+        tb.add(ModItems.ENDER_SPECTACLES, "Ender Spectacles");
     }
 
     private void generateConfigTranslations(TranslationBuilder tb) {

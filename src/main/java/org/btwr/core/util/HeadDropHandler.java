@@ -15,10 +15,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
+import org.btwr.api.api.registry.HeadDropRegistry;
 import org.btwr.bwt_hct.data.ModDataAttachments;
 import org.btwr.bwt_hct.data.RecentlyOnChoppingBlockCountdownData;
 import org.btwr.bwt_hct.world.ModDamageTypes;
-import org.btwr.shared_library.api.registry.HeadDropRegistry;
 
 public class HeadDropHandler {
 

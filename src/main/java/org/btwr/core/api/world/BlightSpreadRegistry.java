@@ -1,4 +1,4 @@
-package org.btwr.core.api;
+package org.btwr.core.api.world;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -13,10 +13,10 @@ import java.util.Map;
 /**
  * Registry for controlling which blocks blight can spread to, and under what conditions.
  *
- * <p>Other mods can register their own blocks via {@link #register(Block, BlightSpreadCondition)}
+ * <p>Other mods can register their own blocks via {@link #register(Block, SpreadCondition)}
  * to participate in the blight spread system.
  */
-public class BlightSpreadConditions {
+public class BlightSpreadRegistry {
 
     /**
      * A condition that determines whether blight can spread to a given block.
@@ -25,7 +25,7 @@ public class BlightSpreadConditions {
      * neighbouring blocks, biome, light level, or any other world state.
      */
     @FunctionalInterface
-    public interface BlightSpreadCondition {
+    public interface SpreadCondition {
         /**
          * Returns {@code true} if blight is allowed to spread to the block at {@code pos}.
          *
@@ -38,28 +38,28 @@ public class BlightSpreadConditions {
         boolean canSpread(World world, BlockPos pos, BlockState state, int blightLevel);
 
         /** This block can always be blighted, regardless of level **/
-        static BlightSpreadCondition always() {
-            return (world, pos, state, blightLevel) -> true;
+        static SpreadCondition always() {
+            return (w, p, s, level) -> true;
         }
 
         /** This block can only be blighted when blight has reached {@code minLevel} or higher. **/
-        static BlightSpreadCondition atLevel(int minLevel) {
-            return (world, pos, state, blightLevel) -> blightLevel >= minLevel;
+        static SpreadCondition atLevel(int minLevel) {
+            return (w, p, s, level) -> level >= minLevel;
         }
     }
 
     /**
      * Maps each registered block to its spread condition.
      */
-    private static final Map<Block, BlightSpreadCondition> CONDITIONS = new HashMap<>();
+    private static final Map<Block, SpreadCondition> CONDITIONS = new HashMap<>();
 
     /**
-     * Registers a {@link BlightSpreadCondition} for the given block.
+     * Registers a {@link SpreadCondition} for the given block.
      **
      * @param block the block to register a condition for
      * @param condition the condition that controls whether blight may spread to this block
      */
-    public static void register(Block block, BlightSpreadCondition condition) {
+    public static void register(Block block, SpreadCondition condition) {
         if (!CONDITIONS.containsKey(block)) {
             CONDITIONS.put(block, condition);
         } else {
@@ -67,7 +67,7 @@ public class BlightSpreadConditions {
         }
     }
 
-    /** Unregisters a {@link BlightSpreadCondition} for the given block if it exists. **/
+    /** Unregisters a {@link SpreadCondition} for the given block if it exists. **/
     public static void unregister(Block block) {
         if (CONDITIONS.containsKey(block)) {
             CONDITIONS.remove(block);
@@ -87,12 +87,12 @@ public class BlightSpreadConditions {
      * </ul>
      */
     public static void registerDefaults() {
-        register(Blocks.GRASS_BLOCK, BlightSpreadCondition.always());
-        register(Blocks.DIRT, BlightSpreadCondition.always());
-        register(Blocks.PODZOL, BlightSpreadCondition.always());
-        register(Blocks.FARMLAND, BlightSpreadCondition.atLevel(1));
-        register(Blocks.MYCELIUM, BlightSpreadCondition.atLevel(2));
-        register(Blocks.MOSS_BLOCK, BlightSpreadCondition.atLevel(2));
+        register(Blocks.GRASS_BLOCK, SpreadCondition.always());
+        register(Blocks.DIRT, SpreadCondition.always());
+        register(Blocks.PODZOL, SpreadCondition.always());
+        register(Blocks.FARMLAND, SpreadCondition.atLevel(1));
+        register(Blocks.MYCELIUM, SpreadCondition.atLevel(2));
+        register(Blocks.MOSS_BLOCK, SpreadCondition.atLevel(2));
     }
 
     /**
@@ -108,7 +108,7 @@ public class BlightSpreadConditions {
      * @return {@code true} if blight may convert this block
      */
     public static boolean canBlightSpreadTo(World world, BlockPos pos, BlockState state, int blightLevel) {
-        BlightSpreadCondition condition = CONDITIONS.get(state.getBlock());
+        SpreadCondition condition = CONDITIONS.get(state.getBlock());
         if (condition != null) {
             return condition.canSpread(world, pos, state, blightLevel);
         }

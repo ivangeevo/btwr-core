@@ -1,21 +1,19 @@
 package org.btwr.core.datagen;
 
-import org.btwr.core.item.BTWR_Items;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import org.btwr.api.api.tag.BTWRConventionalTags;
+import org.btwr.core.item.ModItems;
 import org.btwr.core.tag.BTWRTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import org.btwr.shared_library.api.tag.BTWRConventionalTags;
 
 import java.util.concurrent.CompletableFuture;
 
 public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
-
-    public BTWRItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture)
-    {
+    public BTWRItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
         super(output, completableFuture);
     }
 
@@ -28,16 +26,16 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     private void addToVanilla() {
         getOrCreateTagBuilder(ItemTags.HEAD_ARMOR)
-                .add(BTWR_Items.LEATHER_TANNED_HELMET);
+                .add(ModItems.LEATHER_TANNED_HELMET);
 
         getOrCreateTagBuilder(ItemTags.CHEST_ARMOR)
-                .add(BTWR_Items.LEATHER_TANNED_CHESTPLATE);
+                .add(ModItems.LEATHER_TANNED_CHESTPLATE);
 
         getOrCreateTagBuilder(ItemTags.LEG_ARMOR)
-                .add(BTWR_Items.LEATHER_TANNED_LEGGINGS);
+                .add(ModItems.LEATHER_TANNED_LEGGINGS);
 
         getOrCreateTagBuilder(ItemTags.FOOT_ARMOR)
-                .add(BTWR_Items.LEATHER_TANNED_BOOTS);
+                .add(ModItems.LEATHER_TANNED_BOOTS);
 
     }
 
@@ -48,34 +46,34 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(BTWRTags.Items.NORMAL_LEATHERS)
                 .add(Items.LEATHER)
-                .add(BTWR_Items.LEATHER_CUT);
+                .add(ModItems.LEATHER_CUT);
 
         getOrCreateTagBuilder(BTWRTags.Items.SCOURED_LEATHERS)
-                .add(BTWR_Items.LEATHER_SCOURED)
-                .add(BTWR_Items.LEATHER_SCOURED_CUT);
+                .add(ModItems.LEATHER_SCOURED)
+                .add(ModItems.LEATHER_SCOURED_CUT);
 
         getOrCreateTagBuilder(BTWRTags.Items.TANNED_LEATHERS)
-                .add(BTWR_Items.LEATHER_TANNED)
-                .add(BTWR_Items.LEATHER_TANNED_CUT);
+                .add(ModItems.LEATHER_TANNED)
+                .add(ModItems.LEATHER_TANNED_CUT);
 
         getOrCreateTagBuilder(BTWRTags.Items.CUT_LEATHERS)
-                .add(BTWR_Items.LEATHER_CUT)
-                .add(BTWR_Items.LEATHER_SCOURED_CUT)
-                .add(BTWR_Items.LEATHER_TANNED_CUT);
+                .add(ModItems.LEATHER_CUT)
+                .add(ModItems.LEATHER_SCOURED_CUT)
+                .add(ModItems.LEATHER_TANNED_CUT);
     }
 
     private void addToConventionalTags() {
         // Fabric Conventional Tags
         getOrCreateTagBuilder(ConventionalItemTags.SHEAR_TOOLS)
-                .add(BTWR_Items.DIAMOND_SHEARS);
+                .add(ModItems.DIAMOND_SHEARS);
 
         // BTWR Added Conventional Tags
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DO_KNOCKBACK_ITEMS)
-                .add(BTWR_Items.CLUB_WOOD)
-                .add(BTWR_Items.CLUB_BONE);
+                .add(ModItems.CLUB_WOOD)
+                .add(ModItems.CLUB_BONE);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.DIAMOND_TOOLS)
-                .add(BTWR_Items.DIAMOND_SHEARS);
+                .add(ModItems.DIAMOND_SHEARS);
 
         // Crafting sound tags
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_WOODEN_TOOL_SOUND)
@@ -92,7 +90,7 @@ public class BTWRItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SLIME_SOUND)
                 .addTag(BTWRTags.Items.CLAY_ITEMS)
-                .add(BTWR_Items.DIAMOND_INGOT);
+                .add(ModItems.DIAMOND_INGOT);
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.ON_CRAFT_SHEARS_CUT_SOUND)
                 .addTag(BTWRTags.Items.CUT_LEATHERS);

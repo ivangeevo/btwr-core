@@ -1,12 +1,12 @@
 package org.btwr.core.config;
 
+import org.btwr.api.api.config.ConfigBuilder;
+import org.btwr.api.api.config.TomlConfigManager;
+import org.btwr.api.api.config.impl.ConfigGroup;
+import org.btwr.api.api.config.impl.ConfigSetting;
 import org.btwr.core.BTWRMod;
-import org.btwr.shared_library.api.config.ConfigBuilder;
-import org.btwr.shared_library.api.config.ConfigGroup;
-import org.btwr.shared_library.api.config.ConfigSetting;
-import org.btwr.shared_library.api.config.TomlConfigManager;
 
-public class BTWRModConfig {
+public class ModConfig {
 
     /** Replace with your MOD_ID for easy adaptation **/
     private static final String MOD_ID = BTWRMod.MOD_ID;
@@ -14,7 +14,7 @@ public class BTWRModConfig {
     public static final ConfigGroup CONFIG;
 
     /** Call this method in your mod initializer so the class can initialize **/
-    public static void register() {}
+    public static void initialize() {}
 
     public static final ConfigSetting<Boolean> knockbackRestrictions =
             ConfigBuilder.booleanSetting("knockbackRestrictions")
