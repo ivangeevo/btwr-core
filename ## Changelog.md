@@ -1,7 +1,11 @@
 ## v0.5(dev)
-+ [dev] Added/backported the difficulty system from BTW: Community Edition! The difficulty system is similar yet new and extended. By default, it contains the base difficulties (classic, relaxed, standard & hostile), but it also allows addon developers to use the API to add custom difficulties too
++ [dev] Added/backported the difficulty system from BTW: Community Edition! By default, it contains the base difficulties (classic, relaxed, standard & hostile), but it also allows addon developers to use the API to add custom difficulties too
++ Added "Hardcore Poking" (Sticks placeable as blocks)!
 + Changed lightning strikes to be two times as common when it's thundering. This can be turned off with the new configuration option `increasedLightningStrikeChance`
++ Fixed knockback not applying in certain cases with the knockback restrictions rule
++ Removed all the new food items/combinations and moved them to the Self Sustainable mod as it made most sense for them to be there
 + Removed creeper shearing and creeper oysters. Those are now in a new separate mod called "Creeper Shearing"
++ Updated the mod license in the source code to show correct information
 + Updated the mod to Fabric API 0.116.15, Fabric Loader 0.19.3 & BTWR: Shared Library 0.8.5
 
 ## v0.4.1
