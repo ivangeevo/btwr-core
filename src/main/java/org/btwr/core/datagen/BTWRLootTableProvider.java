@@ -24,7 +24,6 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import org.btwr.core.block.BTWR_Blocks;
 import org.btwr.core.block.blocks.BlightBlock;
-import org.btwr.core.item.BTWR_Items;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -58,6 +57,7 @@ public class BTWRLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BTWR_Blocks.DIAMOND_INGOT_BLOCK);
         addDrop(BTWR_Blocks.SPIDER_EYE_BLOCK);
         addDrop(BTWR_Blocks.SPIDER_EYE_SLAB, this::slabDrops);
+        addDrop(BTWR_Blocks.PLACED_STICK, Items.STICK);
     }
 
     private LootTable.Builder blightDrops(Block block) {
