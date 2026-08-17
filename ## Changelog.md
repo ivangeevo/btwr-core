@@ -1,6 +1,7 @@
 ## v0.5(dev)
 + [dev] Added/backported the difficulty system from BTW: Community Edition! By default, it contains the base difficulties (classic, relaxed, standard & hostile), but it also allows addon developers to use the API to add custom difficulties too
-+ Added "Hardcore Poking" (Sticks placeable as blocks)!
++ Added "Hardcore Poking" (Only sticks placeable as blocks, tools being placeable are already in the Bind mod)
++ Added "Hardcore Player Names" as a config option. Allows hiding of player name tags on SMP
 + Changed lightning strikes to be two times as common when it's thundering. This can be turned off with the new configuration option `increasedLightningStrikeChance`
 + Fixed knockback not applying in certain cases with the knockback restrictions rule
 + Removed all the new food items/combinations and moved them to the Self Sustainable mod as it made most sense for them to be there

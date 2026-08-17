@@ -17,6 +17,7 @@
     "entity.LightningEntityMixin",
     "entity.LivingEntityMixin",
     "entity.MobEntityMixin",
+    "entity.PlayerEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",
     "entity.WitherSkullEntityMixin",

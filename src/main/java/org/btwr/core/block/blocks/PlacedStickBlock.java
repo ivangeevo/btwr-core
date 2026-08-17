@@ -2,13 +2,13 @@ package org.btwr.core.block.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
@@ -123,7 +123,7 @@ public class PlacedStickBlock extends Block {
         world.playSound(
                 null,
                 pos,
-                anchorState.getSoundGroup().getPlaceSound(),
+                Blocks.OAK_LOG.getDefaultState().getSoundGroup().getPlaceSound(),
                 SoundCategory.BLOCKS,
                 0.5F,
                 0.8F

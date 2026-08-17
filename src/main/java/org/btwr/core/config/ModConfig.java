@@ -52,6 +52,12 @@ public class ModConfig {
                     .comment("Changes lightning strike chance to be two times as common")
                     .build();
 
+    public static final ConfigSetting<Boolean> hardcorePlayerNames =
+            ConfigBuilder.booleanSetting("hardcorePlayerNames")
+                    .defaultValue(false)
+                    .comment("Toggles whether player name tags should render above their head")
+                    .build();
+
     static {
         CONFIG = new ConfigGroup(String.format("%s/%s_common.toml", MOD_ID, MOD_ID));
 
@@ -61,6 +67,7 @@ public class ModConfig {
         CONFIG.add(increasedMonsterSpawnsPerChunk);
         CONFIG.add(changedCreeperExplosionPos);
         CONFIG.add(increasedLightningStrikeChance);
+        CONFIG.add(hardcorePlayerNames);
 
         TomlConfigManager.registerGroup(CONFIG); // auto init/load/save
     }

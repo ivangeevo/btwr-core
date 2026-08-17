@@ -8,6 +8,7 @@
     "client.CreateWorldScreenMixin",
     "client.GameTabMixin",
     "client.InGameHudMixin",
+    "client.LivingEntityRendererMixin",
     "client.OptionsScreenMixin"
   ],
   "injectors": {
