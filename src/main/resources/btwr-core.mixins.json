@@ -14,6 +14,7 @@
     "entity.EndermanEntityInvoker",
     "entity.EndermanEntityMixin",
     "entity.EntityMixin",
+    "entity.ItemEntityMixin",
     "entity.LightningEntityMixin",
     "entity.LivingEntityMixin",
     "entity.MobEntityMixin",

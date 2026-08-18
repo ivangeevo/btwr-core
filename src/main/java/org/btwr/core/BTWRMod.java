@@ -3,6 +3,7 @@ package org.btwr.core;
 import org.btwr.core.api.world.BlightSpreadRegistry;
 import org.btwr.core.block.ModBlocks;
 import org.btwr.core.config.ModConfig;
+import org.btwr.core.data.ModDataAttachments;
 import org.btwr.core.difficulty.ModDifficulties;
 import org.btwr.core.event.ModEvents;
 import org.btwr.core.item.ModItems;
@@ -25,6 +26,7 @@ public class BTWRMod implements ModInitializer {
         ModConfig.initialize();
         ModBlocks.initialize();
         ModItems.initialize();
+        ModDataAttachments.initialize();
         ModItemGroup.initialize();
         ModEvents.initialize();
         ModNetworking.initialize();

@@ -26,6 +26,13 @@ public class BTWRTags {
         public static final TagKey<Item> TANNED_LEATHERS = createTag("tanned_leathers");
         public static final TagKey<Item> CUT_LEATHERS = createTag("cut_leathers");
 
+        // Items that don't sink
+        public static final TagKey<Item> BUOYANT_ITEMS = createTag("buoyant_items");
+        // Items that sink partially
+        public static final TagKey<Item> NEUTRAL_BUOYANT_ITEMS = createTag("neutral_buoyant_items");
+        // Items that sink fully
+        public static final TagKey<Item> NON_BUOYANT_ITEMS = createTag("non_buoyant_items");
+
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, IdUtils.ofBTWR(name));
         }

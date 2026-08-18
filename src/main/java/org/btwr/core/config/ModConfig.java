@@ -58,6 +58,12 @@ public class ModConfig {
                     .comment("Toggles whether player name tags should render above their head")
                     .build();
 
+    public static final ConfigSetting<Boolean> hardcoreBuoy =
+            ConfigBuilder.booleanSetting("hardcoreBuoy")
+                    .defaultValue(false)
+                    .comment("Toggles to apply the custom buoyancy for item entities in water")
+                    .build();
+
     static {
         CONFIG = new ConfigGroup(String.format("%s/%s_common.toml", MOD_ID, MOD_ID));
 
@@ -68,6 +74,7 @@ public class ModConfig {
         CONFIG.add(changedCreeperExplosionPos);
         CONFIG.add(increasedLightningStrikeChance);
         CONFIG.add(hardcorePlayerNames);
+        CONFIG.add(hardcoreBuoy);
 
         TomlConfigManager.registerGroup(CONFIG); // auto init/load/save
     }
