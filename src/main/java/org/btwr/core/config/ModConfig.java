@@ -1,10 +1,10 @@
 package org.btwr.core.config;
 
-import org.btwr.api.api.config.ConfigBuilder;
-import org.btwr.api.api.config.TomlConfigManager;
-import org.btwr.api.api.config.impl.ConfigGroup;
-import org.btwr.api.api.config.impl.ConfigSetting;
 import org.btwr.core.BTWRMod;
+import org.btwr.shared_library.api.config.ConfigBuilder;
+import org.btwr.shared_library.api.config.ConfigGroup;
+import org.btwr.shared_library.api.config.ConfigSetting;
+import org.btwr.shared_library.api.config.TomlConfigManager;
 
 public class ModConfig {
 

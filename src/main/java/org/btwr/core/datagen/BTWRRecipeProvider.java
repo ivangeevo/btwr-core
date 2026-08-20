@@ -1,6 +1,5 @@
 package org.btwr.core.datagen;
 
-import org.btwr.api.api.recipe.recipes.ExtendedShapelessRecipe;
 import org.btwr.core.BTWRMod;
 import org.btwr.core.block.ModBlocks;
 import org.btwr.core.item.ModItems;
@@ -14,6 +13,7 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
+import org.btwr.shared_library.recipe.ExtendedShapelessRecipe;
 
 import java.util.concurrent.CompletableFuture;
 

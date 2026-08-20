@@ -2,7 +2,7 @@ package org.btwr.core.loot;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Items;
-import org.btwr.api.api.registry.HeadDropRegistry;
+import org.btwr.shared_library.api.registry.HeadDropRegistry;
 
 public class BTWRHeadDrops {
     public static void initialize() {

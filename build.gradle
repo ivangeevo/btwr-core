@@ -68,8 +68,8 @@ dependencies {
     //modLocalRuntime "maven.modrinth:better-with-time:${bwt_version}"
 
     // BWT: Hardcore Tweaks (For head drop logic compatibility)
-    //modCompileOnly "maven.modrinth:bwt-hc-tweaks:${bwt_hct_version}"
-    modCompileOnly files("libs/bwt-hc-tweaks-${bwt_hct_version}.jar")
+    modCompileOnly "maven.modrinth:bwt-hc-tweaks:${bwt_hct_version}"
+    //modCompileOnly files("libs/bwt-hc-tweaks-${bwt_hct_version}.jar")
     //modLocalRuntime files("libs/bwt-hc-tweaks-${bwt_hct_version}.jar")
 }
 
