@@ -43,11 +43,11 @@ dependencies {
 
     // BTWR API.
     //modImplementation("maven.modrinth:btwr-api:${project.btwr_api_version}")
-    modImplementation files("libs/btwr-api-${project.btwr_api_version}.jar")
+    //modImplementation files("libs/btwr-api-${project.btwr_api_version}.jar")
 
     // BTWR: SL
-    //modImplementation("maven.modrinth:btwr-shared-library:${project.btwr_sl_version}")
-    modImplementation files("libs/btwr-shared-library-${project.btwr_sl_version}.jar")
+    modImplementation("maven.modrinth:btwr-shared-library:${project.btwr_sl_version}")
+    //modImplementation files("libs/btwr-shared-library-${project.btwr_sl_version}.jar")
 
 
     // Cloth Config
