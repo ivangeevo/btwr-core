@@ -1,23 +1,7 @@
 package org.btwr.core.data.saved;
 
 
-import net.fabricmc.fabric.api.networking.v1.PacketSender;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.network.ServerPlayNetworkHandler;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.PersistentState;
-import org.btwr.api.api.difficulty.DifficultyRegistry;
-import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
-import org.btwr.api.api.difficulty.impl.DifficultyInfo;
-import org.btwr.core.difficulty.ModDifficulties;
-import org.btwr.core.world.BTWRWorldCreationData;
-import org.btwr.core.networking.packet.SyncBTWRDifficultyS2CPacket;
-import org.btwr.shared_library.api.data.save.ModSaveData;
-
+/**
 public class BTWRDifficultySaveData extends ModSaveData {
     private Identifier difficultyId;
     private boolean locked;
@@ -92,3 +76,4 @@ public class BTWRDifficultySaveData extends ModSaveData {
     );
 
 }
+ **/

@@ -4,9 +4,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.client.gui.screen.world.CreateWorldScreen;
 import net.minecraft.client.gui.tab.GridScreenTab;
 import net.minecraft.client.gui.widget.*;
-        import net.minecraft.text.Text;
-import org.btwr.core.difficulty.ModDifficulties;
-import org.btwr.core.world.BTWRWorldCreationData;
+import net.minecraft.text.Text;
 import org.btwr.core.gui.BTWRDifficultyScreenHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -37,6 +35,7 @@ public abstract class GameTabMixin extends GridScreenTab {
             shift = At.Shift.AFTER
     ))
     private void addDifficultyButton(CreateWorldScreen screen, CallbackInfo ci, @Local GridWidget.Adder adder, @Local Positioner positioner) {
+        /**
         DirectionalLayoutWidget row = btwrHelper.buildCreateWorld(
                 BTWRWorldCreationData.getSelected(),
                 BTWRWorldCreationData.isLocked(),
@@ -54,16 +53,17 @@ public abstract class GameTabMixin extends GridScreenTab {
                     }
                 }
         );
+        **/
 
-        adder.add(row, positioner);
+        //adder.add(row, positioner);
 
         // Apply the classic-forces-lock rule to whatever's selected right now too.
-        btwrHelper.setDifficultyForcesLock(BTWRWorldCreationData.getSelected() == ModDifficulties.CLASSIC);
+        //btwrHelper.setDifficultyForcesLock(BTWRWorldCreationData.getSelected() == ModDifficulties.CLASSIC);
 
         screen.getWorldCreator().addListener(creator -> {
             boolean cheatsEnabled = creator.areCheatsEnabled();
             if (!cheatsEnabled) {
-                BTWRWorldCreationData.setLocked(true);
+                //BTWRWorldCreationData.setLocked(true);
             }
         });
     }

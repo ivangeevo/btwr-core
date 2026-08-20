@@ -3,14 +3,12 @@ package org.btwr.core.difficulty;
 import com.mojang.serialization.Codec;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
-import org.btwr.api.api.difficulty.DifficultyRegistry;
-import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
-import org.btwr.api.api.difficulty.impl.DifficultyParam;
 import org.btwr.core.BTWRMod;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
 public class ModDifficulties {
     public static BTWRDifficulty CLASSIC;
     public static BTWRDifficulty RELAXED;
@@ -357,3 +355,4 @@ public class ModDifficulties {
         return Identifier.of(BTWRMod.MOD_ID, name);
     }
 }
+ **/

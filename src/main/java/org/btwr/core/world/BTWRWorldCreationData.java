@@ -1,8 +1,7 @@
 package org.btwr.core.world;
 
-import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
-import org.btwr.core.difficulty.ModDifficulties;
 
+/**
 public class BTWRWorldCreationData {
     private static BTWRDifficulty selected = ModDifficulties.STANDARD;
     private static boolean locked = false;
@@ -28,3 +27,4 @@ public class BTWRWorldCreationData {
         return locked;
     }
 }
+ **/

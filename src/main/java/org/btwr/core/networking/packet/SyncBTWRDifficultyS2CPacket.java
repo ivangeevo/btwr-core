@@ -6,9 +6,9 @@ import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.util.Identifier;
-import org.btwr.api.api.difficulty.impl.DifficultyInfo;
 import org.btwr.core.BTWRMod;
 
+/**
 public record SyncBTWRDifficultyS2CPacket(DifficultyInfo info) implements CustomPayload {
     public static final Id<SyncBTWRDifficultyS2CPacket> ID = new Id<>(
             Identifier.of(BTWRMod.MOD_ID, "sync_difficulty")
@@ -32,3 +32,4 @@ public record SyncBTWRDifficultyS2CPacket(DifficultyInfo info) implements Custom
         return ID;
     }
 }
+ **/

@@ -1,20 +1,7 @@
 package org.btwr.core.gui;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ConfirmScreen;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.tooltip.Tooltip;
-import net.minecraft.client.gui.widget.CyclingButtonWidget;
-import net.minecraft.client.gui.widget.DirectionalLayoutWidget;
 import net.minecraft.client.gui.widget.LockButtonWidget;
-import net.minecraft.text.Text;
-import org.btwr.api.api.difficulty.DifficultyRegistry;
-import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
-import org.btwr.core.difficulty.ModDifficulties;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 /**
  * Builds the difficulty + lock button row shared by multiple screens.
@@ -24,7 +11,7 @@ import java.util.function.Consumer;
  */
 public class BTWRDifficultyScreenHelper {
 
-    private @Nullable CyclingButtonWidget<BTWRDifficulty> difficultyButton;
+    //private @Nullable CyclingButtonWidget<BTWRDifficulty> difficultyButton;
     private @Nullable LockButtonWidget lockButton;
 
     // Two independent reasons the lock can be forced on. Either being true
@@ -35,12 +22,16 @@ public class BTWRDifficultyScreenHelper {
     private boolean manuallyLocked;
 
     /**
+
+    /**
      * @param initiallySelected  starting difficulty value
      * @param initiallyLocked    whether the row should start manually locked
      * @param onSelectionChanged called when the user picks a different difficulty
      * @param onLockConfirmed    called after the confirm dialog closes, with
      *                           (screenToReturnTo, confirmed)
      */
+
+    /**
     public DirectionalLayoutWidget buildCreateWorld(
             BTWRDifficulty initiallySelected,
             boolean initiallyLocked,
@@ -91,6 +82,7 @@ public class BTWRDifficultyScreenHelper {
      * set, matching the original "confirming the lock is permanent for this
      * screen" behavior.
      */
+    /**
     public void applyManualLock(boolean locked) {
         if (lockButton == null) return;
         if (difficultyButton == null) return;
@@ -132,4 +124,5 @@ public class BTWRDifficultyScreenHelper {
     public @Nullable LockButtonWidget getLockButton() {
         return lockButton;
     }
+     **/
 }

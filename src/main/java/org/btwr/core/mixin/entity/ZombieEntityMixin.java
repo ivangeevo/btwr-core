@@ -13,7 +13,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.btwr.core.config.ModConfig;
-import org.btwr.core.difficulty.ModDifficulties;
 import org.btwr.core.entity.ai.ZombieBreakBarricadeGoal;
 import org.btwr.core.entity.ai.ZombieBreakBarricadeHostileGoal;
 import org.btwr.core.entity.ai.ZombieSecondaryTargetPredicate;
@@ -38,7 +37,7 @@ public abstract class ZombieEntityMixin extends HostileEntity {
         }
     }
 
-    @Inject(method = "<init>", at = @At("TAIL"))
+    //@Inject(method = "<init>", at = @At("TAIL"))
     private void addZombieGoals(EntityType<? extends ZombieEntity> type, World world, CallbackInfo ci) {
         if (!(world instanceof ServerWorld serverWorld)) return;
 
@@ -49,8 +48,8 @@ public abstract class ZombieEntityMixin extends HostileEntity {
 
         this.setSecondaryTargetPredicate(self);
 
-        boolean hostileMode = serverWorld != null && serverWorld.btwr$difficulty().get(ModDifficulties.CAN_ZOMBIES_BREAK_BLOCKS);
-        btwr$setAdvancedAI(self, hostileMode);
+        //boolean hostileMode = serverWorld != null && serverWorld.btwr$difficulty().get(ModDifficulties.CAN_ZOMBIES_BREAK_BLOCKS);
+        //btwr$setAdvancedAI(self, hostileMode);
     }
 
     @Unique

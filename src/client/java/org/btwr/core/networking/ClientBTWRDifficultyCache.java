@@ -1,9 +1,8 @@
 package org.btwr.core.networking;
 
-import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
-import org.btwr.core.difficulty.ModDifficulties;
 
 public final class ClientBTWRDifficultyCache {
+    /**
     private static BTWRDifficulty difficulty = ModDifficulties.STANDARD;
     private static boolean locked = false;
 
@@ -24,4 +23,5 @@ public final class ClientBTWRDifficultyCache {
     public static void setLocked(boolean value) {
         locked = value;
     }
+     **/
 }

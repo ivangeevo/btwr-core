@@ -12,16 +12,13 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import org.btwr.core.difficulty.ModDifficulties;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MobEntity.class)
 public abstract class MobEntityMixin {
 
-    @Inject(method = "initialize", at = @At("TAIL"))
+    //@Inject(method = "initialize", at = @At("TAIL"))
     private void afterInitialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, CallbackInfoReturnable<EntityData> cir) {
         // Try turning skeletons underground into withered ones
         MobEntity self = (MobEntity)(Object)this;
@@ -39,9 +36,9 @@ public abstract class MobEntityMixin {
         }
 
         ServerWorld serverWorld = world.toServerWorld();
-        if (!serverWorld.btwr$difficulty().get(ModDifficulties.SHOULD_WITHER_SKELETONS_SPAWN_UNDERGROUND)) {
-            return;
-        }
+        //if (!serverWorld.btwr$difficulty().get(ModDifficulties.SHOULD_WITHER_SKELETONS_SPAWN_UNDERGROUND)) {
+            //return;
+        //}
 
         /** nether accessed check here
         if () {

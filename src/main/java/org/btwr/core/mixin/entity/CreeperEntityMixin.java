@@ -1,17 +1,13 @@
 package org.btwr.core.mixin.entity;
 
-import net.minecraft.entity.ai.goal.ActiveTargetGoal;
-import net.minecraft.entity.player.PlayerEntity;
 import org.btwr.core.config.ModConfig;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.world.World;
-import org.btwr.core.difficulty.ModDifficulties;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
@@ -34,24 +30,24 @@ public abstract class CreeperEntityMixin extends HostileEntity {
         return shouldModify ? this.getEyeY() : y;
     }
 
-    @Inject(method = "initGoals", at = @At("TAIL"))
+    //@Inject(method = "initGoals", at = @At("TAIL"))
     private void btwr$addWallBreachTargetGoal(CallbackInfo ci) {
         CreeperEntity self = (CreeperEntity)(Object)this;
         World world = self.getWorld();
 
-        if (self.getWorld() != null && world.btwr$difficulty().get(ModDifficulties.CAN_CREEPERS_BREACH_WALLS)) {
-            this.targetSelector.add(3, new ActiveTargetGoal<>(self, PlayerEntity.class, false));
-        }
+        ///if (self.getWorld() != null && world.btwr$difficulty().get(ModDifficulties.CAN_CREEPERS_BREACH_WALLS)) {
+            //this.targetSelector.add(3, new ActiveTargetGoal<>(self, PlayerEntity.class, false));
+        //}
     }
 
-    @Inject(method = "tick", at = @At("HEAD"))
+    //@Inject(method = "tick", at = @At("HEAD"))
     private void btwr$updateWallBreachPatience(CallbackInfo ci) {
         CreeperEntity self = (CreeperEntity)(Object)this;
         World world = self.getWorld();
 
         if (world.isClient) return;
 
-        if (!world.btwr$difficulty().get(ModDifficulties.CAN_CREEPERS_BREACH_WALLS)) return;
+        //if (!world.btwr$difficulty().get(ModDifficulties.CAN_CREEPERS_BREACH_WALLS)) return;
 
         if (self.getTarget() == null) {
             if (self.getRandom().nextInt(20) == 0) {

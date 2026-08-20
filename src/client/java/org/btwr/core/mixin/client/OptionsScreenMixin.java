@@ -1,27 +1,15 @@
 package org.btwr.core.mixin.client;
 
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ConfirmScreen;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.option.OnlineOptionsScreen;
 import net.minecraft.client.gui.screen.option.OptionsScreen;
 import net.minecraft.client.gui.widget.*;
 import net.minecraft.client.option.GameOptions;
-import net.minecraft.network.packet.c2s.play.UpdateDifficultyLockC2SPacket;
 import net.minecraft.text.Text;
-import org.btwr.api.api.difficulty.DifficultyRegistry;
-import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
-import org.btwr.core.BTWRMod;
 import org.btwr.core.gui.BTWRDifficultyScreenHelper;
-import org.btwr.core.networking.ClientBTWRDifficultyCache;
-import org.btwr.core.networking.packet.UpdateBTWRDifficultyC2SPacket;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(OptionsScreen.class)
@@ -35,11 +23,12 @@ public abstract class OptionsScreenMixin extends Screen {
         super(title);
     }
 
-    @Inject(method = "createTopRightButton", at = @At("HEAD"), cancellable = true)
+    //@Inject(method = "createTopRightButton", at = @At("HEAD"), cancellable = true)
     private void replaceDifficultyWidget(CallbackInfoReturnable<Widget> cir) {
-        cir.setReturnValue(createTopRightButton());
+        //cir.setReturnValue(createTopRightButton());
     }
 
+    /**
     @Unique
     private Widget createTopRightButton() {
         MinecraftClient client = this.client;
@@ -48,6 +37,7 @@ public abstract class OptionsScreenMixin extends Screen {
             BTWRMod.LOGGER.error("[{}] Can't create difficulty widget: Client is null", BTWRMod.MOD_NAME);
             return null;
         }
+
 
         CyclingButtonWidget<BTWRDifficulty> difficultyButton;
         LockButtonWidget lockButton;
@@ -88,6 +78,7 @@ public abstract class OptionsScreenMixin extends Screen {
         }
     }
 
+    /**
     @Unique
     private static CyclingButtonWidget<BTWRDifficulty> createDifficultyButtonWidget(int x, int y, String translationKey, MinecraftClient client) {
         return CyclingButtonWidget.builder(BTWRDifficulty::getDisplayName)
@@ -118,5 +109,6 @@ public abstract class OptionsScreenMixin extends Screen {
             difficultyButton.active = false;
         }
     }
+    **/
 
 }

@@ -1,15 +1,13 @@
 package org.btwr.core.networking;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import org.btwr.api.api.difficulty.DifficultyRegistry;
-import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
-import org.btwr.core.networking.packet.SyncBTWRDifficultyS2CPacket;
 
 public final class BTWR_ClientNetworking {
     public static void register() {
-        registerDifficultyNetworking();
+        //registerDifficultyNetworking();
     }
 
+    /**
     private static void registerDifficultyNetworking() {
         ClientPlayNetworking.registerGlobalReceiver(
                 SyncBTWRDifficultyS2CPacket.ID,
@@ -22,4 +20,5 @@ public final class BTWR_ClientNetworking {
                 })
         );
     }
+     **/
 }

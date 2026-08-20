@@ -5,9 +5,6 @@ import net.minecraft.client.gui.screen.world.CreateWorldScreen;
 import net.minecraft.registry.CombinedDynamicRegistries;
 import net.minecraft.registry.ServerDynamicRegistryType;
 import net.minecraft.world.level.LevelProperties;
-import org.btwr.api.api.difficulty.impl.BTWRDifficulty;
-import org.btwr.core.world.BTWRWorldCreationData;
-import org.btwr.core.networking.ClientBTWRDifficultyCache;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,7 +15,7 @@ public abstract class CreateWorldScreenMixin {
 
     @Inject(method = "<init>", at = @At("HEAD"))
     private static void btwr$resetCreationData(CallbackInfo ci) {
-        BTWRWorldCreationData.reset();
+        //BTWRWorldCreationData.reset();
     }
 
     @Inject(method = "startServer", at = @At("TAIL"))
@@ -46,13 +43,14 @@ public abstract class CreateWorldScreenMixin {
         ClientBTWRDifficultyCache.set(difficulty);
 
         BTWRWorldCreationData.reset();
-        **/
+
 
         BTWRDifficulty difficulty = BTWRWorldCreationData.getSelected();
 
         if (difficulty != null) {
             ClientBTWRDifficultyCache.set(difficulty);
         }
+         **/
     }
 
 }

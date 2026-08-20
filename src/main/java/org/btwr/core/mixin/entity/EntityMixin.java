@@ -2,17 +2,12 @@ package org.btwr.core.mixin.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
-import org.btwr.api.api.util.utils.FireBlockUtils;
-import org.btwr.core.difficulty.ModDifficulties;
+import org.btwr.shared_library.api.block.util.FireBlockUtils;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin {
@@ -21,6 +16,7 @@ public abstract class EntityMixin {
     @Shadow private Box boundingBox;
     @Shadow private World world;
 
+    /**
     @Inject(method = "baseTick", at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/entity/Entity;damage(Lnet/minecraft/entity/damage/DamageSource;F)Z",
@@ -33,6 +29,7 @@ public abstract class EntityMixin {
             }
         }
     }
+    **/
 
     @Unique
     public void tryToSetFireToBlocksInContact() {
@@ -55,5 +52,6 @@ public abstract class EntityMixin {
             }
         }
     }
+
 
 }

@@ -5,11 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "client.ClientPlayerEntityMixin",
-    "client.CreateWorldScreenMixin",
-    "client.GameTabMixin",
     "client.InGameHudMixin",
-    "client.LivingEntityRendererMixin",
-    "client.OptionsScreenMixin"
+    "client.LivingEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
