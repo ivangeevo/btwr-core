@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "btwr:fluids",
     "btwr:darkness",
     "btwr:wood"
   ]

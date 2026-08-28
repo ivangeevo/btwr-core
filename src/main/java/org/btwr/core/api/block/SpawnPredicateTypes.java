@@ -37,6 +37,7 @@ public final class SpawnPredicateTypes {
     public static final SpawnPredicateType<MatchesBlocks> MATCHES_BLOCKS = register("matches_blocks", MatchesBlocks.CODEC);
     public static final SpawnPredicateType<BlockStateProperty> BLOCK_STATE_PROPERTY = register("block_state_property", BlockStateProperty.CODEC);
     public static final SpawnPredicateType<LuminanceBelow> LUMINANCE_BELOW = register("luminance_below", LuminanceBelow.CODEC);
+    public static final SpawnPredicateType<RequiresNoFluid> REQUIRES_NO_FLUID = register("requires_no_fluid", RequiresNoFluid.CODEC);
 
     public static void initialize() {
         DynamicRegistries.register(SpawnRuleRegistries.MOB_SPAWN_RULE, SpawnPredicateTypes.CODEC);
