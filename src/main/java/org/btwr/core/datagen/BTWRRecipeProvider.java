@@ -29,6 +29,11 @@ public class BTWRRecipeProvider extends FabricRecipeProvider {
         // Tools
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.CLUB_BONE).input('#', Items.BONE).pattern("#").pattern("#").criterion("has_bone", RecipeProvider.conditionsFromItem(Items.BONE)).offerTo(exporter);
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.CLUB_WOOD).input('#', Items.STICK).pattern("#").pattern("#").criterion("has_stick", RecipeProvider.conditionsFromItem(Items.STICK)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.DIAMOND_SWORD).input('D', ModItems.DIAMOND_INGOT).input('S', Items.STICK).pattern("D").pattern("D").pattern("S").criterion(hasItem(ModItems.DIAMOND_INGOT), conditionsFromItem(ModItems.DIAMOND_INGOT)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "diamond_sword_from_ingots"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Items.DIAMOND_PICKAXE).input('D', ModItems.DIAMOND_INGOT).input('S', Items.STICK).pattern("DDD").pattern(" S ").pattern(" S ").criterion(hasItem(ModItems.DIAMOND_INGOT), conditionsFromItem(ModItems.DIAMOND_INGOT)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "diamond_pickaxe_from_ingots"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Items.DIAMOND_SHOVEL).input('D', ModItems.DIAMOND_INGOT).input('S', Items.STICK).pattern("D").pattern("S").pattern("S").criterion(hasItem(ModItems.DIAMOND_INGOT), conditionsFromItem(ModItems.DIAMOND_INGOT)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "diamond_shovel_from_ingots"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Items.DIAMOND_AXE).input('D', ModItems.DIAMOND_INGOT).input('S', Items.STICK).pattern("DD ").pattern("DS ").pattern(" S ").criterion(hasItem(ModItems.DIAMOND_INGOT), conditionsFromItem(ModItems.DIAMOND_INGOT)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "diamond_axe_from_ingots"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Items.DIAMOND_HOE).input('D', ModItems.DIAMOND_INGOT).input('S', Items.STICK).pattern("DD ").pattern(" S ").pattern(" S ").criterion(hasItem(ModItems.DIAMOND_INGOT), conditionsFromItem(ModItems.DIAMOND_INGOT)).offerTo(exporter, Identifier.of(BTWRMod.MOD_ID, "diamond_hoe_from_ingots"));
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DIAMOND_SHEARS).input('#', ModItems.DIAMOND_INGOT).pattern(" #").pattern("# ").criterion("has_diamond_ingot", RecipeProvider.conditionsFromItem(ModItems.DIAMOND_INGOT)).offerTo(exporter);
 
         // Armor
@@ -63,7 +68,7 @@ public class BTWRRecipeProvider extends FabricRecipeProvider {
         ExtendedShapelessRecipe.JsonBuilder.create(RecipeCategory.MISC, ModItems.LEATHER_TANNED_CUT,2).withToolDamage().input(ModItems.LEATHER_TANNED).input(ConventionalItemTags.SHEAR_TOOLS).criterion("has_leather_tanned", conditionsFromItem(ModItems.LEATHER_TANNED)).offerTo(exporter);
 
         // Other recipes
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_INGOT).input(Items.IRON_INGOT).input(Items.DIAMOND).input(Items.ROTTEN_FLESH).input(Items.RED_MUSHROOM).criterion("has_diamond", RecipeProvider.conditionsFromItem(Items.DIAMOND)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_INGOT, 2).input(Items.IRON_INGOT).input(Items.DIAMOND).input(Items.ROTTEN_FLESH).input(Items.RED_MUSHROOM).criterion("has_diamond", RecipeProvider.conditionsFromItem(Items.DIAMOND)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.LEATHER_SCOURED).input(Items.LEATHER).input(Items.WATER_BUCKET).criterion("has_water_bucket", RecipeProvider.conditionsFromItem(Items.WATER_BUCKET)).offerTo(exporter);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.LEATHER_TANNED).input(ModItems.LEATHER_SCOURED).input(ItemTags.LOGS).criterion("has_leather_scoured", RecipeProvider.conditionsFromItem(ModItems.LEATHER_SCOURED)).offerTo(exporter);
 
