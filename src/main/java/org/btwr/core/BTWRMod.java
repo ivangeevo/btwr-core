@@ -1,5 +1,6 @@
 package org.btwr.core;
 
+import org.btwr.core.api.block.SpawnPredicateTypes;
 import org.btwr.core.api.world.BlightSpreadRegistry;
 import org.btwr.core.block.ModBlocks;
 import org.btwr.core.config.ModConfig;
@@ -29,6 +30,8 @@ public class BTWRMod implements ModInitializer {
         ModItemGroup.initialize();
         ModEvents.initialize();
         ModNetworking.initialize();
+
+        SpawnPredicateTypes.initialize();
 
         // Register default conditions for blight being able to spread
         BlightSpreadRegistry.registerDefaults();

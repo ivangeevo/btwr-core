@@ -28,10 +28,10 @@ public class ModConfig {
                     .comment("Can baby zombies spawn naturally?")
                     .build();
 
-    public static final ConfigSetting<Boolean> spawnMobsOnWood =
-            ConfigBuilder.booleanSetting("spawnMobsOnWood")
-                    .defaultValue(false)
-                    .comment("Can mobs spawn on wooden blocks?")
+    public static final ConfigSetting<Boolean> btwMobSpawningLogic =
+            ConfigBuilder.booleanSetting("btwMobSpawningLogic")
+                    .defaultValue(true)
+                    .comment("Replace the normal spawning logic with the Better Than Wolves style one (mobs spawn on any block, not on wood blocks & glass)")
                     .build();
 
     public static final ConfigSetting<Boolean> increasedMonsterSpawnsPerChunk =
@@ -69,7 +69,7 @@ public class ModConfig {
 
         CONFIG.add(knockbackRestrictions);
         CONFIG.add(spawnBabyZombies);
-        CONFIG.add(spawnMobsOnWood);
+        CONFIG.add(btwMobSpawningLogic);
         CONFIG.add(increasedMonsterSpawnsPerChunk);
         CONFIG.add(changedCreeperExplosionPos);
         CONFIG.add(increasedLightningStrikeChance);
