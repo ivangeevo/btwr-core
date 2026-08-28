@@ -64,6 +64,12 @@ public class ModConfig {
                     .comment("Toggles to apply the custom buoyancy for item entities in water")
                     .build();
 
+    public static final ConfigSetting<Boolean> removeJoinInvulnerability =
+            ConfigBuilder.booleanSetting("removeJoinInvulnerability")
+                    .defaultValue(true)
+                    .comment("Toggles whether to remove the invulnerability players have when joining a game")
+                    .build();
+
     static {
         CONFIG = new ConfigGroup(String.format("%s/%s_common.toml", MOD_ID, MOD_ID));
 

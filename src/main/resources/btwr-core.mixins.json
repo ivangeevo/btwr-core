@@ -19,6 +19,7 @@
     "entity.LivingEntityMixin",
     "entity.MobEntityMixin",
     "entity.PlayerEntityMixin",
+    "entity.ServerPlayerEntityMixin",
     "entity.SheepEntityMixin",
     "entity.SpawnGroupMixin",
     "entity.WitherSkullEntityMixin",
