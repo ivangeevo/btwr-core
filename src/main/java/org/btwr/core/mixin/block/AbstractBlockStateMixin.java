@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AbstractBlock.AbstractBlockState.class)
-public abstract class AbstractBlock$AbstractBlockStateMixin {
+public abstract class AbstractBlockStateMixin {
     @Inject(method = "allowsSpawning", at = @At("HEAD"), cancellable = true)
     private void setAllowsSpawning(BlockView world, BlockPos pos, EntityType<?> type, CallbackInfoReturnable<Boolean> cir) {
         if (!ModConfig.btwMobSpawningLogic.get()) return;

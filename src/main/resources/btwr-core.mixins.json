@@ -7,7 +7,7 @@
     "accessor.BeaconBlockEntityAccessor",
     "accessor.RegistryEntryListDirectAccessor",
     "ai.goal.TeleportTowardsPlayerGoalMixin",
-    "block.AbstractBlock$AbstractBlockStateMixin",
+    "block.AbstractBlockStateMixin",
     "entity.AbstractSkeletonEntityMixin",
     "entity.BeaconBlockEntityMixin",
     "entity.CreeperEntityMixin",
