@@ -1,7 +1,7 @@
 {
   "type": "btwr:all_of",
   "predicates": [
-    { "type": "btwr:requires_no_fluid" },
+    { "type": "btwr:requires_collision" },
     {
       "type": "btwr:not",
       "predicate": {
@@ -17,7 +17,7 @@
           { "type": "btwr:matches_tag", "tag": "minecraft:wooden_pressure_plates" },
           { "type": "btwr:matches_tag", "tag": "minecraft:wooden_trapdoors" },
           { "type": "btwr:matches_tag", "tag": "minecraft:wool" },
-
+          { "type": "btwr:matches_tag", "tag": "minecraft:wool_carpets" },
           {
             "type": "btwr:matches_blocks",
             "blocks": [

@@ -40,6 +40,7 @@ public final class SpawnPredicateTypes {
     public static final SpawnPredicateType<RequiresNoFluid> REQUIRES_NO_FLUID = register("requires_no_fluid", RequiresNoFluid.CODEC);
     public static final SpawnPredicateType<MatchesEntityType> MATCHES_ENTITY_TYPE = register("matches_entity_type", MatchesEntityType.CODEC);
     public static final SpawnPredicateType<MatchesEntityTypeTag> MATCHES_ENTITY_TYPE_TAG = register("matches_entity_type_tag", MatchesEntityTypeTag.CODEC);
+    public static final SpawnPredicateType<RequiresCollision> REQUIRES_COLLISION = register("requires_collision", RequiresCollision.CODEC);
 
     public static void initialize() {
         DynamicRegistries.register(SpawnRuleRegistries.MOB_SPAWN_RULE, SpawnPredicateTypes.CODEC);
