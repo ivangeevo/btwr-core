@@ -17,7 +17,7 @@
 + Removed creeper shearing and creeper oysters. Those are now in a new separate mod called "Creeper Shearing"
 + Removed/reworked the config option for "spawnMobsOnWood" and made it use the new data-driven mob spawn system. The name of the configuration option is now "btwMobSpawningLogic"
 + Updated the mod license in the source code to show correct information
-+ Updated the mod to Fabric API 0.116.15, Fabric Loader 0.19.3 & BTWR: Shared Library 0.8.5
++ Updated the mod to Fabric API 0.116.15, Fabric Loader 0.19.5 & BTWR: Shared Library 0.8.5
 
 ## v0.4.1
 + Fixed missing spider eye blocks and slab from the creative inventory tab
