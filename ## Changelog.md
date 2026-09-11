@@ -1,7 +1,7 @@
 ## UNFINISHED:
 + [dev] Added/backported the difficulty system from BTW: Community Edition! By default, it contains the base difficulties (classic, relaxed, standard & hostile), but it also allows addon developers to use the API to add custom difficulties too
 
-## v0.5(dev)
+## v0.5
 ### Warning, this is a game-breaking update. Proceed with caution!
 + Added "Hardcore Buoy". It changes vanilla buoyancy for items touching water to act differently based on their buoyancy value. Customizable with item tags and can be turned off in the config options
 + Added "Hardcore Poking" (Only sticks placeable as blocks, tools being placeable are already in the Bind mod)
