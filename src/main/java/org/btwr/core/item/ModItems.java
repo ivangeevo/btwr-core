@@ -1,6 +1,7 @@
 package org.btwr.core.item;
 
 import org.btwr.core.BTWRMod;
+import org.btwr.core.item.items.CementBucketItem;
 import org.btwr.core.item.items.ClubItem;
 import org.btwr.core.material.BTWRArmorMaterials;
 import org.btwr.core.material.BTWRToolMaterials;
@@ -100,6 +101,8 @@ public class ModItems {
     public static final Item ENDER_SPECTACLES = registerItem("ender_spectacles",
             new ArmorItem(BTWRArmorMaterials.ENDER_SPECTACLES, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(12))
     );
+
+    public static final Item CEMENT_BUCKET = registerItem("cement_bucket", new CementBucketItem(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(BTWRMod.MOD_ID, name), item);

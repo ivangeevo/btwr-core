@@ -19,6 +19,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import org.btwr.core.block.blocks.CementBlock;
 import org.btwr.core.block.blocks.PlacedStickBlock;
 
 public class ModBlocks {
@@ -68,6 +69,15 @@ public class ModBlocks {
                     .strength(0.0F, 0.0F)
                     .sounds(BlockSoundGroup.WOOD)
     ));
+
+    public static Block CEMENT = registerBlock("cement", new CementBlock(AbstractBlock.Settings.create()
+            .mapColor(MapColor.STONE_GRAY)
+            .noCollision()
+            .strength(100f)
+            .sounds(BlockSoundGroup.SAND)
+            .ticksRandomly()
+            .nonOpaque())
+    );
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

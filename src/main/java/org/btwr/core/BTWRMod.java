@@ -5,6 +5,7 @@ import org.btwr.core.api.world.BlightSpreadRegistry;
 import org.btwr.core.block.ModBlocks;
 import org.btwr.core.config.ModConfig;
 import org.btwr.core.data.ModDataAttachments;
+import org.btwr.core.entity.ModBlockEntities;
 import org.btwr.core.event.ModEvents;
 import org.btwr.core.item.ModItems;
 import net.fabricmc.api.ModInitializer;
@@ -25,6 +26,7 @@ public class BTWRMod implements ModInitializer {
         //ModDifficulties.initialize();
         ModConfig.initialize();
         ModBlocks.initialize();
+        ModBlockEntities.initialize();
         ModItems.initialize();
         ModDataAttachments.initialize();
         ModItemGroup.initialize();

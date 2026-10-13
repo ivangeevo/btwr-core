@@ -50,6 +50,7 @@ public class BTWRModelProvider extends FabricModelProvider {
         generator.register(ModItems.BEAST_LIVER_COOKED, Models.GENERATED);
         generator.register(ModItems.OCULAR_OF_ENDER, Models.GENERATED);
         generator.register(ModItems.ENDER_SPECTACLES, Models.GENERATED);
+        generator.register(ModItems.CEMENT_BUCKET, Models.GENERATED);
     }
 
     private void registerBlight(BlockStateModelGenerator gen) {

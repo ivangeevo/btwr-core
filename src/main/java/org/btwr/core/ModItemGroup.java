@@ -28,6 +28,7 @@ public class ModItemGroup {
                             entries.add(ModItems.LEATHER_TANNED_CUT);
                             entries.add(ModItems.OCULAR_OF_ENDER);
                             entries.add(ModItems.ENDER_SPECTACLES);
+                            entries.add(ModItems.CEMENT_BUCKET);
 
                             // Tools
                             entries.add(ModItems.DIAMOND_SHEARS);

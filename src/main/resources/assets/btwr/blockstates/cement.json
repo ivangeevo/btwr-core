@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "drying=false": {
+      "model": "btwr:block/cement"
+    },
+    "drying=true": {
+      "model": "btwr:block/cement_drying"
+    }
+  }
+}

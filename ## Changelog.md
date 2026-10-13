@@ -1,6 +1,9 @@
 ## UNFINISHED:
 + [dev] Added/backported the difficulty system from BTW: Community Edition! By default, it contains the base difficulties (classic, relaxed, standard & hostile), but it also allows addon developers to use the API to add custom difficulties too
 
+## v???(dev)
++ Added cement. It works pretty much the same way as it does in BTW:CE!
+
 ## v0.5
 ### Warning, this is a game-breaking update. Proceed with caution!
 + Added "Hardcore Buoy". It changes vanilla buoyancy for items touching water to act differently based on their buoyancy value. Customizable with item tags and can be turned off in the config options
